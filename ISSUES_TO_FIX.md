@@ -153,11 +153,9 @@ Parser output ghi `declared_required: null`, `effective_required: true`. Đây k
 ### 11. 💡 Proto parser + Go parser dùng regex thay vì AST
 
 **File:** `src/proto_parser.py`  
-**Vấn đề:** Dùng regex để parse .proto và Go source. Với file phức tạp hơn (comments chứa pattern giống service definition, nested messages...) regex sẽ sai.
+**Cập nhật xử lý (20/09/2026):** **ĐÃ NÂNG CẤP HOÀN TOÀN LÊN `tree-sitter-go` (v0.25.0).**  
+Parser Go hiện tại đã duyệt AST (`function_declaration`, `method_declaration`, `call_expression`, `selector_expression`) để bóc tách các lời gọi gRPC đa dòng (như `GetQuote`), không còn phụ thuộc vào Regex thô. Đồng thời mở rộng `ASTCodeChunker` hỗ trợ chunking cả Go và Proto.
 
-**Cần cải thiện khi mở rộng:**  
-- Dùng `grpcio-tools`/`protobuf` Python API để parse .proto
-- Dùng tree-sitter-go để parse Go (nhất quán với tree-sitter-java)
 
 ---
 

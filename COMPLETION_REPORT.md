@@ -114,8 +114,8 @@ Cụ thể, nhiệm vụ triển khai theo Mục 7 (Task đầu tiên) và mở 
 | Yêu cầu | Trạng thái | Bằng chứng |
 |---|---|---|
 | Parse .proto definitions | ✅ | `src/proto_parser.py` — 9 services, 12 RPC methods |
-| Parse Go client calls | ✅ | Regex `pb.New<Service>Client(conn).<Method>(...)` |
-| Sinh JSON graph | ✅ | `output/online_boutique_graph.json` — 21 nodes, 6 INVOKES_GRPC edges |
+| Parse Go client calls | ✅ | `tree-sitter-go` AST — bắt chính xác cả các call nhiều dòng như `GetQuote` |
+| Sinh JSON graph | ✅ | `output/online_boutique_graph.json` — 22 nodes, 7 INVOKES_GRPC edges |
 | Sinh Cypher script | ✅ | `output/import_online_boutique.cypher` |
 
 ### 2.8 Benchmark (Mục 8)
@@ -125,32 +125,32 @@ Cụ thể, nhiệm vụ triển khai theo Mục 7 (Task đầu tiên) và mở 
 | Đo Precision, Recall, F1 | ✅ | `src/benchmark_runner.py` tính P/R/F1 cho cả GraphRAG và Vector RAG |
 | Benchmark có seed, nhãn | ✅ | 4 scenarios (P01-P04) với seed method và ground truth labels |
 | Báo cáo riêng theo hệ thống và protocol | ✅ | `output/full_benchmark_results.json` ghi system + protocol |
-| Kết quả thực tế | ✅ | GraphRAG avg F1 = 1.0000, Vector RAG avg F1 = 0.2857 |
+| Kết quả thực tế | ✅ | GraphRAG avg F1 = 1.0000, Vector RAG avg F1 = 0.3095 (4/4 scenarios) |
 
 ### 2.9 Mục 11 — Mẫu bàn giao
 
 ```
-Task: 8 nhiệm vụ (REST Parser → Benchmark → Documentation)
+Task: 8 nhiệm vụ (REST Parser → Benchmark → Documentation) + Nâng cấp Go AST
 Commit dữ liệu / patch thử: 3858f9c630cf989bb6809a86edf47c2be78dc9f1 (PetClinic main)
-Commit code triển khai: 1e2bbc3, 869438e, cfa76d6, 9bcc453
-Đã làm: Toàn bộ 8 tasks theo phân công
+Commit code triển khai: 1e2bbc3, 869438e, cfa76d6, 9bcc453, 8c3548e
+Đã làm: Toàn bộ 8 tasks theo phân công + Go Tree-sitter AST + gRPC Benchmark đầy đủ
 Lệnh chạy và đầu vào:
   - python run_parser.py (pipeline 6 stages)
-  - python run_baseline_benchmark.py (GraphRAG vs Vector RAG)
-  - python -m pytest tests/ -v (18 tests)
+  - python run_baseline_benchmark.py (GraphRAG vs Vector RAG trên cả 4 kịch bản)
+  - python verify_neo4j_live.py (kiểm tra và nạp Neo4j khi có Docker)
+  - python -m pytest tests/ -v (26 tests)
 File đầu ra:
   - output/baseline_graph.json, mutated_graph.json
   - output/baseline_2hop_graph.json, mutated_2hop_graph.json
   - output/petclinic_full_graph.json
-  - output/online_boutique_graph.json
+  - output/online_boutique_graph.json (22 nodes, 7 edges)
   - output/full_benchmark_results.json, benchmark_comparison.json
   - output/*.cypher (4 Cypher scripts)
-Kiểm tra đã chạy và kết quả: 18/18 tests PASSED (pytest)
+Kiểm tra đã chạy và kết quả: 26/26 tests PASSED (pytest)
 Giới hạn / unresolved:
   - Hostname resolution chỉ từ default initializer, không xử lý runtime override
   - Dynamic URI expressions ghi vào unresolved
-  - Go parser dùng regex, không dùng Go AST parser
-  - Docker chưa chạy trên máy — Cypher scripts là deliverable chính
+  - Docker chưa bật trên máy dev — có sẵn verify_neo4j_live.py và docker-compose.yml
 Điểm khác đặc tả và lý do:
   - Dùng duyệt đệ quy AST thay vì Tree-sitter Query (được phép theo Mục 3)
 Việc cần Huy thẩm định:
@@ -171,14 +171,16 @@ Bước tiếp theo:
 ### 3.1 Test Results
 
 ```
-18 passed in 4.46s
+26 passed in ~6.69s
 
 tests/test_parser.py           — 11 tests (path norm, baseline, mutation, 2-hop, backward trace,
                                             cypher, 3 negative fixtures, deterministic, full PetClinic)
-tests/test_chroma_baseline.py  —  3 tests (AST chunker VisitResource, AST chunker ApiGateway,
-                                            ChromaDB indexing & query)
-tests/test_proto_parser.py     —  2 tests (proto service extraction, gRPC graph generation)
-tests/test_benchmark_runner.py —  2 tests (scenario definitions, benchmark execution)
+tests/test_chroma_baseline.py  —  4 tests (AST chunker VisitResource, AST chunker ApiGateway,
+                                            ChromaDB indexing & query, AST chunker Go & Proto)
+tests/test_proto_parser.py     —  3 tests (proto service extraction, gRPC graph generation,
+                                            tree-sitter Go AST multiline call)
+tests/test_benchmark_runner.py —  2 tests (scenario definitions, benchmark execution 4/4)
+tests/test_output_integrity.py —  6 tests (syntax, schema, provenance, referential, cypher, decision log)
 ```
 
 ### 3.2 Git History
@@ -232,9 +234,11 @@ d:\Projects\Bao\
 |---|---|---|---|---|
 | P01: Thêm includeDetails vào GET /pets/visits | PetClinic | REST | **1.0000** | 0.2857 |
 | P02: Thay đổi kiểu trả về GET /owners/{ownerId} | PetClinic | REST | **1.0000** | 0.2857 |
-| **Trung bình** | | | **1.0000** | **0.2857** |
+| P03: Đổi cấu trúc message GetCartRequest | Online Boutique | gRPC | **1.0000** | 0.3333 |
+| P04: Thêm trường xác thực vào ChargeRequest | Online Boutique | gRPC | **1.0000** | 0.3333 |
+| **Trung bình** | | | **1.0000** | **0.3095** |
 
-> **Lưu ý:** Đây là kết quả pilot trên tập nhỏ, không dùng để tuyên bố hiệu quả tổng quát (đúng nguyên tắc Mục 8: "Không dùng một pilot để tuyên bố hiệu quả tổng quát").
+> **Lưu ý:** Đây là kết quả pilot trên tập 4 kịch bản đối chứng (REST + gRPC), không dùng để tuyên bố hiệu quả tổng quát (đúng nguyên tắc Mục 8: "Không dùng một pilot để tuyên bố hiệu quả tổng quát").
 
 ---
 
@@ -245,7 +249,7 @@ d:\Projects\Bao\
 | Không bịa commit, đường dẫn, tên symbol, số liệu | ✅ | Mọi output từ parser thực tế |
 | Không báo "đã kiểm chứng" khi mới suy luận | ✅ | Chạy test thực tế, ghi test results |
 | Không tự mở rộng kiến trúc | ✅ | Mở rộng Online Boutique theo chỉ dẫn Mục 4 |
-| Kiểm tra bằng fixture và mã thật | ✅ | 18 tests trên mã PetClinic + Online Boutique thật |
+| Kiểm tra bằng fixture và mã thật | ✅ | 26 tests trên mã PetClinic + Online Boutique thật |
 | Báo cáo kết quả và giới hạn | ✅ | Unresolved items, assumptions, limitations ghi rõ |
 
 ---

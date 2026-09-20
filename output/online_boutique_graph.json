@@ -217,6 +217,17 @@
       "node_type": "GRPC_SERVICE_METHOD"
     },
     {
+      "id": "checkoutservice::main.quoteShipping()",
+      "service": "checkoutservice",
+      "class_fqn": "checkoutservice.main",
+      "method_name": "quoteShipping",
+      "parameter_types": [],
+      "file": "data/online_boutique/checkoutservice_main.go",
+      "line_start": 314,
+      "line_end": 314,
+      "node_type": "GO_FUNCTION"
+    },
+    {
       "id": "checkoutservice::main.getUserCart()",
       "service": "checkoutservice",
       "class_fqn": "checkoutservice.main",
@@ -285,6 +296,25 @@
   ],
   "edges": [
     {
+      "source_id": "checkoutservice::main.quoteShipping()",
+      "target_id": "shippingservice::ShippingService#GetQuote(GetQuoteRequest)",
+      "type": "INVOKES_GRPC",
+      "protocol": "gRPC",
+      "target_service": "shippingservice",
+      "target_method": "GetQuote",
+      "cross_service": true,
+      "resolution_status": "RESOLVED",
+      "evidence": [
+        {
+          "file": "data/online_boutique/checkoutservice_main.go",
+          "line_start": 314,
+          "line_end": 314,
+          "evidence_type": "GRPC_CLIENT_INVOCATION",
+          "expression": "pb.NewShippingServiceClient(cs.shippingSvcConn)."
+        }
+      ]
+    },
+    {
       "source_id": "checkoutservice::main.getUserCart()",
       "target_id": "cartservice::CartService#GetCart(GetCartRequest)",
       "type": "INVOKES_GRPC",
@@ -299,7 +329,7 @@
           "line_start": 325,
           "line_end": 325,
           "evidence_type": "GRPC_CLIENT_INVOCATION",
-          "expression": "cart, err := pb.NewCartServiceClient(cs.cartSvcConn).GetCart(ctx, &pb.GetCartRequest{UserId: userID})"
+          "expression": "pb.NewCartServiceClient(cs.cartSvcConn).GetCart(ctx, &pb.GetCartRequest{UserId: userID})"
         }
       ]
     },
@@ -318,7 +348,7 @@
           "line_start": 333,
           "line_end": 333,
           "evidence_type": "GRPC_CLIENT_INVOCATION",
-          "expression": "if _, err := pb.NewCartServiceClient(cs.cartSvcConn).EmptyCart(ctx, &pb.EmptyCartRequest{UserId: userID}); err != nil {"
+          "expression": "pb.NewCartServiceClient(cs.cartSvcConn).EmptyCart(ctx, &pb.EmptyCartRequest{UserId: userID})"
         }
       ]
     },
@@ -337,7 +367,7 @@
           "line_start": 360,
           "line_end": 360,
           "evidence_type": "GRPC_CLIENT_INVOCATION",
-          "expression": "result, err := pb.NewCurrencyServiceClient(cs.currencySvcConn).Convert(context.TODO(), &pb.CurrencyConversionRequest{"
+          "expression": "pb.NewCurrencyServiceClient(cs.currencySvcConn).Convert(context.TODO(), &pb.CurrencyConversionRequest{"
         }
       ]
     },
@@ -356,7 +386,7 @@
           "line_start": 370,
           "line_end": 370,
           "evidence_type": "GRPC_CLIENT_INVOCATION",
-          "expression": "paymentResp, err := pb.NewPaymentServiceClient(cs.paymentSvcConn).Charge(ctx, &pb.ChargeRequest{"
+          "expression": "pb.NewPaymentServiceClient(cs.paymentSvcConn).Charge(ctx, &pb.ChargeRequest{"
         }
       ]
     },
@@ -375,7 +405,7 @@
           "line_start": 380,
           "line_end": 380,
           "evidence_type": "GRPC_CLIENT_INVOCATION",
-          "expression": "_, err := pb.NewEmailServiceClient(cs.emailSvcConn).SendOrderConfirmation(ctx, &pb.SendOrderConfirmationRequest{"
+          "expression": "pb.NewEmailServiceClient(cs.emailSvcConn).SendOrderConfirmation(ctx, &pb.SendOrderConfirmationRequest{"
         }
       ]
     },
@@ -394,7 +424,7 @@
           "line_start": 387,
           "line_end": 387,
           "evidence_type": "GRPC_CLIENT_INVOCATION",
-          "expression": "resp, err := pb.NewShippingServiceClient(cs.shippingSvcConn).ShipOrder(ctx, &pb.ShipOrderRequest{"
+          "expression": "pb.NewShippingServiceClient(cs.shippingSvcConn).ShipOrder(ctx, &pb.ShipOrderRequest{"
         }
       ]
     }

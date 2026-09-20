@@ -12,11 +12,13 @@ from dataclasses import dataclass, field
 from typing import Dict, List, Optional, Tuple, Any
 
 import tree_sitter_java as tsjava
+import tree_sitter_go as tsgo
 from tree_sitter import Language, Parser, Node
 
 from src.parser import infer_service_name, map_to_repo_relative_path
 
 JAVA_LANGUAGE = Language(tsjava.language())
+GO_LANGUAGE = Language(tsgo.language())
 
 
 @dataclass
@@ -26,7 +28,7 @@ class CodeChunk:
     service: str
     file: str
     class_fqn: str
-    chunk_type: str  # METHOD, CLASS_HEADER, RECORD
+    chunk_type: str  # METHOD, CLASS_HEADER, RECORD, GO_FUNCTION, GRPC_METHOD
     method_name: Optional[str]
     line_start: int
     line_end: int
@@ -53,19 +55,91 @@ class CodeChunk:
 
 class ASTCodeChunker:
     """
-    Slices Java code into fair, semantically complete chunks using Tree-sitter AST.
+    Slices Java, Go, and Proto code into fair, semantically complete chunks using Tree-sitter AST.
     Avoids arbitrary character splitting or token cutting that breaks syntax.
     """
     def __init__(self):
-        self.parser = Parser(JAVA_LANGUAGE)
+        self.java_parser = Parser(JAVA_LANGUAGE)
+        self.go_parser = Parser(GO_LANGUAGE)
+        self.parser = self.java_parser
 
     def chunk_file(self, file_path: str, source_code: Optional[str] = None) -> List[CodeChunk]:
+        norm_path = file_path.replace('\\', '/')
+        if norm_path.endswith('.go'):
+            return self._chunk_go_file(norm_path, source_code)
+        elif norm_path.endswith('.proto'):
+            return self._chunk_proto_file(norm_path, source_code)
+        return self._chunk_java_file(norm_path, source_code)
+
+    def _chunk_go_file(self, file_path: str, source_code: Optional[str] = None) -> List[CodeChunk]:
         if source_code is None:
             with open(file_path, "r", encoding="utf-8") as f:
                 source_code = f.read()
 
         source_bytes = source_code.encode("utf-8")
-        tree = self.parser.parse(source_bytes)
+        tree = self.go_parser.parse(source_bytes)
+        root = tree.root_node
+
+        norm_path = file_path.replace('\\', '/')
+        svc_name = "checkoutservice" if "checkoutservice" in norm_path else "online_boutique"
+        chunks: List[CodeChunk] = []
+
+        def visit(node: Node):
+            if node.type in ("function_declaration", "method_declaration"):
+                name_node = node.child_by_field_name("name")
+                if name_node:
+                    fn_name = name_node.text.decode("utf-8", errors="replace")
+                    chunk_id = f"{svc_name}::main.{fn_name}()"
+                    chunk_text = source_bytes[node.start_byte:node.end_byte].decode("utf-8", errors="replace").strip()
+                    chunks.append(CodeChunk(
+                        chunk_id=chunk_id,
+                        content=chunk_text,
+                        service=svc_name,
+                        file=norm_path,
+                        class_fqn=f"{svc_name}.main",
+                        chunk_type="GO_FUNCTION",
+                        method_name=fn_name,
+                        line_start=node.start_point[0] + 1,
+                        line_end=node.end_point[0] + 1
+                    ))
+            for child in node.named_children:
+                visit(child)
+
+        visit(root)
+        return chunks
+
+    def _chunk_proto_file(self, file_path: str, source_code: Optional[str] = None) -> List[CodeChunk]:
+        from src.proto_parser import ProtoParser
+        parser = ProtoParser()
+        services = parser.parse_proto(file_path)
+        norm_path = file_path.replace('\\', '/')
+
+        chunks: List[CodeChunk] = []
+        for s_name, svc in services.items():
+            svc_id_name = s_name.lower()
+            for m_name, method in svc.methods.items():
+                chunk_id = f"{svc_id_name}::{s_name}#{m_name}({method.request_type})"
+                content = f"service {s_name} {{\n  rpc {m_name}({method.request_type}) returns ({method.response_type});\n}}"
+                chunks.append(CodeChunk(
+                    chunk_id=chunk_id,
+                    content=content,
+                    service=svc_id_name,
+                    file=norm_path,
+                    class_fqn=f"hipstershop.{s_name}",
+                    chunk_type="GRPC_METHOD",
+                    method_name=m_name,
+                    line_start=method.line_number,
+                    line_end=method.line_number
+                ))
+        return chunks
+
+    def _chunk_java_file(self, file_path: str, source_code: Optional[str] = None) -> List[CodeChunk]:
+        if source_code is None:
+            with open(file_path, "r", encoding="utf-8") as f:
+                source_code = f.read()
+
+        source_bytes = source_code.encode("utf-8")
+        tree = self.java_parser.parse(source_bytes)
         root = tree.root_node
 
         package_name = self._extract_package(root, source_bytes)

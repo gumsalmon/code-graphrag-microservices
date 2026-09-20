@@ -41,3 +41,15 @@ def test_online_boutique_grpc_graph_generation():
         assert edge["type"] == "INVOKES_GRPC"
         assert edge["cross_service"] is True
         assert len(edge["evidence"]) > 0
+
+
+def test_go_ast_parser_multiline_call():
+    parser = ProtoParser()
+    calls = parser.extract_go_grpc_calls("data/online_boutique/checkoutservice_main.go")
+    # Verify multi-line chained call quoteShipping -> GetQuote is captured by AST
+    quote_calls = [c for c in calls if c.caller_func == "quoteShipping"]
+    assert len(quote_calls) == 1
+    assert quote_calls[0].target_service == "shippingservice"
+    assert quote_calls[0].target_method == "GetQuote"
+    assert quote_calls[0].line_number == 314
+

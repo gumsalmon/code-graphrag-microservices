@@ -78,3 +78,22 @@ def test_chroma_indexing_and_query():
         shutil.rmtree("./test_chroma_db", ignore_errors=True)
     except Exception:
         pass
+
+
+def test_ast_code_chunker_go_and_proto():
+    chunker = ASTCodeChunker()
+
+    # Test Go chunking
+    go_chunks = chunker.chunk_file("data/online_boutique/checkoutservice_main.go")
+    assert len(go_chunks) >= 15
+    chunk_ids = [c.chunk_id for c in go_chunks]
+    assert "checkoutservice::main.getUserCart()" in chunk_ids
+    assert "checkoutservice::main.chargeCard()" in chunk_ids
+
+    # Test Proto chunking
+    proto_chunks = chunker.chunk_file("data/online_boutique/demo.proto")
+    assert len(proto_chunks) >= 10
+    proto_chunk_ids = [c.chunk_id for c in proto_chunks]
+    assert any("cartservice::CartService#GetCart" in cid for cid in proto_chunk_ids)
+    assert any("paymentservice::PaymentService#Charge" in cid for cid in proto_chunk_ids)
+

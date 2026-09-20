@@ -76,6 +76,8 @@ MERGE (m:Method {id: "checkoutservice::CheckoutService#PlaceOrder(PlaceOrderRequ
 MATCH (c:Class {fqn: "hipstershop.CheckoutService"}), (m:Method {id: "checkoutservice::CheckoutService#PlaceOrder(PlaceOrderRequest)"}) MERGE (c)-[:CONTAINS]->(m);
 MERGE (m:Method {id: "adservice::AdService#GetAds(AdRequest)"}) ON CREATE SET m.name = "GetAds", m.parameter_types = ["AdRequest"], m.file = "data/online_boutique/demo.proto", m.line_start = 244, m.line_end = 244;
 MATCH (c:Class {fqn: "hipstershop.AdService"}), (m:Method {id: "adservice::AdService#GetAds(AdRequest)"}) MERGE (c)-[:CONTAINS]->(m);
+MERGE (m:Method {id: "checkoutservice::main.quoteShipping()"}) ON CREATE SET m.name = "quoteShipping", m.parameter_types = [], m.file = "data/online_boutique/checkoutservice_main.go", m.line_start = 314, m.line_end = 314;
+MATCH (c:Class {fqn: "checkoutservice.main"}), (m:Method {id: "checkoutservice::main.quoteShipping()"}) MERGE (c)-[:CONTAINS]->(m);
 MERGE (m:Method {id: "checkoutservice::main.getUserCart()"}) ON CREATE SET m.name = "getUserCart", m.parameter_types = [], m.file = "data/online_boutique/checkoutservice_main.go", m.line_start = 325, m.line_end = 325;
 MATCH (c:Class {fqn: "checkoutservice.main"}), (m:Method {id: "checkoutservice::main.getUserCart()"}) MERGE (c)-[:CONTAINS]->(m);
 MERGE (m:Method {id: "checkoutservice::main.emptyUserCart()"}) ON CREATE SET m.name = "emptyUserCart", m.parameter_types = [], m.file = "data/online_boutique/checkoutservice_main.go", m.line_start = 333, m.line_end = 333;
@@ -92,6 +94,7 @@ MATCH (c:Class {fqn: "checkoutservice.main"}), (m:Method {id: "checkoutservice::
 // 4. Import Endpoints and Link (Method)-[:EXPOSES]->(Endpoint)
 
 // 5. Import Dependency Edges
+MATCH (src:Method {id: "checkoutservice::main.quoteShipping()"}), (tgt:Method {id: "shippingservice::ShippingService#GetQuote(GetQuoteRequest)"}) MERGE (src)-[r:INVOKES_GRPC {protocol: "gRPC", target_service: "shippingservice", target_method: "GetQuote", resolution_status: "RESOLVED"}]->(tgt);
 MATCH (src:Method {id: "checkoutservice::main.getUserCart()"}), (tgt:Method {id: "cartservice::CartService#GetCart(GetCartRequest)"}) MERGE (src)-[r:INVOKES_GRPC {protocol: "gRPC", target_service: "cartservice", target_method: "GetCart", resolution_status: "RESOLVED"}]->(tgt);
 MATCH (src:Method {id: "checkoutservice::main.emptyUserCart()"}), (tgt:Method {id: "cartservice::CartService#EmptyCart(EmptyCartRequest)"}) MERGE (src)-[r:INVOKES_GRPC {protocol: "gRPC", target_service: "cartservice", target_method: "EmptyCart", resolution_status: "RESOLVED"}]->(tgt);
 MATCH (src:Method {id: "checkoutservice::main.convertCurrency()"}), (tgt:Method {id: "currencyservice::CurrencyService#Convert(CurrencyConversionRequest)"}) MERGE (src)-[r:INVOKES_GRPC {protocol: "gRPC", target_service: "currencyservice", target_method: "Convert", resolution_status: "RESOLVED"}]->(tgt);

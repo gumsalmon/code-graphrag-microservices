@@ -121,7 +121,7 @@ def main():
     with open("output/online_boutique_graph.json", "w", encoding="utf-8") as f:
         json.dump(boutique_graph, f, indent=2, ensure_ascii=False)
     importer.generate_cypher_script(boutique_graph, "output/import_online_boutique.cypher")
-    print("✓ Đã lưu output/online_boutique_graph.json (21 nodes, 6 gRPC edges)")
+    print(f"✓ Đã lưu output/online_boutique_graph.json ({len(boutique_graph['nodes'])} nodes, {len(boutique_graph['edges'])} gRPC edges)")
     print("✓ Đã sinh output/import_online_boutique.cypher")
 
     print("\n=================================================================")

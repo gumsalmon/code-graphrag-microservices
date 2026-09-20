@@ -188,6 +188,13 @@ class BenchmarkRunner:
             [("data/online_boutique/checkoutservice_main.go", "checkoutservice")]
         )
 
+        # Index all benchmark files into ChromaDB
+        all_files = files_petclinic + [
+            "data/online_boutique/demo.proto",
+            "data/online_boutique/checkoutservice_main.go"
+        ]
+        self.chroma_store.index_files(all_files)
+
         results = []
         for sc in scenarios:
             if sc.system == "Spring PetClinic":

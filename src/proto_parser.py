@@ -38,10 +38,20 @@ class GrpcClientCall:
     raw_expression: str
 
 
+import tree_sitter_go as tsgo
+from tree_sitter import Language, Parser, Node
+
+GO_LANGUAGE = Language(tsgo.language())
+
+
 class ProtoParser:
     """
-    Parses Protocol Buffers (.proto) definitions to extract gRPC service declarations and RPC methods.
+    Parses Protocol Buffers (.proto) definitions to extract gRPC service declarations and RPC methods,
+    and parses Go client source files using Tree-sitter AST to extract cross-service gRPC invocations.
     """
+    def __init__(self):
+        self.go_parser = Parser(GO_LANGUAGE)
+
     def parse_proto(self, proto_file_path: str) -> Dict[str, GrpcService]:
         with open(proto_file_path, "r", encoding="utf-8") as f:
             lines = f.readlines()
@@ -83,42 +93,51 @@ class ProtoParser:
 
     def extract_go_grpc_calls(self, go_file_path: str, caller_service: str = "checkoutservice") -> List[GrpcClientCall]:
         """
-        Parses Go source code to extract calls of form:
+        Parses Go source code using Tree-sitter AST to extract calls of form:
         pb.New<Service>Client(...).<Method>(...)
+        Handles multi-line chained expressions robustly.
         """
-        with open(go_file_path, "r", encoding="utf-8") as f:
-            lines = f.readlines()
+        with open(go_file_path, "rb") as f:
+            source_bytes = f.read()
 
+        tree = self.go_parser.parse(source_bytes)
         calls: List[GrpcClientCall] = []
-        call_regex = re.compile(r'pb\.New([A-Za-z0-9_]+Client)\s*\([^)]*\)\.([A-Za-z0-9_]+)\s*\(')
 
-        current_func = "main"
-        func_regex = re.compile(r'^func\s+(?:\([^)]+\)\s+)?([A-Za-z0-9_]+)\s*\(')
+        def visit(node: Node, current_func: str = "main"):
+            if node.type in ("function_declaration", "method_declaration"):
+                name_node = node.child_by_field_name("name")
+                if name_node:
+                    current_func = name_node.text.decode("utf-8", errors="replace")
+            elif node.type == "call_expression":
+                func_node = node.child_by_field_name("function")
+                if func_node and func_node.type == "selector_expression":
+                    method_field = func_node.child_by_field_name("field")
+                    operand = func_node.child_by_field_name("operand")
+                    if method_field and operand and operand.type == "call_expression":
+                        sub_func = operand.child_by_field_name("function")
+                        if sub_func and sub_func.type == "selector_expression":
+                            sub_field = sub_func.child_by_field_name("field")
+                            if sub_field:
+                                sub_name = sub_field.text.decode("utf-8", errors="replace")
+                                if sub_name.startswith("New") and sub_name.endswith("Client"):
+                                    target_service = sub_name[3:-6].lower()
+                                    method_name = method_field.text.decode("utf-8", errors="replace")
+                                    line_no = node.start_point[0] + 1
+                                    raw_expr = node.text.decode("utf-8", errors="replace").splitlines()[0].strip()
 
-        for line_no, line in enumerate(lines, 1):
-            f_match = func_regex.search(line)
-            if f_match:
-                current_func = f_match.group(1)
+                                    calls.append(GrpcClientCall(
+                                        caller_service=caller_service,
+                                        caller_func=current_func,
+                                        target_service=target_service,
+                                        target_method=method_name,
+                                        file=go_file_path.replace('\\', '/'),
+                                        line_number=line_no,
+                                        raw_expression=raw_expr
+                                    ))
+            for child in node.named_children:
+                visit(child, current_func)
 
-            c_match = call_regex.search(line)
-            if c_match:
-                client_type = c_match.group(1)
-                method_name = c_match.group(2)
-
-                # e.g. ShippingServiceClient -> ShippingService -> shippingservice
-                target_service = client_type.replace('Client', '')
-                normalized_target_service = target_service.lower()
-
-                calls.append(GrpcClientCall(
-                    caller_service=caller_service,
-                    caller_func=current_func,
-                    target_service=normalized_target_service,
-                    target_method=method_name,
-                    file=go_file_path.replace('\\', '/'),
-                    line_number=line_no,
-                    raw_expression=line.strip()
-                ))
-
+        visit(tree.root_node)
         return calls
 
     def build_online_boutique_graph(

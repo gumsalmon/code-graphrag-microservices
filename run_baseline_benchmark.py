@@ -140,6 +140,20 @@ def main():
         json.dump(comparison_report, f, indent=2, ensure_ascii=False)
 
     print(f"\n✓ Đã lưu toàn bộ báo cáo đối chứng khoa học vào {report_file}")
+
+    # 5. Chạy đánh giá toàn diện cả 4 kịch bản (P01-P04)
+    print("\n=================================================================")
+    print(" 5. ĐÁNH GIÁ TOÀN DIỆN TRÊN TOÀN BỘ 4 KỊCH BẢN (PETCLINIC + ONLINE BOUTIQUE)")
+    print("=================================================================")
+    from src.benchmark_runner import BenchmarkRunner
+    runner = BenchmarkRunner(chroma_store=chroma_store)
+    full_summary = runner.run_all("output/full_benchmark_results.json")
+    print(f"  * Tổng số kịch bản đánh giá: {full_summary['total_evaluated_scenarios']}/4 (Không còn pending)")
+    print(f"  * GraphRAG F1 trung bình: {full_summary['graph_rag_average_f1']:.4f}")
+    print(f"  * Vector RAG F1 trung bình: {full_summary['vector_rag_average_f1']:.4f}")
+    for sc_res in full_summary["scenarios_evaluation"]:
+        print(f"    - [{sc_res['protocol']}] {sc_res['scenario_id']}: Graph F1 = {sc_res['graph_rag']['overall']['f1_score']:.4f} | Vector F1 = {sc_res['vector_rag']['overall']['f1_score']:.4f}")
+    print(f"\n✓ Đã cập nhật kết quả 4 kịch bản vào output/full_benchmark_results.json")
     print("=================================================================")
 
 if __name__ == "__main__":
