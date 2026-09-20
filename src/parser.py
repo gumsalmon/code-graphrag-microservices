@@ -75,6 +75,8 @@ class MethodCall:
     line_start: int
     line_end: int
     raw_expression: str
+    arg_count: int = 0
+    arg_types: List[Optional[str]] = field(default_factory=list)
     has_circuit_breaker: bool = False
     fallback_method: Optional[str] = None
 
@@ -98,6 +100,49 @@ class UnresolvedItem:
     line_end: int
     expression: str
     reason: str
+
+
+def _is_type_compatible(arg_type: Optional[str], param_type: str) -> bool:
+    if arg_type is None:
+        return True
+    a = arg_type.strip()
+    p = param_type.strip()
+    if a == p:
+        return True
+    a_simple = a.split('.')[-1].split('<')[0]
+    p_simple = p.split('.')[-1].split('<')[0]
+    if a_simple == p_simple:
+        return True
+    if p_simple == 'Object':
+        return True
+
+    type_map = {
+        'String': {'String', 'java.lang.String', 'CharSequence', 'Object'},
+        'int': {'int', 'Integer', 'java.lang.Integer', 'long', 'Long', 'Number', 'Object'},
+        'long': {'long', 'Long', 'java.lang.Long', 'Number', 'Object'},
+        'boolean': {'boolean', 'Boolean', 'java.lang.Boolean', 'Object'},
+        'double': {'double', 'Double', 'java.lang.Double', 'Number', 'Object'},
+        'float': {'float', 'Float', 'java.lang.Float', 'double', 'Double', 'Number', 'Object'},
+        'char': {'char', 'Character', 'java.lang.Character', 'Object'},
+        'null': None,
+    }
+    if a == 'null':
+        primitives = {'int', 'long', 'boolean', 'double', 'float', 'char', 'byte', 'short'}
+        return p_simple not in primitives
+    if a_simple in type_map:
+        compat = type_map[a_simple]
+        if compat is not None and (p_simple in compat or p in compat):
+            return True
+
+    return False
+
+
+def _type_match_score(arg_type: str, param_type: str) -> int:
+    a_simple = arg_type.strip().split('.')[-1].split('<')[0]
+    p_simple = param_type.strip().split('.')[-1].split('<')[0]
+    if a_simple == p_simple:
+        return 2
+    return 1
 
 
 def normalize_path(path: str) -> str:
@@ -556,6 +601,32 @@ class JavaASTParser:
 
         return client_calls, unresolved_items
 
+    def _infer_argument_type(self, arg_node: Node, source: bytes, local_types: Dict[str, str]) -> Optional[str]:
+        t = arg_node.type
+        if t == 'string_literal':
+            return 'String'
+        elif t in ('decimal_integer_literal', 'hex_integer_literal', 'octal_integer_literal', 'binary_integer_literal'):
+            text = self._get_text(arg_node, source).lower()
+            return 'long' if text.endswith('l') else 'int'
+        elif t in ('decimal_floating_point_literal', 'hex_floating_point_literal'):
+            text = self._get_text(arg_node, source).lower()
+            return 'float' if text.endswith('f') else 'double'
+        elif t in ('true', 'false', 'boolean_literal'):
+            return 'boolean'
+        elif t == 'character_literal':
+            return 'char'
+        elif t == 'null_literal':
+            return 'null'
+        elif t == 'object_creation_expression':
+            type_node = arg_node.child_by_field_name('type')
+            if type_node:
+                return self._get_text(type_node, source)
+        elif t == 'identifier':
+            id_name = self._get_text(arg_node, source)
+            if id_name in local_types:
+                return local_types[id_name]
+        return None
+
     def _extract_internal_method_calls(
         self, method_node: Node, caller_id: str, caller_service: str,
         field_types: Dict[str, str], file_path: str, source: bytes
@@ -567,6 +638,26 @@ class JavaASTParser:
         fallback_match = re.search(r'throwable\s*->\s*([a-zA-Z0-9_]+)\s*\(', method_text)
         fallback_method = fallback_match.group(1) if fallback_match else None
 
+        # Build local variable and parameter type map for basic type inference
+        local_types: Dict[str, str] = {}
+        params_node = method_node.child_by_field_name('parameters')
+        if params_node:
+            for p in params_node.named_children:
+                if p.type in ('formal_parameter', 'spread_parameter'):
+                    t_node = p.child_by_field_name('type')
+                    n_node = p.child_by_field_name('name')
+                    if t_node and n_node:
+                        local_types[self._get_text(n_node, source)] = self._get_text(t_node, source)
+
+        for var_decl in self._find_nodes(method_node, ['local_variable_declaration']):
+            t_node = var_decl.child_by_field_name('type')
+            t_str = self._get_text(t_node, source) if t_node else "Object"
+            for decl in var_decl.children:
+                if decl.type == 'variable_declarator':
+                    n_node = decl.child_by_field_name('name')
+                    if n_node:
+                        local_types[self._get_text(n_node, source)] = t_str
+
         for inv in self._find_nodes(method_node, ['method_invocation']):
             obj_node = inv.child_by_field_name('object')
             name_node = inv.child_by_field_name('name')
@@ -577,6 +668,15 @@ class JavaASTParser:
                 if obj_text in field_types:
                     target_fqn = field_types[obj_text]
                     call_expr = self._get_text(inv, source).splitlines()[0]
+
+                    # Extract arguments
+                    args_node = inv.child_by_field_name('arguments')
+                    arg_nodes = [c for c in args_node.children if c.type not in ('(', ')', ',')] if args_node else []
+                    arg_count = len(arg_nodes)
+                    arg_types: List[Optional[str]] = []
+                    for a in arg_nodes:
+                        arg_types.append(self._infer_argument_type(a, source, local_types))
+
                     calls.append(MethodCall(
                         caller_id=caller_id,
                         caller_service=caller_service,
@@ -587,6 +687,8 @@ class JavaASTParser:
                         line_start=inv.start_point[0] + 1,
                         line_end=inv.end_point[0] + 1,
                         raw_expression=call_expr,
+                        arg_count=arg_count,
+                        arg_types=arg_types,
                         has_circuit_breaker=has_circuit_breaker,
                         fallback_method=fallback_method
                     ))
@@ -789,34 +891,83 @@ class DependencyGraphBuilder:
 
         # 2. Match CALLS edges (Internal Intra-service Bean calls: e.g. Controller -> ServiceClient)
         for mc in all_method_calls:
-            for m in all_methods:
-                if m.class_fqn == mc.receiver_type_fqn and m.method_name == mc.method_name:
-                    assumptions = ["Intra-service bean invocation resolved via Spring DI field type"]
-                    if mc.has_circuit_breaker:
-                        assumptions.append(f"Protected by ReactiveCircuitBreaker with fallback: '{mc.fallback_method}'")
+            candidates = [
+                m for m in all_methods
+                if m.class_fqn == mc.receiver_type_fqn and m.method_name == mc.method_name
+            ]
+            if not candidates:
+                continue
 
-                    edges.append({
-                        "source_id": mc.caller_id,
-                        "target_id": m.id,
-                        "type": "CALLS",
-                        "target_service": m.service,
-                        "resolution_status": "RESOLVED",
-                        "contract_status": "VALID",
-                        "cross_service": (mc.caller_service != m.service),
-                        "has_circuit_breaker": mc.has_circuit_breaker,
-                        "fallback_method": mc.fallback_method,
-                        "assumptions": assumptions,
-                        "evidence": [
-                            {
-                                "commit": effective_commit,
-                                "file": mc.file.replace('\\', '/'),
-                                "line_start": mc.line_start,
-                                "line_end": mc.line_end,
-                                "evidence_type": "METHOD_CALL",
-                                "expression": mc.raw_expression
-                            }
-                        ]
-                    })
+            # Overload resolution: filter by arity and argument types
+            compatible_candidates: List[Tuple[MethodNode, int]] = []
+            for m in candidates:
+                param_count = len(m.parameter_types)
+                has_varargs = param_count > 0 and m.parameter_types[-1].endswith("...")
+
+                # Arity check
+                if has_varargs:
+                    if mc.arg_count < param_count - 1:
+                        continue
+                else:
+                    if mc.arg_count != param_count:
+                        continue
+
+                # Argument type compatibility check
+                mismatch = False
+                score = 0
+                for idx, arg_type in enumerate(mc.arg_types):
+                    if idx < param_count:
+                        p_type = m.parameter_types[idx]
+                    elif has_varargs:
+                        p_type = m.parameter_types[-1][:-3]
+                    else:
+                        break
+
+                    if not _is_type_compatible(arg_type, p_type):
+                        mismatch = True
+                        break
+                    if arg_type is not None:
+                        score += _type_match_score(arg_type, p_type)
+
+                if not mismatch:
+                    compatible_candidates.append((m, score))
+
+            if not compatible_candidates:
+                continue
+
+            # Pick candidate(s) with highest score
+            max_score = max(s for _, s in compatible_candidates)
+            best_candidates = [m for m, s in compatible_candidates if s == max_score]
+
+            for m in best_candidates:
+                assumptions = ["Intra-service bean invocation resolved via Spring DI field type"]
+                if mc.has_circuit_breaker:
+                    assumptions.append(f"Protected by ReactiveCircuitBreaker with fallback: '{mc.fallback_method}'")
+                if len(candidates) > 1:
+                    assumptions.append(f"Resolved method overload for '{m.method_name}' based on parameter signature: ({','.join(m.parameter_types)})")
+
+                edges.append({
+                    "source_id": mc.caller_id,
+                    "target_id": m.id,
+                    "type": "CALLS",
+                    "target_service": m.service,
+                    "resolution_status": "RESOLVED",
+                    "contract_status": "VALID",
+                    "cross_service": (mc.caller_service != m.service),
+                    "has_circuit_breaker": mc.has_circuit_breaker,
+                    "fallback_method": mc.fallback_method,
+                    "assumptions": assumptions,
+                    "evidence": [
+                        {
+                            "commit": effective_commit,
+                            "file": mc.file.replace('\\', '/'),
+                            "line_start": mc.line_start,
+                            "line_end": mc.line_end,
+                            "evidence_type": "METHOD_CALL",
+                            "expression": mc.raw_expression
+                        }
+                    ]
+                })
 
         unresolved_json = [
             {

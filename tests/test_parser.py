@@ -239,3 +239,35 @@ def test_full_petclinic_multi_service_graph():
     assert any("CustomersServiceClient#getOwner" in nid for nid in node_ids)
     assert any("ApiGatewayController#getOwnerDetails" in nid for nid in node_ids)
 
+
+def test_calls_edge_method_overload_resolution():
+    """
+    Verifies that calling doSomething("test") resolves ONLY to doSomething(String),
+    and does NOT spuriously connect to doSomething() or doSomething(int).
+    """
+    builder = DependencyGraphBuilder()
+    files = [
+        "data/fixtures/OverloadReceiver.java",
+        "data/fixtures/OverloadCaller.java"
+    ]
+    graph = builder.build_multi_file_graph(files, snapshot_kind="fixture_overload")
+
+    calls_edges = [e for e in graph["edges"] if e["type"] == "CALLS"]
+    assert len(calls_edges) == 3
+
+    # Check callWithString -> doSomething(String)
+    string_call = next(e for e in calls_edges if "callWithString" in e["source_id"])
+    assert "doSomething(String)" in string_call["target_id"]
+    assert "doSomething()" not in string_call["target_id"]
+
+    # Check callWithNoArgs -> doSomething()
+    empty_call = next(e for e in calls_edges if "callWithNoArgs" in e["source_id"])
+    assert "doSomething()" in empty_call["target_id"]
+    assert "doSomething(String)" not in empty_call["target_id"]
+
+    # Check callWithInt -> doSomething(int)
+    int_call = next(e for e in calls_edges if "callWithInt" in e["source_id"])
+    assert "doSomething(int)" in int_call["target_id"]
+    assert "doSomething(String)" not in int_call["target_id"]
+
+

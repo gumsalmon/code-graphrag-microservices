@@ -171,19 +171,20 @@ Parser Go hiện tại đã duyệt AST (`function_declaration`, `method_declara
 
 ---
 
-### 13. 💡 Chưa có `requirements.txt` hoặc `pyproject.toml`
+### 13. 💡 Khóa phiên bản `requirements.txt`
+- Đã tạo `requirements.txt` với versions pinned.
+- **Cập nhật (Docker Python 3.11):** Chuyển `tree-sitter==0.24.6` sang `tree-sitter==0.24.0` để đảm bảo cài đặt tương thích hoàn toàn trên môi trường Linux/Docker Python 3.11 mà không gặp lỗi build wheel.
 
-**Vấn đề:** README ghi dependencies nhưng chưa có file lock versions. Ai clone repo sẽ không biết chính xác phiên bản nào.
+---
 
-**Cần sửa:**  
-- Tạo `requirements.txt` với versions pinned:
-  ```
-  tree-sitter==0.24.6
-  tree-sitter-java==0.23.5
-  chromadb==1.5.9
-  neo4j==5.28.1
-  pytest==9.1.1
-  ```
+### 14. 🔴 Phân giải method overload cho cạnh CALLS (nội dịch vụ)
+
+**Vấn đề:** Khi class có các phương thức overload (ví dụ `doSomething()` và `doSomething(String)`), parser trước đây chỉ so khớp theo tên hàm `mc.method_name == m.method_name` mà không xét arity (số tham số) và kiểu dữ liệu đối số. Do đó, lời gọi `receiver.doSomething("test")` bị nối cạnh `CALLS` tới cả 2 phương thức.
+
+**Khắc phục:**
+- Nâng cấp `MethodCall` lưu `arg_count` và suy luận kiểu đối số `arg_types` (cho literal String, int, boolean, char, null, local variables, method parameters).
+- Nâng cấp bộ so khớp cạnh `CALLS` trong `src/parser.py`: lọc theo arity (kèm hỗ trợ varargs), kiểm tra tương thích kiểu tham số (`_is_type_compatible`), và chấm điểm so khớp tối ưu (`_type_match_score`).
+- Bổ sung fixture `OverloadReceiver.java` + `OverloadCaller.java` và test `test_calls_edge_method_overload_resolution` trong `tests/test_parser.py` xác thực việc phân giải chính xác 100%.
 
 ---
 
@@ -191,9 +192,10 @@ Parser Go hiện tại đã duyệt AST (`function_declaration`, `method_declara
 
 | Mức độ | Số lượng | Chi tiết | Trạng thái xử lý |
 |---|---|---|---|
-| 🔴 Nghiêm trọng | 3 | P03/P04 không chạy, ground truth vi phạm Mục 5, seed không loại khỏi vector | **ĐÃ KHẮC PHỤC 3/3** |
+| 🔴 Nghiêm trọng | 4 | P03/P04 không chạy, ground truth Mục 5, seed vector, CALLS overload | **ĐÃ KHẮC PHỤC 4/4** |
 | 🟡 Trung bình | 6 | `$schema` sai, mutated provenance sai, thiếu dev/test split, thiếu breakdown, thiếu timing, cấu hình 3 | **ĐÃ KHẮC PHỤC 6/6** |
-| 🟢 Nhẹ | 4 | mutation explicit, regex parser cảnh báo, decision log, requirements.txt | **ĐÃ KHẮC PHỤC 4/4** |
+| 🟢 Nhẹ | 4 | mutation explicit, regex parser cảnh báo, decision log, requirements.txt 0.24.0 | **ĐÃ KHẮC PHỤC 4/4** |
 
-> **Kết luận cuối cùng (20/09/2026):** Toàn bộ 13/13 vấn đề đã được khắc phục hoàn toàn trong mã nguồn, kiểm chứng qua 24/24 unit test và output thực tế. Hệ thống hiện đã đáp ứng đầy đủ, chuẩn xác các nguyên tắc khoa học tại Mục 5, 7, 8 trong `PROJECT_CONTEXT.md`.
+> **Kết luận cuối cùng (20/09/2026):** Toàn bộ 14 vấn đề đã được khắc phục hoàn toàn trong mã nguồn, kiểm chứng qua 27/27 unit test (trong đó 12/12 test parser) và output thực tế. Hệ thống hiện đã đáp ứng đầy đủ, chuẩn xác các nguyên tắc khoa học tại Mục 5, 7, 8 trong `PROJECT_CONTEXT.md`.
+
 

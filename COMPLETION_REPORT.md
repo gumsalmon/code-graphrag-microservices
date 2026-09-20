@@ -130,15 +130,15 @@ Cụ thể, nhiệm vụ triển khai theo Mục 7 (Task đầu tiên) và mở 
 ### 2.9 Mục 11 — Mẫu bàn giao
 
 ```
-Task: 8 nhiệm vụ (REST Parser → Benchmark → Documentation) + Nâng cấp Go AST
-Commit dữ liệu / patch thử: 3858f9c630cf989bb6809a86edf47c2be78dc9f1 (PetClinic main)
-Commit code triển khai: 1e2bbc3, 869438e, cfa76d6, 9bcc453, 8c3548e
-Đã làm: Toàn bộ 8 tasks theo phân công + Go Tree-sitter AST + gRPC Benchmark đầy đủ
+Task: 8 nhiệm vụ (REST Parser → Benchmark → Documentation) + Go AST + Overload Resolution
+Commit dữ liệu / patch thử: 3858f9c630cf989bb6809a86edf47c2be78dc9f1 (PetClinic main), 0434be5e7e975dc0b7d25ac126c9d466684a0bcb (Online Boutique main)
+Commit code triển khai: 1e2bbc3, 869438e, cfa76d6, 9bcc453, 8c3548e, 1eba3c6
+Đã làm: Toàn bộ 8 tasks theo phân công + Go Tree-sitter AST + CALLS Overload Resolution + Docker py3.11 compatibility
 Lệnh chạy và đầu vào:
   - python run_parser.py (pipeline 6 stages)
   - python run_baseline_benchmark.py (GraphRAG vs Vector RAG trên cả 4 kịch bản)
   - python verify_neo4j_live.py (kiểm tra và nạp Neo4j khi có Docker)
-  - python -m pytest tests/ -v (26 tests)
+  - python -m pytest tests/ -v (27 tests)
 File đầu ra:
   - output/baseline_graph.json, mutated_graph.json
   - output/baseline_2hop_graph.json, mutated_2hop_graph.json
@@ -146,7 +146,7 @@ File đầu ra:
   - output/online_boutique_graph.json (22 nodes, 7 edges)
   - output/full_benchmark_results.json, benchmark_comparison.json
   - output/*.cypher (4 Cypher scripts)
-Kiểm tra đã chạy và kết quả: 26/26 tests PASSED (pytest)
+Kiểm tra đã chạy và kết quả: 27/27 tests PASSED (pytest)
 Giới hạn / unresolved:
   - Hostname resolution chỉ từ default initializer, không xử lý runtime override
   - Dynamic URI expressions ghi vào unresolved
@@ -156,7 +156,7 @@ Giới hạn / unresolved:
 Việc cần Huy thẩm định:
   - Chốt commit SHA chính thức (hiện dùng 3858f9c từ main)
   - Kiểm chứng hành vi P01 trên runtime (Mục 6.4)
-  - Thẩm định nhãn ground truth benchmark
+  - Thẩm định nhãn ground truth benchmark (hiện tại nhãn P01-P04 và F1 là sơ bộ)
   - Tích hợp LLM layer cho pipeline đầy đủ
 Bước tiếp theo:
   - Huy chạy kiểm chứng hành vi (Mục 6.4)
@@ -171,10 +171,11 @@ Bước tiếp theo:
 ### 3.1 Test Results
 
 ```
-26 passed in ~6.69s
+27 passed in ~9.12s
 
-tests/test_parser.py           — 11 tests (path norm, baseline, mutation, 2-hop, backward trace,
-                                            cypher, 3 negative fixtures, deterministic, full PetClinic)
+tests/test_parser.py           — 12 tests (path norm, baseline, mutation, 2-hop, backward trace,
+                                            cypher, 3 negative fixtures, deterministic, full PetClinic,
+                                            CALLS method overload resolution)
 tests/test_chroma_baseline.py  —  4 tests (AST chunker VisitResource, AST chunker ApiGateway,
                                             ChromaDB indexing & query, AST chunker Go & Proto)
 tests/test_proto_parser.py     —  3 tests (proto service extraction, gRPC graph generation,
