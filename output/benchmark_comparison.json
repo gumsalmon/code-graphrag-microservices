@@ -1,0 +1,269 @@
+{
+  "scenario": "P01_includeDetails",
+  "seed": "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(List<Integer>)",
+  "query": "Modified VisitResource read handler GET /pets/visits adding required query parameter includeDetails",
+  "ground_truth_total": 2,
+  "graph_rag": {
+    "method": "AST Tree-sitter + Multi-hop Traversal",
+    "latency_ms": 0.01,
+    "impacted_count": 2,
+    "impacted_nodes": [
+      {
+        "node_id": "api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)",
+        "logic_hops": 1,
+        "service_crossings": 1,
+        "via_edge_type": "INVOKES_API",
+        "has_circuit_breaker": false,
+        "fallback_method": null,
+        "path": [
+          "INVOKES_API"
+        ]
+      },
+      {
+        "node_id": "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)",
+        "logic_hops": 2,
+        "service_crossings": 1,
+        "via_edge_type": "CALLS",
+        "has_circuit_breaker": true,
+        "fallback_method": "emptyVisitsForPets",
+        "path": [
+          "INVOKES_API",
+          "CALLS"
+        ]
+      }
+    ],
+    "recall": 1.0,
+    "precision": 1.0
+  },
+  "vector_rag_baseline": {
+    "method": "AST-chunked ChromaDB Cosine/L2 Similarity",
+    "top_3": {
+      "top_k": 3,
+      "latency_ms": 266.57,
+      "hits": [],
+      "misses": [
+        "api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)",
+        "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)"
+      ],
+      "precision_at_k": 0.0,
+      "recall_at_k": 0.0,
+      "ranked_candidates": [
+        {
+          "chunk_id": "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(int)",
+          "distance": 0.8837440013885498,
+          "similarity": 0.1163,
+          "metadata": {
+            "file": "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java",
+            "chunk_id": "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(int)",
+            "http_method": "GET",
+            "is_endpoint": true,
+            "line_end": 70,
+            "class_fqn": "org.springframework.samples.petclinic.visits.web.VisitResource",
+            "endpoint_path": "owners/*/pets/{petId}/visits",
+            "line_start": 67,
+            "method_name": "read",
+            "service": "visits-service",
+            "chunk_type": "METHOD"
+          },
+          "snippet": [
+            "// File: spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java | Service: visits-service",
+            "@GetMapping(\"owners/*/pets/{petId}/visits\")",
+            "    public List<Visit> read(@PathVariable(\"petId\") @Min(1) int petId) {",
+            "        return visitRepository.findByPetId(petId);",
+            "    }"
+          ]
+        },
+        {
+          "chunk_id": "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource$Visits",
+          "distance": 0.9122825860977173,
+          "similarity": 0.0877,
+          "metadata": {
+            "line_end": 81,
+            "class_fqn": "org.springframework.samples.petclinic.visits.web.VisitResource",
+            "is_endpoint": false,
+            "chunk_id": "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource$Visits",
+            "chunk_type": "RECORD",
+            "http_method": "",
+            "method_name": "",
+            "service": "visits-service",
+            "endpoint_path": "",
+            "line_start": 78,
+            "file": "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java"
+          },
+          "snippet": [
+            "// File: spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java | Service: visits-service",
+            "record Visits(",
+            "        List<Visit> items",
+            "    ) {",
+            "    }"
+          ]
+        },
+        {
+          "chunk_id": "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#create(Visit,int)",
+          "distance": 0.9459037780761719,
+          "similarity": 0.0541,
+          "metadata": {
+            "line_start": 56,
+            "chunk_id": "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#create(Visit,int)",
+            "class_fqn": "org.springframework.samples.petclinic.visits.web.VisitResource",
+            "line_end": 65,
+            "is_endpoint": true,
+            "http_method": "POST",
+            "service": "visits-service",
+            "method_name": "create",
+            "file": "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java",
+            "endpoint_path": "owners/*/pets/{petId}/visits",
+            "chunk_type": "METHOD"
+          },
+          "snippet": [
+            "// File: spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java | Service: visits-service",
+            "@PostMapping(\"owners/*/pets/{petId}/visits\")",
+            "    @ResponseStatus(HttpStatus.CREATED)",
+            "    public Visit create(",
+            "        @Valid @RequestBody Visit visit,"
+          ]
+        }
+      ]
+    },
+    "top_5": {
+      "top_k": 5,
+      "latency_ms": 256.49,
+      "hits": [
+        "api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)"
+      ],
+      "misses": [
+        "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)"
+      ],
+      "precision_at_k": 0.2,
+      "recall_at_k": 0.5,
+      "ranked_candidates": [
+        {
+          "chunk_id": "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(int)",
+          "distance": 0.8837440013885498,
+          "similarity": 0.1163,
+          "metadata": {
+            "chunk_id": "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(int)",
+            "is_endpoint": true,
+            "service": "visits-service",
+            "line_end": 70,
+            "chunk_type": "METHOD",
+            "method_name": "read",
+            "line_start": 67,
+            "file": "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java",
+            "http_method": "GET",
+            "class_fqn": "org.springframework.samples.petclinic.visits.web.VisitResource",
+            "endpoint_path": "owners/*/pets/{petId}/visits"
+          },
+          "snippet": [
+            "// File: spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java | Service: visits-service",
+            "@GetMapping(\"owners/*/pets/{petId}/visits\")",
+            "    public List<Visit> read(@PathVariable(\"petId\") @Min(1) int petId) {",
+            "        return visitRepository.findByPetId(petId);",
+            "    }"
+          ]
+        },
+        {
+          "chunk_id": "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource$Visits",
+          "distance": 0.9122825860977173,
+          "similarity": 0.0877,
+          "metadata": {
+            "class_fqn": "org.springframework.samples.petclinic.visits.web.VisitResource",
+            "line_start": 78,
+            "file": "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java",
+            "is_endpoint": false,
+            "chunk_id": "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource$Visits",
+            "line_end": 81,
+            "service": "visits-service",
+            "chunk_type": "RECORD",
+            "http_method": "",
+            "method_name": "",
+            "endpoint_path": ""
+          },
+          "snippet": [
+            "// File: spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java | Service: visits-service",
+            "record Visits(",
+            "        List<Visit> items",
+            "    ) {",
+            "    }"
+          ]
+        },
+        {
+          "chunk_id": "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#create(Visit,int)",
+          "distance": 0.9459037780761719,
+          "similarity": 0.0541,
+          "metadata": {
+            "file": "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java",
+            "chunk_id": "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#create(Visit,int)",
+            "service": "visits-service",
+            "is_endpoint": true,
+            "line_end": 65,
+            "method_name": "create",
+            "http_method": "POST",
+            "line_start": 56,
+            "class_fqn": "org.springframework.samples.petclinic.visits.web.VisitResource",
+            "endpoint_path": "owners/*/pets/{petId}/visits",
+            "chunk_type": "METHOD"
+          },
+          "snippet": [
+            "// File: spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java | Service: visits-service",
+            "@PostMapping(\"owners/*/pets/{petId}/visits\")",
+            "    @ResponseStatus(HttpStatus.CREATED)",
+            "    public Visit create(",
+            "        @Valid @RequestBody Visit visit,"
+          ]
+        },
+        {
+          "chunk_id": "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#addVisitsToOwner(OwnerDetails)",
+          "distance": 0.9969944953918457,
+          "similarity": 0.003,
+          "metadata": {
+            "is_endpoint": false,
+            "line_end": 78,
+            "chunk_type": "METHOD",
+            "line_start": 68,
+            "endpoint_path": "",
+            "class_fqn": "org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController",
+            "service": "api-gateway",
+            "chunk_id": "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#addVisitsToOwner(OwnerDetails)",
+            "http_method": "",
+            "method_name": "addVisitsToOwner",
+            "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java"
+          },
+          "snippet": [
+            "// File: spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java | Service: api-gateway",
+            "private Function<Visits, OwnerDetails> addVisitsToOwner(OwnerDetails owner) {",
+            "        return visits -> {",
+            "            owner.pets()",
+            "                .forEach(pet -> pet.visits()"
+          ]
+        },
+        {
+          "chunk_id": "api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)",
+          "distance": 1.018080472946167,
+          "similarity": 0.4955,
+          "metadata": {
+            "chunk_id": "api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)",
+            "is_endpoint": false,
+            "http_method": "",
+            "chunk_type": "METHOD",
+            "line_end": 48,
+            "endpoint_path": "",
+            "service": "api-gateway",
+            "line_start": 42,
+            "class_fqn": "org.springframework.samples.petclinic.api.application.VisitsServiceClient",
+            "method_name": "getVisitsForPets",
+            "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java"
+          },
+          "snippet": [
+            "// File: spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java | Service: api-gateway",
+            "public Mono<Visits> getVisitsForPets(final List<Integer> petIds) {",
+            "        return webClientBuilder.build()",
+            "            .get()",
+            "            .uri(hostname + \"pets/visits?petId={petId}\", joinIds(petIds))"
+          ]
+        }
+      ]
+    }
+  },
+  "scientific_insight": "Vector RAG có thể phát hiện direct caller (1-hop) nếu có chuỗi URI tương tự, nhưng có xu hướng bỏ sót các component đa bước (2-hop như ApiGatewayController) do không có sự tương đồng văn bản trực tiếp với endpoint của provider. Ngoài ra, sau khi lọc bỏ Seed Node, kết quả Vector RAG giảm do nhiễu từ khóa."
+}
