@@ -1,9 +1,9 @@
 # Bối cảnh và hướng dẫn triển khai dự án Code GraphRAG
 
-Phiên bản: 0.1 — ngày 19/09/2026  
-Người nhận: Hiển và AI hỗ trợ Hiển  
-Người chủ trì: Huy  
-Trạng thái: Bản bàn giao khởi đầu, tổng hợp từ trao đổi của Huy; chưa có kết quả thực nghiệm.
+Phiên bản: 0.2 — ngày 21/09/2026
+Người nhận: Nhóm nghiên cứu và các AI hỗ trợ
+Người chủ trì: Huy
+Trạng thái: Tài liệu sống của dự án; P01 đã có bằng chứng pilot nhưng chưa phải kết quả thực nghiệm chính thức của bài báo.
 
 ## 1. Cách sử dụng tài liệu
 
@@ -33,11 +33,29 @@ Sản phẩm hướng tới:
 
 1. Pipeline Code GraphRAG hoạt động được và mã nguồn mở.
 2. Microservice Impact Benchmark có nhãn, đo Precision, Recall, F1 và các chỉ số Ragas gồm Faithfulness, Context Precision.
-3. Bài báo khoa học định hướng RIVF/KSE hoặc công bố chuyên ngành CNTT phù hợp yêu cầu nghiệm thu.
+3. Bài báo tạp chí quốc tế có phản biện. Venue và phân hạng Q1/Q2/Scopus/WoS chưa chốt, vì vậy không tự tuyên bố một phân hạng cụ thể. IEEE RIVF/KSE được giữ làm phương án dự phòng nếu kế hoạch công bố cần điều chỉnh.
 
-Thuyết minh ghi thời gian 10/2026–04/2027. Bảng sản phẩm trong thuyết minh có yêu cầu bài tạp chí được tính điểm, khác với định hướng hội nghị ở phần mục tiêu. Huy phụ trách làm rõ tiêu chí công bố và nghiệm thu với giảng viên hướng dẫn; Hiển không cần chờ việc này để làm task parser.
+Thuyết minh ghi thời gian 10/2026–04/2027. Khung nghiệm thu của thuyết minh vẫn là ranh giới bắt buộc, nhưng thiết kế nghiên cứu và thực nghiệm phải hướng tới chuẩn đủ mạnh để nộp tạp chí quốc tế. Việc chọn venue cụ thể do Huy thống nhất với giảng viên hướng dẫn sau khi có kết quả thực nghiệm đáng tin cậy.
 
 Không coi “GraphRAG tốt hơn Vector RAG” là kết quả đã được chứng minh. Đó là giả thuyết cần đo. Không đặt số liệu mục tiêu rồi điều chỉnh nhãn để đạt số liệu đó.
+
+### 2.1 Chuẩn chất lượng công bố
+
+Đây không chỉ là bài tập xây dựng phần mềm hoặc ghép Tree-sitter, Neo4j và LLM thành một pipeline. Bài báo phải xác định đóng góp khoa học có thể kiểm chứng, nêu rõ vì sao phương pháp đề xuất giải quyết được hạn chế mà các baseline không giải quyết được, và chỉ kết luận trong phạm vi bằng chứng thực nghiệm.
+
+Mọi thiết kế thực nghiệm về sau phải hướng tới các yêu cầu sau:
+
+- Ground truth được thẩm định độc lập, có provenance và bằng chứng mã nguồn, hợp đồng hoặc runtime phù hợp. Không dùng đầu ra của chính parser, GraphRAG hay LLM làm nhãn chuẩn cho hệ thống đó.
+- Đánh giá trên nhiều hệ thống microservices và đủ số lượng change scenarios để không suy rộng từ một pilot. Mutation tổng hợp và thay đổi lịch sử phải được phân loại riêng.
+- So sánh công bằng với Vector RAG và các baseline hợp lý khác, dùng cùng dữ liệu đầu vào, seed condition, model, ngân sách context và quy tắc chấm điểm khi có thể.
+- Có ablation study để đo riêng đóng góp của graph traversal, độ sâu multi-hop, contract analysis, semantic retrieval và LLM reasoning.
+- Báo cáo Precision, Recall và F1 theo cấp Method/API/Service, theo hop, loại thay đổi và hệ thống; bổ sung khoảng tin cậy hoặc kiểm định thống kê phù hợp khi kích thước mẫu cho phép.
+- Báo cáo cả độ chính xác, chi phí, thời gian, token, lỗi phân giải và trường hợp thất bại. Ragas chỉ là thước đo bổ sung, không thay thế ground truth CIA.
+- Tách tập phát triển và tập kiểm thử cuối; ngăn rò rỉ nhãn, patch sửa chữa hoặc biến thể gần trùng vào context dự đoán.
+- Bảo đảm khả năng tái lập bằng repository, commit SHA, config revision, mutation patch, seed, dữ liệu thử, phiên bản dependency, script, log và cấu hình model.
+- Có phân tích limitations, threats to validity và phạm vi tổng quát hóa. Không biến kết quả pilot thành tuyên bố hiệu quả tổng quát.
+
+Nếu một AI được giao tối ưu code, nó vẫn phải bảo vệ tính hợp lệ khoa học nói trên. Chạy được và đạt test kỹ thuật là điều kiện cần, chưa phải bằng chứng đủ cho đóng góp nghiên cứu hoặc chất lượng bài báo.
 
 ## 3. Nhân sự và cách phối hợp
 
@@ -102,18 +120,20 @@ Ghi riêng số lần vượt ranh giới dịch vụ. Một tuyến hai hop có
 
 ## 6. Pilot P01 đã hiệu chỉnh
 
-### 6.1 Thông tin phải điền trước khi chốt bằng chứng
+### 6.1 Trạng thái bằng chứng pilot P01
 
 - Repository: https://github.com/spring-petclinic/spring-petclinic-microservices
-- Baseline commit SHA: **CHƯA CHỐT**.
-- Vị trí checkout trên máy nhóm: **CHƯA CUNG CẤP**.
-- Patch thay đổi provider: **CHƯA TẠO/XÁC NHẬN**.
-- Người gán nhãn và người rà soát: **CHƯA GHI NHẬN**.
-- Kết quả thực thi: **CHƯA CÓ**.
+- Baseline commit SHA: `3858f9c630cf989bb6809a86edf47c2be78dc9f1`.
+- Config revision quan sát trong log runtime: `323993ce2519c6d02df63e08bf4458d123d3b611`.
+- Vị trí checkout pilot của Huy: `E:/NCKH/petclinic-pilot/spring-petclinic-microservices`.
+- Patch thay đổi provider và bằng chứng runtime: thư mục `evidence_p01_runtime/` trong checkout pilot của Huy.
+- Nhãn P01: đã tạo bản dự thảo từ bằng chứng cấu trúc và runtime; **chờ Huy thẩm định**, chưa coi là ground truth chính thức của benchmark.
+- Quan sát runtime pilot: baseline direct/gateway trả HTTP 200 và có visits; mutated thiếu `includeDetails` trả HTTP 400 khi gọi trực tiếp; mutated có tham số trả HTTP 200 và vẫn có dữ liệu; gateway không đổi trả HTTP 200 nhưng visits rỗng.
+- Kiểm chứng Neo4j pilot: script review riêng đã truy vấn đúng client 1-hop và controller 2-hop từ file Cypher có sẵn. Script chính thức `verify_neo4j_live.py` còn lỗi cần sửa và đường chạy source -> parser -> Cypher -> Neo4j chưa được nghiệm thu end-to-end.
 
-Giữ nguyên tên hàm và cấu trúc của commit đã chọn. Nếu khác mã đã đối chiếu trên main, báo lại và cập nhật đặc tả theo bằng chứng; không sửa repo chỉ để làm nó giống mô tả cũ.
+Giữ nguyên tên hàm và cấu trúc của commit đã chọn. Nếu mở rộng hoặc tái chạy tại commit khác, tạo scenario/version mới và cập nhật provenance; không sửa repo chỉ để làm nó giống mô tả cũ.
 
-### 6.2 Mã nguồn đã đối chiếu trên nhánh main
+### 6.2 Mã nguồn đã đối chiếu tại baseline pilot
 
 Các đường dẫn bên dưới là đường dẫn tương đối trong repository PetClinic, không phải đường dẫn trên máy Huy hoặc Hiển:
 
@@ -123,13 +143,13 @@ spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic
 spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java
 ```
 
-Kết quả đọc mã trên main trong phiên trao đổi ngày 19/09/2026:
+Kết quả đọc mã đã được đối chiếu lại tại baseline pilot:
 
 - GET /pets/visits được xử lý bởi VisitResource.read(List<Integer>), không phải tên visitsMultiGet trong bản nháp. Lớp có overload read nên tên method đơn lẻ không đủ làm ID.
 - VisitsServiceClient.getVisitsForPets dùng WebClient; URI ghép từ hostname mặc định của visits-service với đường dẫn và query petId.
 - ApiGatewayController.getOwnerDetails gọi client Visits và có fallback trả danh sách khám rỗng. Do đó không dùng getOwnerDetails làm nhãn âm.
 
-Các nhận xét này chưa thay thế việc kiểm tra tại commit cố định của nhóm. Chưa xác nhận một method getVisits như bản nháp mô tả.
+Không sử dụng tên `visitsMultiGet` hoặc một method `getVisits` từ bản nháp cũ để thay cho symbol thực tế ở commit đã chốt.
 
 ### 6.3 Thay đổi và giả thuyết kiểm chứng
 
@@ -149,7 +169,7 @@ ApiGatewayController.getOwnerDetails
 
 Client có thể khắc phục bằng cách tự thêm giá trị query phù hợp và giữ nguyên chữ ký Java. Không kết luận controller bắt buộc đổi chữ ký, hoặc DTO bắt buộc đổi, chỉ vì provider thêm query parameter.
 
-Gateway có thể trả phản hồi thành công nhưng mất dữ liệu Visits do fallback. Chưa được ghi kết quả này là quan sát thực tế trước khi chạy thử.
+Runtime pilot đã quan sát gateway trả HTTP 200 nhưng trường visits rỗng sau mutation. Diễn đạt đây là thiếu dữ liệu trong phản hồi do lỗi giao tiếp bị che bởi fallback, không phải mất dữ liệu lưu trữ.
 
 ### 6.4 Kiểm chứng hành vi do Huy chủ trì
 
@@ -279,6 +299,10 @@ Các link main chỉ dùng để tra cứu; bằng chứng benchmark phải chuy
 - [Ragas Faithfulness](https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/faithfulness/)
 - [Ragas Context Precision](https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/context_precision/)
 
-## 13. Việc bắt đầu ngay
+## 13. Việc bắt đầu tiếp theo
 
-Huy cung cấp hoặc thống nhất commit PetClinic và patch P01. Hiển đọc hai file tại commit đó, đối chiếu tên method và mẫu WebClient, rồi tạo một JSON mẫu theo hợp đồng đề xuất để thống nhất với Huy. Sau đó triển khai parser và kiểm tra theo mục 7; không cần chờ hoàn thiện toàn bộ pipeline GraphRAG.
+1. Hiển sửa và kiểm chứng `verify_neo4j_live.py`: không làm rơi câu lệnh đi cùng comment, không nuốt lỗi import, trả exit code khác 0 khi thất bại và cho phép chọn/cách ly snapshot.
+2. Chạy kiểm chứng end-to-end P01 bằng đúng dependency của dự án: source cố định -> parser -> Cypher mới sinh -> Neo4j -> truy vết đúng seed/client/controller, đồng thời loại seed khỏi impact set.
+3. Huy thẩm định nhãn P01 và ghi người lập nhãn/người rà soát. P01 vẫn là pilot dùng để ổn định quy trình, chưa đưa số liệu của nó thành kết luận chính thức.
+4. Trước khi mở rộng P02–P04, chốt protocol tạo scenario, lập nhãn độc lập, chia development/test và lưu evidence để tránh phải làm lại benchmark.
+5. Chỉ sau khi protocol được chốt mới mở rộng số lượng hệ thống và change scenarios phục vụ thực nghiệm tạp chí.
