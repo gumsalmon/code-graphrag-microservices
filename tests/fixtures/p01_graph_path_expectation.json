@@ -1,0 +1,16 @@
+{
+  "purpose": "Technical graph-path acceptance only; not impact ground truth",
+  "baseline_commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+  "expectations": {
+    "baseline": {
+      "seed_id": "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(List<Integer>)",
+      "hop1": "api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)",
+      "hop2": "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)"
+    },
+    "mutated": {
+      "seed_id": "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(List<Integer>,boolean)",
+      "hop1": "api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)",
+      "hop2": "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)"
+    }
+  }
+}

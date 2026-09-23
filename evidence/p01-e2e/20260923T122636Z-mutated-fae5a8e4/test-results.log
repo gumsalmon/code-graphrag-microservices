@@ -1,0 +1,1 @@
+FAIL VerificationError: Full seed method ID is not unique/present: visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(List<Integer>)
