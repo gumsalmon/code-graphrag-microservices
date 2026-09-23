@@ -4,5 +4,7 @@ benchmark/p01/*.json text eol=lf
 benchmark/p01/*.md text eol=lf
 benchmark/p01/*.sha256 text eol=lf
 benchmark/p01/derived/*.md text eol=lf
+benchmark/p01/derived/*.yml text eol=lf
 benchmark/p01/raw/** -text
 docs/P01_INTAKE_CONFIRMATION.md text eol=lf
+scripts/run_p01_runtime.ps1 text eol=lf

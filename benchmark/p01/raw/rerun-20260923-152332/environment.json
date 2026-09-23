@@ -1,0 +1,27 @@
+{
+  "started_at": "2026-09-23T15:23:32.0545062+07:00",
+  "project_name": "p01-independent-rerun",
+  "repository": "https://github.com/spring-petclinic/spring-petclinic-microservices",
+  "baseline_commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+  "config_revision": "323993ce2519c6d02df63e08bf4458d123d3b611",
+  "patch_sha256": "42394ca361d07db58ba6a73cfc1ddb8bd1d9aeddb59292873552573adfa5cc21",
+  "baseline_visits_image": "p01/visits:baseline-3858f9c",
+  "mutated_visits_image": "p01/visits:mutated-42394ca3",
+  "gateway_image": "p01/api-gateway:baseline-3858f9c",
+  "fixture": {
+    "owner_id": 6,
+    "pet_ids": [
+      7,
+      8
+    ],
+    "negative_pet_id": 7
+  },
+  "docker_version": "client=29.5.3 server=",
+  "compose_version": "5.1.4",
+  "p01_config-server_3858f9c": "",
+  "p01_discovery-server_3858f9c": "",
+  "p01_customers-service_3858f9c": "",
+  "p01_visits_baseline-3858f9c": "",
+  "p01_visits_mutated-42394ca3": "",
+  "p01_api-gateway_baseline-3858f9c": ""
+}

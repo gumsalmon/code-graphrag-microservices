@@ -1,0 +1,4 @@
+2026-09-23T15:23:32.1533974+07:00	exit=1	docker version
+2026-09-23T15:23:32.3693331+07:00	exit=0	docker compose version --short
+2026-09-23T15:23:33.1801461+07:00	exit=1	docker compose -p p01-independent-rerun -f D:\vector-rag\benchmark\p01\derived\docker-compose-rerun.yml up -d config-server
+2026-09-23T15:23:33.4577379+07:00	exit=1	docker compose -p p01-independent-rerun -f D:\vector-rag\benchmark\p01\derived\docker-compose-rerun.yml down --volumes --remove-orphans

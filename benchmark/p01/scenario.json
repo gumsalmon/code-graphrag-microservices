@@ -7,7 +7,7 @@
   "scenario_kind": "synthetic_mutation",
   "created_at": "2026-09-23T14:42:17+07:00",
   "author": "Phát",
-  "audit_decision": "reproduce_required",
+  "audit_decision": "pending_review",
   "repository": {
     "url": "https://github.com/spring-petclinic/spring-petclinic-microservices",
     "baseline_commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
@@ -45,7 +45,8 @@
     "historical_owner_id": 6,
     "historical_pet_ids": [7, 8],
     "precondition": "Owner 6 has pets 7 and 8 and each pet has at least one visit",
-    "clean_rerun_verified": false
+    "clean_rerun_verified": true,
+    "clean_rerun_path": "benchmark/p01/raw/rerun-20260923-152742/summary.json"
   },
   "required_observations": [
     "baseline_direct",
@@ -59,7 +60,8 @@
     "method_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(int)",
     "api_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::visits-service::GET /owners/*/pets/{petId}/visits",
     "selection_reason": "Real repository overload in the same class and service, but a different mapping and parameter shape; useful for detecting name-only or overload-insensitive matching",
-    "status": "unresolved_until_clean_baseline_and_mutated_runtime"
+    "status": "verified_negative",
+    "evidence_id": "E-RUNTIME-CLEAN-001"
   },
   "evaluated_system_output": {
     "access_allowed": false,
@@ -77,8 +79,6 @@
     ]
   },
   "blockers": [
-    "Docker daemon unavailable, so clean runtime reproduction was not completed",
-    "Independent human reviewer has not been named",
-    "Negative candidate lacks clean baseline/mutated runtime evidence"
+    "Independent human reviewer has not been named"
   ]
 }

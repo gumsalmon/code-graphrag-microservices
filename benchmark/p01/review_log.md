@@ -4,16 +4,17 @@ Scenario: P01 v1.0.0
 
 Protocol: v0.1
 
-Current label file: `labels.v2.json`
+Current label file: `labels.v3.json`
 
-Current decision: `reproduce_required`
+Current decision: `pending_review`
 
 ## Label version history
 
 | File | Version | SHA-256 | State |
 |---|---|---|---|
 | `labels.v1.json` | 1.0.0 | `32270aed44b91f3436d7ad606f2276430e6ec9f76ea00a84d1f5bce2b21bd807` | Superseded; immutable |
-| `labels.v2.json` | 1.1.0 | `910d15049e580bdd193c3ee5b35740e0c164a1a7f9d90640506cd10893408bde` | Current provisional freeze |
+| `labels.v2.json` | 1.1.0 | `910d15049e580bdd193c3ee5b35740e0c164a1a7f9d90640506cd10893408bde` | Superseded; immutable |
+| `labels.v3.json` | 1.2.0 | `3cc4784c9827f2ac8a034cfe44bbdb838b21ebb7f8a7f9ac49864c70162e2bce` | Current provisional freeze; pending independent review |
 
 ## Roles
 
@@ -40,19 +41,24 @@ The two-person acceptance condition is not met. Phát must not approve this labe
 | 2026-09-23T14:48:34+07:00 | Phát with Codex support | Provisionally froze `labels.v1.json` before access to evaluated-system output | SHA-256 recorded in `checksums.sha256`; file must not be edited in place |
 | 2026-09-23T14:52:00+07:00 | Phát with Codex support | Schema validation found non-enum `requires_code_change` wording in v1 | Preserved v1 and created v2 with boolean values plus separate repair assumptions |
 | 2026-09-23T14:52:00+07:00 | Phát with Codex support | Provisionally froze `labels.v2.json` | SHA-256 `910d15049e580bdd193c3ee5b35740e0c164a1a7f9d90640506cd10893408bde`; no evaluated-system output opened |
+| 2026-09-23T15:17:19+07:00 | Phát with Codex support | Ran the first Docker matrix | Direct and outward gateway observations completed, but gateway routing after service recreation was not proven; retained as diagnostic only |
+| 2026-09-23T15:23:49+07:00 | Phát with Codex support | Repeated the matrix after waiting for Eureka registration | Gateway still logged a stale local discovery-cache miss; retained as diagnostic only |
+| 2026-09-23T15:27:42+07:00 | Phát with Codex support | Ran the matrix with an end-to-end gateway routing preflight | Complete; preflight attempt 5 reached the patched visits service and all mandatory observations plus the negative case passed |
+| 2026-09-23T15:32:00+07:00 | Phát with Codex support | Created and provisionally froze `labels.v3.json` before any evaluated-system output was opened | Clean evidence added; decision changed to `pending_review`; SHA-256 `3cc4784c9827f2ac8a034cfe44bbdb838b21ebb7f8a7f9ac49864c70162e2bce` |
 
 ## Evidence disagreements and unresolved items
 
 - No hash mismatch was found.
 - Original patch encoding is a reproducibility defect, not a semantic mismatch. Keep the original hash and document the canonical UTF-8 transcode separately.
-- Historical baseline/mutated files are retained but do not qualify as a clean independent rerun.
-- The proposed negative overload is not a scored negative until baseline and mutated requests show unchanged behavior.
+- Historical baseline/mutated files are retained but do not qualify as the clean independent rerun.
+- The first two new Docker runs exposed service-registration/cache timing problems and are retained as diagnostics rather than used for the gateway causal claim.
+- The proposed negative overload and its endpoint returned the same response in baseline and patched snapshots and are now scored negatives.
 - `PROJECT_CONTEXT.md` exposed the expected candidate path. This creates expectancy bias, so the exercise is not fully blind.
 - Reviewer identity and review decision are unresolved.
 
 ## Decision rationale
 
-`reproduce_required` is used because the mandatory clean runtime matrix and negative behavioral observation could not be executed without a Docker daemon. `accepted` is prohibited until those observations and a different human reviewer's approval are recorded. If runtime becomes complete but review remains outstanding, a later version may use `pending_review`.
+`pending_review` is used because the clean runtime matrix, gateway routing proof and negative behavioral observation are complete, but a different human reviewer has not reviewed the package. `accepted` remains prohibited until that reviewer is named and records approval.
 
 ## Reviewer section
 

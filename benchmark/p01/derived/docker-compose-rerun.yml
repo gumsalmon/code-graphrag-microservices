@@ -1,0 +1,27 @@
+services:
+  config-server:
+    image: p01/config-server:3858f9c
+    environment:
+      SPRING_CLOUD_CONFIG_SERVER_GIT_DEFAULT_LABEL: 323993ce2519c6d02df63e08bf4458d123d3b611
+    ports:
+      - "28888:8888"
+
+  discovery-server:
+    image: p01/discovery-server:3858f9c
+    ports:
+      - "28761:8761"
+
+  customers-service:
+    image: p01/customers-service:3858f9c
+    ports:
+      - "28081:8081"
+
+  visits-service:
+    image: "${P01_VISITS_IMAGE:-p01/visits:baseline-3858f9c}"
+    ports:
+      - "28082:8082"
+
+  api-gateway:
+    image: p01/api-gateway:baseline-3858f9c
+    ports:
+      - "28080:8080"

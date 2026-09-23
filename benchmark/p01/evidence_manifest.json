@@ -121,11 +121,56 @@
       "reason": "Broken PowerShell interpolation leaves reported status/body empty"
     },
     {
-      "evidence_id": "E-RERUN-BLOCKER-001",
+      "evidence_id": "E-RERUN-ATTEMPT-001",
       "kind": "independent_rerun_diagnostic",
       "path": "benchmark/p01/derived/runtime_rerun_attempt.md",
-      "claim": "Docker CLI and Compose are installed but the Docker daemon is unavailable",
-      "result": "reproduce_required"
+      "claim": "The first independent attempt found Docker CLI and Compose installed but the daemon unavailable at that time",
+      "result": "superseded_by_successful_rerun"
+    },
+    {
+      "evidence_id": "E-RUNTIME-ENV-001",
+      "kind": "clean_runtime_environment",
+      "path": "benchmark/p01/raw/rerun-20260923-152742/environment.json",
+      "sha256": "7c9a9b67e3ec232cf43aa2a2d9996623ed39e5831ae86b62c2aa68b99cf3cbc7",
+      "claim": "Records the fixed repository commit, config revision, patch hash, fixture, Docker/Compose versions and immutable image IDs",
+      "quality": "acceptance_eligible"
+    },
+    {
+      "evidence_id": "E-RUNTIME-CLEAN-001",
+      "kind": "clean_runtime_summary",
+      "path": "benchmark/p01/raw/rerun-20260923-152742/summary.json",
+      "line_start": 1,
+      "line_end": 74,
+      "sha256": "a79a3194555f53c21c4a8cb7bdc036fcccdc9899f3168796f718cadbd00f805c",
+      "claim": "Baseline direct/gateway, patched missing/valid parameter, patched gateway and baseline/patched negative observations completed under the fixed fixture",
+      "quality": "acceptance_eligible_pending_review"
+    },
+    {
+      "evidence_id": "E-RUNTIME-ROUTING-001",
+      "kind": "clean_runtime_routing_proof",
+      "paths": [
+        "benchmark/p01/raw/rerun-20260923-152742/commands.log",
+        "benchmark/p01/raw/rerun-20260923-152742/eureka-visits-mutated.json",
+        "benchmark/p01/raw/rerun-20260923-152742/logs/mutated-visits-service.log"
+      ],
+      "sha256": {
+        "commands.log": "55837b411639f4e7bb3ecdaeac2795b2cab83dbefeaab82c7201b9bf623f975c",
+        "eureka-visits-mutated.json": "fb63767eac29de8e4f874395b5712b555ba11cdb9c31d4a0f1a19a259bc9793f",
+        "mutated-visits-service.log": "0a0a0ea7f8bb7fa57e209c2c562b75b56f386f654bb3305ddb75bcf37aa41871"
+      },
+      "claim": "The recreated patched visits instance was UP in Eureka and the gateway discovery preflight reached it on attempt 5, producing the expected missing-parameter exception",
+      "quality": "acceptance_eligible_pending_review"
+    },
+    {
+      "evidence_id": "E-RUNTIME-DERIVED-001",
+      "kind": "derived_runtime_report",
+      "path": "benchmark/p01/derived/runtime_rerun_report.md",
+      "claim": "Summarizes the valid clean run and explicitly excludes two discovery-readiness diagnostics from the gateway causal claim",
+      "inputs": [
+        "benchmark/p01/raw/rerun-20260923-151719/",
+        "benchmark/p01/raw/rerun-20260923-152349/",
+        "benchmark/p01/raw/rerun-20260923-152742/"
+      ]
     }
   ],
   "prohibited_sources_used": false

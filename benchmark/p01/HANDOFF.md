@@ -2,7 +2,7 @@
 
 Task: P01 independent benchmark review
 
-Branch / implementation commit: `Pham_Nguyen_Phat` / `8df54be52432b2b2b01b29f78a35298d2ca7154a`
+Branch: `Pham_Nguyen_Phat`
 
 Protocol version: `0.1` (proposed for Huy review)
 
@@ -19,14 +19,15 @@ Artifact paths:
 - `benchmark/protocol/benchmark_protocol_v0.1.md`
 - `benchmark/p01/scenario.json`
 - `benchmark/p01/labels.v1.json` (superseded, immutable)
-- `benchmark/p01/labels.v2.json` (current provisional freeze)
+- `benchmark/p01/labels.v2.json` (superseded, immutable)
+- `benchmark/p01/labels.v3.json` (current provisional freeze)
 - `benchmark/p01/evidence_manifest.json`
 - `benchmark/p01/review_log.md`
 - `benchmark/p01/checksums.sha256`
 - `benchmark/p01/raw/`
 - `benchmark/p01/derived/`
 
-Rerun command and environment: a clean source checkout and patch apply check were completed. Docker 29.5.3 and Compose v5.1.4 are installed, but the Docker daemon was unavailable. Maven is absent from `PATH`; the repository Maven Wrapper is present. Full diagnostics and the required rerun sequence are in `derived/runtime_rerun_attempt.md`.
+Rerun command and environment: run `scripts/run_p01_runtime.ps1`. Docker 29.5.3 and Compose v5.1.4 executed distinct baseline/patched image IDs. The authoritative raw run is `benchmark/p01/raw/rerun-20260923-152742/`; the concise account is `derived/runtime_rerun_report.md`.
 
 Observations reproduced:
 
@@ -35,19 +36,21 @@ Observations reproduced:
 - patch content and semantic applicability after exact UTF-16LE-to-UTF-8 transcoding;
 - source-level provider/client/controller contracts and two-hop candidate dependency;
 - official Spring `RequestParam` required-parameter contract.
+- clean baseline direct and gateway behavior;
+- patched missing-parameter `400` and valid-parameter `200` behavior;
+- patched gateway `200` with empty visits after proving that the gateway reached the patched provider;
+- unchanged baseline/patched negative overload behavior.
 
 Observations not reproduced:
 
-- clean baseline direct and gateway HTTP observations;
-- clean mutated missing/valid parameter and gateway observations;
-- clean baseline/mutated negative behavioral case.
+- none of the mandatory protocol v0.1 runtime observations.
 
-Label status: `reproduce_required`
+Label status: `pending_review`
 
 Current label checksum and freeze time:
 
-- `labels.v2.json` SHA-256: `910d15049e580bdd193c3ee5b35740e0c164a1a7f9d90640506cd10893408bde`
-- freeze: `2026-09-23T14:52:00+07:00`
+- `labels.v3.json` SHA-256: `3cc4784c9827f2ac8a034cfe44bbdb838b21ebb7f8a7f9ac49864c70162e2bce`
+- freeze: `2026-09-23T15:32:00+07:00`
 
 Annotator: Phát
 
@@ -56,15 +59,13 @@ Reviewer: unassigned; Huy must designate a different eligible human. AI is not a
 Disagreement / unresolved:
 
 - original patch encoding is not directly consumable by `git apply`;
-- mandatory clean runtime evidence is absent;
-- proposed real-repository negative case is not scored until runtime verification;
 - reviewer identity and decision are missing.
 
 Limitations / threats to validity:
 
 - `PROJECT_CONTEXT.md` exposed the expected candidate path, creating expectancy bias;
-- historical runtime files are noisy or incompletely traceable;
+- historical runtime files and two discovery-timing attempts are retained but excluded from the authoritative causal claim;
 - P01 is one synthetic pilot and cannot support a general comparison claim;
 - no parser, Neo4j, GraphRAG, Vector RAG, LLM output or score was used as label evidence.
 
-Proposed next step: Huy assigns an eligible reviewer and provides a Docker-capable environment. Run the matrix in `derived/runtime_rerun_attempt.md`; if evidence changes any label, create `labels.v3.json`, preserve v1/v2 and record a new checksum/review event.
+Proposed next step: Huy assigns an eligible reviewer who verifies provenance, the authoritative runtime matrix, hop counts, repair labels and negative selection. Approval may change the decision to `accepted`; requested corrections must create a new immutable label version rather than editing v3.
