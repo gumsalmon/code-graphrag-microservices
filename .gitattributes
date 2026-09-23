@@ -8,3 +8,5 @@ benchmark/p01/derived/*.yml text eol=lf
 benchmark/p01/raw/** -text
 docs/P01_INTAKE_CONFIRMATION.md text eol=lf
 scripts/run_p01_runtime.ps1 text eol=lf
+scripts/export_p01_benchmark_json.ps1 text eol=lf
+scripts/run_p01_benchmark.ps1 text eol=lf
