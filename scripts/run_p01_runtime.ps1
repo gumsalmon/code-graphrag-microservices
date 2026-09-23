@@ -4,6 +4,7 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
+Add-Type -AssemblyName System.Net.Http
 
 $repositoryRoot = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot "..")).Path
 $composeFile = Join-Path $repositoryRoot "benchmark/p01/derived/docker-compose-rerun.yml"
@@ -38,6 +39,42 @@ function Invoke-DockerCompose {
     }
 }
 
+function Invoke-HttpRequest {
+    param(
+        [string]$Uri,
+        [int]$TimeoutSeconds = 30,
+        [hashtable]$Headers = @{}
+    )
+
+    # System.Net.Http is available in Windows PowerShell 5.1 and PowerShell 7.
+    # This avoids Invoke-WebRequest parameters whose availability differs by version.
+    $client = New-Object System.Net.Http.HttpClient
+    $client.Timeout = [TimeSpan]::FromSeconds($TimeoutSeconds)
+    foreach ($headerName in $Headers.Keys) {
+        $null = $client.DefaultRequestHeaders.TryAddWithoutValidation(
+            [string]$headerName,
+            [string]$Headers[$headerName]
+        )
+    }
+
+    $response = $null
+    try {
+        $response = $client.GetAsync($Uri).GetAwaiter().GetResult()
+        $content = $response.Content.ReadAsStringAsync().GetAwaiter().GetResult()
+        return [pscustomobject]@{
+            StatusCode = [int]$response.StatusCode
+            Content = [string]$content
+            ReasonPhrase = [string]$response.ReasonPhrase
+        }
+    }
+    finally {
+        if ($null -ne $response) {
+            $response.Dispose()
+        }
+        $client.Dispose()
+    }
+}
+
 function Wait-Http {
     param(
         [string]$Uri,
@@ -50,7 +87,7 @@ function Wait-Http {
     $lastObservation = "no response"
     for ($attempt = 1; $attempt -le $Attempts; $attempt++) {
         try {
-            $response = Invoke-WebRequest -Uri $Uri -SkipHttpErrorCheck -TimeoutSec $RequestTimeoutSeconds
+            $response = Invoke-HttpRequest -Uri $Uri -TimeoutSeconds $RequestTimeoutSeconds
             $lastObservation = "HTTP $([int]$response.StatusCode)"
             if ($AcceptedStatus -contains [int]$response.StatusCode) {
                 return $response
@@ -95,7 +132,7 @@ function Wait-EurekaInstance {
     $uri = "http://localhost:28761/eureka/apps/$Application"
     for ($attempt = 1; $attempt -le $Attempts; $attempt++) {
         try {
-            $response = Invoke-WebRequest -Uri $uri -Headers @{ Accept = "application/json" } -SkipHttpErrorCheck -TimeoutSec 10
+            $response = Invoke-HttpRequest -Uri $uri -Headers @{ Accept = "application/json" } -TimeoutSeconds 10
             if ([int]$response.StatusCode -eq 200) {
                 $payload = $response.Content | ConvertFrom-Json
                 foreach ($instance in @($payload.application.instance)) {
@@ -142,7 +179,7 @@ function Wait-GatewayRoutesToMutatedVisits {
     for ($attempt = 1; $attempt -le $Attempts; $attempt++) {
         $beforeCount = Get-ComposeLogMatchCount -Service "visits-service" -Pattern $missingParameterSignal
         try {
-            $response = Invoke-WebRequest -Uri $uri -SkipHttpErrorCheck -TimeoutSec 30
+            $response = Invoke-HttpRequest -Uri $uri -TimeoutSeconds 30
         }
         catch {
             $response = $null
@@ -169,7 +206,7 @@ function Record-Request {
 
     $startedAt = Get-Date -Format "o"
     try {
-        $response = Invoke-WebRequest -Uri $Uri -SkipHttpErrorCheck -TimeoutSec 30
+        $response = Invoke-HttpRequest -Uri $Uri -TimeoutSeconds 30
         $record = [ordered]@{
             id = $Id
             snapshot = $Snapshot

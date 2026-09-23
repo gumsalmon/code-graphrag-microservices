@@ -40,6 +40,19 @@ function Read-JsonFile {
     return Get-Content -Raw -LiteralPath $Path | ConvertFrom-Json
 }
 
+function Get-PortableRelativePath {
+    param(
+        [string]$BasePath,
+        [string]$TargetPath
+    )
+
+    $absoluteBase = [System.IO.Path]::GetFullPath($BasePath).TrimEnd("\", "/") + [System.IO.Path]::DirectorySeparatorChar
+    $absoluteTarget = [System.IO.Path]::GetFullPath($TargetPath)
+    $baseUri = New-Object System.Uri($absoluteBase)
+    $targetUri = New-Object System.Uri($absoluteTarget)
+    return [System.Uri]::UnescapeDataString($baseUri.MakeRelativeUri($targetUri).ToString())
+}
+
 function Convert-ResponseBody {
     param([object]$Observation)
     if (($null -eq $Observation) -or [string]::IsNullOrWhiteSpace([string]$Observation.body)) {
@@ -194,7 +207,7 @@ $candidateLabels = @(
     (New-CandidateLabel -LabelId "P01-API-NEG-001" -Level "api" -EntityId "$repositoryId::visits-service::GET /owners/*/pets/{petId}/visits" -Polarity $negativePolarity -BehavioralImpact $negativeImpact -RequiresCodeChange $(if ($negativeUnchanged) { $false } else { "unresolved" }) -LogicalHop $null -ServiceBoundaryCrossings 0 -Confidence $confidence -ReviewStatus $reviewStatus -Rationale "Rule P01-NEGATIVE: control endpoint remains behaviorally identical." -EvidenceRefs @("runtime.negative_control"))
 )
 
-$relativeRunPath = [System.IO.Path]::GetRelativePath($repositoryRoot, $runRoot).Replace("\", "/")
+$relativeRunPath = Get-PortableRelativePath -BasePath $repositoryRoot -TargetPath $runRoot
 $result = [ordered]@{
     schema_version = "0.1.0"
     result_kind = "automated_benchmark_observation_and_candidate_labels"
@@ -268,11 +281,10 @@ $result = [ordered]@{
 
 $result | ConvertTo-Json -Depth 30 | Set-Content -LiteralPath $OutputPath -Encoding utf8
 $outputHash = (Get-FileHash -Algorithm SHA256 -LiteralPath $OutputPath).Hash.ToLower()
-$relativeOutputPath = [System.IO.Path]::GetRelativePath($repositoryRoot, (Resolve-Path -LiteralPath $OutputPath).Path).Replace("\", "/")
+$relativeOutputPath = Get-PortableRelativePath -BasePath $repositoryRoot -TargetPath (Resolve-Path -LiteralPath $OutputPath).Path
 $checksumPath = "$OutputPath.sha256"
 "$outputHash  $relativeOutputPath" | Set-Content -LiteralPath $checksumPath -Encoding utf8
 
 Write-Output "Benchmark JSON: $OutputPath"
 Write-Output "SHA-256: $outputHash"
 Write-Output "Decision: $auditDecision"
-
