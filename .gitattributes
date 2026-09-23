@@ -1,0 +1,8 @@
+.gitattributes text eol=lf
+benchmark/protocol/*.md text eol=lf
+benchmark/p01/*.json text eol=lf
+benchmark/p01/*.md text eol=lf
+benchmark/p01/*.sha256 text eol=lf
+benchmark/p01/derived/*.md text eol=lf
+benchmark/p01/raw/** -text
+docs/P01_INTAKE_CONFIRMATION.md text eol=lf
