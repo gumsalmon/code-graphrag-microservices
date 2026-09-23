@@ -43,23 +43,26 @@ function Wait-Http {
         [string]$Uri,
         [int[]]$AcceptedStatus = @(200),
         [int]$Attempts = 80,
-        [int]$DelaySeconds = 3
+        [int]$DelaySeconds = 3,
+        [int]$RequestTimeoutSeconds = 10
     )
 
+    $lastObservation = "no response"
     for ($attempt = 1; $attempt -le $Attempts; $attempt++) {
         try {
-            $response = Invoke-WebRequest -Uri $Uri -SkipHttpErrorCheck -TimeoutSec 10
+            $response = Invoke-WebRequest -Uri $Uri -SkipHttpErrorCheck -TimeoutSec $RequestTimeoutSeconds
+            $lastObservation = "HTTP $([int]$response.StatusCode)"
             if ($AcceptedStatus -contains [int]$response.StatusCode) {
                 return $response
             }
         }
         catch {
-            # Startup connection failures are expected while the service is becoming ready.
+            $lastObservation = $_.Exception.Message
         }
         Start-Sleep -Seconds $DelaySeconds
     }
 
-    throw "Timed out waiting for $Uri with status in $($AcceptedStatus -join ',')"
+    throw "Timed out waiting for $Uri with status in $($AcceptedStatus -join ','). Last observation: $lastObservation"
 }
 
 function Get-ComposeServiceIp {
@@ -247,7 +250,9 @@ try {
 
     $env:P01_VISITS_IMAGE = $baselineVisitsImage
     Invoke-DockerCompose -Arguments @("up", "-d", "config-server")
-    $configResponse = Wait-Http -Uri "http://localhost:28888/api-gateway/docker"
+    # The first config request may clone the remote config repository, so it needs
+    # a longer per-request timeout than ordinary local readiness probes.
+    $configResponse = Wait-Http -Uri "http://localhost:28888/api-gateway/docker" -Attempts 12 -DelaySeconds 5 -RequestTimeoutSeconds 60
     $configPayload = $configResponse.Content | ConvertFrom-Json
     if ($configPayload.version -ne $expectedConfigRevision) {
         throw "Config revision mismatch. Expected=$expectedConfigRevision Actual=$($configPayload.version)"
@@ -305,6 +310,27 @@ try {
     }
     $summary | ConvertTo-Json -Depth 12 | Set-Content -LiteralPath (Join-Path $OutputRoot "summary.json") -Encoding utf8
     Write-Output "P01 runtime evidence: $OutputRoot"
+}
+catch {
+    $failure = [ordered]@{
+        failed_at = Get-Date -Format "o"
+        error = $_.Exception.Message
+        script = "scripts/run_p01_runtime.ps1"
+        output_root = $OutputRoot
+    }
+    $failure | ConvertTo-Json -Depth 8 | Set-Content -LiteralPath (Join-Path $OutputRoot "failure.json") -Encoding utf8
+
+    try {
+        Save-ComposeLogs -Snapshot "failure"
+        & docker compose -p $projectName -f $composeFile ps -a --format json |
+            Set-Content -LiteralPath (Join-Path $OutputRoot "failure-compose-ps.jsonl") -Encoding utf8
+        Write-CommandRecord -Command "docker compose ps -a --format json (failure)" -ExitCode $LASTEXITCODE
+    }
+    catch {
+        Write-Warning "Could not save complete failure diagnostics: $($_.Exception.Message)"
+    }
+
+    throw
 }
 finally {
     if (-not $KeepRunning) {
