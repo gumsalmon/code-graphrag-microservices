@@ -231,6 +231,8 @@ def assert_acceptance(graph: dict, observed: dict, result: dict, expected: dict,
         method_id = expected[f"hop{hop}"]
         if method_id not in found or found[method_id]["hop"] != hop:
             raise VerificationError(f"Expected technical path missing at hop {hop}: {method_id}")
+        if found[method_id]["service_boundary_crossings"] != 1:
+            raise VerificationError(f"Expected one service crossing at hop {hop}: {method_id}")
         checks.append(f"Hop {hop}: {method_id}")
     endpoint = next((ep for ep in graph["endpoints"] if ep["handler_id"] == expected["seed_id"]), None)
     if endpoint is None:
@@ -313,6 +315,10 @@ def verify(args: argparse.Namespace) -> Path:
                 raise VerificationError("Explicit Cypher must equal the freshly generated Cypher")
         content = cypher.read_text(encoding="utf-8")
         statement_count = len(split_cypher(content))
+        print(json.dumps({"snapshot": args.snapshot, "source": provenance,
+                          "json_path": str(run_dir / "parser-output.json"),
+                          "json_sha256": digest(run_dir / "parser-output.json"),
+                          "cypher_path": str(cypher), "cypher_sha256": digest(cypher)}, ensure_ascii=False))
         container_name, container_id, uri, password = start_container(run_id, commands)
         driver = connect(uri, password)
         try:
@@ -337,7 +343,7 @@ def verify(args: argparse.Namespace) -> Path:
             write_json(run_dir / "environment.json", {
                 "run_id": run_id, "created_utc": datetime.now(timezone.utc).isoformat(),
                 "python": platform.python_version(),
-                "dependencies": {name: importlib.metadata.version(name) for name in ("tree-sitter", "tree-sitter-java", "neo4j", "pytest")},
+                "dependencies": {name: importlib.metadata.version(name) for name in ("tree-sitter", "tree-sitter-java", "tree-sitter-go", "chromadb", "neo4j", "pytest")},
                 "docker_client": command(["docker", "version", "--format", "{{.Client.Version}}"], commands),
                 "docker_server": command(["docker", "version", "--format", "{{.Server.Version}}"], commands),
                 "neo4j_image": IMAGE,

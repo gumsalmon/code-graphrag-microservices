@@ -1,6 +1,14 @@
 # P01 verification runs
 
-Final runs from the current verifier:
+Current acceptance run:
+
+- [suite-20260923T133049Z-e771f084](suite-20260923T133049Z-e771f084/summary.md):
+  46 passed, no failures or skips; includes positive baseline/mutated runs,
+  actual subprocess failure exits, and full environment information.
+- Baseline: `suite-20260923T133049Z-e771f084/cases/live-success/20260923T133203Z-baseline-3b86f919`.
+- Mutated: `suite-20260923T133049Z-e771f084/cases/live-success/20260923T133222Z-mutated-ab144353`.
+
+Previous successful runs, retained as historical evidence:
 
 - `20260923T131444Z-baseline-32973281`: PASS, baseline.
 - `20260923T131524Z-mutated-a461c01c`: PASS, mutated.

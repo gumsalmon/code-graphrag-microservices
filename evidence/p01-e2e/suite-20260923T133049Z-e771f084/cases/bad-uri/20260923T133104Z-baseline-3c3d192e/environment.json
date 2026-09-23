@@ -1,0 +1,8 @@
+{
+  "run_id": "20260923T133104Z-baseline-3c3d192e",
+  "snapshot_kind": "baseline",
+  "source_root": "C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-petclinic-3858f9c",
+  "status": "failed",
+  "error_type": "VerificationError",
+  "error": "Neo4j connection failed at bolt://127.0.0.1:59285: Couldn't connect to 127.0.0.1:59285 (resolved to ('127.0.0.1:59285',)):\nFailed to establish connection to ResolvedIPv4Address(('127.0.0.1', 59285)) (reason [WinError 10061] No connection could be made because the target machine actively refused it)"
+}

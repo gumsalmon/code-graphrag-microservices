@@ -1,0 +1,8 @@
+{
+  "run_id": "20260923T133129Z-baseline-0d919f0d",
+  "snapshot_kind": "baseline",
+  "source_root": "C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-petclinic-3858f9c",
+  "status": "failed",
+  "error_type": "VerificationError",
+  "error": "Neo4j Python driver is missing"
+}

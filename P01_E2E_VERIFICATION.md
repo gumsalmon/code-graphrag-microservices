@@ -27,6 +27,9 @@ python verify_neo4j_live.py --snapshot baseline --source-root $petclinicRoot
 python verify_neo4j_live.py --snapshot mutated --source-root $petclinicRoot
 $env:P01_SOURCE_ROOT = $petclinicRoot
 python -m pytest tests/test_verify_neo4j_live.py -q
+python tools/run_p01_acceptance.py --source-root $petclinicRoot
+python tools/verify_p01_checksums.py
+python tools/verify_p01_checksums.py --git-ref HEAD
 ```
 
 Each run prints `PASS` with an evidence directory and exits 0, or prints
@@ -59,10 +62,30 @@ The run also checks an empty starting database, import idempotence, full
 method/dependency-edge parity between fresh parser JSON and Neo4j, seed
 exclusion, and exactly one service crossing on both accepted paths.
 
-## Known unrelated test limitation
+## Acceptance results and dependency correction
 
-The repository's pinned `tree-sitter==0.24.0` and `tree-sitter-go==0.25.0`
-are incompatible at runtime (Go language ABI 15 exceeds the Python binding's
-supported ABI 14). Nine existing Go-parser-related tests fail in a clean
-venv using `requirements.txt`; this follow-up does not change those
-dependencies or the out-of-scope parser, ChromaDB, gRPC, or benchmark code.
+The original `tree-sitter==0.24.0` pin could not load Go language ABI 15 from
+`tree-sitter-go==0.25.0`. Updating only the binding pin to `0.25.2` resolves
+those nine test failures; parser, ChromaDB, gRPC and benchmark code are unchanged.
+
+The full suite now passes: **46 passed, 0 failed, 0 skipped**. The durable
+[suite report](evidence/p01-e2e/suite-20260923T133049Z-e771f084/summary.md)
+links the raw log, JUnit output, exact command, versions, exit code and hashes.
+Both positive E2E snapshots and subprocess failure artifacts are under its
+`cases/` directory. The failure harness is test-only: it supplies a non-listening
+URI, waits for Neo4j readiness then uses bad credentials, blocks the driver import
+with an import hook, or appends malformed/runtime-error Cypher after valid
+generated statements. It calls the production CLI entry function in a separate
+Python process and checks the actual process exit code and original error.
+
+`.gitattributes` disables line-ending conversion for evidence so SHA-256 hashes
+describe the same bytes on disk and in Git. Earlier raw runs have been retained;
+their original Windows bytes were restored to the index without recomputing
+their checksums. `tools/verify_p01_checksums.py --git-ref HEAD` verifies the
+committed blobs directly rather than relying on a particular checkout setting.
+
+This closes technical graph-path verification for the tracked baseline/mutated
+fixtures. Equivalence to Huy's independent runtime mutation patch remains
+unverified because that artifact was not available in the local project,
+downloaded task documents or the inspected `origin/main` file inventory.
+No runtime behavioral claim or benchmark ground-truth claim is made.

@@ -1,0 +1,8 @@
+{
+  "run_id": "20260923T133114Z-baseline-45a054c6",
+  "snapshot_kind": "baseline",
+  "source_root": "C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-petclinic-3858f9c",
+  "status": "failed",
+  "error_type": "VerificationError",
+  "error": "Neo4j connection failed at bolt://127.0.0.1:53818: {code: Neo.ClientError.Security.Unauthorized} {message: The client is unauthorized due to authentication failure.}"
+}

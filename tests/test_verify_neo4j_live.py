@@ -6,6 +6,7 @@ import builtins
 import json
 import os
 from pathlib import Path
+import shutil
 import subprocess
 import sys
 import uuid
@@ -16,6 +17,19 @@ import verify_neo4j_live as verifier
 
 
 SOURCE_ROOT = os.environ.get("P01_SOURCE_ROOT")
+
+
+def evidence_root(tmp_path, name):
+    root = Path(os.environ.get("P01_TEST_EVIDENCE_ROOT", str(tmp_path))) / name
+    root.mkdir(parents=True, exist_ok=True)
+    return root
+
+
+def record_process(root, process):
+    verifier.write_json(root / "process-result.json", {
+        "command": process.args, "exit_code": process.returncode,
+        "stdout": process.stdout, "stderr": process.stderr,
+    })
 
 
 def test_comment_before_statement_is_preserved():
@@ -82,28 +96,66 @@ def test_bad_uri_fails_connectivity():
         verifier.connect("bolt://127.0.0.1:1", "invalid", timeout=1)
 
 
-@pytest.mark.parametrize("stage", ["connection", "import", "Cypher"])
-def test_stage_failure_maps_to_nonzero_exit(monkeypatch, tmp_path, capsys, stage):
-    def fail(_args):
-        raise verifier.VerificationError(f"{stage} failed")
+def test_missing_cli_arguments_nonzero(tmp_path):
+    root = evidence_root(tmp_path, "no-input")
+    process = subprocess.run([sys.executable, str(verifier.ROOT / "verify_neo4j_live.py")],
+                             capture_output=True, text=True)
+    record_process(root, process)
+    assert process.returncode == 2
 
-    monkeypatch.setattr(verifier, "verify", fail)
-    code = verifier.main(["--snapshot", "baseline", "--source-root", str(tmp_path)])
-    assert code != 0
-    assert f"{stage} failed" in capsys.readouterr().err
+
+def test_git_preserves_evidence_bytes(tmp_path):
+    shutil.copyfile(verifier.ROOT / ".gitattributes", tmp_path / ".gitattributes")
+    artifact = tmp_path / "evidence" / "probe.json"
+    artifact.parent.mkdir()
+    content = b'{"probe": true}\r\n'
+    artifact.write_bytes(content)
+    for args in (["init", "-q"], ["config", "core.autocrlf", "true"], ["add", "."]):
+        subprocess.run(["git", "-C", str(tmp_path), *args], check=True, capture_output=True)
+    committed = subprocess.check_output(["git", "-C", str(tmp_path), "show", ":evidence/probe.json"])
+    assert committed == content
+
+
+@pytest.mark.skipif(not SOURCE_ROOT, reason="Set P01_SOURCE_ROOT for real subprocess faults")
+@pytest.mark.parametrize("mode,error", [
+    ("bad-uri", "connection failed"),
+    ("bad-credentials", "Unauthorized"),
+    ("missing-driver", "driver is missing"),
+    ("malformed-cypher", "SyntaxError"),
+    ("import-error", "ArithmeticError"),
+])
+def test_real_fault_process_exits_nonzero(tmp_path, mode, error):
+    root = evidence_root(tmp_path, mode)
+    process = subprocess.run(
+        [sys.executable, str(Path(__file__).with_name("p01_fault_process.py")), mode,
+         "--snapshot", "baseline", "--source-root", SOURCE_ROOT, "--output-root", str(root)],
+        capture_output=True, text=True, timeout=240)
+    record_process(root, process)
+    assert process.returncode == 1, process.stderr
+    assert error in process.stderr, process.stderr
+    run = next(root.glob("*-baseline-*"))
+    commands = json.loads((run / "commands.log").read_text(encoding="utf-8"))
+    assert commands[0]["exit_code"] == 1
+    if mode in ("malformed-cypher", "import-error"):
+        statements = json.loads((run / "import.log").read_text(encoding="utf-8"))
+        assert any(row["status"] == "ok" for row in statements)
+        assert statements[-1]["status"] == "failed"
 
 
 @pytest.mark.skipif(not SOURCE_ROOT, reason="Set P01_SOURCE_ROOT to the clean PetClinic checkout for live E2E")
 def test_baseline_and_mutated_live_paths_are_isolated(tmp_path):
     results = {}
+    root = evidence_root(tmp_path, "live-success")
     for snapshot in ("baseline", "mutated"):
         process = subprocess.run(
             [sys.executable, str(verifier.ROOT / "verify_neo4j_live.py"),
              "--snapshot", snapshot, "--source-root", SOURCE_ROOT,
-             "--output-root", str(tmp_path / "runs")], capture_output=True, text=True,
+             "--output-root", str(root)], capture_output=True, text=True,
             timeout=240)
         assert process.returncode == 0, process.stderr
-        run_dir = next((tmp_path / "runs").glob(f"*-{snapshot}-*"))
+        run_dir = next(root.glob(f"*-{snapshot}-*"))
+        record_process(run_dir, process)
+        verifier.checksums(run_dir)
         results[snapshot] = {
             "query": json.loads((run_dir / "query-result.json").read_text(encoding="utf-8")),
             "graph": json.loads((run_dir / "parser-output.json").read_text(encoding="utf-8")),

@@ -1,4 +1,4 @@
-tree-sitter==0.24.0
+tree-sitter==0.25.2
 tree-sitter-java==0.23.5
 tree-sitter-go==0.25.0
 chromadb==1.5.9
