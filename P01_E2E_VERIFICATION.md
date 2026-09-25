@@ -85,7 +85,23 @@ their checksums. `tools/verify_p01_checksums.py --git-ref HEAD` verifies the
 committed blobs directly rather than relying on a particular checkout setting.
 
 This closes technical graph-path verification for the tracked baseline/mutated
-fixtures. Equivalence to Huy's independent runtime mutation patch remains
-unverified because that artifact was not available in the local project,
-downloaded task documents or the inspected `origin/main` file inventory.
+fixtures. On 2026-09-25, Huy reported that he independently compared our patch
+with Phát's benchmark patch and confirmed the method changes are equivalent in
+content. This records Huy's review conclusion; we have not repeated that
+comparison or received the benchmark patch's SHA-256.
 No runtime behavioral claim or benchmark ground-truth claim is made.
+
+## Review follow-up: reject unexpected impacted methods
+
+The verifier now requires exact equality between the returned impact set and
+the snapshot's technical acceptance IDs, and rejects duplicates. Previously it
+only checked that the two expected methods were present, so a third, incorrect
+method could slip through. Expected IDs remain in the acceptance fixture.
+
+Regression tests exercise both baseline and mutated snapshots with an extra
+`VisitResource#read(int)` and an unrelated method. Live subprocess tests add a
+deliberately wrong `CALLS` edge from the existing `read(int)` overload to the
+seed inside the disposable Neo4j container, then run the real traversal. The
+query returns three methods and the verifier must exit 1 with an explicit
+`Impact set mismatch` error. Raw query results are retained even when acceptance
+fails, so reviewers can inspect the extra method rather than just a failure flag.

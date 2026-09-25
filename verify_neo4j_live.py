@@ -227,6 +227,14 @@ def assert_acceptance(graph: dict, observed: dict, result: dict, expected: dict,
         raise VerificationError("Seed appears in impact set")
     checks.append("Seed excluded")
     found = {item["method_id"]: item for item in result["impacted_methods"]}
+    expected_ids = {expected["hop1"], expected["hop2"]}
+    if set(found) != expected_ids:
+        raise VerificationError(
+            f"Impact set mismatch: unexpected={sorted(set(found) - expected_ids)}, "
+            f"missing={sorted(expected_ids - set(found))}")
+    if len(found) != len(result["impacted_methods"]):
+        raise VerificationError("Impact set contains duplicate method IDs")
+    checks.append("Impact set exactly matches acceptance fixture")
     for hop in (1, 2):
         method_id = expected[f"hop{hop}"]
         if method_id not in found or found[method_id]["hop"] != hop:
@@ -335,11 +343,11 @@ def verify(args: argparse.Namespace) -> Path:
                 raise VerificationError("Repeat import changed graph inventory")
             result = query_impact(driver, expected["seed_id"])
             checks = ["Dedicated container empty before import", "Repeat import idempotent"]
-            checks += assert_acceptance(graph, second, result, expected, args.snapshot)
             result.update({"snapshot_kind": args.snapshot, "run_id": run_id,
                            "container_id": container_id, "inventory_before": empty,
                            "inventory_after": second, "source": "Neo4j Bolt query"})
             write_json(run_dir / "query-result.json", result)
+            checks += assert_acceptance(graph, second, result, expected, args.snapshot)
             write_json(run_dir / "environment.json", {
                 "run_id": run_id, "created_utc": datetime.now(timezone.utc).isoformat(),
                 "python": platform.python_version(),

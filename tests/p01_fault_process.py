@@ -45,6 +45,17 @@ elif mode in ("malformed-cypher", "import-error"):
             stream.write("\n// Deliberate fault from test harness\n" + fault + "\n")
         return graph
     verifier.build_artifacts = build
+elif mode == "extra-overload":
+    real_query = verifier.query_impact
+    def query(driver, seed):
+        wrong = "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(int)"
+        # Corrupt the isolated graph just before traversal; query_impact still
+        # executes its real Cypher and must return this unwanted extra caller.
+        with driver.session(database="neo4j") as session:
+            session.run("MATCH (a:Method {id:$wrong}), (b:Method {id:$seed}) "
+                        "CREATE (a)-[:CALLS]->(b)", wrong=wrong, seed=seed).consume()
+        return real_query(driver, seed)
+    verifier.query_impact = query
 else:
     raise ValueError(mode)
 

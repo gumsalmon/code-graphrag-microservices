@@ -19,6 +19,43 @@ import verify_neo4j_live as verifier
 SOURCE_ROOT = os.environ.get("P01_SOURCE_ROOT")
 
 
+@pytest.mark.parametrize("snapshot", ["baseline", "mutated"])
+@pytest.mark.parametrize("extra", [None, "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(int)",
+                                  "other-service::example.Unrelated#run()"])
+def test_acceptance_rejects_extra_methods(snapshot, extra):
+    expected = json.loads((verifier.ROOT / "tests/fixtures/p01_graph_path_expectation.json").read_text())["expectations"][snapshot]
+    graph = {"nodes": [], "edges": [], "endpoints": [{"handler_id": expected["seed_id"],
+             "query_parameters": [{"name": "includeDetails", "effective_required": True}] if snapshot == "mutated" else []}]}
+    observed = {"methods": [], "edges": []}
+    result = {"seed_excluded": True, "impacted_methods": [
+        {"method_id": expected[f"hop{hop}"], "hop": hop, "service_boundary_crossings": 1} for hop in (1, 2)]}
+    if extra:
+        result["impacted_methods"].append({"method_id": extra, "hop": 1, "service_boundary_crossings": 0})
+        with pytest.raises(verifier.VerificationError, match="Impact set mismatch") as exc:
+            verifier.assert_acceptance(graph, observed, result, expected, snapshot)
+        assert extra in str(exc.value)
+    else:
+        verifier.assert_acceptance(graph, observed, result, expected, snapshot)
+
+
+@pytest.mark.skipif(not SOURCE_ROOT, reason="Set P01_SOURCE_ROOT for live extra-overload rejection")
+@pytest.mark.parametrize("snapshot", ["baseline", "mutated"])
+def test_extra_overload_from_live_traversal_exits_nonzero(tmp_path, snapshot):
+    root = evidence_root(tmp_path, f"extra-overload-{snapshot}")
+    process = subprocess.run(
+        [sys.executable, str(Path(__file__).with_name("p01_fault_process.py")), "extra-overload",
+         "--snapshot", snapshot, "--source-root", SOURCE_ROOT, "--output-root", str(root)],
+        capture_output=True, text=True, timeout=240)
+    record_process(root, process)
+    assert process.returncode == 1, process.stderr
+    assert "Impact set mismatch" in process.stderr
+    assert "VisitResource#read(int)" in process.stderr
+    run = next(root.glob(f"*-{snapshot}-*"))
+    query = json.loads((run / "query-result.json").read_text(encoding="utf-8"))
+    assert len(query["impacted_methods"]) == 3
+    assert any(row["method_id"].endswith("VisitResource#read(int)") for row in query["impacted_methods"])
+
+
 def evidence_root(tmp_path, name):
     root = Path(os.environ.get("P01_TEST_EVIDENCE_ROOT", str(tmp_path))) / name
     root.mkdir(parents=True, exist_ok=True)

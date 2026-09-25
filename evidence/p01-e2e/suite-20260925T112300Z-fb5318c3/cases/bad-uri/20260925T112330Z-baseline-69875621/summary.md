@@ -1,0 +1,5 @@
+# P01 graph E2E: baseline
+
+Status: failed. VerificationError: Command failed (1): docker run --rm --detach --name p01-e2e-20260925T112330Z-baseline-69875621 --label code-graphrag.p01-e2e.run-id=20260925T112330Z-baseline-69875621 --publish 127.0.0.1::7687 --env NEO4J_AUTH neo4j:5.26.0: failed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine; check if the path is correct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.
+
+Raw artifacts: [environment](environment.json), [commands](commands.log), [import log](import.log), [checks](test-results.log), [checksums](checksums.sha256).

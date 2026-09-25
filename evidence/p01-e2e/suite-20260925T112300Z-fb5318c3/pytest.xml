@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="9" skipped="0" tests="54" time="34.825" timestamp="2026-09-25T18:23:01.141853+07:00" hostname="MeoU"><testcase classname="tests.test_benchmark_runner" name="test_benchmark_runner_scenarios" time="2.836" /><testcase classname="tests.test_benchmark_runner" name="test_benchmark_runner_execution" time="11.836" /><testcase classname="tests.test_chroma_baseline" name="test_ast_code_chunker_visit_resource" time="0.002" /><testcase classname="tests.test_chroma_baseline" name="test_ast_code_chunker_api_gateway" time="0.002" /><testcase classname="tests.test_chroma_baseline" name="test_chroma_indexing_and_query" time="3.987" /><testcase classname="tests.test_chroma_baseline" name="test_ast_code_chunker_go_and_proto" time="0.008" /><testcase classname="tests.test_output_integrity" name="test_json_files_syntax_and_schema_cleanliness" time="0.089" /><testcase classname="tests.test_output_integrity" name="test_mutated_graphs_provenance_separation" time="0.001" /><testcase classname="tests.test_output_integrity" name="test_full_benchmark_results_structure" time="0.001" /><testcase classname="tests.test_output_integrity" name="test_graph_referential_integrity" time="0.003" /><testcase classname="tests.test_output_integrity" name="test_cypher_files_validity" time="0.064" /><testcase classname="tests.test_output_integrity" name="test_decision_log_and_requirements" time="0.017" /><testcase classname="tests.test_parser" name="test_path_normalization" time="0.001" /><testcase classname="tests.test_parser" name="test_baseline_graph_generation" time="0.004" /><testcase classname="tests.test_parser" name="test_mutated_graph_detects_missing_parameter" time="0.021" /><testcase classname="tests.test_parser" name="test_2hop_chain_and_calls_edge" time="0.006" /><testcase classname="tests.test_parser" name="test_backward_impact_trace_2hop" time="0.006" /><testcase classname="tests.test_parser" name="test_cypher_generation" time="0.006" /><testcase classname="tests.test_parser" name="test_negative_fixture_different_http_method" time="0.011" /><testcase classname="tests.test_parser" name="test_negative_fixture_different_service" time="0.011" /><testcase classname="tests.test_parser" name="test_negative_fixture_dynamic_uri_unresolved" time="0.011" /><testcase classname="tests.test_parser" name="test_deterministic_output" time="0.007" /><testcase classname="tests.test_parser" name="test_full_petclinic_multi_service_graph" time="0.013" /><testcase classname="tests.test_parser" name="test_calls_edge_method_overload_resolution" time="0.022" /><testcase classname="tests.test_proto_parser" name="test_proto_parser_services_extraction" time="0.001" /><testcase classname="tests.test_proto_parser" name="test_online_boutique_grpc_graph_generation" time="0.008" /><testcase classname="tests.test_proto_parser" name="test_go_ast_parser_multiline_call" time="0.009" /><testcase classname="tests.test_verify_neo4j_live" name="test_acceptance_rejects_extra_methods[None-baseline]" time="0.002" /><testcase classname="tests.test_verify_neo4j_live" name="test_acceptance_rejects_extra_methods[None-mutated]" time="0.002" /><testcase classname="tests.test_verify_neo4j_live" name="test_acceptance_rejects_extra_methods[visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(int)-baseline]" time="0.002" /><testcase classname="tests.test_verify_neo4j_live" name="test_acceptance_rejects_extra_methods[visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(int)-mutated]" time="0.002" /><testcase classname="tests.test_verify_neo4j_live" name="test_acceptance_rejects_extra_methods[other-service::example.Unrelated#run()-baseline]" time="0.002" /><testcase classname="tests.test_verify_neo4j_live" name="test_acceptance_rejects_extra_methods[other-service::example.Unrelated#run()-mutated]" time="0.002" /><testcase classname="tests.test_verify_neo4j_live" name="test_extra_overload_from_live_traversal_exits_nonzero[baseline]" time="1.208"><failure message="AssertionError: assert 'Impact set mismatch' in 'FAIL baseline: VerificationError: Command failed (1): docker run --rm --detach --name p01-e2e-20260925T112321Z-baseli...ect and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n'&#10; +  where 'FAIL baseline: VerificationError: Command failed (1): docker run --rm --detach --name p01-e2e-20260925T112321Z-baseli...ect and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n' = CompletedProcess(args=['C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-e2e-venv\\Scripts\\python.exe', 'D:\\Project...ct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n').stderr">tmp_path = WindowsPath('C:/Users/hieng/AppData/Local/Temp/pytest-of-hieng/pytest-5/test_extra_overload_from_live_0')
+snapshot = 'baseline'
+
+    @pytest.mark.skipif(not SOURCE_ROOT, reason="Set P01_SOURCE_ROOT for live extra-overload rejection")
+    @pytest.mark.parametrize("snapshot", ["baseline", "mutated"])
+    def test_extra_overload_from_live_traversal_exits_nonzero(tmp_path, snapshot):
+        root = evidence_root(tmp_path, f"extra-overload-{snapshot}")
+        process = subprocess.run(
+            [sys.executable, str(Path(__file__).with_name("p01_fault_process.py")), "extra-overload",
+             "--snapshot", snapshot, "--source-root", SOURCE_ROOT, "--output-root", str(root)],
+            capture_output=True, text=True, timeout=240)
+        record_process(root, process)
+        assert process.returncode == 1, process.stderr
+&gt;       assert "Impact set mismatch" in process.stderr
+E       AssertionError: assert 'Impact set mismatch' in 'FAIL baseline: VerificationError: Command failed (1): docker run --rm --detach --name p01-e2e-20260925T112321Z-baseli...ect and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n'
+E        +  where 'FAIL baseline: VerificationError: Command failed (1): docker run --rm --detach --name p01-e2e-20260925T112321Z-baseli...ect and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n' = CompletedProcess(args=['C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-e2e-venv\\Scripts\\python.exe', 'D:\\Project...ct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n').stderr
+
+tests\test_verify_neo4j_live.py:51: AssertionError</failure></testcase><testcase classname="tests.test_verify_neo4j_live" name="test_extra_overload_from_live_traversal_exits_nonzero[mutated]" time="1.030"><failure message="AssertionError: assert 'Impact set mismatch' in 'FAIL mutated: VerificationError: Command failed (1): docker run --rm --detach --name p01-e2e-20260925T112323Z-mutated...ect and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n'&#10; +  where 'FAIL mutated: VerificationError: Command failed (1): docker run --rm --detach --name p01-e2e-20260925T112323Z-mutated...ect and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n' = CompletedProcess(args=['C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-e2e-venv\\Scripts\\python.exe', 'D:\\Project...ct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n').stderr">tmp_path = WindowsPath('C:/Users/hieng/AppData/Local/Temp/pytest-of-hieng/pytest-5/test_extra_overload_from_live_1')
+snapshot = 'mutated'
+
+    @pytest.mark.skipif(not SOURCE_ROOT, reason="Set P01_SOURCE_ROOT for live extra-overload rejection")
+    @pytest.mark.parametrize("snapshot", ["baseline", "mutated"])
+    def test_extra_overload_from_live_traversal_exits_nonzero(tmp_path, snapshot):
+        root = evidence_root(tmp_path, f"extra-overload-{snapshot}")
+        process = subprocess.run(
+            [sys.executable, str(Path(__file__).with_name("p01_fault_process.py")), "extra-overload",
+             "--snapshot", snapshot, "--source-root", SOURCE_ROOT, "--output-root", str(root)],
+            capture_output=True, text=True, timeout=240)
+        record_process(root, process)
+        assert process.returncode == 1, process.stderr
+&gt;       assert "Impact set mismatch" in process.stderr
+E       AssertionError: assert 'Impact set mismatch' in 'FAIL mutated: VerificationError: Command failed (1): docker run --rm --detach --name p01-e2e-20260925T112323Z-mutated...ect and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n'
+E        +  where 'FAIL mutated: VerificationError: Command failed (1): docker run --rm --detach --name p01-e2e-20260925T112323Z-mutated...ect and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n' = CompletedProcess(args=['C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-e2e-venv\\Scripts\\python.exe', 'D:\\Project...ct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n').stderr
+
+tests\test_verify_neo4j_live.py:51: AssertionError</failure></testcase><testcase classname="tests.test_verify_neo4j_live" name="test_comment_before_statement_is_preserved" time="0.004" /><testcase classname="tests.test_verify_neo4j_live" name="test_empty_or_incomplete_cypher_fails[]" time="0.001" /><testcase classname="tests.test_verify_neo4j_live" name="test_empty_or_incomplete_cypher_fails[// only comment\n]" time="0.002" /><testcase classname="tests.test_verify_neo4j_live" name="test_empty_or_incomplete_cypher_fails[RETURN 1]" time="0.001" /><testcase classname="tests.test_verify_neo4j_live" name="test_empty_or_incomplete_cypher_fails[RETURN 'unclosed;]" time="0.001" /><testcase classname="tests.test_verify_neo4j_live" name="test_statement_error_fails_import" time="0.007" /><testcase classname="tests.test_verify_neo4j_live" name="test_missing_driver_fails" time="0.005" /><testcase classname="tests.test_verify_neo4j_live" name="test_missing_source_returns_nonzero" time="0.674" /><testcase classname="tests.test_verify_neo4j_live" name="test_bad_uri_fails_connectivity" time="4.034" /><testcase classname="tests.test_verify_neo4j_live" name="test_missing_cli_arguments_nonzero" time="0.581" /><testcase classname="tests.test_verify_neo4j_live" name="test_git_preserves_evidence_bytes" time="0.182" /><testcase classname="tests.test_verify_neo4j_live" name="test_real_fault_process_exits_nonzero[bad-uri-connection failed]" time="0.881"><failure message="AssertionError: FAIL baseline: VerificationError: Command failed (1): docker run --rm --detach --name p01-e2e-20260925T112330Z-baseline-69875621 --label code-graphrag.p01-e2e.run-id=20260925T112330Z-baseline-69875621 --publish 127.0.0.1::7687 --env NEO4J_AUTH neo4j:5.26.0: failed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine; check if the path is correct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.&#10;  &#10;assert 'connection failed' in 'FAIL baseline: VerificationError: Command failed (1): docker run --rm --detach --name p01-e2e-20260925T112330Z-baseli...ect and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n'&#10; +  where 'FAIL baseline: VerificationError: Command failed (1): docker run --rm --detach --name p01-e2e-20260925T112330Z-baseli...ect and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n' = CompletedProcess(args=['C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-e2e-venv\\Scripts\\python.exe', 'D:\\Project...ct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n').stderr">tmp_path = WindowsPath('C:/Users/hieng/AppData/Local/Temp/pytest-of-hieng/pytest-5/test_real_fault_process_exits_0')
+mode = 'bad-uri', error = 'connection failed'
+
+    @pytest.mark.skipif(not SOURCE_ROOT, reason="Set P01_SOURCE_ROOT for real subprocess faults")
+    @pytest.mark.parametrize("mode,error", [
+        ("bad-uri", "connection failed"),
+        ("bad-credentials", "Unauthorized"),
+        ("missing-driver", "driver is missing"),
+        ("malformed-cypher", "SyntaxError"),
+        ("import-error", "ArithmeticError"),
+    ])
+    def test_real_fault_process_exits_nonzero(tmp_path, mode, error):
+        root = evidence_root(tmp_path, mode)
+        process = subprocess.run(
+            [sys.executable, str(Path(__file__).with_name("p01_fault_process.py")), mode,
+             "--snapshot", "baseline", "--source-root", SOURCE_ROOT, "--output-root", str(root)],
+            capture_output=True, text=True, timeout=240)
+        record_process(root, process)
+        assert process.returncode == 1, process.stderr
+&gt;       assert error in process.stderr, process.stderr
+E       AssertionError: FAIL baseline: VerificationError: Command failed (1): docker run --rm --detach --name p01-e2e-20260925T112330Z-baseline-69875621 --label code-graphrag.p01-e2e.run-id=20260925T112330Z-baseline-69875621 --publish 127.0.0.1::7687 --env NEO4J_AUTH neo4j:5.26.0: failed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine; check if the path is correct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.
+E         
+E       assert 'connection failed' in 'FAIL baseline: VerificationError: Command failed (1): docker run --rm --detach --name p01-e2e-20260925T112330Z-baseli...ect and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n'
+E        +  where 'FAIL baseline: VerificationError: Command failed (1): docker run --rm --detach --name p01-e2e-20260925T112330Z-baseli...ect and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n' = CompletedProcess(args=['C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-e2e-venv\\Scripts\\python.exe', 'D:\\Project...ct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n').stderr
+
+tests\test_verify_neo4j_live.py:172: AssertionError</failure></testcase><testcase classname="tests.test_verify_neo4j_live" name="test_real_fault_process_exits_nonzero[bad-credentials-Unauthorized]" time="0.880"><failure message="AssertionError: FAIL baseline: VerificationError: Command failed (1): docker run --rm --detach --name p01-e2e-20260925T112330Z-baseline-cbd68976 --label code-graphrag.p01-e2e.run-id=20260925T112330Z-baseline-cbd68976 --publish 127.0.0.1::7687 --env NEO4J_AUTH neo4j:5.26.0: failed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine; check if the path is correct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.&#10;  &#10;assert 'Unauthorized' in 'FAIL baseline: VerificationError: Command failed (1): docker run --rm --detach --name p01-e2e-20260925T112330Z-baseli...ect and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n'&#10; +  where 'FAIL baseline: VerificationError: Command failed (1): docker run --rm --detach --name p01-e2e-20260925T112330Z-baseli...ect and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n' = CompletedProcess(args=['C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-e2e-venv\\Scripts\\python.exe', 'D:\\Project...ct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n').stderr">tmp_path = WindowsPath('C:/Users/hieng/AppData/Local/Temp/pytest-of-hieng/pytest-5/test_real_fault_process_exits_1')
+mode = 'bad-credentials', error = 'Unauthorized'
+
+    @pytest.mark.skipif(not SOURCE_ROOT, reason="Set P01_SOURCE_ROOT for real subprocess faults")
+    @pytest.mark.parametrize("mode,error", [
+        ("bad-uri", "connection failed"),
+        ("bad-credentials", "Unauthorized"),
+        ("missing-driver", "driver is missing"),
+        ("malformed-cypher", "SyntaxError"),
+        ("import-error", "ArithmeticError"),
+    ])
+    def test_real_fault_process_exits_nonzero(tmp_path, mode, error):
+        root = evidence_root(tmp_path, mode)
+        process = subprocess.run(
+            [sys.executable, str(Path(__file__).with_name("p01_fault_process.py")), mode,
+             "--snapshot", "baseline", "--source-root", SOURCE_ROOT, "--output-root", str(root)],
+            capture_output=True, text=True, timeout=240)
+        record_process(root, process)
+        assert process.returncode == 1, process.stderr
+&gt;       assert error in process.stderr, process.stderr
+E       AssertionError: FAIL baseline: VerificationError: Command failed (1): docker run --rm --detach --name p01-e2e-20260925T112330Z-baseline-cbd68976 --label code-graphrag.p01-e2e.run-id=20260925T112330Z-baseline-cbd68976 --publish 127.0.0.1::7687 --env NEO4J_AUTH neo4j:5.26.0: failed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine; check if the path is correct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.
+E         
+E       assert 'Unauthorized' in 'FAIL baseline: VerificationError: Command failed (1): docker run --rm --detach --name p01-e2e-20260925T112330Z-baseli...ect and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n'
+E        +  where 'FAIL baseline: VerificationError: Command failed (1): docker run --rm --detach --name p01-e2e-20260925T112330Z-baseli...ect and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n' = CompletedProcess(args=['C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-e2e-venv\\Scripts\\python.exe', 'D:\\Project...ct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n').stderr
+
+tests\test_verify_neo4j_live.py:172: AssertionError</failure></testcase><testcase classname="tests.test_verify_neo4j_live" name="test_real_fault_process_exits_nonzero[missing-driver-driver is missing]" time="0.874"><failure message="AssertionError: FAIL baseline: VerificationError: Command failed (1): docker run --rm --detach --name p01-e2e-20260925T112331Z-baseline-9e992843 --label code-graphrag.p01-e2e.run-id=20260925T112331Z-baseline-9e992843 --publish 127.0.0.1::7687 --env NEO4J_AUTH neo4j:5.26.0: failed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine; check if the path is correct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.&#10;  &#10;assert 'driver is missing' in 'FAIL baseline: VerificationError: Command failed (1): docker run --rm --detach --name p01-e2e-20260925T112331Z-baseli...ect and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n'&#10; +  where 'FAIL baseline: VerificationError: Command failed (1): docker run --rm --detach --name p01-e2e-20260925T112331Z-baseli...ect and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n' = CompletedProcess(args=['C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-e2e-venv\\Scripts\\python.exe', 'D:\\Project...ct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n').stderr">tmp_path = WindowsPath('C:/Users/hieng/AppData/Local/Temp/pytest-of-hieng/pytest-5/test_real_fault_process_exits_2')
+mode = 'missing-driver', error = 'driver is missing'
+
+    @pytest.mark.skipif(not SOURCE_ROOT, reason="Set P01_SOURCE_ROOT for real subprocess faults")
+    @pytest.mark.parametrize("mode,error", [
+        ("bad-uri", "connection failed"),
+        ("bad-credentials", "Unauthorized"),
+        ("missing-driver", "driver is missing"),
+        ("malformed-cypher", "SyntaxError"),
+        ("import-error", "ArithmeticError"),
+    ])
+    def test_real_fault_process_exits_nonzero(tmp_path, mode, error):
+        root = evidence_root(tmp_path, mode)
+        process = subprocess.run(
+            [sys.executable, str(Path(__file__).with_name("p01_fault_process.py")), mode,
+             "--snapshot", "baseline", "--source-root", SOURCE_ROOT, "--output-root", str(root)],
+            capture_output=True, text=True, timeout=240)
+        record_process(root, process)
+        assert process.returncode == 1, process.stderr
+&gt;       assert error in process.stderr, process.stderr
+E       AssertionError: FAIL baseline: VerificationError: Command failed (1): docker run --rm --detach --name p01-e2e-20260925T112331Z-baseline-9e992843 --label code-graphrag.p01-e2e.run-id=20260925T112331Z-baseline-9e992843 --publish 127.0.0.1::7687 --env NEO4J_AUTH neo4j:5.26.0: failed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine; check if the path is correct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.
+E         
+E       assert 'driver is missing' in 'FAIL baseline: VerificationError: Command failed (1): docker run --rm --detach --name p01-e2e-20260925T112331Z-baseli...ect and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n'
+E        +  where 'FAIL baseline: VerificationError: Command failed (1): docker run --rm --detach --name p01-e2e-20260925T112331Z-baseli...ect and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n' = CompletedProcess(args=['C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-e2e-venv\\Scripts\\python.exe', 'D:\\Project...ct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n').stderr
+
+tests\test_verify_neo4j_live.py:172: AssertionError</failure></testcase><testcase classname="tests.test_verify_neo4j_live" name="test_real_fault_process_exits_nonzero[malformed-cypher-SyntaxError]" time="0.982"><failure message="AssertionError: FAIL baseline: VerificationError: Command failed (1): docker run --rm --detach --name p01-e2e-20260925T112332Z-baseline-7cb4a915 --label code-graphrag.p01-e2e.run-id=20260925T112332Z-baseline-7cb4a915 --publish 127.0.0.1::7687 --env NEO4J_AUTH neo4j:5.26.0: failed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine; check if the path is correct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.&#10;  &#10;assert 'SyntaxError' in 'FAIL baseline: VerificationError: Command failed (1): docker run --rm --detach --name p01-e2e-20260925T112332Z-baseli...ect and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n'&#10; +  where 'FAIL baseline: VerificationError: Command failed (1): docker run --rm --detach --name p01-e2e-20260925T112332Z-baseli...ect and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n' = CompletedProcess(args=['C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-e2e-venv\\Scripts\\python.exe', 'D:\\Project...ct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n').stderr">tmp_path = WindowsPath('C:/Users/hieng/AppData/Local/Temp/pytest-of-hieng/pytest-5/test_real_fault_process_exits_3')
+mode = 'malformed-cypher', error = 'SyntaxError'
+
+    @pytest.mark.skipif(not SOURCE_ROOT, reason="Set P01_SOURCE_ROOT for real subprocess faults")
+    @pytest.mark.parametrize("mode,error", [
+        ("bad-uri", "connection failed"),
+        ("bad-credentials", "Unauthorized"),
+        ("missing-driver", "driver is missing"),
+        ("malformed-cypher", "SyntaxError"),
+        ("import-error", "ArithmeticError"),
+    ])
+    def test_real_fault_process_exits_nonzero(tmp_path, mode, error):
+        root = evidence_root(tmp_path, mode)
+        process = subprocess.run(
+            [sys.executable, str(Path(__file__).with_name("p01_fault_process.py")), mode,
+             "--snapshot", "baseline", "--source-root", SOURCE_ROOT, "--output-root", str(root)],
+            capture_output=True, text=True, timeout=240)
+        record_process(root, process)
+        assert process.returncode == 1, process.stderr
+&gt;       assert error in process.stderr, process.stderr
+E       AssertionError: FAIL baseline: VerificationError: Command failed (1): docker run --rm --detach --name p01-e2e-20260925T112332Z-baseline-7cb4a915 --label code-graphrag.p01-e2e.run-id=20260925T112332Z-baseline-7cb4a915 --publish 127.0.0.1::7687 --env NEO4J_AUTH neo4j:5.26.0: failed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine; check if the path is correct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.
+E         
+E       assert 'SyntaxError' in 'FAIL baseline: VerificationError: Command failed (1): docker run --rm --detach --name p01-e2e-20260925T112332Z-baseli...ect and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n'
+E        +  where 'FAIL baseline: VerificationError: Command failed (1): docker run --rm --detach --name p01-e2e-20260925T112332Z-baseli...ect and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n' = CompletedProcess(args=['C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-e2e-venv\\Scripts\\python.exe', 'D:\\Project...ct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n').stderr
+
+tests\test_verify_neo4j_live.py:172: AssertionError</failure></testcase><testcase classname="tests.test_verify_neo4j_live" name="test_real_fault_process_exits_nonzero[import-error-ArithmeticError]" time="0.942"><failure message="AssertionError: FAIL baseline: VerificationError: Command failed (1): docker run --rm --detach --name p01-e2e-20260925T112333Z-baseline-54fbf5db --label code-graphrag.p01-e2e.run-id=20260925T112333Z-baseline-54fbf5db --publish 127.0.0.1::7687 --env NEO4J_AUTH neo4j:5.26.0: failed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine; check if the path is correct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.&#10;  &#10;assert 'ArithmeticError' in 'FAIL baseline: VerificationError: Command failed (1): docker run --rm --detach --name p01-e2e-20260925T112333Z-baseli...ect and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n'&#10; +  where 'FAIL baseline: VerificationError: Command failed (1): docker run --rm --detach --name p01-e2e-20260925T112333Z-baseli...ect and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n' = CompletedProcess(args=['C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-e2e-venv\\Scripts\\python.exe', 'D:\\Project...ct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n').stderr">tmp_path = WindowsPath('C:/Users/hieng/AppData/Local/Temp/pytest-of-hieng/pytest-5/test_real_fault_process_exits_4')
+mode = 'import-error', error = 'ArithmeticError'
+
+    @pytest.mark.skipif(not SOURCE_ROOT, reason="Set P01_SOURCE_ROOT for real subprocess faults")
+    @pytest.mark.parametrize("mode,error", [
+        ("bad-uri", "connection failed"),
+        ("bad-credentials", "Unauthorized"),
+        ("missing-driver", "driver is missing"),
+        ("malformed-cypher", "SyntaxError"),
+        ("import-error", "ArithmeticError"),
+    ])
+    def test_real_fault_process_exits_nonzero(tmp_path, mode, error):
+        root = evidence_root(tmp_path, mode)
+        process = subprocess.run(
+            [sys.executable, str(Path(__file__).with_name("p01_fault_process.py")), mode,
+             "--snapshot", "baseline", "--source-root", SOURCE_ROOT, "--output-root", str(root)],
+            capture_output=True, text=True, timeout=240)
+        record_process(root, process)
+        assert process.returncode == 1, process.stderr
+&gt;       assert error in process.stderr, process.stderr
+E       AssertionError: FAIL baseline: VerificationError: Command failed (1): docker run --rm --detach --name p01-e2e-20260925T112333Z-baseline-54fbf5db --label code-graphrag.p01-e2e.run-id=20260925T112333Z-baseline-54fbf5db --publish 127.0.0.1::7687 --env NEO4J_AUTH neo4j:5.26.0: failed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine; check if the path is correct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.
+E         
+E       assert 'ArithmeticError' in 'FAIL baseline: VerificationError: Command failed (1): docker run --rm --detach --name p01-e2e-20260925T112333Z-baseli...ect and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n'
+E        +  where 'FAIL baseline: VerificationError: Command failed (1): docker run --rm --detach --name p01-e2e-20260925T112333Z-baseli...ect and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n' = CompletedProcess(args=['C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-e2e-venv\\Scripts\\python.exe', 'D:\\Project...ct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n').stderr
+
+tests\test_verify_neo4j_live.py:172: AssertionError</failure></testcase><testcase classname="tests.test_verify_neo4j_live" name="test_baseline_and_mutated_live_paths_are_isolated" time="0.903"><failure message="AssertionError: FAIL baseline: VerificationError: Command failed (1): docker run --rm --detach --name p01-e2e-20260925T112334Z-baseline-3068f712 --label code-graphrag.p01-e2e.run-id=20260925T112334Z-baseline-3068f712 --publish 127.0.0.1::7687 --env NEO4J_AUTH neo4j:5.26.0: failed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine; check if the path is correct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.&#10;  &#10;assert 1 == 0&#10; +  where 1 = CompletedProcess(args=['C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-e2e-venv\\Scripts\\python.exe', 'D:\\Project...ct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n').returncode">tmp_path = WindowsPath('C:/Users/hieng/AppData/Local/Temp/pytest-of-hieng/pytest-5/test_baseline_and_mutated_live0')
+
+    @pytest.mark.skipif(not SOURCE_ROOT, reason="Set P01_SOURCE_ROOT to the clean PetClinic checkout for live E2E")
+    def test_baseline_and_mutated_live_paths_are_isolated(tmp_path):
+        results = {}
+        root = evidence_root(tmp_path, "live-success")
+        for snapshot in ("baseline", "mutated"):
+            process = subprocess.run(
+                [sys.executable, str(verifier.ROOT / "verify_neo4j_live.py"),
+                 "--snapshot", snapshot, "--source-root", SOURCE_ROOT,
+                 "--output-root", str(root)], capture_output=True, text=True,
+                timeout=240)
+&gt;           assert process.returncode == 0, process.stderr
+E           AssertionError: FAIL baseline: VerificationError: Command failed (1): docker run --rm --detach --name p01-e2e-20260925T112334Z-baseline-3068f712 --label code-graphrag.p01-e2e.run-id=20260925T112334Z-baseline-3068f712 --publish 127.0.0.1::7687 --env NEO4J_AUTH neo4j:5.26.0: failed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine; check if the path is correct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.
+E             
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-e2e-venv\\Scripts\\python.exe', 'D:\\Project...ct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.\n').returncode
+
+tests\test_verify_neo4j_live.py:192: AssertionError</failure></testcase><testcase classname="tests.test_verify_neo4j_live" name="test_bad_credentials_and_malformed_cypher_live" time="0.158"><failure message="verify_neo4j_live.VerificationError: Command failed (1): docker run --rm --detach --name p01-e2e-test-58a7187de7e1 --label code-graphrag.p01-e2e.run-id=test-58a7187de7e1 --publish 127.0.0.1::7687 --env NEO4J_AUTH neo4j:5.26.0: failed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine; check if the path is correct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.">@pytest.mark.skipif(not SOURCE_ROOT, reason="Set P01_SOURCE_ROOT to test live Neo4j failure paths")
+    def test_bad_credentials_and_malformed_cypher_live():
+        run_id = f"test-{uuid.uuid4().hex[:12]}"
+        commands = []
+&gt;       name, _container_id, uri, password = verifier.start_container(run_id, commands)
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_verify_neo4j_live.py:221: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+verify_neo4j_live.py:260: in start_container
+    container_id = command(["docker", "run", "--rm", "--detach", "--name", name,
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+argv = ['docker', 'run', '--rm', '--detach', '--name', 'p01-e2e-test-58a7187de7e1', ...]
+log = [{'command': ['docker', 'run', '--rm', '--detach', '--name', 'p01-e2e-test-58a7187de7e1', ...], 'exit_code': 1, 'duration_seconds': 0.157, 'stdout': '', ...}]
+env = {'ALLUSERSPROFILE': 'C:\\ProgramData', 'APPDATA': 'C:\\Users\\hieng\\AppData\\Roaming', 'CODEX_APP_TOOLS_PIPE_PATH': '\\\\.\\pipe\\codex-browser-use-b6380506-94a2-48e5-a498-d410693a2ef5', 'CODEX_CI': '1', ...}
+timeout = 300
+
+    def command(argv: list[str], log: list[dict], *, env: dict | None = None, timeout: int = 300) -&gt; str:
+        start = time.perf_counter()
+        result = subprocess.run(argv, capture_output=True, text=True, encoding="utf-8", errors="replace", env=env, timeout=timeout)
+        log.append({"command": argv, "exit_code": result.returncode,
+                    "duration_seconds": round(time.perf_counter() - start, 3),
+                    "stdout": result.stdout.strip(), "stderr": result.stderr.strip()})
+        if result.returncode:
+&gt;           raise VerificationError(f"Command failed ({result.returncode}): {' '.join(argv)}: {result.stderr.strip()}")
+E           verify_neo4j_live.VerificationError: Command failed (1): docker run --rm --detach --name p01-e2e-test-58a7187de7e1 --label code-graphrag.p01-e2e.run-id=test-58a7187de7e1 --publish 127.0.0.1::7687 --env NEO4J_AUTH neo4j:5.26.0: failed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine; check if the path is correct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.
+
+verify_neo4j_live.py:60: VerificationError</failure></testcase><testcase classname="tests.test_verify_neo4j_live" name="test_explicit_stale_cypher_returns_nonzero" time="0.758" /></testsuite></testsuites>
