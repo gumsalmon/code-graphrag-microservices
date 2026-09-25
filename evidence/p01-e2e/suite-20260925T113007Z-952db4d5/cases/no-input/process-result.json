@@ -1,0 +1,9 @@
+{
+  "command": [
+    "C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-e2e-venv\\Scripts\\python.exe",
+    "D:\\Projects\\code-graphrag-microservices\\verify_neo4j_live.py"
+  ],
+  "exit_code": 2,
+  "stdout": "",
+  "stderr": "usage: verify_neo4j_live.py [-h] --snapshot {baseline,mutated} --source-root\n                            SOURCE_ROOT [--acceptance-file ACCEPTANCE_FILE]\n                            [--cypher-file CYPHER_FILE]\n                            [--output-root OUTPUT_ROOT]\nverify_neo4j_live.py: error: the following arguments are required: --snapshot, --source-root\n"
+}

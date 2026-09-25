@@ -1,0 +1,139 @@
+[
+  {
+    "command": [
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-e2e-venv\\Scripts\\python.exe",
+      "D:\\Projects\\code-graphrag-microservices\\verify_neo4j_live.py",
+      "--snapshot",
+      "mutated",
+      "--source-root",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-petclinic-3858f9c",
+      "--output-root",
+      "D:\\Projects\\code-graphrag-microservices\\evidence\\p01-e2e\\suite-20260925T113007Z-952db4d5\\cases\\live-success"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 19.082,
+    "purpose": "P01 source-to-Neo4j verifier"
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-petclinic-3858f9c",
+      "rev-parse",
+      "HEAD"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.03,
+    "stdout": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-petclinic-3858f9c",
+      "status",
+      "--porcelain",
+      "--untracked-files=no"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.035,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--detach",
+      "--name",
+      "p01-e2e-20260925T113234Z-mutated-ca59a79b",
+      "--label",
+      "code-graphrag.p01-e2e.run-id=20260925T113234Z-mutated-ca59a79b",
+      "--publish",
+      "127.0.0.1::7687",
+      "--env",
+      "NEO4J_AUTH",
+      "neo4j:5.26.0"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.347,
+    "stdout": "e8c95b456ba8b0c2906ae09e4c860d45147411d5f5d1192909a71f4116fa8745",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "docker",
+      "port",
+      "p01-e2e-20260925T113234Z-mutated-ca59a79b",
+      "7687/tcp"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.171,
+    "stdout": "127.0.0.1:62784",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "docker",
+      "version",
+      "--format",
+      "{{.Client.Version}}"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.159,
+    "stdout": "29.8.0",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "docker",
+      "version",
+      "--format",
+      "{{.Server.Version}}"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.155,
+    "stdout": "29.8.0",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "docker",
+      "image",
+      "inspect",
+      "--format",
+      "{{.Id}}",
+      "neo4j:5.26.0"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.177,
+    "stdout": "sha256:5a015e53de1895e7eee1574ae0325cf8c4b89587222778108c594bdd45a474b5",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "docker",
+      "inspect",
+      "--format",
+      "{{index .Config.Labels \"code-graphrag.p01-e2e.run-id\"}}",
+      "p01-e2e-20260925T113234Z-mutated-ca59a79b"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.155,
+    "stdout": "20260925T113234Z-mutated-ca59a79b",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "docker",
+      "stop",
+      "p01-e2e-20260925T113234Z-mutated-ca59a79b"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 3.469,
+    "stdout": "p01-e2e-20260925T113234Z-mutated-ca59a79b",
+    "stderr": ""
+  }
+]

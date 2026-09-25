@@ -18,7 +18,25 @@ existing overload to the seed in a disposable Neo4j graph and require a real
 three-method query result to cause exit code 1. Query output is written before
 acceptance so a rejected result remains inspectable.
 
-## Validation and current blocker
+## Validation after Docker was restarted
+
+The user restored Docker and the complete suite was rerun on 2026-09-25:
+**54 passed, 0 failed, 0 skipped**, exit code 0, 180.18 seconds.
+
+- [Current raw log](evidence/p01-e2e/suite-20260925T113007Z-952db4d5/pytest.log),
+  [JUnit](evidence/p01-e2e/suite-20260925T113007Z-952db4d5/pytest.xml),
+  [commands and versions](evidence/p01-e2e/suite-20260925T113007Z-952db4d5/process-result.json).
+- [Baseline extra-overload process](evidence/p01-e2e/suite-20260925T113007Z-952db4d5/cases/extra-overload-baseline/process-result.json)
+  and [mutated extra-overload process](evidence/p01-e2e/suite-20260925T113007Z-952db4d5/cases/extra-overload-mutated/process-result.json)
+  both return exit code 1 with `Impact set mismatch`, identify `VisitResource#read(int)`
+  as unexpected, and retain the real Neo4j query result containing three methods.
+- Normal baseline/mutated E2E runs pass with exactly the client and controller.
+
+Status: live verification complete; the environment blocker is resolved.
+Huy's independent verification and merge decision remain pending. No P02 work
+or merge is included.
+
+## Earlier failed attempt (retained for provenance)
 
 - Focused command: `python -m pytest tests/test_verify_neo4j_live.py -k acceptance_rejects_extra_methods -v`
   returned **6 passed, 21 deselected**, exit code 0.
@@ -32,8 +50,6 @@ acceptance so a rejected result remains inspectable.
   was missing. Launching the installed executable also did not restore the
   engine. No registry edits or reinstall were performed.
 
-Status: **blocked: live E2E environment unavailable** for this follow-up's live
-verification. The older 46-pass run belongs to commit `492c0eb` and is not
-evidence that the two new live tests passed. Restore Docker Desktop, then rerun
-the full-suite command above. Huy's independent verification and merge decision
-remain pending. No P02 work or merge is included.
+That attempt was marked **blocked: live E2E environment unavailable**.
+Its raw evidence remains unchanged; the successful 54-test run above supersedes
+that status. The older 46-pass run at `492c0eb` is historical evidence only.

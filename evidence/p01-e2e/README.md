@@ -1,12 +1,15 @@
 # P01 verification runs
 
-Review follow-up, 2026-09-25: [suite-20260925T112300Z-fb5318c3](suite-20260925T112300Z-fb5318c3/summary.md)
-records **45 passed / 9 failed** because Docker Engine was unavailable.
-The six exact-impact-set unit cases passed; new live overload-rejection cases
-remain unverified. See [follow-up status](../../P01_REVIEW_FOLLOWUP.md).
-The successful suite below belongs to the earlier implementation at `492c0eb`.
+Current review acceptance: [suite-20260925T113007Z-952db4d5](suite-20260925T113007Z-952db4d5/summary.md)
+records **54 passed / 0 failed / 0 skipped** after Docker was restarted.
+Both live overload-rejection subprocesses returned exit code 1 as expected;
+normal baseline/mutated runs passed. See [follow-up status](../../P01_REVIEW_FOLLOWUP.md).
 
-Current acceptance run:
+Earlier failed attempt: [suite-20260925T112300Z-fb5318c3](suite-20260925T112300Z-fb5318c3/summary.md)
+records **45 passed / 9 failed** while Docker Engine was unavailable. It is kept
+unchanged as historical evidence, not the current acceptance result.
+
+Previous successful acceptance at `492c0eb`:
 
 - [suite-20260923T133049Z-e771f084](suite-20260923T133049Z-e771f084/summary.md):
   46 passed, no failures or skips; includes positive baseline/mutated runs,

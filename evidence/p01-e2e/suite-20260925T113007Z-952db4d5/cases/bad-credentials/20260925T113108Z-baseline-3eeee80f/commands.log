@@ -1,0 +1,101 @@
+[
+  {
+    "command": [
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-e2e-venv\\Scripts\\python.exe",
+      "D:\\Projects\\code-graphrag-microservices\\verify_neo4j_live.py",
+      "--snapshot",
+      "baseline",
+      "--source-root",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-petclinic-3858f9c",
+      "--output-root",
+      "D:\\Projects\\code-graphrag-microservices\\evidence\\p01-e2e\\suite-20260925T113007Z-952db4d5\\cases\\bad-credentials"
+    ],
+    "exit_code": 1,
+    "duration_seconds": 18.764,
+    "purpose": "P01 source-to-Neo4j verifier"
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-petclinic-3858f9c",
+      "rev-parse",
+      "HEAD"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.041,
+    "stdout": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-petclinic-3858f9c",
+      "status",
+      "--porcelain",
+      "--untracked-files=no"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.049,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--detach",
+      "--name",
+      "p01-e2e-20260925T113108Z-baseline-3eeee80f",
+      "--label",
+      "code-graphrag.p01-e2e.run-id=20260925T113108Z-baseline-3eeee80f",
+      "--publish",
+      "127.0.0.1::7687",
+      "--env",
+      "NEO4J_AUTH",
+      "neo4j:5.26.0"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.585,
+    "stdout": "8fa99c84a103f2185a0f3e86688a873cb4579957f738e46e6aafddf9e7609094",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "docker",
+      "port",
+      "p01-e2e-20260925T113108Z-baseline-3eeee80f",
+      "7687/tcp"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.183,
+    "stdout": "127.0.0.1:54226",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "docker",
+      "inspect",
+      "--format",
+      "{{index .Config.Labels \"code-graphrag.p01-e2e.run-id\"}}",
+      "p01-e2e-20260925T113108Z-baseline-3eeee80f"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.172,
+    "stdout": "20260925T113108Z-baseline-3eeee80f",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "docker",
+      "stop",
+      "p01-e2e-20260925T113108Z-baseline-3eeee80f"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 3.477,
+    "stdout": "p01-e2e-20260925T113108Z-baseline-3eeee80f",
+    "stderr": ""
+  }
+]

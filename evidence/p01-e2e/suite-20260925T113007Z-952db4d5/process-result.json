@@ -1,0 +1,74 @@
+{
+  "command": [
+    "C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-e2e-venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "tests",
+    "-ra",
+    "--junitxml=D:\\Projects\\code-graphrag-microservices\\evidence\\p01-e2e\\suite-20260925T113007Z-952db4d5\\pytest.xml"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 180.932,
+  "source_root": "C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-petclinic-3858f9c",
+  "checks": [
+    {
+      "command": [
+        "C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-e2e-venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "freeze"
+      ],
+      "exit_code": 0,
+      "stdout": "aiohappyeyeballs==2.7.1\naiohttp==3.14.3\naiosignal==1.4.0\nannotated-doc==0.0.5\nannotated-types==0.8.0\nanyio==4.15.1\nattrs==26.1.0\nbcrypt==5.0.0\nbuild==1.6.1\ncertifi==2026.7.22\ncharset-normalizer==3.5.1\nchromadb==1.5.9\nclick==8.5.0\ncolorama==0.4.6\ndurationpy==0.11\nfilelock==4.0.1\nflatbuffers==25.12.19\nfrozenlist==1.8.0\nfsspec==2026.9.0\ngoogleapis-common-protos==1.75.3\ngrpcio==1.84.0\nh11==0.16.0\nhf-xet==1.6.0\nhttpcore==1.0.9\nhttptools==0.8.0\nhttpx==0.28.1\nhuggingface_hub==1.32.0\nidna==3.20\nimportlib_resources==7.1.0\niniconfig==2.3.0\njsonschema==4.26.0\njsonschema-specifications==2025.9.1\nkubernetes==36.0.3\nmarkdown-it-py==4.2.0\nmdurl==0.1.2\nmmh3==5.3.0\nmultidict==6.9.1\nneo4j==5.28.1\nnumpy==2.4.6\noauthlib==3.3.1\nonnxruntime==1.30.0\nopentelemetry-api==1.44.0\nopentelemetry-exporter-otlp-proto-common==1.44.0\nopentelemetry-exporter-otlp-proto-grpc==1.44.0\nopentelemetry-proto==1.44.0\nopentelemetry-sdk==1.44.0\nopentelemetry-semantic-conventions==0.65b0\norjson==3.12.0\noverrides==7.7.0\npackaging==26.3\npluggy==1.6.0\npropcache==0.5.4\nprotobuf==7.36.2\npybase64==1.5.0\npydantic==2.13.5\npydantic-settings==2.15.0\npydantic_core==2.46.5\nPygments==2.21.0\nPyPika==0.51.1\npyproject_hooks==1.3.3\npytest==9.1.1\npython-dateutil==2.9.0.post0\npython-dotenv==1.2.3\npytz==2026.3.post1\nPyYAML==6.0.3\nreferencing==0.37.0\nrequests==2.34.2\nrequests-oauthlib==2.0.0\nrich==15.0.0\nrpds-py==2026.6.3\nshellingham==1.5.4\nsix==1.17.0\ntenacity==9.1.4\ntokenizers==0.23.2\ntqdm==4.70.1\ntree-sitter==0.25.2\ntree-sitter-go==0.25.0\ntree-sitter-java==0.23.5\ntyper==0.27.2\ntyping-inspection==0.4.4\ntyping_extensions==4.16.0\nurllib3==2.8.0\nuvicorn==0.53.0\nwatchfiles==1.3.0\nwebsocket-client==1.9.2\nwebsockets==17.1\nyarl==1.25.1\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-e2e-venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit_code": 0,
+      "stdout": "No broken requirements found.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "exit_code": 0,
+      "stdout": "f3b8399b7e1b989ba79e681065d24399cbe92713\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "version"
+      ],
+      "exit_code": 0,
+      "stdout": "Client:\n Version:           29.8.0\n API version:       1.56\n Go version:        go1.26.8\n Git commit:        88096ef\n Built:             Thu Sep  3 21:53:38 2026\n OS/Arch:           windows/amd64\n Context:           desktop-linux\n\nServer: Docker Desktop 4.92.0 (240144)\n Engine:\n  Version:          29.8.0\n  API version:      1.56 (minimum version 1.40)\n  Go version:       go1.26.8\n  Git commit:       3ce5872\n  Built:            Thu Sep  3 21:51:20 2026\n  OS/Arch:          linux/amd64\n  Experimental:     false\n containerd:\n  Version:          v2.3.5\n  GitCommit:        1294c24a7da8e5a793ed378161673abe94118892\n runc:\n  Version:          1.5.1\n  GitCommit:        v1.5.1-0-g8f2685a4\n docker-init:\n  Version:          0.19.0\n  GitCommit:        de40ad0\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "compose",
+        "version"
+      ],
+      "exit_code": 0,
+      "stdout": "Docker Compose version v5.5.1\n",
+      "stderr": ""
+    }
+  ],
+  "implementation_sha256": {
+    "verify_neo4j_live.py": "efb80ce92ff1eaeac27cb56b1299a527d4035725e7611856cd84239653467df2",
+    "requirements.txt": "8706e083dd4c0671c8e5fe4f12e787afefdd5a2d86bcf878de41fa3d9f6e63ea",
+    ".gitattributes": "b8eab2812b09d74334e6f5c07b01c250591c254c956348d2b77dbcc2aae19f43",
+    "tests/test_verify_neo4j_live.py": "b4649757a8b6d9716ecb86cb59db167bd8373e88be5cc36d46b769816bc9c450",
+    "tests/p01_fault_process.py": "df9dc693b66ed135d724ed946a22010220315aa83cd15fd593fed0396779d8e6",
+    "tools/run_p01_acceptance.py": "8dc2d6b1f6082bf161b9236667843b55de10f08bfb3445e21e1aa01768c20738"
+  }
+}

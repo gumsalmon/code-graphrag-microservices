@@ -68,8 +68,9 @@ The original `tree-sitter==0.24.0` pin could not load Go language ABI 15 from
 `tree-sitter-go==0.25.0`. Updating only the binding pin to `0.25.2` resolves
 those nine test failures; parser, ChromaDB, gRPC and benchmark code are unchanged.
 
-The full suite now passes: **46 passed, 0 failed, 0 skipped**. The durable
-[suite report](evidence/p01-e2e/suite-20260923T133049Z-e771f084/summary.md)
+The full suite now passes: **54 passed, 0 failed, 0 skipped**, including the
+extra-method review regression tests. The durable
+[suite report](evidence/p01-e2e/suite-20260925T113007Z-952db4d5/summary.md)
 links the raw log, JUnit output, exact command, versions, exit code and hashes.
 Both positive E2E snapshots and subprocess failure artifacts are under its
 `cases/` directory. The failure harness is test-only: it supplies a non-listening

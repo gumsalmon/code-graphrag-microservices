@@ -1,0 +1,60 @@
+{
+  "run_id": "20260925T113212Z-baseline-0692d21d",
+  "created_utc": "2026-09-25T11:32:29.368667+00:00",
+  "python": "3.11.9",
+  "dependencies": {
+    "tree-sitter": "0.25.2",
+    "tree-sitter-java": "0.23.5",
+    "tree-sitter-go": "0.25.0",
+    "chromadb": "1.5.9",
+    "neo4j": "5.28.1",
+    "pytest": "9.1.1"
+  },
+  "docker_client": "29.8.0",
+  "docker_server": "29.8.0",
+  "neo4j_image": "neo4j:5.26.0",
+  "neo4j_image_id": "sha256:5a015e53de1895e7eee1574ae0325cf8c4b89587222778108c594bdd45a474b5",
+  "neo4j_version": "5.26.0",
+  "container_id": "8f4d5ef6e257bc1b6974d27eebd0e2497b6bb4399743019adee85ddbf67b79e6",
+  "container_name": "p01-e2e-20260925T113212Z-baseline-0692d21d",
+  "container_label": "code-graphrag.p01-e2e.run-id=20260925T113212Z-baseline-0692d21d",
+  "bolt_uri": "bolt://127.0.0.1:50814",
+  "provenance": {
+    "repository": "https://github.com/spring-petclinic/spring-petclinic-microservices",
+    "baseline_commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+    "source_root": "C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-petclinic-3858f9c",
+    "original_files": {
+      "provider": {
+        "path": "C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-petclinic-3858f9c\\spring-petclinic-visits-service\\src\\main\\java\\org\\springframework\\samples\\petclinic\\visits\\web\\VisitResource.java",
+        "sha256": "78841fc2f1bc5b69339e085a3934040e467578e257af86dd9bbe352a30a1fe48"
+      },
+      "client": {
+        "path": "C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-petclinic-3858f9c\\spring-petclinic-api-gateway\\src\\main\\java\\org\\springframework\\samples\\petclinic\\api\\application\\VisitsServiceClient.java",
+        "sha256": "3aaff229d5971908e679f22dbc6f79fbec10793777f1501715ed9b2ee8b7b058"
+      },
+      "controller": {
+        "path": "C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-petclinic-3858f9c\\spring-petclinic-api-gateway\\src\\main\\java\\org\\springframework\\samples\\petclinic\\api\\boundary\\web\\ApiGatewayController.java",
+        "sha256": "08abd935c2c090593e920d02dfeeea9ed08e92434b4f7e0b3c0da41f5a2c1ff5"
+      }
+    },
+    "snapshot_files": {
+      "VisitResource.java": "78841fc2f1bc5b69339e085a3934040e467578e257af86dd9bbe352a30a1fe48",
+      "VisitsServiceClient.java": "3aaff229d5971908e679f22dbc6f79fbec10793777f1501715ed9b2ee8b7b058",
+      "ApiGatewayController.java": "08abd935c2c090593e920d02dfeeea9ed08e92434b4f7e0b3c0da41f5a2c1ff5"
+    },
+    "mutation": null
+  },
+  "parser_metadata": {
+    "schema_version": "0.2.0",
+    "repository": "https://github.com/spring-petclinic/spring-petclinic-microservices",
+    "commit_sha": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+    "snapshot_kind": "baseline",
+    "patch_id": null
+  },
+  "acceptance_fixture": {
+    "path": "D:\\Projects\\code-graphrag-microservices\\tests\\fixtures\\p01_graph_path_expectation.json",
+    "sha256": "5ef34405bfdafb89c1be811e4a8703f0ddc3b7fb100e1a81c82916777366022c"
+  },
+  "cypher_statement_count": 32,
+  "duration_seconds": 17.569
+}
