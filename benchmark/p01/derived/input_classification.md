@@ -1,22 +1,22 @@
-# P01 Input Classification
+# Phân loại đầu vào P01
 
-All hashes were recomputed before classification. Raw failures are retained unchanged.
+Toàn bộ hash đã được tính lại trước khi phân loại. Các raw failure được giữ nguyên.
 
-| File | Classification | Use |
+| File | Phân loại | Cách sử dụng |
 |---|---|---|
-| `api_gateway_mutated.log` | raw/supporting | Config revision and diagnostic context; not sufficient alone for impact labels |
-| `baseline_results.log` | derived/clean-looking but weak provenance | Rerun hypothesis only |
-| `build_baseline.log` | build provenance | Environment/build support |
-| `build_mutated.log` | build provenance | Environment/build support |
-| `docker-compose-test.yml` | historical environment config | Rerun design; mutable image tags prevent identity proof |
-| `mutation.patch` | change input with encoding defect | Authoritative original bytes/hash; canonical UTF-8 transcode required for `git apply` |
-| `run_baseline_results.txt` | invalid/noisy | Retain; do not use for success claim |
-| `run_mutated_results.log` | mixed raw result | Supports rerun hypothesis; begins with request error |
-| `run_mutated_results.txt` | invalid/noisy | Retain; do not use for success claim |
-| `test_baseline.ps1` | historical script | Audit/reference; error handling is insufficient |
-| `test_mutated.ps1` | historical script | Audit/reference; first request throws before later catch logic |
-| three baseline Java files | immutable source snapshots | Source evidence after matching official commit |
-| `PACKAGE_METADATA.json` | package provenance | Declared origin and exclusions |
-| `input_checksums.sha256` | intake integrity | Verifies packaged input bytes |
+| `api_gateway_mutated.log` | raw/bổ trợ | Xác nhận config revision và cung cấp ngữ cảnh chẩn đoán; một mình file này không đủ để lập nhãn impact |
+| `baseline_results.log` | dẫn xuất/có vẻ sạch nhưng provenance yếu | Chỉ dùng để hình thành giả thuyết chạy lại |
+| `build_baseline.log` | provenance của build | Bổ trợ môi trường/build |
+| `build_mutated.log` | provenance của build | Bổ trợ môi trường/build |
+| `docker-compose-test.yml` | cấu hình môi trường lịch sử | Dùng thiết kế lần chạy lại; tag image có thể thay đổi nên không chứng minh được identity |
+| `mutation.patch` | đầu vào thay đổi có lỗi encoding | Giữ byte/hash gốc làm bản có thẩm quyền; cần bản chuyển UTF-8 chuẩn hóa để chạy `git apply` |
+| `run_baseline_results.txt` | không hợp lệ/nhiễu | Giữ lại; không dùng cho kết luận thành công |
+| `run_mutated_results.log` | kết quả raw hỗn hợp | Bổ trợ giả thuyết chạy lại; phần đầu có lỗi request |
+| `run_mutated_results.txt` | không hợp lệ/nhiễu | Giữ lại; không dùng cho kết luận thành công |
+| `test_baseline.ps1` | script lịch sử | Chỉ audit/tham khảo; xử lý lỗi chưa đủ |
+| `test_mutated.ps1` | script lịch sử | Chỉ audit/tham khảo; request đầu phát sinh exception trước logic catch phía sau |
+| Ba file Java baseline | snapshot source bất biến | Dùng làm source evidence sau khi đối chiếu với commit chính thức |
+| `PACKAGE_METADATA.json` | provenance của package | Nguồn gốc và danh sách loại trừ được khai báo |
+| `input_checksums.sha256` | tính toàn vẹn khi intake | Xác minh byte của đầu vào trong package |
 
-Restricted files `p01_label.md` and `report.md` were not included in the package and were not used. Evaluated-system JSON/Cypher/Neo4j/RAG/LLM outputs and scores were not used.
+Hai file bị hạn chế `p01_label.md` và `report.md` không có trong package và không được sử dụng. Output JSON/Cypher/Neo4j/RAG/LLM và benchmark score của hệ thống được đánh giá cũng không được sử dụng.

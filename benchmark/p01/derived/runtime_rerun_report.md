@@ -1,38 +1,48 @@
-# P01 clean runtime rerun
+# Báo cáo chạy lại runtime sạch P01
 
-Decision input: `runtime_complete_pending_human_review`
+Đầu vào cho quyết định: `runtime_complete_pending_human_review`
 
-Valid evidence run: `benchmark/p01/raw/rerun-20260923-152742/`
+Bản chạy bằng chứng có thẩm quyền: `benchmark/p01/raw/rerun-20260923-152742/`
 
 Runner: `scripts/run_p01_runtime.ps1`
 
-Compose definition: `benchmark/p01/derived/docker-compose-rerun.yml`
+Định nghĩa Compose: `benchmark/p01/derived/docker-compose-rerun.yml`
 
-## Fixed identities
+## Định danh cố định
 
 - Repository commit: `3858f9c630cf989bb6809a86edf47c2be78dc9f1`
 - Configuration revision: `323993ce2519c6d02df63e08bf4458d123d3b611`
-- Original patch SHA-256: `42394ca361d07db58ba6a73cfc1ddb8bd1d9aeddb59292873552573adfa5cc21`
+- SHA-256 của patch gốc: `42394ca361d07db58ba6a73cfc1ddb8bd1d9aeddb59292873552573adfa5cc21`
 - Fixture: owner `6`; pets `7,8`; negative pet `7`
-- Baseline and patched images are separately tagged and their immutable image IDs are recorded in `environment.json`.
+- Image baseline và mutated có tag riêng; image ID bất biến của từng bản được ghi trong `environment.json`.
 
-## Valid observations
+## Quan sát hợp lệ
 
-| Observation | Baseline | Patched | Interpretation |
+| Quan sát | Baseline | Mutated | Diễn giải |
 |---|---|---|---|
-| Direct `GET /pets/visits?petId=7,8` | `200`, four visits | `400` when `includeDetails` is absent | Required parameter changes the provider contract |
-| Direct request with `includeDetails=true` | Not needed | `200`, same four visits | Service remains functional when the new contract is met |
-| Gateway `GET /api/gateway/owners/6` | `200`, visits populated for pets 7 and 8 | `200`, visits empty for both pets | Observable gateway behavior changes through fallback |
-| Negative `GET /owners/6/pets/7/visits` | `200`, two visits | `200`, identical two visits | Same-class overload/different mapping is not impacted |
+| Gọi trực tiếp `GET /pets/visits?petId=7,8` | `200`, bốn visit | `400` khi thiếu `includeDetails` | Parameter bắt buộc làm thay đổi contract của provider |
+| Gọi trực tiếp với `includeDetails=true` | Không cần | `200`, vẫn đủ bốn visit | Service vẫn hoạt động khi đáp ứng contract mới |
+| Gọi gateway `GET /api/gateway/owners/6` | `200`, pets 7 và 8 có visit | `200`, cả hai pet có danh sách visit rỗng | Hành vi quan sát được ở gateway thay đổi qua fallback |
+| Negative `GET /owners/6/pets/7/visits` | `200`, hai visit | `200`, hai visit giống hệt | Overload cùng class nhưng mapping khác không bị ảnh hưởng |
 
-The patched gateway observation was recorded only after a discovery preflight proved that the gateway request reached the recreated visits service. The preflight succeeded on attempt 5, and the visits service logged `MissingServletRequestParameterException`. This prevents a temporary Eureka cache miss from being mistaken for mutation behavior.
+Quan sát gateway mutated chỉ được ghi nhận sau khi bước discovery preflight chứng minh request gateway đã đi tới visits-service được tái tạo. Preflight thành công ở lần thử thứ 5 và visits-service ghi `MissingServletRequestParameterException`. Kiểm tra này ngăn việc nhầm lỗi cache Eureka tạm thời với hành vi do mutation.
 
-## Superseded diagnostic attempts
+## Các lần thử chẩn đoán đã bị thay thế
 
-- `rerun-20260923-151719` reached the expected outward responses but did not wait for mutated-service registration; it is retained as raw diagnostic evidence and is not used for the gateway causal claim.
-- `rerun-20260923-152349` waited for Eureka registration, but the gateway's local discovery cache had not refreshed and logged `No servers available for service: visits-service`; it is retained and excluded from the gateway causal claim.
-- `rerun-20260923-152332` failed before starting because the sandbox could not access the Docker named pipe; it is retained as an environment diagnostic.
+- `rerun-20260923-151719` cho response bên ngoài đúng dự kiến nhưng chưa chờ visits-service mutated đăng ký; chỉ giữ làm raw diagnostic, không dùng cho kết luận nhân quả phía gateway.
+- `rerun-20260923-152349` đã chờ đăng ký Eureka nhưng cache discovery cục bộ của gateway chưa cập nhật và ghi `No servers available for service: visits-service`; giữ lại và loại khỏi kết luận nhân quả phía gateway.
+- `rerun-20260923-152332` lỗi trước khi khởi chạy vì sandbox không truy cập được Docker named pipe; giữ làm chẩn đoán môi trường.
 
-## Result
+## Lần chạy tự động xác nhận khả năng tái lập
 
-All six mandatory runtime observations in protocol v0.1 are complete, including the real-repository negative case. The correct audit decision is `pending_review`, not `accepted`, because the independent human reviewer role is still unassigned.
+Sau khi hoàn thiện runner, bản chạy `benchmark/p01/raw/rerun-20260923-214211/` đã tái hiện cùng ma trận và xuất:
+
+- `summary.json` với `decision_input=runtime_complete_pending_human_review`;
+- `benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json`;
+- checksum SHA-256 `7af09bc32b565d75af13fc4f96647c4b142d7f53f308e70d321029c627a96320`.
+
+Bốn kiểm tra tự động `runtime.direct_contract`, `runtime.gateway_behavior`, `runtime.gateway_routing` và `runtime.negative_control` đều đạt. Đây là bằng chứng bổ sung sau khi `labels.v3.json` đã khóa, không thay thế review độc lập.
+
+## Kết quả
+
+Đã hoàn thành toàn bộ sáu nhóm quan sát runtime bắt buộc của protocol v0.1, gồm cả negative case trên repository thật. Quyết định audit đúng vẫn là `pending_review`, chưa phải `accepted`, vì chưa chỉ định reviewer độc lập là con người.
