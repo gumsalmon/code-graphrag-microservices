@@ -1,5 +1,7 @@
 # BÁO CÁO HOÀN THÀNH — PHẦN VIỆC CỦA GIẢNG VĂN HIỂN
 
+> **Đính chính 26/09/2026:** Mọi điểm Precision/Recall/F1 và bảng P01–P04 trong báo cáo lịch sử này chỉ là **smoke test pipeline**, không phải kết quả bài báo hoặc bằng chứng ưu thế phương pháp. Nhãn chưa được khóa/thẩm định cho thực nghiệm chính thức. Không mở P02 trong follow-up này.
+
 **Dự án:** Nghiên cứu ứng dụng GraphRAG trong phân tích tác động mã nguồn đa dịch vụ cho kiến trúc Microservices  
 **Ngày báo cáo:** 20/09/2026  
 **Người thực hiện:** Giảng Văn Hiển  
@@ -125,7 +127,7 @@ Cụ thể, nhiệm vụ triển khai theo Mục 7 (Task đầu tiên) và mở 
 | Đo Precision, Recall, F1 | ✅ | `src/benchmark_runner.py` tính P/R/F1 cho cả GraphRAG và Vector RAG |
 | Benchmark có seed, nhãn | ✅ | 4 scenarios (P01-P04) với seed method và ground truth labels |
 | Báo cáo riêng theo hệ thống và protocol | ✅ | `output/full_benchmark_results.json` ghi system + protocol |
-| Kết quả thực tế | ✅ | GraphRAG avg F1 = 1.0000, Vector RAG avg F1 = 0.3095 (4/4 scenarios) |
+| Smoke test lịch sử, không phải kết quả bài báo | ✅ | GraphRAG avg F1 = 1.0000, Vector RAG avg F1 = 0.3095 (4/4 fixtures nháp) |
 
 ### 2.9 Mục 11 — Mẫu bàn giao
 
@@ -229,7 +231,7 @@ d:\Projects\Bao\
 
 ---
 
-## 4. Kết quả Benchmark
+## 4. Điểm smoke test lịch sử — không phải kết quả bài báo
 
 | Scenario | System | Protocol | GraphRAG F1 | Vector RAG F1 |
 |---|---|---|---|---|

@@ -209,6 +209,9 @@ class BenchmarkRunner:
         avg_vector_f1 = sum(r["vector_rag"]["overall"]["f1_score"] for r in results) / len(results) if results else 0.0
 
         summary = {
+            "result_status": "smoke_test",
+            "publication_ready": False,
+            "interpretation": "All metrics are pipeline smoke tests on draft fixtures, not paper results or evidence of method superiority.",
             "total_evaluated_scenarios": len(results),
             "graph_rag_average_f1": round(avg_graph_f1, 4),
             "vector_rag_average_f1": round(avg_vector_f1, 4),

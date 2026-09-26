@@ -1,4 +1,6 @@
 {
+  "result_status": "smoke_test",
+  "publication_ready": false,
   "scenario": "P01_includeDetails",
   "seed": "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(List<Integer>)",
   "query": "Modified VisitResource read handler GET /pets/visits adding required query parameter includeDetails",
@@ -265,5 +267,5 @@
       ]
     }
   },
-  "scientific_insight": "Vector RAG có thể phát hiện direct caller (1-hop) nếu có chuỗi URI tương tự, nhưng có xu hướng bỏ sót các component đa bước (2-hop như ApiGatewayController) do không có sự tương đồng văn bản trực tiếp với endpoint của provider. Ngoài ra, sau khi lọc bỏ Seed Node, kết quả Vector RAG giảm do nhiễu từ khóa."
+  "scientific_insight": "SMOKE TEST ONLY: historical observations on draft fixtures; no scientific conclusion or method-superiority claim."
 }

@@ -1,5 +1,11 @@
 # P01 verification runs
 
+Latest scoped reproducibility check, 2026-09-26:
+[repro-20260926T082624Z-d5eb6115](repro-20260926T082624Z-d5eb6115/report.json)
+contains 11 passing focused tests, LF/CRLF clean-checkout comparisons, and real
+Chroma warm/empty-cache probes. No full-suite or benchmark-score rerun.
+See [limits and reproduction instructions](../../P01_REPRODUCIBILITY.md).
+
 Current review acceptance: [suite-20260925T113007Z-952db4d5](suite-20260925T113007Z-952db4d5/summary.md)
 records **54 passed / 0 failed / 0 skipped** after Docker was restarted.
 Both live overload-rejection subprocesses returned exit code 1 as expected;

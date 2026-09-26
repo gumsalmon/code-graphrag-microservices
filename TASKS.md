@@ -1,5 +1,7 @@
 # SỔ TAY THEO DÕI NHIỆM VỤ CỦA HIỂN — DỰ ÁN CODE GRAPHRAG
 
+> **Đính chính 26/09/2026:** Tất cả điểm F1/P/R trong nhật ký này là **smoke test pipeline trên fixture nháp**, không phải kết quả bài báo. Giữ nguyên số liệu lịch sử; chưa mở P02.
+
 > **Đề tài:** Nghiên cứu ứng dụng GraphRAG trong phân tích tác động mã nguồn đa dịch vụ cho kiến trúc Microservices  
 > **Chủ nhiệm:** Ngô Đức Huy | **Thành viên cốt lõi:** Giảng Văn Hiển  
 > **Thời gian thực hiện:** 10/2026 – 04/2027  

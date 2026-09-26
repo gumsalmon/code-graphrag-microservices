@@ -1,4 +1,7 @@
 {
+  "result_status": "smoke_test",
+  "publication_ready": false,
+  "interpretation": "All nested Precision/Recall/F1 values are historical pipeline smoke tests on draft fixtures, not paper results or evidence of method superiority.",
   "total_evaluated_scenarios": 4,
   "graph_rag_average_f1": 1.0,
   "vector_rag_average_f1": 0.3095,

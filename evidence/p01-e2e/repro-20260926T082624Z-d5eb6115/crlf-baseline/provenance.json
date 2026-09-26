@@ -1,0 +1,29 @@
+{
+  "repository": "https://github.com/spring-petclinic/spring-petclinic-microservices",
+  "baseline_commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+  "source_root": "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-bo3okf5v\\crlf",
+  "source_normalization": "CRLF to LF only; original checkout is not modified",
+  "original_files": {
+    "provider": {
+      "path": "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-bo3okf5v\\crlf\\spring-petclinic-visits-service\\src\\main\\java\\org\\springframework\\samples\\petclinic\\visits\\web\\VisitResource.java",
+      "sha256": "78841fc2f1bc5b69339e085a3934040e467578e257af86dd9bbe352a30a1fe48",
+      "lf_sha256": "0bf7d4638add57363cde29b964d9fcc44ac55da9df320ff1ebfebc5c9f0786cd"
+    },
+    "client": {
+      "path": "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-bo3okf5v\\crlf\\spring-petclinic-api-gateway\\src\\main\\java\\org\\springframework\\samples\\petclinic\\api\\application\\VisitsServiceClient.java",
+      "sha256": "3aaff229d5971908e679f22dbc6f79fbec10793777f1501715ed9b2ee8b7b058",
+      "lf_sha256": "d7d1437c4dce96d4de5f636511d3bcf5549df4a11b7826fde0375bce358f1e13"
+    },
+    "controller": {
+      "path": "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-bo3okf5v\\crlf\\spring-petclinic-api-gateway\\src\\main\\java\\org\\springframework\\samples\\petclinic\\api\\boundary\\web\\ApiGatewayController.java",
+      "sha256": "08abd935c2c090593e920d02dfeeea9ed08e92434b4f7e0b3c0da41f5a2c1ff5",
+      "lf_sha256": "bb815e3727be7e56330072d54774944ef5029d66d2d7e56976d7c60dbeafbb21"
+    }
+  },
+  "snapshot_files": {
+    "VisitResource.java": "0bf7d4638add57363cde29b964d9fcc44ac55da9df320ff1ebfebc5c9f0786cd",
+    "VisitsServiceClient.java": "d7d1437c4dce96d4de5f636511d3bcf5549df4a11b7826fde0375bce358f1e13",
+    "ApiGatewayController.java": "bb815e3727be7e56330072d54774944ef5029d66d2d7e56976d7c60dbeafbb21"
+  },
+  "mutation": null
+}

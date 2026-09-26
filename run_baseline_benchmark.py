@@ -16,6 +16,7 @@ from src.parser import DependencyGraphBuilder
 from src.chroma_baseline import ChromaBaselineStore, ASTCodeChunker
 
 def main():
+    print("SMOKE TEST ONLY: all Precision/Recall/F1 values are pipeline checks, not paper results.")
     os.makedirs('output', exist_ok=True)
 
     print("=================================================================")
@@ -110,6 +111,8 @@ def main():
 
     # 4. Xuất báo cáo đối chứng
     comparison_report = {
+        "result_status": "smoke_test",
+        "publication_ready": False,
         "scenario": "P01_includeDetails",
         "seed": seed_id,
         "query": query_text,
@@ -127,19 +130,14 @@ def main():
             "top_3": eval_top3,
             "top_5": eval_top5
         },
-        "scientific_insight": (
-            "Vector RAG có thể phát hiện direct caller (1-hop) nếu có chuỗi URI tương tự, "
-            "nhưng có xu hướng bỏ sót các component đa bước (2-hop như ApiGatewayController) "
-            "do không có sự tương đồng văn bản trực tiếp với endpoint của provider. "
-            "Ngoài ra, sau khi lọc bỏ Seed Node, kết quả Vector RAG giảm do nhiễu từ khóa."
-        )
+        "scientific_insight": "SMOKE TEST ONLY: observations on draft fixtures; no scientific conclusion or method-superiority claim."
     }
 
     report_file = "output/benchmark_comparison.json"
     with open(report_file, "w", encoding="utf-8") as f:
         json.dump(comparison_report, f, indent=2, ensure_ascii=False)
 
-    print(f"\n✓ Đã lưu toàn bộ báo cáo đối chứng khoa học vào {report_file}")
+    print(f"\n✓ Đã lưu báo cáo smoke test (không phải kết quả bài báo) vào {report_file}")
 
     # 5. Chạy đánh giá toàn diện cả 4 kịch bản (P01-P04)
     print("\n=================================================================")

@@ -15,7 +15,6 @@ from pathlib import Path
 import platform
 import re
 import secrets
-import shutil
 import subprocess
 import sys
 import time
@@ -44,6 +43,11 @@ class VerificationError(RuntimeError):
 
 def digest(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def source_bytes(path: Path) -> bytes:
+    """Canonicalize CRLF only; preserve all other source bytes and whitespace."""
+    return path.read_bytes().replace(b"\r\n", b"\n")
 
 
 def write_json(path: Path, data: object) -> None:
@@ -110,16 +114,16 @@ def prepare_source(root: Path, snapshot: str, run_dir: Path, commands: list[dict
     original = {role: root / path for role, path in SOURCE.items()}
     for role, path in original.items():
         fixture = ROOT / "data" / "baseline" / NAMES[role]
-        if not path.is_file() or path.read_bytes() != fixture.read_bytes():
+        if not path.is_file() or source_bytes(path) != source_bytes(fixture):
             raise VerificationError(f"Fixed source differs from baseline fixture: {path}")
     source_dir = run_dir / "snapshot-source"
     source_dir.mkdir()
     for role, path in original.items():
-        shutil.copyfile(path, source_dir / NAMES[role])
+        (source_dir / NAMES[role]).write_bytes(source_bytes(path))
     mutation = None
     if snapshot == "mutated":
         for role in ("client", "controller"):
-            if (ROOT / "data" / "mutated" / NAMES[role]).read_bytes() != original[role].read_bytes():
+            if source_bytes(ROOT / "data" / "mutated" / NAMES[role]) != source_bytes(original[role]):
                 raise VerificationError(f"Mutation unexpectedly changes {role}")
         altered = ROOT / "data" / "mutated" / NAMES["provider"]
         before = original["provider"].read_text(encoding="utf-8").splitlines(keepends=True)
@@ -127,14 +131,16 @@ def prepare_source(root: Path, snapshot: str, run_dir: Path, commands: list[dict
         patch = "".join(difflib.unified_diff(before, after, fromfile=SOURCE["provider"], tofile=SOURCE["provider"]))
         if patch.count("@@") != 2 or "includeDetails" not in patch:
             raise VerificationError("Tracked mutation is not a single includeDetails provider hunk")
-        (run_dir / "mutation.patch").write_text(patch, encoding="utf-8")
-        shutil.copyfile(altered, source_dir / NAMES["provider"])
+        (run_dir / "mutation.patch").write_text(patch, encoding="utf-8", newline="\n")
+        (source_dir / NAMES["provider"]).write_bytes(source_bytes(altered))
         mutation = {"kind": "tracked fixture; not the independent runtime patch",
                     "patch_sha256": digest(run_dir / "mutation.patch"), "provider_sha256": digest(altered)}
     files = [source_dir / NAMES[role] for role in ("provider", "client", "controller")]
     provenance = {"repository": "https://github.com/spring-petclinic/spring-petclinic-microservices",
                   "baseline_commit": actual_commit, "source_root": str(root),
-                  "original_files": {role: {"path": str(path), "sha256": digest(path)} for role, path in original.items()},
+                  "source_normalization": "CRLF to LF only; original checkout is not modified",
+                  "original_files": {role: {"path": str(path), "sha256": digest(path),
+                      "lf_sha256": hashlib.sha256(source_bytes(path)).hexdigest()} for role, path in original.items()},
                   "snapshot_files": {path.name: digest(path) for path in files}, "mutation": mutation}
     return files, provenance
 

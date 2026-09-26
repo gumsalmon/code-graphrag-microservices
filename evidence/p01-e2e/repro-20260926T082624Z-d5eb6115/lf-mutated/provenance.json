@@ -1,0 +1,33 @@
+{
+  "repository": "https://github.com/spring-petclinic/spring-petclinic-microservices",
+  "baseline_commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+  "source_root": "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-bo3okf5v\\lf",
+  "source_normalization": "CRLF to LF only; original checkout is not modified",
+  "original_files": {
+    "provider": {
+      "path": "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-bo3okf5v\\lf\\spring-petclinic-visits-service\\src\\main\\java\\org\\springframework\\samples\\petclinic\\visits\\web\\VisitResource.java",
+      "sha256": "0bf7d4638add57363cde29b964d9fcc44ac55da9df320ff1ebfebc5c9f0786cd",
+      "lf_sha256": "0bf7d4638add57363cde29b964d9fcc44ac55da9df320ff1ebfebc5c9f0786cd"
+    },
+    "client": {
+      "path": "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-bo3okf5v\\lf\\spring-petclinic-api-gateway\\src\\main\\java\\org\\springframework\\samples\\petclinic\\api\\application\\VisitsServiceClient.java",
+      "sha256": "d7d1437c4dce96d4de5f636511d3bcf5549df4a11b7826fde0375bce358f1e13",
+      "lf_sha256": "d7d1437c4dce96d4de5f636511d3bcf5549df4a11b7826fde0375bce358f1e13"
+    },
+    "controller": {
+      "path": "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-bo3okf5v\\lf\\spring-petclinic-api-gateway\\src\\main\\java\\org\\springframework\\samples\\petclinic\\api\\boundary\\web\\ApiGatewayController.java",
+      "sha256": "bb815e3727be7e56330072d54774944ef5029d66d2d7e56976d7c60dbeafbb21",
+      "lf_sha256": "bb815e3727be7e56330072d54774944ef5029d66d2d7e56976d7c60dbeafbb21"
+    }
+  },
+  "snapshot_files": {
+    "VisitResource.java": "adcac41015862e04bebaf25defb0c3ce1661afc3c37b177683a7fa85cbacdc1d",
+    "VisitsServiceClient.java": "d7d1437c4dce96d4de5f636511d3bcf5549df4a11b7826fde0375bce358f1e13",
+    "ApiGatewayController.java": "bb815e3727be7e56330072d54774944ef5029d66d2d7e56976d7c60dbeafbb21"
+  },
+  "mutation": {
+    "kind": "tracked fixture; not the independent runtime patch",
+    "patch_sha256": "b28bbe24d0b3f3d82598381c4331fcca43d46d797da648ce94642b8391d3a1e8",
+    "provider_sha256": "2c5ffb8c5504feee2bd71e378e81c5d9e9b6b5be7233114e50a79774f6645554"
+  }
+}

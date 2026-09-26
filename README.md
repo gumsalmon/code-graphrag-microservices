@@ -1,5 +1,7 @@
 # Code GraphRAG: Phân tích Tác động Mã nguồn Đa dịch vụ cho Kiến trúc Microservices
 
+> **Trạng thái số liệu:** Mọi Precision/Recall/F1 hiện có là **smoke test pipeline**, không phải kết quả bài báo hoặc bằng chứng phương pháp tốt hơn. Các scenario P02–P04 đã có là fixture lịch sử, không phải nhiệm vụ mở rộng mới. Xem [tái lập LF/CRLF và Chroma](P01_REPRODUCIBILITY.md).
+
 > **Đề tài NCKH:** Nghiên cứu ứng dụng GraphRAG trong phân tích tác động mã nguồn đa dịch vụ cho kiến trúc Microservices  
 > **Tác giả / Nhóm thực hiện:** Ngô Đức Huy (Chủ nhiệm) & Giảng Văn Hiển (Thành viên kỹ thuật cốt lõi)  
 > **Trường Đại học Sài Gòn — Khoa Công nghệ Thông tin**
@@ -103,18 +105,18 @@ docker compose up -d
 # Sao chép và chạy nội dung file output/import_petclinic_full.cypher hoặc output/import_online_boutique.cypher
 ```
 
-### Chạy Thực nghiệm Đối chứng Khoa học (GraphRAG vs Vector RAG)
+### Chạy smoke test pipeline (không phải thực nghiệm bài báo)
 ```bash
 python run_baseline_benchmark.py
 ```
 
 ---
 
-## 4. Kết quả Thực nghiệm Khoa học
+## 4. Điểm smoke test lịch sử — không phải kết quả bài báo
 
 | Hệ thống | Độ sâu | Precision | Recall | F1-Score | Ghi chú |
 |---|---|---|---|---|---|
-| **Code GraphRAG** | 1-hop & 2-hop | **1.0000** | **1.0000** | **1.0000** | Truy vết chính xác mọi đường phụ thuộc đa bước và phát hiện fallback. |
-| **Vector RAG Baseline (ChromaDB)** | 1-hop & 2-hop | 0.2000 | 0.5000 | **0.2857** | Kẹt trong tương đồng văn bản cục bộ, bỏ sót các thành phần 2-hop liên dịch vụ. |
+| **Code GraphRAG** | 1-hop & 2-hop | **1.0000** | **1.0000** | **1.0000** | Smoke test trên fixture nháp; không suy rộng chất lượng. |
+| **Vector RAG Baseline (ChromaDB)** | 1-hop & 2-hop | 0.2000 | 0.5000 | **0.2857** | Smoke test lịch sử; phụ thuộc model/cache, chưa là kết quả bài báo. |
 
 Kết quả chi tiết được lưu trữ tại [output/full_benchmark_results.json](output/full_benchmark_results.json).
