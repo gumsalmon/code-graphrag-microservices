@@ -1,0 +1,166 @@
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:1: trailing whitespace.
+[32m+[m[32m﻿{[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:2: trailing whitespace.
+[32m+[m[32m    "schema_version":  "0.1.0",[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:3: trailing whitespace.
+[32m+[m[32m    "result_kind":  "automated_benchmark_observation_and_candidate_labels",[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:4: trailing whitespace.
+[32m+[m[32m    "scenario_id":  "P01",[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:5: trailing whitespace.
+[32m+[m[32m    "scenario_version":  "1.0.0",[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:6: trailing whitespace.
+[32m+[m[32m    "protocol_version":  "0.1",[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:7: trailing whitespace.
+[32m+[m[32m    "generated_at":  "2026-09-23T21:44:07.9306065+07:00",[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:8: trailing whitespace.
+[32m+[m[32m    "generator":  {[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:9: trailing whitespace.
+[32m+[m[32m                      "script":  "scripts/export_p01_benchmark_json.ps1",[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:10: trailing whitespace.
+[32m+[m[32m                      "ruleset":  "P01-v1",[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:11: trailing whitespace.
+[32m+[m[32m                      "automated":  true,[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:12: trailing whitespace.
+[32m+[m[32m                      "limitation":  "Candidate labels are deterministic scenario-rule output, not independently reviewed ground truth"[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:13: trailing whitespace.
+[32m+[m[32m                  },[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:14: trailing whitespace.
+[32m+[m[32m    "audit_decision":  "pending_review",[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:15: trailing whitespace.
+[32m+[m[32m    "ground_truth_status":  "not_accepted",[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:16: trailing whitespace.
+[32m+[m[32m    "reviewer":  null,[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:17: trailing whitespace.
+[32m+[m[32m    "source_run":  "benchmark/p01/raw/rerun-20260923-214211",[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:18: trailing whitespace.
+[32m+[m[32m    "inputs":  {[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:19: trailing whitespace.
+[32m+[m[32m                   "repository":  "https://github.com/spring-petclinic/spring-petclinic-microservices",[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:20: trailing whitespace.
+[32m+[m[32m                   "baseline_commit":  "3858f9c630cf989bb6809a86edf47c2be78dc9f1",[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:21: trailing whitespace.
+[32m+[m[32m                   "config_revision":  "323993ce2519c6d02df63e08bf4458d123d3b611",[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:22: trailing whitespace.
+[32m+[m[32m                   "patch_sha256":  "42394ca361d07db58ba6a73cfc1ddb8bd1d9aeddb59292873552573adfa5cc21",[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:23: trailing whitespace.
+[32m+[m[32m                   "baseline_visits_image":  "p01/visits:baseline-3858f9c",[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:24: trailing whitespace.
+[32m+[m[32m                   "mutated_visits_image":  "p01/visits:mutated-42394ca3",[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:25: trailing whitespace.
+[32m+[m[32m                   "fixture":  {[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:26: trailing whitespace.
+[32m+[m[32m                                   "owner_id":  6,[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:27: trailing whitespace.
+[32m+[m[32m                                   "pet_ids":  [[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:28: trailing whitespace.
+[32m+[m[32m                                                   7,[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:29: trailing whitespace.
+[32m+[m[32m                                                   8[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:30: trailing whitespace.
+[32m+[m[32m                                               ],[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:31: trailing whitespace.
+[32m+[m[32m                                   "negative_pet_id":  7[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:32: trailing whitespace.
+[32m+[m[32m                               }[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:33: trailing whitespace.
+[32m+[m[32m               },[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:34: trailing whitespace.
+[32m+[m[32m    "observed_results":  [[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:35: trailing whitespace.
+[32m+[m[32m                             {[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:36: trailing whitespace.
+[32m+[m[32m                                 "id":  "baseline_direct",[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:37: trailing whitespace.
+[32m+[m[32m                                 "snapshot":  "baseline",[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:38: trailing whitespace.
+[32m+[m[32m                                 "timestamp":  "2026-09-23T21:43:13.3868118+07:00",[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:39: trailing whitespace.
+[32m+[m[32m                                 "method":  "GET",[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:40: trailing whitespace.
+[32m+[m[32m                                 "uri":  "http://localhost:28082/pets/visits?petId=7,8",[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:41: trailing whitespace.
+[32m+[m[32m                                 "exit_code":  0,[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:42: trailing whitespace.
+[32m+[m[32m                                 "http_status":  200,[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:43: trailing whitespace.
+[32m+[m[32m                                 "body":  "{\"items\":[{\"date\":\"2013-01-01\",\"description\":\"rabies shot\",\"id\":1,\"petId\":7},{\"date\":\"2013-01-04\",\"description\":\"spayed\",\"id\":4,\"petId\":7},{\"date\":\"2013-01-02\",\"description\":\"rabies shot\",\"id\":2,\"petId\":8},{\"date\":\"2013-01-03\",\"description\":\"neutered\",\"id\":3,\"petId\":8}]}"[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:44: trailing whitespace.
+[32m+[m[32m                             },[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:45: trailing whitespace.
+[32m+[m[32m                             {[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:46: trailing whitespace.
+[32m+[m[32m                                 "id":  "baseline_gateway",[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:47: trailing whitespace.
+[32m+[m[32m                                 "snapshot":  "baseline",[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:48: trailing whitespace.
+[32m+[m[32m                                 "timestamp":  "2026-09-23T21:43:13.4092904+07:00",[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:49: trailing whitespace.
+[32m+[m[32m                                 "method":  "GET",[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:50: trailing whitespace.
+[32m+[m[32m                                 "uri":  "http://localhost:28080/api/gateway/owners/6",[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:51: trailing whitespace.
+[32m+[m[32m                                 "exit_code":  0,[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:52: trailing whitespace.
+[32m+[m[32m                                 "http_status":  200,[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:53: trailing whitespace.
+[32m+[m[32m                                 "body":  "{\"id\":6,\"firstName\":\"Jean\",\"lastName\":\"Coleman\",\"address\":\"105 N. Lake St.\",\"city\":\"Monona\",\"telephone\":\"6085552654\",\"pets\":[{\"id\":8,\"name\":\"Max\",\"birthDate\":\"2012-09-04T00:00:00.000Z\",\"type\":{\"name\":\"cat\"},\"visits\":[{\"id\":2,\"petId\":8,\"date\":\"2013-01-02\",\"description\":\"rabies shot\"},{\"id\":3,\"petId\":8,\"date\":\"2013-01-03\",\"description\":\"neutered\"}]},{\"id\":7,\"name\":\"Samantha\",\"birthDate\":\"2012-09-04T00:00:00.000Z\",\"type\":{\"name\":\"cat\"},\"visits\":[{\"id\":1,\"petId\":7,\"date\":\"2013-01-01\",\"description\":\"rabies shot\"},{\"id\":4,\"petId\":7,\"date\":\"2013-01-04\",\"description\":\"spayed\"}]}]}"[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:54: trailing whitespace.
+[32m+[m[32m                             },[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:55: trailing whitespace.
+[32m+[m[32m                             {[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:56: trailing whitespace.
+[32m+[m[32m                                 "id":  "baseline_negative_overload",[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:57: trailing whitespace.
+[32m+[m[32m                                 "snapshot":  "baseline",[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:58: trailing whitespace.
+[32m+[m[32m                                 "timestamp":  "2026-09-23T21:43:13.4894680+07:00",[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:59: trailing whitespace.
+[32m+[m[32m                                 "method":  "GET",[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:60: trailing whitespace.
+[32m+[m[32m                                 "uri":  "http://localhost:28082/owners/6/pets/7/visits",[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:61: trailing whitespace.
+[32m+[m[32m                                 "exit_code":  0,[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:62: trailing whitespace.
+[32m+[m[32m                                 "http_status":  200,[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:63: trailing whitespace.
+[32m+[m[32m                                 "body":  "[{\"date\":\"2013-01-01\",\"description\":\"rabies shot\",\"id\":1,\"petId\":7},{\"date\":\"2013-01-04\",\"description\":\"spayed\",\"id\":4,\"petId\":7}]"[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:64: trailing whitespace.
+[32m+[m[32m                             },[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:65: trailing whitespace.
+[32m+[m[32m                             {[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:66: trailing whitespace.
+[32m+[m[32m                                 "id":  "mutated_direct_missing_parameter",[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:67: trailing whitespace.
+[32m+[m[32m                                 "snapshot":  "mutated",[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:68: trailing whitespace.
+[32m+[m[32m                                 "timestamp":  "2026-09-23T21:44:03.4675386+07:00",[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:69: trailing whitespace.
+[32m+[m[32m                                 "method":  "GET",[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:70: trailing whitespace.
+[32m+[m[32m                                 "uri":  "http://localhost:28082/pets/visits?petId=7,8",[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:71: trailing whitespace.
+[32m+[m[32m                                 "exit_code":  0,[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:72: trailing whitespace.
+[32m+[m[32m                                 "http_status":  400,[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:73: trailing whitespace.
+[32m+[m[32m                                 "body":  "{\"timestamp\":\"2026-09-23T14:44:03.477Z\",\"status\":400,\"error\":\"Bad Request\",\"path\":\"/pets/visits\"}"[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:74: trailing whitespace.
+[32m+[m[32m                             },[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:75: trailing whitespace.
+[32m+[m[32m                             {[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:76: trailing whitespace.
+[32m+[m[32m                                 "id":  "mutated_direct_valid_parameter",[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:77: trailing whitespace.
+[32m+[m[32m                                 "snapshot":  "mutated",[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:78: trailing whitespace.
+[32m+[m[32m                                 "timestamp":  "2026-09-23T21:44:03.4826671+07:00",[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:79: trailing whitespace.
+[32m+[m[32m                                 "method":  "GET",[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:80: trailing whitespace.
+[32m+[m[32m                                 "uri":  "http://localhost:28082/pets/visits?petId=7,8\u0026includeDetails=true",[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:81: trailing whitespace.
+[32m+[m[32m                                 "exit_code":  0,[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:82: trailing whitespace.
+[32m+[m[32m                                 "http_status":  200,[m[41m[m
+benchmark/p01/derived/results/rerun-20260923-214211-benchmark-result.json:83: trailing whitespace.
+[32m+[m[32m                                 "body":  "{\"items\":[{\"date\":\"2013-01-01\",\"description\":\"rabies shot\",\"id\":1,\"petId\":7},{\"date\":\"2013-01-04\",\"description\":\"spayed\",\"id\":4,\"petId\":7},{\"date\":\"2013-01-02\",\"description\":\"rabies shot\"
