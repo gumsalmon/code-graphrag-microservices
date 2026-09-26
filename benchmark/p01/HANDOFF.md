@@ -1,5 +1,7 @@
 # Bàn giao rà soát benchmark độc lập P01
 
+**Thứ tự cho reviewer:** mở `benchmark/p01/SOURCE_FIRST_REVIEW.md` và hoàn thành nhận định từ source/patch/raw runtime trước khi đọc tài liệu bàn giao này hoặc `labels.v3.json`. Tài liệu dưới đây chứa kết luận dự thảo để đối chiếu ở vòng hai.
+
 Task: rà soát benchmark độc lập P01
 
 Branch: `Pham_Nguyen_Phat`

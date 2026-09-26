@@ -1,5 +1,9 @@
 # Hướng dẫn trưởng nhóm rà soát P01
 
+## Bắt đầu bằng đánh giá độc lập
+
+Reviewer mở **`benchmark/p01/SOURCE_FIRST_REVIEW.md` trước** và hoàn thành phiếu từ source, patch, contract và raw runtime. Ghi thời điểm cùng nhận định độc lập trước khi đọc phần còn lại của hướng dẫn này, `HANDOFF.md`, `evidence_manifest.json` hoặc bất kỳ `labels.v*.json` nào. Phần dưới là vòng đối chiếu và quyết định sau khi phiếu đã hoàn thành. Tài liệu `PROJECT_CONTEXT.md` từng nêu tuyến ứng viên, nên không gọi quy trình này là blind hoàn toàn.
+
 ## 1. Mục tiêu của lần rà soát này
 
 Đề nghị trưởng nhóm xác nhận protocol v0.2 trước khi mở P02–P04 và chỉ định một reviewer độc lập để quyết định bộ nhãn P01. V0.1 được giữ để truy vết quá trình tạo `labels.v3.json`. P01 hiện có đủ bằng chứng kỹ thuật nhưng vẫn ở trạng thái `pending_review`; chưa phải ground truth `accepted`.
@@ -10,15 +14,15 @@ Review này không nhằm kết luận GraphRAG tốt hơn Vector RAG và không
 
 Cách tốt nhất là gửi branch `Pham_Nguyen_Phat` kèm commit mới chứa toàn bộ tài liệu và bằng chứng. Không nên chỉ gửi ảnh chụp hoặc riêng file kết quả JSON vì reviewer cần kiểm tra provenance và truy ngược về raw evidence.
 
-Bộ file reviewer nên đọc theo thứ tự:
+Bộ file reviewer đọc **sau khi hoàn thành phiếu độc lập** theo thứ tự:
 
 1. `benchmark/p01/HANDOFF.md` — tóm tắt trạng thái, kết quả và nội dung cần quyết định.
 2. `benchmark/protocol/benchmark_protocol_v0.2.md` — protocol đề nghị phê duyệt, gồm impact, hop, evidence, scoring, ID mapping và split.
 3. `benchmark/protocol/benchmark_protocol_v0.1.md` — phiên bản lịch sử đã dùng khi tạo nhãn v3.
 4. `benchmark/p01/scenario.json` — định danh scenario, commit, patch, fixture và seed.
-5. `benchmark/p01/labels.v3.json` — bộ nhãn hiện hành đang chờ review.
-6. `benchmark/p01/evidence_manifest.json` — ánh xạ từng kết luận tới bằng chứng.
-7. `benchmark/p01/derived/runtime_rerun_report.md` — tóm tắt ma trận runtime sạch.
+5. `benchmark/p01/evidence_manifest.json` — ánh xạ từng kết luận tới bằng chứng.
+6. `benchmark/p01/derived/runtime_rerun_report.md` — tóm tắt ma trận runtime sạch.
+7. `benchmark/p01/labels.v3.json` — đối chiếu nhãn dự thảo với nhận định độc lập đã ghi.
 8. `benchmark/p01/review_log.md` — lịch sử và nơi reviewer ghi quyết định.
 9. `benchmark/p01/checksums.sha256` — kiểm tra tính toàn vẹn của artifact trước review.
 10. `benchmark/p01/CHECKSUM_PROCESS.md` — cách khóa quyết định sau review mà không sửa file nhãn.
@@ -86,6 +90,7 @@ Reviewer điền phần cuối `benchmark/p01/review_log.md` gồm:
 - thời điểm review;
 - quyết định `approve`, `request_changes` hoặc `unable_to_review`;
 - các file/bằng chứng đã kiểm tra;
+- đường dẫn và thời điểm khóa phiếu nhận định độc lập, cùng các điểm khác biệt so với nhãn dự thảo;
 - nhận xét hoặc danh sách sửa cụ thể;
 - chữ ký/xác nhận.
 
