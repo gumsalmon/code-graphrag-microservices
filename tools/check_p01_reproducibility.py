@@ -15,7 +15,7 @@ import uuid
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 import verify_neo4j_live as verifier
-from p01_provenance import snapshot, require_clean, require_unchanged
+from p01_provenance import snapshot as git_snapshot, require_clean, require_unchanged
 
 
 def main():
@@ -23,7 +23,7 @@ def main():
     parser.add_argument("--source-root", type=Path, required=True)
     parser.add_argument("--output-root", type=Path, default=Path(tempfile.gettempdir()) / "p01-verification-output")
     args = parser.parse_args()
-    before = snapshot(ROOT)
+    before = git_snapshot(ROOT)
     require_clean(before)
     if args.output_root.resolve().is_relative_to(ROOT):
         raise ValueError("Output root must be outside the implementation checkout")
@@ -132,7 +132,7 @@ def main():
         report["error"] = f"{type(exc).__name__}: {exc}"
     report.update({"command": [sys.executable, *sys.argv], "exit_code": code,
                    "duration_seconds": round(time.perf_counter() - started, 3)})
-    after = snapshot(ROOT)
+    after = git_snapshot(ROOT)
     report["git_before"], report["git_after"] = before, after
     report["implementation_sha256_source"] = "SHA-256 of Git HEAD blob bytes; checkout hashes recorded separately"
     report["implementation_sha256"] = before["git_blob_sha256"]
