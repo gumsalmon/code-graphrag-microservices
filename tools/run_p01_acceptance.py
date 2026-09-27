@@ -8,7 +8,9 @@ from pathlib import Path
 import subprocess
 import sys
 import time
+import tempfile
 import uuid
+from p01_provenance import snapshot, require_clean, require_unchanged
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -16,8 +18,13 @@ ROOT = Path(__file__).resolve().parents[1]
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--source-root", type=Path, required=True)
+    parser.add_argument("--output-root", type=Path, default=Path(tempfile.gettempdir()) / "p01-verification-output")
     args = parser.parse_args()
-    run = ROOT / "evidence" / "p01-e2e" / f"suite-{datetime.now(timezone.utc):%Y%m%dT%H%M%SZ}-{uuid.uuid4().hex[:8]}"
+    before = snapshot(ROOT)
+    require_clean(before)
+    if args.output_root.resolve().is_relative_to(ROOT):
+        raise ValueError("Output root must be outside the implementation checkout")
+    run = args.output_root.resolve() / f"suite-{datetime.now(timezone.utc):%Y%m%dT%H%M%SZ}-{uuid.uuid4().hex[:8]}"
     run.mkdir(parents=True)
     env = os.environ.copy()
     env["P01_SOURCE_ROOT"] = str(args.source_root.resolve(strict=True))
@@ -35,10 +42,16 @@ def main():
         check = subprocess.run(argv, cwd=ROOT, capture_output=True, text=True)
         record["checks"].append({"command": argv, "exit_code": check.returncode,
                                  "stdout": check.stdout, "stderr": check.stderr})
-    record["implementation_sha256"] = {
-        name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest()
-        for name in ("verify_neo4j_live.py", "requirements.txt", ".gitattributes",
-                     "tests/test_verify_neo4j_live.py", "tests/p01_fault_process.py", "tools/run_p01_acceptance.py")}
+    after = snapshot(ROOT)
+    record["git_before"], record["git_after"] = before, after
+    record["implementation_sha256_source"] = "SHA-256 of Git HEAD blob bytes; checkout hashes recorded separately"
+    record["implementation_sha256"] = before["git_blob_sha256"]
+    try:
+        require_unchanged(before, after)
+    except RuntimeError as exc:
+        result.returncode = 1
+        record["error"] = str(exc)
+    record["exit_code"] = result.returncode
     (run / "process-result.json").write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8")
     (run / "summary.md").write_text(
         f"# Full acceptance suite\n\nExit code: {result.returncode}.\n\n"

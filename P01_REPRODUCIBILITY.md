@@ -1,5 +1,11 @@
 # P01 reproducibility review — 2026-09-26
 
+Follow-up 2026-09-27: [implementation hash clarification](P01_HASH_PROVENANCE.md).
+The probe/full-suite commands now require a clean checkout, record Git HEAD
+and status, distinguish blob and checkout hashes, and write outside the checkout
+(`--output-root`, default `%TEMP%/p01-verification-output`). Earlier evidence
+below describes the original scoped run and remains unmodified.
+
 This follow-up stays in PR #1. No P02 development, new scoring experiment or
 full 54-test rerun was performed. All current Precision/Recall/F1 values are
 **pipeline smoke tests, not paper results**. Existing numerical values remain

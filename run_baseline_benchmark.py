@@ -34,7 +34,7 @@ def main():
 
     seed_id = "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(List<Integer>)"
     
-    # GROUND TRUTH CHUẨN (Thẩm định độc lập, không dùng output parser)
+    # NHÃN NHÁP CHO SMOKE TEST — chưa phải ground truth được khóa/thẩm định cho bài báo
     ground_truth_hop1 = ["api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)"]
     ground_truth_hop2 = ["api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)"]
     full_ground_truth = ground_truth_hop1 + ground_truth_hop2

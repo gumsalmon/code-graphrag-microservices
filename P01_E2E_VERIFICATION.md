@@ -1,5 +1,9 @@
 # P01 Neo4j E2E verification
 
+The probe/full-suite runners require a clean checkout and save new output outside
+it via `--output-root` (default `%TEMP%/p01-verification-output`). See
+[Git provenance and hash definitions](P01_HASH_PROVENANCE.md).
+
 This is a technical graph-path check, not behavioral impact ground truth. It
 does not use Phát's results or the draft ground truth. The verifier uses the
 existing parser and Cypher generator without changing either one.

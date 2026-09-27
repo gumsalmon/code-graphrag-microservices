@@ -66,7 +66,7 @@
   - [x] Thiết kế module chia đoạn mã nguồn công bằng theo Class/Method/Record AST (`src/chroma_baseline.py`).
   - [x] Lập chỉ mục 13 code chunks vào ChromaDB với metadata đầy đủ.
   - [x] Xây dựng hàm truy vấn tương đồng và so sánh đối chứng (`run_baseline_benchmark.py`).
-  - [x] Chạy thực nghiệm khoa học: Chứng minh Vector RAG đạt Recall@5 = 0.00 do bị kẹt trong textual similarity cục bộ ở `VisitResource`, trong khi GraphRAG đạt 100% độ phủ cả tuyến 2-hop (`VisitsServiceClient` và `ApiGatewayController`).
+  - [x] Chạy smoke test trên nhãn nháp: ghi nhận Vector RAG Recall@5 = 0.00 và GraphRAG phủ tuyến 2-hop trong fixture. Đây là số liệu kiểm tra pipeline, không chứng minh ưu thế phương pháp hoặc kết quả bài báo.
   - [x] Xuất báo cáo đối chứng khoa học: `output/benchmark_comparison.json`.
 
 ---
@@ -109,7 +109,7 @@
 |---|---|---|---|
 | 20/09/2026 | Task 1 | Hoàn thành Parser REST 2 file (`VisitResource` & `VisitsServiceClient`), hợp đồng JSON `sample_contract.json`, 7 unit tests. | `1e2bbc3` |
 | 20/09/2026 | Task 2 & 3 | Bóc tách 2-hop (`ApiGatewayController`), phát hiện Circuit Breaker, thuật toán duyệt ngược tác động, tạo `docker-compose.yml` và module `neo4j_importer.py`. Đạt 10/10 unit tests. | `869438e` |
-| 20/09/2026 | Task 4 | Hoàn thành ChromaDB Baseline Vector RAG, module AST Code Chunker, 13/13 tests passed, chạy thực nghiệm chứng minh hạn chế multi-hop của Vector RAG so với GraphRAG (`output/benchmark_comparison.json`). | `cfa76d6` |
+| 20/09/2026 | Task 4 | Hoàn thành ChromaDB Baseline Vector RAG, module AST Code Chunker, 13/13 tests passed; chạy smoke test trên nhãn nháp, không kết luận ưu thế hoặc hạn chế tổng quát của phương pháp (`output/benchmark_comparison.json`). | `cfa76d6` |
 | 20/09/2026 | Task 5 | Mở rộng bóc tách toàn diện 4 microservices của PetClinic (`customers-service`, `vets-service`, `visits-service`, `api-gateway`) với 15 nodes, 13 endpoints, 4 edges (`output/petclinic_full_graph.json`). | *Đang commit* |
 | 20/09/2026 | Task 6 | Bóc tách giao thức gRPC Google Cloud Online Boutique từ `demo.proto` và `checkoutservice` Go với 21 nodes, 6 cạnh gRPC (`output/online_boutique_graph.json`). | *Đang commit* |
 | 20/09/2026 | Task 7 | Xây dựng `src/benchmark_runner.py`, đo đạc định lượng F1-Score: GraphRAG (1.0000) vs Vector RAG (0.2857), lưu `output/full_benchmark_results.json`. | *Đang commit* |

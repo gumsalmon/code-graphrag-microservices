@@ -15,13 +15,19 @@ import uuid
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 import verify_neo4j_live as verifier
+from p01_provenance import snapshot, require_clean, require_unchanged
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--source-root", type=Path, required=True)
+    parser.add_argument("--output-root", type=Path, default=Path(tempfile.gettempdir()) / "p01-verification-output")
     args = parser.parse_args()
-    run = ROOT / "evidence/p01-e2e" / f"repro-{datetime.now(timezone.utc):%Y%m%dT%H%M%SZ}-{uuid.uuid4().hex[:8]}"
+    before = snapshot(ROOT)
+    require_clean(before)
+    if args.output_root.resolve().is_relative_to(ROOT):
+        raise ValueError("Output root must be outside the implementation checkout")
+    run = args.output_root.resolve() / f"repro-{datetime.now(timezone.utc):%Y%m%dT%H%M%SZ}-{uuid.uuid4().hex[:8]}"
     run.mkdir(parents=True)
     commands, report = [], {"purpose": "reproducibility probes only; no F1 or paper results", "checks": []}
     started = time.perf_counter()
@@ -126,9 +132,16 @@ def main():
         report["error"] = f"{type(exc).__name__}: {exc}"
     report.update({"command": [sys.executable, *sys.argv], "exit_code": code,
                    "duration_seconds": round(time.perf_counter() - started, 3)})
-    report["implementation_sha256"] = {name: verifier.digest(ROOT / name) for name in (
-        "verify_neo4j_live.py", "tools/check_p01_reproducibility.py", "tests/test_p01_reproducibility.py",
-        "src/benchmark_runner.py", "run_baseline_benchmark.py")}
+    after = snapshot(ROOT)
+    report["git_before"], report["git_after"] = before, after
+    report["implementation_sha256_source"] = "SHA-256 of Git HEAD blob bytes; checkout hashes recorded separately"
+    report["implementation_sha256"] = before["git_blob_sha256"]
+    try:
+        require_unchanged(before, after)
+    except RuntimeError as exc:
+        code = 1
+        report["error"] = str(exc)
+    report["exit_code"] = code
     verifier.write_json(run / "report.json", report)
     verifier.write_json(run / "commands.log", commands)
     paths = sorted(p for p in run.rglob("*") if p.is_file())
