@@ -1,5 +1,10 @@
 # P01 verification runs
 
+Clean-checkout provenance review, 2026-09-27:
+[repro-20260927T074239Z-698d9551](repro-20260927T074239Z-698d9551/report.json)
+records HEAD and clean Git status before/after, and separates Git-blob hashes
+from working-tree hashes. See [hash explanation](../../P01_HASH_PROVENANCE.md).
+
 Latest scoped reproducibility check, 2026-09-26:
 [repro-20260926T082624Z-d5eb6115](repro-20260926T082624Z-d5eb6115/report.json)
 contains 11 passing focused tests, LF/CRLF clean-checkout comparisons, and real

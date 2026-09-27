@@ -1,0 +1,244 @@
+{
+  "purpose": "reproducibility probes only; no F1 or paper results",
+  "checks": [
+    {
+      "check": "focused source-normalization, smoke-label and output-integrity tests",
+      "passed": true
+    },
+    {
+      "check": "lf dirty checkout rejected",
+      "error": "PetClinic tracked source is dirty"
+    },
+    {
+      "check": "crlf dirty checkout rejected",
+      "error": "PetClinic tracked source is dirty"
+    },
+    {
+      "check": "baseline: LF/CRLF canonical source, JSON, Cypher and patch identical",
+      "passed": true
+    },
+    {
+      "check": "mutated: LF/CRLF canonical source, JSON, Cypher and patch identical",
+      "passed": true
+    },
+    {
+      "check": "warm cache: real embeddings and fresh Chroma index/query without model download",
+      "passed": true
+    },
+    {
+      "check": "cold cache requires download: expected failure when download disabled",
+      "error": "Model download blocked by reproducibility probe",
+      "passed": true
+    }
+  ],
+  "chroma": {
+    "model": "all-MiniLM-L6-v2",
+    "embedding_function": "Chroma DefaultEmbeddingFunction -> ONNXMiniLM_L6_V2",
+    "cache_path": "C:\\Users\\hieng\\.cache\\chroma\\onnx_models\\all-MiniLM-L6-v2",
+    "download_url": "https://chroma-onnx-models.s3.amazonaws.com/all-MiniLM-L6-v2/onnx.tar.gz",
+    "archive_sha256": "913d7300ceae3b2dbc2c50d1de4baacab4be7b9380491c27fab7418616a16ec3",
+    "expected_archive_sha256": "913d7300ceae3b2dbc2c50d1de4baacab4be7b9380491c27fab7418616a16ec3",
+    "files": {
+      "onnx\\config.json": {
+        "sha256": "b567c7d5a55b636c95186aaf993f9a8920842b7e05a9e703e68b23cab2c3a670",
+        "bytes": 650
+      },
+      "onnx\\model.onnx": {
+        "sha256": "4f148ba8ae9c2c7fbee4af2b132db8d06c6a6545b47fc83bbb98c3d22b8393e6",
+        "bytes": 90387606
+      },
+      "onnx\\special_tokens_map.json": {
+        "sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3",
+        "bytes": 125
+      },
+      "onnx\\tokenizer.json": {
+        "sha256": "da0e79933b9ed51798a3ae27893d3c5fa4a201126cef75586296df9b4d2c62a0",
+        "bytes": 711661
+      },
+      "onnx\\tokenizer_config.json": {
+        "sha256": "7702051bbc4953b94d47fa1d61b42ed4cbb3c71b501a8dd7183a823f8bea1f20",
+        "bytes": 518
+      },
+      "onnx\\vocab.txt": {
+        "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+        "bytes": 231508
+      }
+    },
+    "versions": {
+      "chromadb": "1.5.9",
+      "onnxruntime": "1.30.0",
+      "tokenizers": "0.23.2",
+      "numpy": "2.4.6",
+      "httpx": "0.28.1"
+    },
+    "embedding_dimension": 384,
+    "providers": [
+      "CPUExecutionProvider"
+    ],
+    "isolated_store": {
+      "indexed_chunks": 13,
+      "result_ids": [
+        "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(int)",
+        "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(List<Integer>)",
+        "api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)"
+      ],
+      "reused_existing_db": false
+    },
+    "cold_cache_download_attempts": [
+      "https://chroma-onnx-models.s3.amazonaws.com/all-MiniLM-L6-v2/onnx.tar.gz"
+    ]
+  },
+  "command": [
+    "C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-e2e-venv\\Scripts\\python.exe",
+    "tools/check_p01_reproducibility.py",
+    "--source-root",
+    "C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-petclinic-3858f9c",
+    "--output-root",
+    "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-review-evidence-20260927"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 6.325,
+  "git_before": {
+    "head": "ba018da4b8e2ec622bfb4164d8b3e99a7a731bbf",
+    "status_porcelain": "",
+    "clean": true,
+    "status_command": [
+      "git",
+      "status",
+      "--porcelain=v1",
+      "--untracked-files=all"
+    ],
+    "git_blob_sha256": {
+      ".gitattributes": "e36f4ebc12ba9707c4b1c8354545fcdeae880856a73a9c318c849d4d971eb28f",
+      "requirements.txt": "ad37493462c30310b8a854315b1d7d5ab8b8239102b3391ce631b6f1f47b1026",
+      "run_baseline_benchmark.py": "bd84b584bc5e21c8a572b1e5f839b83df046e0852bbfc7dda466ceca8c15b0b6",
+      "run_parser.py": "266d06e69674b83637ce5ef2670b304a1b127990265d78d71fac9187f43e720d",
+      "src/benchmark_runner.py": "c07cdef66f0d57f939c7c2dba5d6d24f23fcdd9d644fe7b84d44bbfe521ceb1a",
+      "src/chroma_baseline.py": "b124d9516ec3b15d6cf70deed7933a077a19562486ae664c019e6253f9fb02d5",
+      "src/neo4j_importer.py": "266d956189cf8aaf73df90969a56ebda9604b20769d9f6e9df5a413baf083bfb",
+      "src/parser.py": "349be1e5694505e2d14d0cceed0bc3d22411406bd7708286bc15d534edbf68fb",
+      "src/proto_parser.py": "e71d53d7964758f62fc314e1b7082ae02116653f324d7e2da81b114143224b68",
+      "tests/p01_fault_process.py": "68374344cb8c5e5114a31252e0ed5ba0e9db7e3bde5fb2a18eff55ceac2c2a58",
+      "tests/test_benchmark_runner.py": "7843e12011449d95bbd1daa7f885d38336a7e9f74ae797c6563c66a727334eed",
+      "tests/test_chroma_baseline.py": "8c06878ab56e04a41e7b81010e202be747fbbfadeea243211cf97632fac47437",
+      "tests/test_output_integrity.py": "73ae0e8b70c9b5763d949b63ea0390f11fe88d2acc07fe77a36a90950401bc96",
+      "tests/test_p01_reproducibility.py": "9369e761302f14af524247ae5a78f2f23fb30b2c1b4d81f3f5a48030536efb9f",
+      "tests/test_parser.py": "05420dd85b365421e255c8296c4ce775e0060c9dc48234d254dbd9ff3f26c40e",
+      "tests/test_proto_parser.py": "2c0c1e15505e38fb3fcffd8571fc2f0791fbfe568e7e1e98c227eef11191990a",
+      "tests/test_verify_neo4j_live.py": "d4e3536c0fd2a4e8b444b738abd0771347ca20375dbad0819ae69077d59b9b50",
+      "tools/check_p01_reproducibility.py": "68d5bae9c4d274615efe422520a416637ca145f40138150098d7dc4e8fc9d1bc",
+      "tools/p01_provenance.py": "a0b1a51792ae18fe01c166fad87db4823e7b105c125322c597e66347b3ff5e67",
+      "tools/run_p01_acceptance.py": "6876b63ca74caa07638f30dc3d47ca77e8d417fc51698b39a201cdc7733e02bf",
+      "tools/verify_p01_checksums.py": "bcfe4b77fe90ef919801e01a08fb67cfc0b53cc9520dc73c3c51ce57fed27b10",
+      "verify_neo4j_live.py": "a04cb346f57d09c0eedb99ec8a368d10f68943f4df800833adc96de1e366b0c3"
+    },
+    "working_tree_sha256": {
+      ".gitattributes": "e36f4ebc12ba9707c4b1c8354545fcdeae880856a73a9c318c849d4d971eb28f",
+      "requirements.txt": "ad37493462c30310b8a854315b1d7d5ab8b8239102b3391ce631b6f1f47b1026",
+      "run_baseline_benchmark.py": "bd84b584bc5e21c8a572b1e5f839b83df046e0852bbfc7dda466ceca8c15b0b6",
+      "run_parser.py": "266d06e69674b83637ce5ef2670b304a1b127990265d78d71fac9187f43e720d",
+      "src/benchmark_runner.py": "c07cdef66f0d57f939c7c2dba5d6d24f23fcdd9d644fe7b84d44bbfe521ceb1a",
+      "src/chroma_baseline.py": "b124d9516ec3b15d6cf70deed7933a077a19562486ae664c019e6253f9fb02d5",
+      "src/neo4j_importer.py": "266d956189cf8aaf73df90969a56ebda9604b20769d9f6e9df5a413baf083bfb",
+      "src/parser.py": "349be1e5694505e2d14d0cceed0bc3d22411406bd7708286bc15d534edbf68fb",
+      "src/proto_parser.py": "e71d53d7964758f62fc314e1b7082ae02116653f324d7e2da81b114143224b68",
+      "tests/p01_fault_process.py": "68374344cb8c5e5114a31252e0ed5ba0e9db7e3bde5fb2a18eff55ceac2c2a58",
+      "tests/test_benchmark_runner.py": "7843e12011449d95bbd1daa7f885d38336a7e9f74ae797c6563c66a727334eed",
+      "tests/test_chroma_baseline.py": "8c06878ab56e04a41e7b81010e202be747fbbfadeea243211cf97632fac47437",
+      "tests/test_output_integrity.py": "73ae0e8b70c9b5763d949b63ea0390f11fe88d2acc07fe77a36a90950401bc96",
+      "tests/test_p01_reproducibility.py": "9369e761302f14af524247ae5a78f2f23fb30b2c1b4d81f3f5a48030536efb9f",
+      "tests/test_parser.py": "05420dd85b365421e255c8296c4ce775e0060c9dc48234d254dbd9ff3f26c40e",
+      "tests/test_proto_parser.py": "2c0c1e15505e38fb3fcffd8571fc2f0791fbfe568e7e1e98c227eef11191990a",
+      "tests/test_verify_neo4j_live.py": "d4e3536c0fd2a4e8b444b738abd0771347ca20375dbad0819ae69077d59b9b50",
+      "tools/check_p01_reproducibility.py": "68d5bae9c4d274615efe422520a416637ca145f40138150098d7dc4e8fc9d1bc",
+      "tools/p01_provenance.py": "a0b1a51792ae18fe01c166fad87db4823e7b105c125322c597e66347b3ff5e67",
+      "tools/run_p01_acceptance.py": "6876b63ca74caa07638f30dc3d47ca77e8d417fc51698b39a201cdc7733e02bf",
+      "tools/verify_p01_checksums.py": "bcfe4b77fe90ef919801e01a08fb67cfc0b53cc9520dc73c3c51ce57fed27b10",
+      "verify_neo4j_live.py": "a04cb346f57d09c0eedb99ec8a368d10f68943f4df800833adc96de1e366b0c3"
+    }
+  },
+  "git_after": {
+    "head": "ba018da4b8e2ec622bfb4164d8b3e99a7a731bbf",
+    "status_porcelain": "",
+    "clean": true,
+    "status_command": [
+      "git",
+      "status",
+      "--porcelain=v1",
+      "--untracked-files=all"
+    ],
+    "git_blob_sha256": {
+      ".gitattributes": "e36f4ebc12ba9707c4b1c8354545fcdeae880856a73a9c318c849d4d971eb28f",
+      "requirements.txt": "ad37493462c30310b8a854315b1d7d5ab8b8239102b3391ce631b6f1f47b1026",
+      "run_baseline_benchmark.py": "bd84b584bc5e21c8a572b1e5f839b83df046e0852bbfc7dda466ceca8c15b0b6",
+      "run_parser.py": "266d06e69674b83637ce5ef2670b304a1b127990265d78d71fac9187f43e720d",
+      "src/benchmark_runner.py": "c07cdef66f0d57f939c7c2dba5d6d24f23fcdd9d644fe7b84d44bbfe521ceb1a",
+      "src/chroma_baseline.py": "b124d9516ec3b15d6cf70deed7933a077a19562486ae664c019e6253f9fb02d5",
+      "src/neo4j_importer.py": "266d956189cf8aaf73df90969a56ebda9604b20769d9f6e9df5a413baf083bfb",
+      "src/parser.py": "349be1e5694505e2d14d0cceed0bc3d22411406bd7708286bc15d534edbf68fb",
+      "src/proto_parser.py": "e71d53d7964758f62fc314e1b7082ae02116653f324d7e2da81b114143224b68",
+      "tests/p01_fault_process.py": "68374344cb8c5e5114a31252e0ed5ba0e9db7e3bde5fb2a18eff55ceac2c2a58",
+      "tests/test_benchmark_runner.py": "7843e12011449d95bbd1daa7f885d38336a7e9f74ae797c6563c66a727334eed",
+      "tests/test_chroma_baseline.py": "8c06878ab56e04a41e7b81010e202be747fbbfadeea243211cf97632fac47437",
+      "tests/test_output_integrity.py": "73ae0e8b70c9b5763d949b63ea0390f11fe88d2acc07fe77a36a90950401bc96",
+      "tests/test_p01_reproducibility.py": "9369e761302f14af524247ae5a78f2f23fb30b2c1b4d81f3f5a48030536efb9f",
+      "tests/test_parser.py": "05420dd85b365421e255c8296c4ce775e0060c9dc48234d254dbd9ff3f26c40e",
+      "tests/test_proto_parser.py": "2c0c1e15505e38fb3fcffd8571fc2f0791fbfe568e7e1e98c227eef11191990a",
+      "tests/test_verify_neo4j_live.py": "d4e3536c0fd2a4e8b444b738abd0771347ca20375dbad0819ae69077d59b9b50",
+      "tools/check_p01_reproducibility.py": "68d5bae9c4d274615efe422520a416637ca145f40138150098d7dc4e8fc9d1bc",
+      "tools/p01_provenance.py": "a0b1a51792ae18fe01c166fad87db4823e7b105c125322c597e66347b3ff5e67",
+      "tools/run_p01_acceptance.py": "6876b63ca74caa07638f30dc3d47ca77e8d417fc51698b39a201cdc7733e02bf",
+      "tools/verify_p01_checksums.py": "bcfe4b77fe90ef919801e01a08fb67cfc0b53cc9520dc73c3c51ce57fed27b10",
+      "verify_neo4j_live.py": "a04cb346f57d09c0eedb99ec8a368d10f68943f4df800833adc96de1e366b0c3"
+    },
+    "working_tree_sha256": {
+      ".gitattributes": "e36f4ebc12ba9707c4b1c8354545fcdeae880856a73a9c318c849d4d971eb28f",
+      "requirements.txt": "ad37493462c30310b8a854315b1d7d5ab8b8239102b3391ce631b6f1f47b1026",
+      "run_baseline_benchmark.py": "bd84b584bc5e21c8a572b1e5f839b83df046e0852bbfc7dda466ceca8c15b0b6",
+      "run_parser.py": "266d06e69674b83637ce5ef2670b304a1b127990265d78d71fac9187f43e720d",
+      "src/benchmark_runner.py": "c07cdef66f0d57f939c7c2dba5d6d24f23fcdd9d644fe7b84d44bbfe521ceb1a",
+      "src/chroma_baseline.py": "b124d9516ec3b15d6cf70deed7933a077a19562486ae664c019e6253f9fb02d5",
+      "src/neo4j_importer.py": "266d956189cf8aaf73df90969a56ebda9604b20769d9f6e9df5a413baf083bfb",
+      "src/parser.py": "349be1e5694505e2d14d0cceed0bc3d22411406bd7708286bc15d534edbf68fb",
+      "src/proto_parser.py": "e71d53d7964758f62fc314e1b7082ae02116653f324d7e2da81b114143224b68",
+      "tests/p01_fault_process.py": "68374344cb8c5e5114a31252e0ed5ba0e9db7e3bde5fb2a18eff55ceac2c2a58",
+      "tests/test_benchmark_runner.py": "7843e12011449d95bbd1daa7f885d38336a7e9f74ae797c6563c66a727334eed",
+      "tests/test_chroma_baseline.py": "8c06878ab56e04a41e7b81010e202be747fbbfadeea243211cf97632fac47437",
+      "tests/test_output_integrity.py": "73ae0e8b70c9b5763d949b63ea0390f11fe88d2acc07fe77a36a90950401bc96",
+      "tests/test_p01_reproducibility.py": "9369e761302f14af524247ae5a78f2f23fb30b2c1b4d81f3f5a48030536efb9f",
+      "tests/test_parser.py": "05420dd85b365421e255c8296c4ce775e0060c9dc48234d254dbd9ff3f26c40e",
+      "tests/test_proto_parser.py": "2c0c1e15505e38fb3fcffd8571fc2f0791fbfe568e7e1e98c227eef11191990a",
+      "tests/test_verify_neo4j_live.py": "d4e3536c0fd2a4e8b444b738abd0771347ca20375dbad0819ae69077d59b9b50",
+      "tools/check_p01_reproducibility.py": "68d5bae9c4d274615efe422520a416637ca145f40138150098d7dc4e8fc9d1bc",
+      "tools/p01_provenance.py": "a0b1a51792ae18fe01c166fad87db4823e7b105c125322c597e66347b3ff5e67",
+      "tools/run_p01_acceptance.py": "6876b63ca74caa07638f30dc3d47ca77e8d417fc51698b39a201cdc7733e02bf",
+      "tools/verify_p01_checksums.py": "bcfe4b77fe90ef919801e01a08fb67cfc0b53cc9520dc73c3c51ce57fed27b10",
+      "verify_neo4j_live.py": "a04cb346f57d09c0eedb99ec8a368d10f68943f4df800833adc96de1e366b0c3"
+    }
+  },
+  "implementation_sha256_source": "SHA-256 of Git HEAD blob bytes; checkout hashes recorded separately",
+  "implementation_sha256": {
+    ".gitattributes": "e36f4ebc12ba9707c4b1c8354545fcdeae880856a73a9c318c849d4d971eb28f",
+    "requirements.txt": "ad37493462c30310b8a854315b1d7d5ab8b8239102b3391ce631b6f1f47b1026",
+    "run_baseline_benchmark.py": "bd84b584bc5e21c8a572b1e5f839b83df046e0852bbfc7dda466ceca8c15b0b6",
+    "run_parser.py": "266d06e69674b83637ce5ef2670b304a1b127990265d78d71fac9187f43e720d",
+    "src/benchmark_runner.py": "c07cdef66f0d57f939c7c2dba5d6d24f23fcdd9d644fe7b84d44bbfe521ceb1a",
+    "src/chroma_baseline.py": "b124d9516ec3b15d6cf70deed7933a077a19562486ae664c019e6253f9fb02d5",
+    "src/neo4j_importer.py": "266d956189cf8aaf73df90969a56ebda9604b20769d9f6e9df5a413baf083bfb",
+    "src/parser.py": "349be1e5694505e2d14d0cceed0bc3d22411406bd7708286bc15d534edbf68fb",
+    "src/proto_parser.py": "e71d53d7964758f62fc314e1b7082ae02116653f324d7e2da81b114143224b68",
+    "tests/p01_fault_process.py": "68374344cb8c5e5114a31252e0ed5ba0e9db7e3bde5fb2a18eff55ceac2c2a58",
+    "tests/test_benchmark_runner.py": "7843e12011449d95bbd1daa7f885d38336a7e9f74ae797c6563c66a727334eed",
+    "tests/test_chroma_baseline.py": "8c06878ab56e04a41e7b81010e202be747fbbfadeea243211cf97632fac47437",
+    "tests/test_output_integrity.py": "73ae0e8b70c9b5763d949b63ea0390f11fe88d2acc07fe77a36a90950401bc96",
+    "tests/test_p01_reproducibility.py": "9369e761302f14af524247ae5a78f2f23fb30b2c1b4d81f3f5a48030536efb9f",
+    "tests/test_parser.py": "05420dd85b365421e255c8296c4ce775e0060c9dc48234d254dbd9ff3f26c40e",
+    "tests/test_proto_parser.py": "2c0c1e15505e38fb3fcffd8571fc2f0791fbfe568e7e1e98c227eef11191990a",
+    "tests/test_verify_neo4j_live.py": "d4e3536c0fd2a4e8b444b738abd0771347ca20375dbad0819ae69077d59b9b50",
+    "tools/check_p01_reproducibility.py": "68d5bae9c4d274615efe422520a416637ca145f40138150098d7dc4e8fc9d1bc",
+    "tools/p01_provenance.py": "a0b1a51792ae18fe01c166fad87db4823e7b105c125322c597e66347b3ff5e67",
+    "tools/run_p01_acceptance.py": "6876b63ca74caa07638f30dc3d47ca77e8d417fc51698b39a201cdc7733e02bf",
+    "tools/verify_p01_checksums.py": "bcfe4b77fe90ef919801e01a08fb67cfc0b53cc9520dc73c3c51ce57fed27b10",
+    "verify_neo4j_live.py": "a04cb346f57d09c0eedb99ec8a368d10f68943f4df800833adc96de1e366b0c3"
+  }
+}

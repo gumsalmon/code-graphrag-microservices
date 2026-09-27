@@ -38,3 +38,18 @@ creating an endless new commit for the log of each previous commit.
 The remaining TASKS wording and runner comment now explicitly describe smoke
 tests and draft labels. No evaluation scores, labels, parser/query logic or
 P02 implementation were changed by this review.
+
+## Clean probe evidence
+
+[Report](evidence/p01-e2e/repro-20260927T074239Z-698d9551/report.json),
+[commands / 11-test log](evidence/p01-e2e/repro-20260927T074239Z-698d9551/commands.log),
+[JUnit](evidence/p01-e2e/repro-20260927T074239Z-698d9551/targeted-tests.xml).
+This probe passed from a detached clean clone at `ba018da`; HEAD was unchanged
+and both before/after porcelain statuses were empty. Git blob and checkout
+hashes agree for every recorded implementation file in this LF checkout.
+LF/CRLF source and Chroma warm/cold-cache probes also passed.
+
+The commit adding this evidence changes only documentation/artifacts. Its
+implementation blob hashes are the same as those tested by the clean probe.
+The final 59-test run is recorded separately in PR #1 against the exact final
+PR SHA, avoiding a further log-only commit that would change the tested HEAD.
