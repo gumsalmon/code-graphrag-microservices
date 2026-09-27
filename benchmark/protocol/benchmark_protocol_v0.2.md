@@ -1,6 +1,6 @@
 # Quy trình benchmark ảnh hưởng vi dịch vụ v0.2
 
-Trạng thái: đề xuất để Huy phê duyệt trước khi mở P02–P04
+Trạng thái: được chấp thuận làm khung chuẩn bị scenario và rà soát pilot; chưa được chấp thuận để khóa test hoặc chấm điểm chính thức P02–P04.
 
 Tác giả/người phụ trách gán nhãn: Phát
 
@@ -112,6 +112,15 @@ Một thực thể chỉ là negative khi được chọn theo tiêu chí ghi tr
 - `pending_review`: bằng chứng đã có nhưng chưa có quyết định độc lập của con người.
 - Candidate negative chưa xác minh bị loại khỏi scored labels cho đến khi hoàn tất baseline/mutated observation.
 
+### 6.1 Evaluation universe trước khi gán nhãn ca mới
+
+Với mỗi scenario mới, lập và khóa một `evaluation_universe.vN.json` **trước khi xem output hệ thống và trước khi gán polarity**. Universe là tập ID canonical có thể được chấm tại từng level, không phải danh sách chỉ gồm các candidate dự kiến positive. Ghi baseline commit, phạm vi service/API/method, quy tắc lấy inventory từ source/contract, hop tối đa, fixture, các loại thực thể được loại trừ và lý do, seed ID, alias baseline/mutated có bằng chứng, người lập, thời điểm và SHA-256. Giữ bản inventory đầu vào để reviewer tái dựng tập ID.
+
+- Lấy inventory theo tiêu chí phạm vi đã định trước; gồm cả thực thể có thể bị ảnh hưởng và đối chứng hợp lý. Không mở rộng/thu hẹp theo prediction hoặc kết quả chấm.
+- Mỗi ID trong universe có đúng một level và một kết luận `positive`, `negative` hoặc `unresolved` sau gán nhãn. Seed được ghi riêng và không nằm trong tập chấm. Không gán negative chỉ vì không quan sát được impact; negative cần phép đối chứng baseline/mutated như mục 6.
+- Reviewer phải xác nhận độ phủ positive của universe, danh sách unresolved, các trường hợp loại trừ và bằng chứng alias. Nếu còn ID chưa được quyết định hoặc chưa đủ quan sát bắt buộc, chặn điểm chính thức cho scenario.
+- Prediction nằm trong universe nhưng chưa có nhãn được ghi `unjudged` và chặn điểm chính thức. Prediction nằm ngoài universe đã khóa là `out_of_scope` theo mục 13; vẫn tính FP ở level dự đoán và báo ID để audit. Chỉ sửa universe bằng phiên bản mới, nêu lý do, review lại và rescore toàn bộ kết quả chịu ảnh hưởng.
+
 ## 7. Phân cấp bằng chứng
 
 Bằng chứng được đánh giá theo loại kết luận:
@@ -150,6 +159,12 @@ Run record phải có timestamp, command, exit code, HTTP status, response body,
 
 ## 10. Chia development/test và chống trùng lặp
 
+### 10.0 Chọn scenario trước khi gán nhãn
+
+Trước khi mở nhãn cho P02–P04, lập danh sách ứng viên từ repository/commit và loại thay đổi đã định trước, ghi cả ứng viên bị loại cùng lý do. Chốt tiêu chí đủ điều kiện: commit và patch/incident xác minh được, fixture và đường gọi có thể tái hiện, bằng chứng source/contract khả dụng, có đối chứng hợp lý, và không trùng gần với scenario đã chọn. Ghi thứ tự chọn, người chọn, thời điểm, nguồn ứng viên và mọi thay đổi quyết định. Không chọn, thay thế hoặc loại scenario dựa trên output hay score của hệ thống được đánh giá.
+
+Tạo `duplicate_group_id` và quyết định split ở cấp group từ thông tin chưa gán nhãn. Khóa danh sách scenario, tiêu chí chọn và split manifest trước khi annotator thấy output hệ thống. Nếu một ca không tái hiện được, giữ nó trong sổ chọn với trạng thái/blocker; chỉ thay bằng ca mới theo cùng tiêu chí và lập phiên bản manifest mới. Số positive labels chỉ dùng để mô tả/stratify sau khi gán nhãn, không được dùng để chọn hoặc chuyển ca giữa development/test.
+
 ### 10.1 Tạo nhóm gần trùng
 
 Trước khi chia tập, mỗi scenario phải có `duplicate_group_id` được tạo từ tối thiểu:
@@ -169,14 +184,15 @@ Scenario có cùng endpoint, cùng call path hoặc mutation chỉ khác fixture
 - Một duplicate group chỉ được nằm trong một tập.
 - Không để cùng endpoint, overload family hoặc mutation template gần trùng xuất hiện ở cả development và test.
 - Ưu tiên repository-level holdout khi đủ số repository; nếu không, dùng group-level holdout và ghi limitation.
-- Stratify theo scenario kind, framework/language, logical hop và số positive labels khi dữ liệu cho phép.
+- Stratify theo scenario kind, framework/language và logical hop dự kiến từ source khi dữ liệu cho phép; số positive labels chỉ được báo sau khi split đã khóa.
 - P01 cố định ở development/pilot.
-- P02–P04 chỉ được gán split sau khi protocol v0.2 và split manifest được phê duyệt.
+- P02–P04 chỉ được gán split sau khi danh sách scenario, evaluation universe và split manifest được phê duyệt riêng cho bước khóa test.
 
 ### 10.3 Khóa split và chống leakage
 
 - Lưu phép chia trong `benchmark/splits/split_manifest.vN.json`.
-- Manifest ghi scenario version, duplicate group, split, lý do và checksum label tương ứng.
+- Manifest ghi scenario version, duplicate group, split, lý do, checksum universe và checksum label tương ứng khi đã có nhãn; checksum còn thiếu phải được ghi là `null`, không suy diễn trạng thái đã khóa.
+- Manifest ở trạng thái `draft` chỉ để chuẩn bị. `approved_for_test` cần quyết định phê duyệt riêng, danh sách test đã chốt, checksum universe/label/review hợp lệ và không có group xuyên tập.
 - Khóa checksum split manifest trước khi chạy benchmark trên test.
 - Test label, expected path, repair commit và reviewer comments không được đưa vào prompt/retrieval/tuning context.
 - Nếu phát hiện near-duplicate xuyên tập sau khi chạy, kết quả test liên quan bị vô hiệu; di chuyển toàn bộ group, tạo split version mới và chạy lại.

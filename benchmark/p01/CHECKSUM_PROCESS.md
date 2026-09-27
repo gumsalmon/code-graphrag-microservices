@@ -48,7 +48,7 @@ Các trường bắt buộc trong file quyết định:
 
 File quyết định phải tiếp tục tham chiếu đúng `labels.v3.json` và SHA-256 đã khóa. Không sửa `labels.v3.json` hoặc raw evidence để ghi quyết định.
 
-File quyết định tách `label_protocol_version=0.1`, là protocol đã dùng khi khóa `labels.v3.json`, và `review_protocol_version=0.2`, là protocol dùng cho review/chấm điểm chính thức. Cách tách này giữ nguyên lịch sử mà không cần sửa file nhãn.
+File quyết định tách `label_protocol_version=0.1`, là protocol đã dùng khi khóa `labels.v3.json`, và `review_protocol_version=0.2`, là khung dùng cho rà soát pilot. V0.2 chưa cho phép khóa test/chấm điểm chính thức P02–P04. Cách tách này giữ nguyên lịch sử mà không cần sửa file nhãn.
 
 ### Cách ghi quyết định `accepted`
 

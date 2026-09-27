@@ -10,7 +10,7 @@ Commit runner gần nhất trước khi lập gói review: `69f12fc`. Các thay 
 
 Phiên bản tạo `labels.v3.json`: `0.1` (giữ nguyên để truy vết)
 
-Phiên bản đề nghị dùng để review/chấm điểm: `0.2`
+Phiên bản dùng làm khung chuẩn bị và review pilot: `0.2`. Khóa test/chấm điểm chính thức P02–P04 chưa được phê duyệt.
 
 Baseline commit / config revision / patch hash:
 

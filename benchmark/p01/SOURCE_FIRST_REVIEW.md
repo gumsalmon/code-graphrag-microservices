@@ -1,8 +1,19 @@
 # Phiếu rà soát độc lập P01 — mở trước nhãn dự thảo
 
-Tài liệu này dành cho reviewer là người khác annotator. Hãy ghi nhận định của chính mình từ source, patch, contract và raw runtime **trước khi mở** `labels.v3.json`, `evidence_manifest.json`, `HANDOFF.md`, `REVIEW_GUIDE.md`, `review_log.md`, `derived/runtime_rerun_report.md` hoặc kết quả benchmark dẫn xuất. Các tài liệu đó chứa diễn giải của người lập gói và chỉ dùng ở vòng đối chiếu sau. `PROJECT_CONTEXT.md` đã nêu tuyến ứng viên nên lần rà soát này không thể được coi là blind hoàn toàn.
+Tài liệu này dành cho reviewer là người khác annotator. Đọc các định nghĩa trung lập dưới đây rồi ghi nhận định của chính mình từ source, patch, contract và raw runtime **trước khi mở** `labels.v3.json`, `evidence_manifest.json`, `HANDOFF.md`, `REVIEW_GUIDE.md`, `review_log.md`, `scenario.json`, `derived/runtime_rerun_report.md` hoặc bất kỳ summary/output hệ thống nào. Các tài liệu đó có thể tiết lộ candidate hoặc diễn giải của người lập gói và chỉ dùng ở vòng đối chiếu sau. `PROJECT_CONTEXT.md` đã nêu tuyến ứng viên nên lần rà soát này không thể được coi là blind hoàn toàn.
 
 Làm việc trên một bản sao của phiếu này hoặc ghi kết quả vào hồ sơ review riêng; ghi thời điểm hoàn thành vòng độc lập trước khi mở nhãn. Không sửa raw evidence hay `labels.v3.json`.
+
+## Định nghĩa dùng cho vòng nhận định độc lập
+
+- **Seed:** Method hoặc API contract trực tiếp bị thay đổi; ghi lại để truy vết nhưng loại khỏi tập chấm impact.
+- **Dependency và logical hop:** một lời gọi Method→Method hoặc consumer Method→provider API là một hop theo source/contract. Duyệt ngược từ callee bị đổi đến caller; cạnh bao chứa không tăng hop. Đếm service boundary crossing riêng.
+- **Behavioral impact:** khác biệt quan sát được giữa baseline và mutated dưới cùng fixture, như status, lỗi, response content hoặc dữ liệu thiếu/sai. Reachability tự nó không đủ.
+- **Requires code change:** câu hỏi sửa mã theo một repair strategy nêu rõ; độc lập với behavioral impact.
+- **Positive / negative / unresolved:** positive cần khác biệt tái lập và bằng chứng source/contract cùng runtime sạch; negative cần ca đối chứng chọn theo tiêu chí độc lập với output hệ thống và hành vi không đổi; unresolved khi bằng chứng chưa đủ. Reviewer có thể ghi bất đồng và giới hạn thay vì ép nhãn.
+- **Evaluation universe:** tập thực thể đủ điều kiện xem xét theo phạm vi đã định trước, gồm cả candidate positive và negative; không được hình thành từ prediction. Với P01 đang review, hãy tự ghi phạm vi và những ID đã xem xét, rồi so sánh với hồ sơ ở vòng hai.
+
+Chỉ dùng các định nghĩa trên trong vòng đầu. Không đọc nhãn, bảng candidate, tóm tắt kết luận, JSON parser, Cypher, kết quả Neo4j/GraphRAG/Vector RAG/LLM hoặc benchmark score trước khi khóa nhận định của mình.
 
 ## 1. Xác nhận gói và provenance
 
@@ -35,7 +46,7 @@ Phân biệt thay đổi hành vi quan sát được với việc có cần sử
 
 ## 3. Tự đối chiếu raw runtime
 
-Bản chạy chính: `benchmark/p01/raw/rerun-20260923-152742/`. Kiểm tra `environment.json`, `commands.log`, `requests.jsonl`, `summary.json`, các file `logs/`, `eureka-visits-mutated.json` và `mutated-gateway-discovery-preflight.json`. Dùng timestamp, command, exit code, HTTP status/body và service log để ghép từng quan sát với đúng image và service. `summary.json` hỗ trợ tìm bản ghi; xác nhận kết luận bằng request, routing và service log. Bản `rerun-20260923-214211/` là lần xác nhận sau, không thay thế bản chính. Các lần thử khác chỉ là chẩn đoán; ghi riêng nếu chúng làm giảm độ tin cậy.
+Bản chạy chính: `benchmark/p01/raw/rerun-20260923-152742/`. Kiểm tra `environment.json`, `commands.log`, `requests.jsonl`, các file `logs/`, `eureka-visits-mutated.json` và `mutated-gateway-discovery-preflight.json`. Dùng timestamp, command, exit code, HTTP status/body và service log để ghép từng quan sát với đúng image và service. Không mở `summary.json` trước khi khóa nhận định ở mục 4. Bản `rerun-20260923-214211/` là lần xác nhận sau, không thay thế bản chính. Các lần thử khác chỉ là chẩn đoán; ghi riêng nếu chúng làm giảm độ tin cậy.
 
 | Trường hợp cần tự kiểm | Status/body và raw reference | Nhận định hoặc giới hạn |
 |---|---|---|
@@ -54,4 +65,4 @@ Reviewer: __________  Thời điểm hoàn thành vòng độc lập (ISO-8601):
 
 File hoặc bản ghi lưu nhận định độc lập: __________
 
-Sau bước này mới mở `benchmark/p01/REVIEW_GUIDE.md`, protocol v0.2, `evidence_manifest.json` và `labels.v3.json` để đối chiếu từng kết luận. Ghi mọi bất đồng và bằng chứng vào `review_log.md`; quyết định chỉ ghi sau khi rà soát xong. Giữ `audit_decision=pending_review` cho tới khi có quyết định của reviewer đủ điều kiện.
+Sau bước này mới mở `benchmark/p01/REVIEW_GUIDE.md`, toàn văn protocol v0.2, `scenario.json`, `evidence_manifest.json`, `summary.json` và `labels.v3.json` để đối chiếu từng kết luận. Ghi mọi bất đồng và bằng chứng vào `review_log.md`; quyết định chỉ ghi sau khi rà soát xong. Giữ `audit_decision=pending_review` cho tới khi có quyết định của reviewer đủ điều kiện.

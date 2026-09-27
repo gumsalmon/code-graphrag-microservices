@@ -6,7 +6,7 @@ Reviewer mở **`benchmark/p01/SOURCE_FIRST_REVIEW.md` trước** và hoàn thà
 
 ## 1. Mục tiêu của lần rà soát này
 
-Đề nghị trưởng nhóm xác nhận protocol v0.2 trước khi mở P02–P04 và chỉ định một reviewer độc lập để quyết định bộ nhãn P01. V0.1 được giữ để truy vết quá trình tạo `labels.v3.json`. P01 hiện có đủ bằng chứng kỹ thuật nhưng vẫn ở trạng thái `pending_review`; chưa phải ground truth `accepted`.
+Protocol v0.2 đã được chấp thuận làm khung chuẩn bị scenario và rà soát pilot. Việc khóa test/chấm điểm chính thức P02–P04 cần phê duyệt riêng sau khi có evaluation universe, split manifest và scorer đã kiểm thử. Cần một reviewer độc lập quyết định bộ nhãn P01. V0.1 được giữ để truy vết quá trình tạo `labels.v3.json`. P01 vẫn `pending_review`.
 
 Review này không nhằm kết luận GraphRAG tốt hơn Vector RAG và không rà soát chất lượng output parser/Neo4j/RAG/LLM.
 
@@ -17,7 +17,7 @@ Cách tốt nhất là gửi branch `Pham_Nguyen_Phat` kèm commit mới chứa 
 Bộ file reviewer đọc **sau khi hoàn thành phiếu độc lập** theo thứ tự:
 
 1. `benchmark/p01/HANDOFF.md` — tóm tắt trạng thái, kết quả và nội dung cần quyết định.
-2. `benchmark/protocol/benchmark_protocol_v0.2.md` — protocol đề nghị phê duyệt, gồm impact, hop, evidence, scoring, ID mapping và split.
+2. `benchmark/protocol/benchmark_protocol_v0.2.md` — khung chuẩn bị và review đã được chấp thuận; các điều kiện khóa test/chấm điểm vẫn chờ phê duyệt riêng.
 3. `benchmark/protocol/benchmark_protocol_v0.1.md` — phiên bản lịch sử đã dùng khi tạo nhãn v3.
 4. `benchmark/p01/scenario.json` — định danh scenario, commit, patch, fixture và seed.
 5. `benchmark/p01/evidence_manifest.json` — ánh xạ từng kết luận tới bằng chứng.
@@ -104,4 +104,4 @@ Lệnh tạo `checksums.review.v1.sha256` để khóa manifest artifact, nhật 
 
 ## 5. Nội dung tin nhắn có thể gửi trưởng nhóm
 
-> Em gửi anh bộ hồ sơ P01 trên branch `Pham_Nguyen_Phat`. V0.1 được giữ để truy vết; protocol v0.2 đã bổ sung scoring theo Method/API/Service, xử lý unjudged, đối chiếu ID baseline/mutated và chia development/test chống trùng lặp. Phần provenance, ma trận runtime sạch, negative case và checksum nhãn đã hoàn tất; trạng thái hiện là `pending_review`. Nhờ anh duyệt protocol v0.2 và chỉ định một người khác em rà soát `labels.v3.json` theo `benchmark/p01/REVIEW_GUIDE.md`. P01 vẫn là pilot, chưa dùng để kết luận GraphRAG tốt hơn baseline và chưa mở P02–P04.
+> Em gửi anh bộ hồ sơ P01 trên branch `Pham_Nguyen_Phat`. Protocol v0.2 đã được chấp thuận làm khung chuẩn bị scenario và rà soát pilot; việc khóa test/chấm điểm chính thức P02–P04 chờ phê duyệt riêng. Phần provenance, ma trận runtime sạch, negative case và checksum nhãn P01 đã hoàn tất; trạng thái hiện là `pending_review`. Nhờ anh chỉ định một người khác em rà soát `labels.v3.json` theo `benchmark/p01/SOURCE_FIRST_REVIEW.md` rồi mới đối chiếu `REVIEW_GUIDE.md`.
