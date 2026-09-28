@@ -1,0 +1,65 @@
+[
+  {
+    "command": [
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-e2e-venv\\Scripts\\python.exe",
+      "D:\\Projects\\code-graphrag-microservices\\verify_neo4j_live.py",
+      "--snapshot",
+      "baseline",
+      "--source-root",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-petclinic-3858f9c",
+      "--output-root",
+      "D:\\Projects\\code-graphrag-microservices\\evidence\\p01-e2e\\suite-20260925T112300Z-fb5318c3\\cases\\bad-credentials"
+    ],
+    "exit_code": 1,
+    "duration_seconds": 0.276,
+    "purpose": "P01 source-to-Neo4j verifier"
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-petclinic-3858f9c",
+      "rev-parse",
+      "HEAD"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.033,
+    "stdout": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-petclinic-3858f9c",
+      "status",
+      "--porcelain",
+      "--untracked-files=no"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.04,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--detach",
+      "--name",
+      "p01-e2e-20260925T112330Z-baseline-cbd68976",
+      "--label",
+      "code-graphrag.p01-e2e.run-id=20260925T112330Z-baseline-cbd68976",
+      "--publish",
+      "127.0.0.1::7687",
+      "--env",
+      "NEO4J_AUTH",
+      "neo4j:5.26.0"
+    ],
+    "exit_code": 1,
+    "duration_seconds": 0.151,
+    "stdout": "",
+    "stderr": "failed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine; check if the path is correct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified."
+  }
+]

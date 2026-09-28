@@ -57,6 +57,7 @@ cover/
 
 # Django stuff:
 *.log
+!evidence/p01-e2e/**/*.log
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
@@ -219,3 +220,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# ChromaDB local state
+chroma_db/
+test_chroma_db/

@@ -1,0 +1,9 @@
+PASS Dedicated container empty before import
+PASS Repeat import idempotent
+PASS Neo4j edges equal fresh parser output
+PASS Neo4j methods equal fresh parser output
+PASS Seed excluded
+PASS Impact set exactly matches acceptance fixture
+PASS Hop 1: api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)
+PASS Hop 2: api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)
+PASS Snapshot parameter state: mutated

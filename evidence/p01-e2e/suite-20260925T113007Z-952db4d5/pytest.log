@@ -1,0 +1,15 @@
+============================= test session starts =============================
+platform win32 -- Python 3.11.9, pytest-9.1.1, pluggy-1.6.0
+rootdir: D:\Projects\code-graphrag-microservices
+plugins: anyio-4.15.1
+collected 54 items
+
+tests\test_benchmark_runner.py ..                                        [  3%]
+tests\test_chroma_baseline.py ....                                       [ 11%]
+tests\test_output_integrity.py ......                                    [ 22%]
+tests\test_parser.py ............                                        [ 44%]
+tests\test_proto_parser.py ...                                           [ 50%]
+tests\test_verify_neo4j_live.py ...........................              [100%]
+
+- generated xml file: D:\Projects\code-graphrag-microservices\evidence\p01-e2e\suite-20260925T113007Z-952db4d5\pytest.xml -
+======================= 54 passed in 180.18s (0:03:00) ========================

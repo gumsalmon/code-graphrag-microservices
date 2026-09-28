@@ -1,0 +1,106 @@
+{
+  "purpose": "reproducibility probes only; no F1 or paper results",
+  "checks": [
+    {
+      "check": "focused source-normalization, smoke-label and output-integrity tests",
+      "passed": true
+    },
+    {
+      "check": "lf dirty checkout rejected",
+      "error": "PetClinic tracked source is dirty"
+    },
+    {
+      "check": "crlf dirty checkout rejected",
+      "error": "PetClinic tracked source is dirty"
+    },
+    {
+      "check": "baseline: LF/CRLF canonical source, JSON, Cypher and patch identical",
+      "passed": true
+    },
+    {
+      "check": "mutated: LF/CRLF canonical source, JSON, Cypher and patch identical",
+      "passed": true
+    },
+    {
+      "check": "warm cache: real embeddings and fresh Chroma index/query without model download",
+      "passed": true
+    },
+    {
+      "check": "cold cache requires download: expected failure when download disabled",
+      "error": "Model download blocked by reproducibility probe",
+      "passed": true
+    }
+  ],
+  "chroma": {
+    "model": "all-MiniLM-L6-v2",
+    "embedding_function": "Chroma DefaultEmbeddingFunction -> ONNXMiniLM_L6_V2",
+    "cache_path": "C:\\Users\\hieng\\.cache\\chroma\\onnx_models\\all-MiniLM-L6-v2",
+    "download_url": "https://chroma-onnx-models.s3.amazonaws.com/all-MiniLM-L6-v2/onnx.tar.gz",
+    "archive_sha256": "913d7300ceae3b2dbc2c50d1de4baacab4be7b9380491c27fab7418616a16ec3",
+    "expected_archive_sha256": "913d7300ceae3b2dbc2c50d1de4baacab4be7b9380491c27fab7418616a16ec3",
+    "files": {
+      "onnx\\config.json": {
+        "sha256": "b567c7d5a55b636c95186aaf993f9a8920842b7e05a9e703e68b23cab2c3a670",
+        "bytes": 650
+      },
+      "onnx\\model.onnx": {
+        "sha256": "4f148ba8ae9c2c7fbee4af2b132db8d06c6a6545b47fc83bbb98c3d22b8393e6",
+        "bytes": 90387606
+      },
+      "onnx\\special_tokens_map.json": {
+        "sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3",
+        "bytes": 125
+      },
+      "onnx\\tokenizer.json": {
+        "sha256": "da0e79933b9ed51798a3ae27893d3c5fa4a201126cef75586296df9b4d2c62a0",
+        "bytes": 711661
+      },
+      "onnx\\tokenizer_config.json": {
+        "sha256": "7702051bbc4953b94d47fa1d61b42ed4cbb3c71b501a8dd7183a823f8bea1f20",
+        "bytes": 518
+      },
+      "onnx\\vocab.txt": {
+        "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+        "bytes": 231508
+      }
+    },
+    "versions": {
+      "chromadb": "1.5.9",
+      "onnxruntime": "1.30.0",
+      "tokenizers": "0.23.2",
+      "numpy": "2.4.6",
+      "httpx": "0.28.1"
+    },
+    "embedding_dimension": 384,
+    "providers": [
+      "CPUExecutionProvider"
+    ],
+    "isolated_store": {
+      "indexed_chunks": 13,
+      "result_ids": [
+        "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(int)",
+        "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(List<Integer>)",
+        "api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)"
+      ],
+      "reused_existing_db": false
+    },
+    "cold_cache_download_attempts": [
+      "https://chroma-onnx-models.s3.amazonaws.com/all-MiniLM-L6-v2/onnx.tar.gz"
+    ]
+  },
+  "command": [
+    "C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-e2e-venv\\Scripts\\python.exe",
+    "tools/check_p01_reproducibility.py",
+    "--source-root",
+    "C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-petclinic-3858f9c"
+  ],
+  "exit_code": 0,
+  "duration_seconds": 7.906,
+  "implementation_sha256": {
+    "verify_neo4j_live.py": "78120b6ff9fd9635fb141fc460d4ed491cf6cc82f23095c2f5bb5bfb0a530bd5",
+    "tools/check_p01_reproducibility.py": "f9b9b0d0a5c4ef9c3623eacff5f97dac0d633e0f8c2e43e964d5677c1f6f6bbf",
+    "tests/test_p01_reproducibility.py": "9369e761302f14af524247ae5a78f2f23fb30b2c1b4d81f3f5a48030536efb9f",
+    "src/benchmark_runner.py": "cadc503020d9dbc586fe7c2baeb69f6108e2bc4e0e459c999896a8a13eda0e70",
+    "run_baseline_benchmark.py": "8ece037dcfd1c6788fb5491cfa204a3348ecac105f6c1a02705c2d0aef0cfea8"
+  }
+}

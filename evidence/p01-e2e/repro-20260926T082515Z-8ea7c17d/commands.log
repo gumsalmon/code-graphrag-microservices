@@ -1,0 +1,308 @@
+[
+  {
+    "command": [
+      "git",
+      "clone",
+      "--shared",
+      "--no-checkout",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-petclinic-3858f9c",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-_zb1r6s5\\lf"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.213,
+    "stdout": "",
+    "stderr": "Cloning into 'C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-_zb1r6s5\\lf'...\ndone."
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-_zb1r6s5\\lf",
+      "config",
+      "core.autocrlf",
+      "false"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.035,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-_zb1r6s5\\lf",
+      "sparse-checkout",
+      "init",
+      "--no-cone"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.035,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-_zb1r6s5\\lf",
+      "sparse-checkout",
+      "set",
+      "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java",
+      "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+      "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.031,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-_zb1r6s5\\lf",
+      "checkout",
+      "--detach",
+      "3858f9c630cf989bb6809a86edf47c2be78dc9f1"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.066,
+    "stdout": "",
+    "stderr": "error: invalid object 100644 aee21c032ed62c95530f3164f0e5613275f0f847 for '.devcontainer/devcontainer.json'\nerror: invalid object 100644 aee21c032ed62c95530f3164f0e5613275f0f847 for '.devcontainer/devcontainer.json'\nHEAD is now at 3858f9c Add missing pet not found web test (#545)"
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-_zb1r6s5\\lf",
+      "rev-parse",
+      "HEAD"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.035,
+    "stdout": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-_zb1r6s5\\lf",
+      "status",
+      "--porcelain",
+      "--untracked-files=no"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.046,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-_zb1r6s5\\lf",
+      "rev-parse",
+      "HEAD"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.034,
+    "stdout": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-_zb1r6s5\\lf",
+      "status",
+      "--porcelain",
+      "--untracked-files=no"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.043,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-_zb1r6s5\\lf",
+      "rev-parse",
+      "HEAD"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.03,
+    "stdout": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-_zb1r6s5\\lf",
+      "status",
+      "--porcelain",
+      "--untracked-files=no"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.036,
+    "stdout": "M spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "clone",
+      "--shared",
+      "--no-checkout",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-petclinic-3858f9c",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-_zb1r6s5\\crlf"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.112,
+    "stdout": "",
+    "stderr": "Cloning into 'C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-_zb1r6s5\\crlf'...\ndone."
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-_zb1r6s5\\crlf",
+      "config",
+      "core.autocrlf",
+      "true"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.031,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-_zb1r6s5\\crlf",
+      "sparse-checkout",
+      "init",
+      "--no-cone"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.034,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-_zb1r6s5\\crlf",
+      "sparse-checkout",
+      "set",
+      "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java",
+      "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+      "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.032,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-_zb1r6s5\\crlf",
+      "checkout",
+      "--detach",
+      "3858f9c630cf989bb6809a86edf47c2be78dc9f1"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.05,
+    "stdout": "",
+    "stderr": "error: invalid object 100644 aee21c032ed62c95530f3164f0e5613275f0f847 for '.devcontainer/devcontainer.json'\nerror: invalid object 100644 aee21c032ed62c95530f3164f0e5613275f0f847 for '.devcontainer/devcontainer.json'\nHEAD is now at 3858f9c Add missing pet not found web test (#545)"
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-_zb1r6s5\\crlf",
+      "rev-parse",
+      "HEAD"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.03,
+    "stdout": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-_zb1r6s5\\crlf",
+      "status",
+      "--porcelain",
+      "--untracked-files=no"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.04,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-_zb1r6s5\\crlf",
+      "rev-parse",
+      "HEAD"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.036,
+    "stdout": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-_zb1r6s5\\crlf",
+      "status",
+      "--porcelain",
+      "--untracked-files=no"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.037,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-_zb1r6s5\\crlf",
+      "rev-parse",
+      "HEAD"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.027,
+    "stdout": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-_zb1r6s5\\crlf",
+      "status",
+      "--porcelain",
+      "--untracked-files=no"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.042,
+    "stdout": "M spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java",
+    "stderr": ""
+  }
+]

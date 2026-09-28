@@ -1,0 +1,110 @@
+[
+  {
+    "command": [
+      "git",
+      "-C",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-petclinic-3858f9c",
+      "rev-parse",
+      "HEAD"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.034,
+    "stdout": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-petclinic-3858f9c",
+      "status",
+      "--porcelain",
+      "--untracked-files=no"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.039,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--detach",
+      "--name",
+      "p01-e2e-20260923T122603Z-baseline-9a3328c3",
+      "--label",
+      "code-graphrag.p01-e2e.run-id=20260923T122603Z-baseline-9a3328c3",
+      "--publish",
+      "127.0.0.1::7687",
+      "--env",
+      "NEO4J_AUTH",
+      "neo4j:5.26.0"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 4.182,
+    "stdout": "fcabd05ba41c55ef5c1a8e4d12f39d484bc8324aef85715dd20487f30bb575e1",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "docker",
+      "port",
+      "p01-e2e-20260923T122603Z-baseline-9a3328c3",
+      "7687/tcp"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.161,
+    "stdout": "127.0.0.1:63744",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "docker",
+      "version",
+      "--format",
+      "{{.Client.Version}}"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.162,
+    "stdout": "29.8.0",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "docker",
+      "version",
+      "--format",
+      "{{.Server.Version}}"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.168,
+    "stdout": "29.8.0",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "docker",
+      "inspect",
+      "--format",
+      "{{index .Config.Labels \"code-graphrag.p01-e2e.run-id\"}}",
+      "p01-e2e-20260923T122603Z-baseline-9a3328c3"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.154,
+    "stdout": "20260923T122603Z-baseline-9a3328c3",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "docker",
+      "stop",
+      "p01-e2e-20260923T122603Z-baseline-9a3328c3"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 3.456,
+    "stdout": "p01-e2e-20260923T122603Z-baseline-9a3328c3",
+    "stderr": ""
+  }
+]

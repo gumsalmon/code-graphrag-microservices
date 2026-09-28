@@ -1,0 +1,264 @@
+{
+  "result_status": "smoke_test",
+  "publication_ready": false,
+  "interpretation": "All nested Precision/Recall/F1 values are historical pipeline smoke tests on draft fixtures, not paper results or evidence of method superiority.",
+  "total_evaluated_scenarios": 4,
+  "graph_rag_average_f1": 1.0,
+  "vector_rag_average_f1": 0.3095,
+  "scenarios_evaluation": [
+    {
+      "scenario_id": "P01_VISIT_QUERY_PARAM",
+      "scenario_name": "Thêm tham số bắt buộc includeDetails vào GET /pets/visits",
+      "system": "Spring PetClinic",
+      "protocol": "REST",
+      "split": "dev",
+      "ground_truth_total": 2,
+      "graph_rag": {
+        "detected_count": 2,
+        "latency_ms": 0.03,
+        "overall": {
+          "hits": [
+            "api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)",
+            "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)"
+          ],
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        },
+        "hop1": {
+          "hits": [
+            "api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)"
+          ],
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1_score": 0.6667
+        },
+        "hop2": {
+          "hits": [
+            "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)"
+          ],
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1_score": 0.6667
+        }
+      },
+      "vector_rag": {
+        "top_k": 5,
+        "detected_count": 5,
+        "latency_ms": 520.57,
+        "overall": {
+          "hits": [
+            "api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)"
+          ],
+          "precision": 0.2,
+          "recall": 0.5,
+          "f1_score": 0.2857
+        },
+        "hop1": {
+          "hits": [
+            "api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)"
+          ],
+          "precision": 0.2,
+          "recall": 1.0,
+          "f1_score": 0.3333
+        },
+        "hop2": {
+          "hits": [],
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1_score": 0.0
+        },
+        "top_candidate": "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(int)"
+      }
+    },
+    {
+      "scenario_id": "P02_OWNER_LOOKUP_CHANGE",
+      "scenario_name": "Thay đổi kiểu dữ liệu trả về của handler GET /owners/{ownerId}",
+      "system": "Spring PetClinic",
+      "protocol": "REST",
+      "split": "test",
+      "ground_truth_total": 2,
+      "graph_rag": {
+        "detected_count": 2,
+        "latency_ms": 0.02,
+        "overall": {
+          "hits": [
+            "api-gateway::org.springframework.samples.petclinic.api.application.CustomersServiceClient#getOwner(int)",
+            "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)"
+          ],
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        },
+        "hop1": {
+          "hits": [
+            "api-gateway::org.springframework.samples.petclinic.api.application.CustomersServiceClient#getOwner(int)"
+          ],
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1_score": 0.6667
+        },
+        "hop2": {
+          "hits": [
+            "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)"
+          ],
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1_score": 0.6667
+        }
+      },
+      "vector_rag": {
+        "top_k": 5,
+        "detected_count": 5,
+        "latency_ms": 712.33,
+        "overall": {
+          "hits": [
+            "api-gateway::org.springframework.samples.petclinic.api.application.CustomersServiceClient#getOwner(int)"
+          ],
+          "precision": 0.2,
+          "recall": 0.5,
+          "f1_score": 0.2857
+        },
+        "hop1": {
+          "hits": [
+            "api-gateway::org.springframework.samples.petclinic.api.application.CustomersServiceClient#getOwner(int)"
+          ],
+          "precision": 0.2,
+          "recall": 1.0,
+          "f1_score": 0.3333
+        },
+        "hop2": {
+          "hits": [],
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1_score": 0.0
+        },
+        "top_candidate": "customers-service::org.springframework.samples.petclinic.customers.web.OwnerResource#updateOwner(int,OwnerRequest)"
+      }
+    },
+    {
+      "scenario_id": "P03_CART_SERVICE_SCHEMA",
+      "scenario_name": "Đổi cấu trúc message GetCartRequest trong gRPC CartService",
+      "system": "Google Cloud Online Boutique",
+      "protocol": "gRPC",
+      "split": "dev",
+      "ground_truth_total": 1,
+      "graph_rag": {
+        "detected_count": 1,
+        "latency_ms": 0.02,
+        "overall": {
+          "hits": [
+            "checkoutservice::main.getUserCart()"
+          ],
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        },
+        "hop1": {
+          "hits": [
+            "checkoutservice::main.getUserCart()"
+          ],
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        },
+        "hop2": {
+          "hits": [],
+          "precision": 0.0,
+          "recall": 1.0,
+          "f1_score": 0.0
+        }
+      },
+      "vector_rag": {
+        "top_k": 5,
+        "detected_count": 5,
+        "latency_ms": 553.49,
+        "overall": {
+          "hits": [
+            "checkoutservice::main.getUserCart()"
+          ],
+          "precision": 0.2,
+          "recall": 1.0,
+          "f1_score": 0.3333
+        },
+        "hop1": {
+          "hits": [
+            "checkoutservice::main.getUserCart()"
+          ],
+          "precision": 0.2,
+          "recall": 1.0,
+          "f1_score": 0.3333
+        },
+        "hop2": {
+          "hits": [],
+          "precision": 0.0,
+          "recall": 1.0,
+          "f1_score": 0.0
+        },
+        "top_candidate": "cartservice::CartService#AddItem(AddItemRequest)"
+      }
+    },
+    {
+      "scenario_id": "P04_PAYMENT_CHARGE_METHOD",
+      "scenario_name": "Thêm trường xác thực thẻ vào ChargeRequest của PaymentService",
+      "system": "Google Cloud Online Boutique",
+      "protocol": "gRPC",
+      "split": "test",
+      "ground_truth_total": 1,
+      "graph_rag": {
+        "detected_count": 1,
+        "latency_ms": 0.01,
+        "overall": {
+          "hits": [
+            "checkoutservice::main.chargeCard()"
+          ],
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        },
+        "hop1": {
+          "hits": [
+            "checkoutservice::main.chargeCard()"
+          ],
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0
+        },
+        "hop2": {
+          "hits": [],
+          "precision": 0.0,
+          "recall": 1.0,
+          "f1_score": 0.0
+        }
+      },
+      "vector_rag": {
+        "top_k": 5,
+        "detected_count": 5,
+        "latency_ms": 540.29,
+        "overall": {
+          "hits": [
+            "checkoutservice::main.chargeCard()"
+          ],
+          "precision": 0.2,
+          "recall": 1.0,
+          "f1_score": 0.3333
+        },
+        "hop1": {
+          "hits": [
+            "checkoutservice::main.chargeCard()"
+          ],
+          "precision": 0.2,
+          "recall": 1.0,
+          "f1_score": 0.3333
+        },
+        "hop2": {
+          "hits": [],
+          "precision": 0.0,
+          "recall": 1.0,
+          "f1_score": 0.0
+        },
+        "top_candidate": "checkoutservice::main.chargeCard()"
+      }
+    }
+  ]
+}

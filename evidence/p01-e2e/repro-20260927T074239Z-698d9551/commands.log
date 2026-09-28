@@ -1,0 +1,323 @@
+[
+  {
+    "command": [
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-e2e-venv\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "tests/test_p01_reproducibility.py",
+      "tests/test_output_integrity.py",
+      "-v",
+      "--junitxml=C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-review-evidence-20260927\\repro-20260927T074239Z-698d9551\\targeted-tests.xml"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 1.379,
+    "stdout": "============================= test session starts =============================\nplatform win32 -- Python 3.11.9, pytest-9.1.1, pluggy-1.6.0 -- C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-e2e-venv\\Scripts\\python.exe\ncachedir: .pytest_cache\nrootdir: C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-clean-review-20260927\nplugins: anyio-4.15.1\ncollecting ... collected 11 items\n\ntests/test_p01_reproducibility.py::test_source_normalization_changes_only_crlf[class A {}\\r\\n-class A {}\\n] PASSED [  9%]\ntests/test_p01_reproducibility.py::test_source_normalization_changes_only_crlf[class A {}  \\n-class A {}  \\n] PASSED [ 18%]\ntests/test_p01_reproducibility.py::test_source_normalization_changes_only_crlf[a\\rb\\r\\n-a\\rb\\n] PASSED [ 27%]\ntests/test_p01_reproducibility.py::test_published_smoke_artifacts_are_explicitly_labeled[full_benchmark_results.json] PASSED [ 36%]\ntests/test_p01_reproducibility.py::test_published_smoke_artifacts_are_explicitly_labeled[benchmark_comparison.json] PASSED [ 45%]\ntests/test_output_integrity.py::test_json_files_syntax_and_schema_cleanliness PASSED [ 54%]\ntests/test_output_integrity.py::test_mutated_graphs_provenance_separation PASSED [ 63%]\ntests/test_output_integrity.py::test_full_benchmark_results_structure PASSED [ 72%]\ntests/test_output_integrity.py::test_graph_referential_integrity PASSED  [ 81%]\ntests/test_output_integrity.py::test_cypher_files_validity PASSED        [ 90%]\ntests/test_output_integrity.py::test_decision_log_and_requirements PASSED [100%]\n\n- generated xml file: C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-review-evidence-20260927\\repro-20260927T074239Z-698d9551\\targeted-tests.xml -\n============================= 11 passed in 0.49s ==============================",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "clone",
+      "--shared",
+      "--no-checkout",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-petclinic-3858f9c",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-a3ysl9gh\\lf"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.18,
+    "stdout": "",
+    "stderr": "Cloning into 'C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-a3ysl9gh\\lf'...\ndone."
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-a3ysl9gh\\lf",
+      "config",
+      "core.autocrlf",
+      "false"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.039,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-a3ysl9gh\\lf",
+      "sparse-checkout",
+      "init",
+      "--no-cone"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.042,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-a3ysl9gh\\lf",
+      "sparse-checkout",
+      "set",
+      "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java",
+      "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+      "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.039,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-a3ysl9gh\\lf",
+      "checkout",
+      "--detach",
+      "3858f9c630cf989bb6809a86edf47c2be78dc9f1"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.062,
+    "stdout": "",
+    "stderr": "error: invalid object 100644 aee21c032ed62c95530f3164f0e5613275f0f847 for '.devcontainer/devcontainer.json'\nerror: invalid object 100644 aee21c032ed62c95530f3164f0e5613275f0f847 for '.devcontainer/devcontainer.json'\nHEAD is now at 3858f9c Add missing pet not found web test (#545)"
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-a3ysl9gh\\lf",
+      "rev-parse",
+      "HEAD"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.042,
+    "stdout": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-a3ysl9gh\\lf",
+      "status",
+      "--porcelain",
+      "--untracked-files=no"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.048,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-a3ysl9gh\\lf",
+      "rev-parse",
+      "HEAD"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.041,
+    "stdout": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-a3ysl9gh\\lf",
+      "status",
+      "--porcelain",
+      "--untracked-files=no"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.045,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-a3ysl9gh\\lf",
+      "rev-parse",
+      "HEAD"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.038,
+    "stdout": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-a3ysl9gh\\lf",
+      "status",
+      "--porcelain",
+      "--untracked-files=no"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.047,
+    "stdout": "M spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "clone",
+      "--shared",
+      "--no-checkout",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-petclinic-3858f9c",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-a3ysl9gh\\crlf"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.12,
+    "stdout": "",
+    "stderr": "Cloning into 'C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-a3ysl9gh\\crlf'...\ndone."
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-a3ysl9gh\\crlf",
+      "config",
+      "core.autocrlf",
+      "true"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.041,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-a3ysl9gh\\crlf",
+      "sparse-checkout",
+      "init",
+      "--no-cone"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.043,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-a3ysl9gh\\crlf",
+      "sparse-checkout",
+      "set",
+      "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java",
+      "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+      "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.042,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-a3ysl9gh\\crlf",
+      "checkout",
+      "--detach",
+      "3858f9c630cf989bb6809a86edf47c2be78dc9f1"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.063,
+    "stdout": "",
+    "stderr": "error: invalid object 100644 aee21c032ed62c95530f3164f0e5613275f0f847 for '.devcontainer/devcontainer.json'\nerror: invalid object 100644 aee21c032ed62c95530f3164f0e5613275f0f847 for '.devcontainer/devcontainer.json'\nHEAD is now at 3858f9c Add missing pet not found web test (#545)"
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-a3ysl9gh\\crlf",
+      "rev-parse",
+      "HEAD"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.038,
+    "stdout": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-a3ysl9gh\\crlf",
+      "status",
+      "--porcelain",
+      "--untracked-files=no"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.052,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-a3ysl9gh\\crlf",
+      "rev-parse",
+      "HEAD"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.035,
+    "stdout": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-a3ysl9gh\\crlf",
+      "status",
+      "--porcelain",
+      "--untracked-files=no"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.048,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-a3ysl9gh\\crlf",
+      "rev-parse",
+      "HEAD"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.037,
+    "stdout": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "-C",
+      "C:\\Users\\hieng\\AppData\\Local\\Temp\\p01-repro-a3ysl9gh\\crlf",
+      "status",
+      "--porcelain",
+      "--untracked-files=no"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.045,
+    "stdout": "M spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java",
+    "stderr": ""
+  }
+]

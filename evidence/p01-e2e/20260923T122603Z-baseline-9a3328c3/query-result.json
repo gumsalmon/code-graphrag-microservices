@@ -1,0 +1,65 @@
+{
+  "seed_id": "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(List<Integer>)",
+  "impacted_methods": [
+    {
+      "method_id": "api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)",
+      "hop": 1,
+      "method_path": [
+        "api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)",
+        "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(List<Integer>)"
+      ],
+      "edge_path": [
+        "INVOKES_API"
+      ],
+      "service_boundary_crossings": 1
+    },
+    {
+      "method_id": "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)",
+      "hop": 2,
+      "method_path": [
+        "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)",
+        "api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)",
+        "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(List<Integer>)"
+      ],
+      "edge_path": [
+        "CALLS",
+        "INVOKES_API"
+      ],
+      "service_boundary_crossings": 1
+    }
+  ],
+  "seed_excluded": true,
+  "snapshot_kind": "baseline",
+  "run_id": "20260923T122603Z-baseline-9a3328c3",
+  "container_id": "fcabd05ba41c55ef5c1a8e4d12f39d484bc8324aef85715dd20487f30bb575e1",
+  "inventory_before": {
+    "methods": [],
+    "edges": [],
+    "node_count": 0,
+    "relationship_count": 0
+  },
+  "inventory_after": {
+    "methods": [
+      "api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)",
+      "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)",
+      "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#create(Visit,int)",
+      "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(List<Integer>)",
+      "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(int)"
+    ],
+    "edges": [
+      {
+        "source": "api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)",
+        "type": "INVOKES_API",
+        "target": "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(List<Integer>)"
+      },
+      {
+        "source": "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)",
+        "type": "CALLS",
+        "target": "api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)"
+      }
+    ],
+    "node_count": 14,
+    "relationship_count": 14
+  },
+  "source": "Neo4j Bolt query"
+}

@@ -1,0 +1,8 @@
+{
+  "run_id": "20260925T113152Z-baseline-33f9a92e",
+  "snapshot_kind": "baseline",
+  "source_root": "C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-petclinic-3858f9c",
+  "status": "failed",
+  "error_type": "VerificationError",
+  "error": "Cypher statement 33 failed: {code: Neo.ClientError.Statement.ArithmeticError} {message: / by zero}"
+}

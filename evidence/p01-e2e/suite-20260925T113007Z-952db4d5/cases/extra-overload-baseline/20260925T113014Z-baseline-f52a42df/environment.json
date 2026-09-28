@@ -1,0 +1,8 @@
+{
+  "run_id": "20260925T113014Z-baseline-f52a42df",
+  "snapshot_kind": "baseline",
+  "source_root": "C:\\Users\\hieng\\AppData\\Local\\Temp\\codex-p01-petclinic-3858f9c",
+  "status": "failed",
+  "error_type": "VerificationError",
+  "error": "Impact set mismatch: unexpected=['visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(int)'], missing=[]"
+}
