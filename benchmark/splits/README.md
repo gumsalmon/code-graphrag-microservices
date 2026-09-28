@@ -25,4 +25,10 @@ Scorer `scripts/score_benchmark.py` chỉ chạy khi manifest có `status=approv
 {"scenarios": [{"scenario_id": "P02", "predictions": [{"level": "method", "entity_id": "canonical ID", "predicted_impacted": true}]}]}
 ```
 
+Scorer yêu cầu `annotator` trong nhãn và `reviewer` trong quyết định là chuỗi có tên, khác nhau sau khi bỏ khoảng trắng đầu/cuối và đối chiếu không phân biệt hoa/thường. Quyết định phải có `comments` không rỗng và `reviewed_at` hợp lệ với UTC offset, không trước lúc tạo nhãn.
+
+Mỗi test entry còn phải khai báo các đường dẫn repository-relative `artifact_checksums_file`, `review_log_file`, `review_checksums_file` và hash đã khóa `review_checksums_sha256`. Manifest sau review dùng định dạng `<SHA-256>  <repository-relative path>` như quy trình P01 và phải khóa đúng ba file: manifest trước review, nhật ký, quyết định. Scorer kiểm tra hash của manifest sau review, độ phủ ba file và từng hash bên trong; manifest trước review phải bao phủ scenario, universe, label với hash khớp test entry và mọi artifact được liệt kê phải còn nguyên byte. Thiếu hồ sơ/checksum, dòng checksum không hợp lệ hoặc artifact thay đổi đều chặn score chính thức. Các trường này chỉ được điền sau review thực tế; bản nháp hiện tại vẫn chưa khóa test.
+
+Khi đối chiếu prediction, exact canonical ID (kể cả seed) được ưu tiên trước alias. Alias trùng một canonical ID không được đổi thực thể đó; canonical ID ở sai level vẫn tính `out_of_scope` tại level dự đoán. Alias cho ID mutated còn lại vẫn được chuẩn hóa và loại trùng như trước.
+
 Lệnh khi đã được phê duyệt riêng: `python scripts/score_benchmark.py --manifest benchmark/splits/split_manifest.vN.json --manifest-sha256 <hash-đã-khóa> --predictions <file.json>`. Kết quả JSON ghi ra stdout. Hiện tại dùng `python -m unittest discover -s tests` để kiểm tra scorer trên fixture tổng hợp; đây không phải benchmark P02–P04.

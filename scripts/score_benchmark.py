@@ -3,6 +3,7 @@
 import argparse
 import hashlib
 import json
+import re
 import sys
 from datetime import datetime
 from pathlib import Path
@@ -23,16 +24,66 @@ def read_json(path):
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def checked_file(root, relative, expected_hash):
+def artifact_path(root, relative):
     require(isinstance(relative, str) and relative and not Path(relative).is_absolute(),
             "Missing or absolute artifact path")
     path = (root / relative).resolve()
     require(path.is_relative_to(root.resolve()) and path.is_file(), f"Unsafe or missing artifact: {relative}")
-    require(isinstance(expected_hash, str) and len(expected_hash) == 64,
+    return path
+
+
+def checked_bytes(root, relative, expected_hash):
+    path = artifact_path(root, relative)
+    require(isinstance(expected_hash, str) and re.fullmatch(r"[0-9a-fA-F]{64}", expected_hash),
             f"Missing SHA-256: {relative}")
-    actual = hashlib.sha256(path.read_bytes()).hexdigest()
+    content = path.read_bytes()
+    actual = hashlib.sha256(content).hexdigest()
     require(actual == expected_hash.lower(), f"SHA-256 mismatch: {relative}")
-    return read_json(path)
+    return content
+
+
+def checked_file(root, relative, expected_hash):
+    return json.loads(checked_bytes(root, relative, expected_hash).decode("utf-8"))
+
+
+def verify_checksums(root, content, required, exact=False):
+    entries = {}
+    for line in content.decode("utf-8-sig").splitlines():
+        if not line.strip():
+            continue
+        match = re.fullmatch(r"([0-9a-fA-F]{64})  (.+)", line)
+        require(match is not None, "Invalid checksum line")
+        digest, relative = match.groups()
+        require(relative not in entries, f"Repeated checksum artifact: {relative}")
+        entries[relative] = digest.lower()
+    require(set(required) <= set(entries) and (not exact or set(required) == set(entries)),
+            "Incomplete or unexpected checksum coverage")
+    for relative, expected_hash in required.items():
+        require(expected_hash is None or entries[relative] == expected_hash.lower(),
+                f"Checksum does not bind scored artifact: {relative}")
+    for relative, digest in entries.items():
+        checked_bytes(root, relative, digest)
+
+
+def validate_review_checksums(root, entry):
+    artifact_manifest = entry.get("artifact_checksums_file")
+    review_log = entry.get("review_log_file")
+    artifact_path(root, artifact_manifest)
+    artifact_path(root, review_log)
+    content = checked_bytes(root, entry.get("review_checksums_file"), entry.get("review_checksums_sha256"))
+    review_files = [artifact_manifest, review_log, entry["review_decision_file"]]
+    require(len(set(review_files)) == 3, "Review checksum artifacts must be distinct")
+    verify_checksums(root, content, {
+        artifact_manifest: None, review_log: None,
+        entry["review_decision_file"]: entry["review_decision_sha256"]
+    }, exact=True)
+    verify_checksums(root, artifact_path(root, artifact_manifest).read_bytes(), {
+        entry[f"{kind}_file"]: entry[f"{kind}_sha256"] for kind in ("scenario", "universe", "label")
+    })
+
+
+def has_text(value):
+    return isinstance(value, str) and bool(value.strip())
 
 
 def ratio(numerator, denominator):
@@ -97,13 +148,19 @@ def score_case(root, entry, prediction_records):
     label_created_at = timestamp(labels.get("created_at"), f"{sid}.labels.created_at")
     require(selected_at <= universe_locked_at < label_created_at,
             f"Scenario selection/universe must precede labels: {sid}")
+    annotator, reviewer = labels.get("annotator"), decision.get("reviewer")
+    require(has_text(annotator), f"Missing label annotator: {sid}")
     require(decision.get("decision") == "approve" and decision.get("audit_decision") == "accepted" and
             decision.get("scenario_id") == sid and
             decision.get("label_file") == entry.get("label_file") and
             decision.get("label_sha256") == entry.get("label_sha256") and
             decision.get("label_version") == labels.get("label_version") and
-            decision.get("reviewer") and decision.get("reviewer") != labels.get("annotator"),
+            has_text(reviewer) and reviewer.strip().casefold() != annotator.strip().casefold() and
+            has_text(decision.get("comments")),
             f"Accepted independent label review is missing: {sid}")
+    reviewed_at = timestamp(decision.get("reviewed_at"), f"{sid}.reviewed_at")
+    require(label_created_at <= reviewed_at, f"Labels must precede review: {sid}")
+    validate_review_checksums(root, entry)
 
     universe_ids, seeds, truth = {}, {}, {}
     for level in LEVELS:
@@ -133,6 +190,7 @@ def score_case(root, entry, prediction_records):
                 alias.get("evidence_refs") and mutated not in aliases,
                 f"Unverified or repeated alias: {sid}")
         aliases[mutated] = canonical
+    canonical_ids = set().union(*universe_ids.values(), *seeds.values())
 
     results = {}
     for level in LEVELS:
@@ -147,7 +205,7 @@ def score_case(root, entry, prediction_records):
             if not isinstance(raw_id, str) or not raw_id.strip():
                 invalid += 1
                 continue
-            eid = aliases.get(raw_id, raw_id)
+            eid = raw_id if raw_id in canonical_ids else aliases.get(raw_id, raw_id)
             if eid in seeds[level]:
                 seed_predictions += 1
             elif eid in universe_ids[level]:
