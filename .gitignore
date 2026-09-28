@@ -204,6 +204,9 @@ cython_debug/
 # Temporary file for partial code execution
 tempCodeRunnerFile.py
 
+# Locally generated handoff archives
+handoff-out/
+
 # Ruff stuff:
 .ruff_cache/
 

@@ -1,122 +1,49 @@
-# Code GraphRAG: Phân tích Tác động Mã nguồn Đa dịch vụ cho Kiến trúc Microservices
+# Code GraphRAG for Microservice Change Impact Analysis
 
-> **Trạng thái số liệu:** Mọi Precision/Recall/F1 hiện có là **smoke test pipeline**, không phải kết quả bài báo hoặc bằng chứng phương pháp tốt hơn. Các scenario P02–P04 đã có là fixture lịch sử, không phải nhiệm vụ mở rộng mới. Xem [tái lập LF/CRLF và Chroma](P01_REPRODUCIBILITY.md).
+Tài liệu bắt buộc đọc trước khi làm việc: [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md).
 
-> **Đề tài NCKH:** Nghiên cứu ứng dụng GraphRAG trong phân tích tác động mã nguồn đa dịch vụ cho kiến trúc Microservices  
-> **Tác giả / Nhóm thực hiện:** Ngô Đức Huy (Chủ nhiệm) & Giảng Văn Hiển (Thành viên kỹ thuật cốt lõi)  
-> **Trường Đại học Sài Gòn — Khoa Công nghệ Thông tin**
+## Hồ sơ giao việc hiện tại
 
----
+- [Bảng điều phối của Huy](tasks/HUY_COORDINATION_CHECKLIST.md)
+- [Audit đầu vào P01](tasks/P01_INPUT_AUDIT.md)
+- [Task packet cho Phát](tasks/PHAT_P01_INDEPENDENT_BENCHMARK.md)
+- [Task packet cho Hiển](tasks/HIEN_P01_NEO4J_E2E.md)
+- [Quy tắc sử dụng task packet với AI](tasks/README.md)
+- [Script tạo ZIP đầu vào đã lọc cho Phát](scripts/prepare_phat_p01_handoff.ps1)
 
-## 1. Giới thiệu Tổng quan
+Không coi một task là hoàn thành chỉ vì AI tạo được code, JSON, ảnh Neo4j hoặc báo test pass. Kết quả phải thỏa Definition of Done và có bằng chứng tái lập được ghi trong task packet tương ứng.
 
-Dự án nghiên cứu và phát triển giải pháp **Code GraphRAG** nhằm giải quyết triệt để bài toán phân tích tác động thay đổi mã nguồn (Change Impact Analysis - CIA) trong các hệ thống kiến trúc Microservices phân tán.
+## Phạm vi hiện tại
 
-Hệ thống kết hợp:
-1. **Phân tích cú pháp tĩnh trừu tượng (Tree-sitter AST & Protobuf):** Bóc tách các quan hệ phụ thuộc liên dịch vụ (REST qua `WebClient` và gRPC qua `.proto`) cùng các lời gọi nội bộ (`CALLS`) có giám sát cơ chế phòng thủ Circuit Breaker.
-2. **Cơ sở dữ liệu đồ thị (Neo4j):** Mô hình hóa mạng lưới phụ thuộc thành Đồ thị tri thức mã nguồn (Code Knowledge Graph), hỗ trợ duyệt ngược đa bước (*Multi-hop Backward Traversal*).
-3. **Mô hình đối chứng Vector RAG (ChromaDB):** Phân đoạn ngữ nghĩa công bằng theo cấp độ hàm/lớp (AST Code Chunking) để đo lường định lượng sự vượt trội của GraphRAG so với tìm kiếm vector truyền thống.
+Dự án nghiên cứu phân tích tác động thay đổi mã nguồn trong microservices bằng phân tích tĩnh, đồ thị phụ thuộc và truy xuất ngữ nghĩa. P01 hiện là pilot kiểm tra pipeline; chưa chứng minh hiệu quả tổng quát hoặc sự vượt trội so với Vector RAG.
 
----
+Phần kiểm chứng Neo4j chạy theo đường: source tại commit cố định → parser chạy lại → JSON mới → Cypher mới → Neo4j cách ly cho từng baseline/mutated → truy vấn ngược 1-hop/2-hop. Acceptance kiểm tra đúng tập method, loại seed và từ chối method thừa, bao gồm overload `VisitResource.read(int)`.
 
-## 2. Cấu trúc Thư mục
+Mọi Precision/Recall/F1 hiện có chỉ là **smoke test trên fixture/nhãn nháp**, không phải kết quả bài báo hay ground truth độc lập. Đường phụ thuộc không tự chứng minh tác động hành vi runtime. Các fixture P02–P04 trong lịch sử không có nghĩa đã được giao mở rộng P02; công việc hiện tại vẫn là review P01.
 
-```text
-d:\Projects\Bao\
-├── contracts/
-│   └── sample_contract.json          # Hợp đồng chuẩn dữ liệu đồ thị v0.1.0
-├── data/
-│   ├── baseline/                     # Mã nguồn Spring PetClinic (4 microservices)
-│   │   ├── VisitResource.java
-│   │   ├── VisitsServiceClient.java
-│   │   ├── ApiGatewayController.java
-│   │   ├── CustomersServiceClient.java
-│   │   ├── OwnerResource.java
-│   │   ├── PetResource.java
-│   │   └── VetResource.java
-│   ├── mutated/                      # Bản đột biến kiểm soát (P01 includeDetails)
-│   ├── fixtures/                     # Test fixtures âm (POST, different service, dynamic URI)
-│   └── online_boutique/              # Mã nguồn Google Cloud Online Boutique (gRPC)
-│       ├── demo.proto
-│       └── checkoutservice_main.go
-├── src/
-│   ├── parser.py                     # Parser Java Spring MVC & WebClient (AST Tree-sitter)
-│   ├── proto_parser.py               # Parser Protocol Buffers & gRPC Call Graph
-│   ├── neo4j_importer.py             # Module sinh Cypher và nạp dữ liệu vào Neo4j
-│   ├── chroma_baseline.py            # Baseline Vector RAG (AST Code Chunking + ChromaDB)
-│   └── benchmark_runner.py           # Bộ thực nghiệm đo Precision, Recall, F1
-├── tests/
-│   ├── test_parser.py                # 11 unit tests cho Java REST & 2-hop
-│   ├── test_chroma_baseline.py       # 3 unit tests cho Vector Chunker & ChromaDB
-│   ├── test_proto_parser.py          # 2 unit tests cho gRPC & Protobuf
-│   └── test_benchmark_runner.py      # 2 unit tests cho Benchmark Runner
-├── output/
-│   ├── baseline_graph.json           # Đồ thị REST 2 tập tin ban đầu
-│   ├── baseline_2hop_graph.json      # Đồ thị 2-hop đầy đủ (ApiGatewayController)
-│   ├── petclinic_full_graph.json     # Đồ thị toàn diện 4 microservices PetClinic
-│   ├── online_boutique_graph.json    # Đồ thị gRPC Google Cloud Online Boutique
-│   ├── import_baseline_2hop.cypher   # Kịch bản Cypher nạp Neo4j (2-hop)
-│   ├── import_petclinic_full.cypher  # Kịch bản Cypher nạp Neo4j toàn diện
-│   ├── import_online_boutique.cypher # Kịch bản Cypher gRPC Neo4j
-│   ├── benchmark_comparison.json     # Báo cáo so sánh đối chứng khoa học
-│   └── full_benchmark_results.json   # Kết quả đo đạc định lượng F1-Score
-├── docker-compose.yml                # Hạ tầng Neo4j 5.26 Community + APOC
-├── TASKS.md                          # Sổ tay theo dõi tiến độ công việc của Hiển
-├── run_parser.py                     # Script thực thi toàn bộ pipeline trích xuất đồ thị
-└── run_baseline_benchmark.py         # Script chạy thực nghiệm đối chứng Vector vs Graph
-```
+## Cài đặt và kiểm thử
 
----
+Môi trường đã dùng: Python 3.11.9, dependencies trong [requirements.txt](requirements.txt), Docker và image Neo4j `5.26.0`. Cần Docker daemon hoạt động để chạy test live; xem tài liệu tái lập về model/cache Chroma.
 
-## 3. Hướng dẫn Cài đặt & Sử dụng
-
-### Yêu cầu Môi trường
-* Python 3.10+ (đã kiểm thử trên Python 3.11.9)
-* Docker & Docker Compose (cho CSDL đồ thị Neo4j)
-
-### Cài đặt Thư viện Python
-```bash
+```powershell
 python -m pip install -r requirements.txt
+python -m pytest tests/ -ra
 ```
 
-### Chạy Toàn bộ 24 Bài Kiểm thử (Unit Tests & Toàn vẹn Hệ thống)
-```bash
-python -m pytest tests/ -v
+Lệnh bàn giao đầy đủ, chạy từ checkout sạch; output phải nằm ngoài repository:
+
+```powershell
+python tools/run_p01_acceptance.py --source-root <PetClinic-checkout> --output-root <thu-muc-ngoai-repo>
 ```
 
-### Thực thi Pipeline Trích xuất Đồ thị (PetClinic & Online Boutique)
-```bash
-python run_parser.py
-```
-Lệnh trên sẽ tự động:
-1. Trích xuất quan hệ REST giữa provider và client.
-2. Trích xuất chuỗi 2-hop và nhận diện Circuit Breaker / Fallback.
-3. Quét toàn bộ 4 microservices của Spring PetClinic (15 nodes, 13 endpoints, 4 edges).
-4. Bóc tách giao thức gRPC từ `demo.proto` của Google Cloud Online Boutique (21 nodes, 6 edges).
-5. Sinh các file kịch bản Cypher `.cypher` tương ứng trong thư mục `output/`.
+PetClinic source phải ở commit `3858f9c630cf989bb6809a86edf47c2be78dc9f1`. Runner lưu command, exit code, log, JUnit, HEAD/trạng thái Git trước và sau, phiên bản và checksum. Số test và kết quả phải đọc từ JUnit của đúng SHA được review, không dùng số đếm cố định trong README. Không coi lượt chạy thiếu Docker hoặc có test skip là nghiệm thu live E2E đầy đủ.
 
-### Khởi động CSDL Neo4j & Nạp Đồ thị
-```bash
-# Khởi động Neo4j container
-docker compose up -d
+## Tài liệu và bằng chứng P01
 
-# Nạp dữ liệu đồ thị:
-# Truy cập Neo4j Browser tại http://localhost:7474 (Tài khoản: neo4j / graphrag2026)
-# Sao chép và chạy nội dung file output/import_petclinic_full.cypher hoặc output/import_online_boutique.cypher
-```
+- [Cách chạy và giới hạn kiểm chứng E2E](P01_E2E_VERIFICATION.md)
+- [Tái lập LF/CRLF và model/cache Chroma](P01_REPRODUCIBILITY.md)
+- [Phân biệt hash Git blob với byte working tree](P01_HASH_PROVENANCE.md)
+- [Bằng chứng lịch sử theo từng run](evidence/p01-e2e/README.md)
+- [PR #1: SHA và log/JUnit/provenance bàn giao hiện hành](https://github.com/gumsalmon/code-graphrag-microservices/pull/1)
 
-### Chạy smoke test pipeline (không phải thực nghiệm bài báo)
-```bash
-python run_baseline_benchmark.py
-```
-
----
-
-## 4. Điểm smoke test lịch sử — không phải kết quả bài báo
-
-| Hệ thống | Độ sâu | Precision | Recall | F1-Score | Ghi chú |
-|---|---|---|---|---|---|
-| **Code GraphRAG** | 1-hop & 2-hop | **1.0000** | **1.0000** | **1.0000** | Smoke test trên fixture nháp; không suy rộng chất lượng. |
-| **Vector RAG Baseline (ChromaDB)** | 1-hop & 2-hop | 0.2000 | 0.5000 | **0.2857** | Smoke test lịch sử; phụ thuộc model/cache, chưa là kết quả bài báo. |
-
-Kết quả chi tiết được lưu trữ tại [output/full_benchmark_results.json](output/full_benchmark_results.json).
+Log của lượt kiểm tra SHA cuối được đính kèm ở PR để tránh tạo commit mới làm thay đổi SHA vừa kiểm chứng. Chỉ kết luận trong phạm vi fixture, dependency và môi trường đã ghi; kiểm chứng runtime ứng dụng và đánh giá benchmark độc lập là các phần riêng.
