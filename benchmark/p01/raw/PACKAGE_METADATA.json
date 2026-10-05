@@ -1,0 +1,14 @@
+{
+  "package_kind": "p01_independent_benchmark_input",
+  "created_at": "2026-09-23T12:31:08.4284582+07:00",
+  "source_repository": "https://github.com/spring-petclinic/spring-petclinic-microservices",
+  "source_commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+  "config_revision_observed": "323993ce2519c6d02df63e08bf4458d123d3b611",
+  "tracked_source_clean_at_packaging": true,
+  "excluded_before_label_freeze": [
+    "evidence_p01_runtime/p01_label.md",
+    "evidence_p01_runtime/report.md",
+    "parser/Neo4j/GraphRAG/Vector RAG/LLM outputs and scores"
+  ],
+  "warning": "Raw evidence includes failed/noisy historical runs. Read docs/P01_INPUT_AUDIT.md; rerun is required before final acceptance."
+}

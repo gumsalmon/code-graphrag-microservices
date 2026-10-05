@@ -1,0 +1,27 @@
+{
+  "started_at": "2026-09-23T15:17:19.5319410+07:00",
+  "project_name": "p01-independent-rerun",
+  "repository": "https://github.com/spring-petclinic/spring-petclinic-microservices",
+  "baseline_commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+  "config_revision": "323993ce2519c6d02df63e08bf4458d123d3b611",
+  "patch_sha256": "42394ca361d07db58ba6a73cfc1ddb8bd1d9aeddb59292873552573adfa5cc21",
+  "baseline_visits_image": "p01/visits:baseline-3858f9c",
+  "mutated_visits_image": "p01/visits:mutated-42394ca3",
+  "gateway_image": "p01/api-gateway:baseline-3858f9c",
+  "fixture": {
+    "owner_id": 6,
+    "pet_ids": [
+      7,
+      8
+    ],
+    "negative_pet_id": 7
+  },
+  "docker_version": "client=29.5.3 server=29.5.3",
+  "compose_version": "5.1.4",
+  "p01_config-server_3858f9c": "sha256:ca46c68545fcb2ddf0187f4c79b8ef8a39133a812f59010db82a14c2b9f68277",
+  "p01_discovery-server_3858f9c": "sha256:208f7006621c62f9856c53fbb0ee9747f376875e9ee860341d1b9506262b044c",
+  "p01_customers-service_3858f9c": "sha256:b9ff8703f8765fd025d95735a4ec44fc740ab3215d09d415564222724cced8a9",
+  "p01_visits_baseline-3858f9c": "sha256:4423975a69ef4ec379336acba72e5b56f1fa13a674d549e9f68a3b864aedb0a0",
+  "p01_visits_mutated-42394ca3": "sha256:0d0d68034f1d699926d7ec4f269bcaf8134ecf459cb92ee2ca87fcbfd296c13c",
+  "p01_api-gateway_baseline-3858f9c": "sha256:0ddead87c121ebfa4f92f749562662b45720f6c0b0b8a57651ef602d63d2822c"
+}

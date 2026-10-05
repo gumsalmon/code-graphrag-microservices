@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0.0",
+  "decision_id": "P01-review-v1",
+  "scenario_id": "P01",
+  "label_file": "benchmark/p01/labels.v3.json",
+  "label_version": "1.2.0",
+  "label_sha256": "3cc4784c9827f2ac8a034cfe44bbdb838b21ebb7f8a7f9ac49864c70162e2bce",
+  "label_protocol_version": "0.1",
+  "review_protocol_version": "0.2",
+  "reviewer": null,
+  "reviewed_at": null,
+  "decision": null,
+  "audit_decision": "pending_review",
+  "comments": null
+}

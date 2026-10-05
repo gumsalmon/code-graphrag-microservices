@@ -1,0 +1,177 @@
+{
+  "schema_version": "0.1.0",
+  "scenario_id": "P01",
+  "scenario_version": "1.0.0",
+  "created_at": "2026-09-23T14:42:17+07:00",
+  "author": "Phát",
+  "repository": "https://github.com/spring-petclinic/spring-petclinic-microservices",
+  "baseline_commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+  "config_revision": "323993ce2519c6d02df63e08bf4458d123d3b611",
+  "evidence": [
+    {
+      "evidence_id": "E-PROVENANCE-001",
+      "kind": "repository_provenance",
+      "location": "fresh temporary clone",
+      "claim": "HEAD equals the baseline commit and tracked tree is clean",
+      "verification": "git rev-parse HEAD; git status --short --branch; git diff --quiet --exit-code",
+      "result": "verified"
+    },
+    {
+      "evidence_id": "E-SOURCE-PROVIDER-001",
+      "kind": "source",
+      "path": "benchmark/p01/raw/source_baseline/VisitResource.java",
+      "line_start": 72,
+      "line_end": 75,
+      "sha256": "78841fc2f1bc5b69339e085a3934040e467578e257af86dd9bbe352a30a1fe48",
+      "claim": "Baseline GET /pets/visits is handled by read(List<Integer>) and queries visits by pet IDs"
+    },
+    {
+      "evidence_id": "E-SOURCE-CLIENT-001",
+      "kind": "source",
+      "path": "benchmark/p01/raw/source_baseline/VisitsServiceClient.java",
+      "line_start": 33,
+      "line_end": 47,
+      "sha256": "3aaff229d5971908e679f22dbc6f79fbec10793777f1501715ed9b2ee8b7b058",
+      "claim": "getVisitsForPets sends GET to visits-service /pets/visits with petId and no includeDetails parameter"
+    },
+    {
+      "evidence_id": "E-SOURCE-CONTROLLER-001",
+      "kind": "source",
+      "path": "benchmark/p01/raw/source_baseline/ApiGatewayController.java",
+      "line_start": 54,
+      "line_end": 64,
+      "sha256": "08abd935c2c090593e920d02dfeeea9ed08e92434b4f7e0b3c0da41f5a2c1ff5",
+      "claim": "GET /api/gateway/owners/{ownerId} calls getVisitsForPets and applies an empty-visits fallback"
+    },
+    {
+      "evidence_id": "E-SOURCE-NEGATIVE-001",
+      "kind": "source",
+      "path": "benchmark/p01/raw/source_baseline/VisitResource.java",
+      "line_start": 67,
+      "line_end": 70,
+      "sha256": "78841fc2f1bc5b69339e085a3934040e467578e257af86dd9bbe352a30a1fe48",
+      "claim": "A real read(int) overload serves a different endpoint and is a preselected negative candidate",
+      "limitation": "Source alone does not establish unchanged runtime behavior"
+    },
+    {
+      "evidence_id": "E-PATCH-001",
+      "kind": "change_input",
+      "path": "benchmark/p01/raw/historical/mutation.patch",
+      "line_start": 1,
+      "line_end": 18,
+      "sha256": "42394ca361d07db58ba6a73cfc1ddb8bd1d9aeddb59292873552573adfa5cc21",
+      "encoding": "UTF-16LE with BOM",
+      "claim": "The patch adds a required boolean includeDetails parameter to the target handler and leaves response logic unchanged",
+      "reproducibility_note": "git apply rejects the original encoding; an exact text transcoding to UTF-8 has SHA-256 901b19f5dab72c65d3bb424a24e53ea4c3a83cfc5bd72332bdbaf297031441f5 and passes git apply --check"
+    },
+    {
+      "evidence_id": "E-CONTRACT-001",
+      "kind": "official_contract",
+      "url": "https://docs.spring.io/spring-framework/reference/6.2/web/webmvc/mvc-controller/ann-methods/requestparam.html",
+      "accessed_at": "2026-09-23",
+      "claim": "Spring MVC RequestParam method parameters are required by default unless configured otherwise",
+      "limitation": "The contract predicts missing-parameter handling but does not replace application runtime evidence"
+    },
+    {
+      "evidence_id": "E-RUNTIME-CONFIG-001",
+      "kind": "historical_runtime_log",
+      "path": "benchmark/p01/raw/historical/api_gateway_mutated.log",
+      "line_start": 25,
+      "line_end": 27,
+      "sha256": "8a9e6503478f1c333fc5866c3339a65dbb8aaa8245e150705f58c698d6eecef6",
+      "claim": "The gateway log records config revision 323993ce2519c6d02df63e08bf4458d123d3b611",
+      "quality": "supporting_only"
+    },
+    {
+      "evidence_id": "E-RUNTIME-HIST-BASELINE-001",
+      "kind": "historical_derived_runtime",
+      "path": "benchmark/p01/raw/historical/baseline_results.log",
+      "line_start": 1,
+      "line_end": 5,
+      "sha256": "71b7ce476a2807ab525807aafcb4b45b394081abe5406e53a10bc12d0f2e341f",
+      "claim": "File reports baseline direct and gateway HTTP 200 with populated visits",
+      "quality": "insufficient_for_acceptance",
+      "limitation": "Generation command and traceability to a raw run are incomplete"
+    },
+    {
+      "evidence_id": "E-RUNTIME-HIST-MUTATED-001",
+      "kind": "historical_mixed_runtime",
+      "path": "benchmark/p01/raw/historical/run_mutated_results.log",
+      "line_start": 1,
+      "line_end": 21,
+      "sha256": "6f5ef40ab5710d9242f2b0fed39c8b391b8448040393cff1ef3f9a06f84fac52",
+      "claim": "File reports missing-parameter 400, valid-parameter 200 with visits, and gateway 200 with empty visits",
+      "quality": "insufficient_for_acceptance",
+      "limitation": "The file begins with an unhandled request error and is not a clean independent rerun"
+    },
+    {
+      "evidence_id": "E-RUNTIME-INVALID-BASELINE-001",
+      "kind": "historical_failed_runtime",
+      "path": "benchmark/p01/raw/historical/run_baseline_results.txt",
+      "sha256": "847224e65b1d4c5dea4d7d2095fe193b0de00fe2d7e1ff9de3e5af4ec9f0b8f5",
+      "quality": "invalid_for_behavior_claims",
+      "reason": "Connection/HTTP failures and broken PowerShell interpolation leave status/body unusable"
+    },
+    {
+      "evidence_id": "E-RUNTIME-INVALID-MUTATED-001",
+      "kind": "historical_failed_runtime",
+      "path": "benchmark/p01/raw/historical/run_mutated_results.txt",
+      "sha256": "ae91efc49cf98097bf8ab445f9d451e666797a69ee9c2715509156fa31da84eb",
+      "quality": "invalid_for_behavior_claims",
+      "reason": "Broken PowerShell interpolation leaves reported status/body empty"
+    },
+    {
+      "evidence_id": "E-RERUN-ATTEMPT-001",
+      "kind": "independent_rerun_diagnostic",
+      "path": "benchmark/p01/derived/runtime_rerun_attempt.md",
+      "claim": "The first independent attempt found Docker CLI and Compose installed but the daemon unavailable at that time",
+      "result": "superseded_by_successful_rerun"
+    },
+    {
+      "evidence_id": "E-RUNTIME-ENV-001",
+      "kind": "clean_runtime_environment",
+      "path": "benchmark/p01/raw/rerun-20260923-152742/environment.json",
+      "sha256": "7c9a9b67e3ec232cf43aa2a2d9996623ed39e5831ae86b62c2aa68b99cf3cbc7",
+      "claim": "Records the fixed repository commit, config revision, patch hash, fixture, Docker/Compose versions and immutable image IDs",
+      "quality": "acceptance_eligible"
+    },
+    {
+      "evidence_id": "E-RUNTIME-CLEAN-001",
+      "kind": "clean_runtime_summary",
+      "path": "benchmark/p01/raw/rerun-20260923-152742/summary.json",
+      "line_start": 1,
+      "line_end": 74,
+      "sha256": "a79a3194555f53c21c4a8cb7bdc036fcccdc9899f3168796f718cadbd00f805c",
+      "claim": "Baseline direct/gateway, patched missing/valid parameter, patched gateway and baseline/patched negative observations completed under the fixed fixture",
+      "quality": "acceptance_eligible_pending_review"
+    },
+    {
+      "evidence_id": "E-RUNTIME-ROUTING-001",
+      "kind": "clean_runtime_routing_proof",
+      "paths": [
+        "benchmark/p01/raw/rerun-20260923-152742/commands.log",
+        "benchmark/p01/raw/rerun-20260923-152742/eureka-visits-mutated.json",
+        "benchmark/p01/raw/rerun-20260923-152742/logs/mutated-visits-service.log"
+      ],
+      "sha256": {
+        "commands.log": "55837b411639f4e7bb3ecdaeac2795b2cab83dbefeaab82c7201b9bf623f975c",
+        "eureka-visits-mutated.json": "fb63767eac29de8e4f874395b5712b555ba11cdb9c31d4a0f1a19a259bc9793f",
+        "mutated-visits-service.log": "0a0a0ea7f8bb7fa57e209c2c562b75b56f386f654bb3305ddb75bcf37aa41871"
+      },
+      "claim": "The recreated patched visits instance was UP in Eureka and the gateway discovery preflight reached it on attempt 5, producing the expected missing-parameter exception",
+      "quality": "acceptance_eligible_pending_review"
+    },
+    {
+      "evidence_id": "E-RUNTIME-DERIVED-001",
+      "kind": "derived_runtime_report",
+      "path": "benchmark/p01/derived/runtime_rerun_report.md",
+      "claim": "Summarizes the valid clean run and explicitly excludes two discovery-readiness diagnostics from the gateway causal claim",
+      "inputs": [
+        "benchmark/p01/raw/rerun-20260923-151719/",
+        "benchmark/p01/raw/rerun-20260923-152349/",
+        "benchmark/p01/raw/rerun-20260923-152742/"
+      ]
+    }
+  ],
+  "prohibited_sources_used": false
+}
