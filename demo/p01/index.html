@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>P01 · Evidence Lab</title>
+  <link rel="stylesheet" href="app.css">
+  <script src="data.js" defer></script>
+  <script src="reasoning-core.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <a class="brand" href="#graph" aria-label="P01 Evidence Lab"><span class="brand-mark">G<span>↗</span></span><span>Code GraphRAG<small>EVIDENCE LAB</small></span></a>
+      <div class="project-label">KHÔNG GIAN NGHIÊN CỨU</div>
+      <div class="project-card"><span class="project-icon">P</span><span>Spring PetClinic<small>Pilot P01 · REST / Java</small></span><span class="project-dot"></span></div>
+      <nav aria-label="Các phần của demo">
+        <button class="nav-item active" data-page="graph"><span aria-hidden="true">◎</span> Đồ thị phụ thuộc <span class="nav-arrow">↗</span></button>
+        <button class="nav-item" data-page="change"><span aria-hidden="true">±</span> Patch & contract</button>
+        <button class="nav-item" data-page="reasoning"><span aria-hidden="true">◇</span> Context & LLM</button>
+        <button class="nav-item" data-page="runtime"><span aria-hidden="true">≋</span> Quan sát HTTP</button>
+        <button class="nav-item" data-page="provenance"><span aria-hidden="true">▤</span> Nguồn & giới hạn</button>
+      </nav>
+      <div class="sidebar-note"><span class="tiny-tag">PHẠM VI DEMO</span><p>Một thay đổi.<br>Một tuyến liên dịch vụ.<br>Bằng chứng có thể kiểm tra.</p><small>Không chấm benchmark chính thức.<br>Gemini: smoke CLI đã đạt.</small></div>
+      <div class="sidebar-bottom"><span class="status-dot"></span> Dữ liệu lưu từ lần chạy thật</div>
+    </aside>
+    <main>
+      <header class="topbar"><div><span class="breadcrumb">Pilot / P01</span><span class="topbar-divider">/</span><span id="page-label">Đồ thị phụ thuộc</span></div><span class="tag tag-neutral">BẢN GHI THÍ NGHIỆM · KHÔNG LIVE</span></header>
+      <section class="heading"><div><div class="eyebrow">PHÂN TÍCH THAY ĐỔI LIÊN DỊCH VỤ</div><h1>Một tham số mới.<br class="mobile-break"> Một đường phụ thuộc.</h1><p>Thêm <code>includeDetails</code> vào <code>GET /pets/visits</code>. Theo dấu từ provider đến client và gateway.</p></div><span class="pilot-badge"><span></span> PILOT P01</span></section>
+      <div class="review-notice"><span aria-hidden="true">ⓘ</span><p><strong>Nhãn đang chờ thẩm định.</strong> Đường đi trong graph là bằng chứng phụ thuộc, không tự xác nhận tác động hành vi hay phần mã bắt buộc sửa.</p></div>
+      <div id="fatal-error" class="error-banner" role="alert" hidden></div>
+      <section class="snapshot-bar" aria-label="Chọn snapshot"><div><span class="section-kicker">SNAPSHOT MÃ NGUỒN</span><div class="segmented"><button data-snapshot="baseline" aria-pressed="false">Baseline</button><button data-snapshot="mutated" aria-pressed="true">Mutated <span>+ includeDetails</span></button></div></div><div class="snapshot-meta"><span id="snapshot-state" class="tag"></span><small id="snapshot-caption"></small></div></section>
+      <section id="page-graph" class="page">
+        <div class="stats-row"><div class="stat"><span>Method được parse</span><strong id="method-count">—</strong><small>Phạm vi ba file Java</small></div><div class="stat"><span>Cạnh phụ thuộc</span><strong id="edge-count">—</strong><small>CALLS / INVOKES_API</small></div><div class="stat"><span>Ứng viên từ seed</span><strong id="candidate-count">—</strong><small>Seed không tính vào tập</small></div><div class="stat stat-verified"><span>Kiểm chứng kỹ thuật</span><strong id="test-count">—</strong><small id="test-date">—</small></div></div>
+        <div class="graph-layout">
+          <section class="panel graph-panel"><div class="panel-heading"><div><h2>Tuyến phụ thuộc</h2><p>Mũi tên: caller → callee. Truy vết từ seed đi ngược chiều.</p></div><button id="trace-button" class="button button-subtle">↶ Theo dấu từ seed</button></div><div class="graph-toolbar"><span><i class="legend-dot seed"></i> Seed thay đổi</span><span><i class="legend-dot candidate"></i> Ứng viên phụ thuộc</span><label><input type="checkbox" id="show-all" checked> Hiện method ngoài tuyến</label></div><div class="graph-scroll-hint">↔ Cuộn ngang để xem đầy đủ đồ thị. Bấm method hoặc mũi tên để xem bằng chứng.</div><div class="graph-canvas"><svg id="dependency-graph" viewBox="0 0 820 480" role="group" aria-label="Đồ thị phụ thuộc P01"></svg></div><div class="graph-footnote"><span id="graph-run"></span><span>Neo4j · bản ghi truy vấn thật</span></div></section>
+          <aside class="panel inspector" aria-live="polite"><div class="panel-heading"><div><span class="section-kicker">BẰNG CHỨNG</span><h2 id="inspector-title">Chọn method hoặc cạnh</h2></div></div><div id="inspector-body" class="inspector-body"></div></aside>
+        </div>
+        <section class="panel source-panel"><div class="panel-heading"><div><h2>Mã nguồn tại snapshot</h2><p id="source-caption">Chọn một thành phần để xem vị trí mã.</p></div><button id="download-source" class="button button-subtle" hidden>↓ Tải file nguồn</button></div><div id="source-code" class="source-code"></div></section>
+      </section>
+      <section id="page-change" class="page" hidden><section class="panel"><div class="panel-heading"><div><h2>Provider thay đổi, consumer giữ nguyên</h2><p>Mutation có kiểm soát: thêm ràng buộc đầu vào, không đổi logic tạo response.</p></div><button id="download-patch" class="button button-subtle">↓ Patch gốc</button></div><div id="contract-comparison" class="contract-comparison"></div><div class="code-caption">Patch chuẩn LF từ lượt kiểm chứng kỹ thuật · <span id="patch-hash"></span></div><pre id="patch-code" class="patch-code"></pre><div class="inline-notice">Patch runtime lịch sử lưu UTF-16LE và có hash khác. Bản đóng gói kiểm tra các dòng Java thêm/xóa tương đương, không mặc định hai file giống nhau từng byte.</div></section></section>
+      <section id="page-runtime" class="page" hidden><section class="runtime-intro"><span class="tag tag-neutral">ỨNG DỤNG PETCLINIC · LOG LỊCH SỬ</span><h2>HTTP 200 chưa nói hết câu chuyện.</h2><p id="runtime-date"></p></section><div id="runtime-comparison" class="runtime-comparison"></div><section class="panel"><div class="panel-heading"><div><h2>Request và response đã ghi nhận</h2><p>Chọn một dòng để xem body, thời điểm và raw record. Không gửi request mới.</p></div><button id="download-runtime" class="button button-subtle">↓ JSONL gốc</button></div><div class="table-scroll"><table class="runtime-table"><thead><tr><th>Snapshot / điều kiện</th><th>Đường request</th><th>HTTP</th><th>Visits trong body</th><th></th></tr></thead><tbody id="runtime-rows"></tbody></table></div><div id="runtime-detail" class="runtime-detail"></div></section><div class="runtime-footer"><p>Visits rỗng trong phản hồi gateway không đồng nghĩa dữ liệu bị xóa khỏi nơi lưu trữ. Đối chiếu request hợp lệ và code fallback trước khi kết luận.</p><button id="view-fallback" class="button button-subtle">Xem code fallback →</button></div></section>
+      <section id="page-reasoning" class="page" hidden>
+        <section class="runtime-intro"><span class="tag tag-neutral">GEMINI 3.8 FLASH · SMOKE CLI ĐÃ ĐẠT</span><h2>Chuẩn bị đầu vào. Kiểm tra đầu ra.</h2><p>CLI nhận phản hồi Gemini hợp lệ ngày 12/10/2026: khoảng 22 giây, 8863 token theo provider. JSON, ID, quote và đường đi qua kiểm tra; ý nghĩa dự đoán chưa được thẩm định. Trang này vẫn offline, không tự nạp kết quả hoặc gọi API. Để xem lượt thật, nhập response.json theo README. Context dùng baseline + patch dự kiến, không dùng nhãn hay log HTTP.</p></section>
+        <section class="panel"><div class="panel-heading"><div><h2>Context cho dự đoán tác động</h2><p>Chọn cấu hình rồi tải gói request có prompt, schema và checksum.</p></div><span id="reasoning-status" class="tag tag-neutral">ĐANG CHUẨN BỊ</span></div>
+          <div class="reasoning-controls"><label>Chế độ context<select id="reasoning-mode"><option value="graph_assisted">Source + graph tĩnh</option><option value="source_only">Source-only · cấu hình đối chứng</option></select></label><label>Giới hạn hop<select id="reasoning-depth"><option value="1">1 hop</option><option value="2" selected>2 hop</option><option value="3">3 hop</option></select></label><label>Ngân sách context (byte UTF-8)<input id="reasoning-budget" type="number" value="32768" min="1024" max="131072" step="1024"></label></div>
+          <div id="reasoning-error" class="error-banner reasoning-error" role="alert" hidden></div>
+          <div id="reasoning-meta" class="reasoning-meta"></div>
+          <div class="reasoning-actions"><button id="download-reasoning-request" class="button button-subtle" disabled>↓ Gói request</button><button id="download-reasoning-context" class="button button-subtle" disabled>↓ Context JSON</button><button id="import-reasoning-response" class="button button-subtle" disabled>↑ Nhập phản hồi JSON</button><input id="reasoning-response-file" type="file" accept=".json,application/json" hidden></div>
+          <div class="inline-notice">Request context giữ provider-independent để tái sử dụng. Không có API key hay nút gọi API trong trình duyệt. Source-only không phải Vector RAG. Chroma retrieval đã có ở CLI bước 4, chưa nối vào viewer này hoặc chạy cùng Gemini. Ngân sách context tính byte; token thật của lượt CLI được lưu trong hồ sơ API.</div>
+          <details class="reasoning-preview"><summary>Xem context thực tế</summary><pre id="reasoning-context-json" class="json-body"></pre></details>
+          <details class="reasoning-preview"><summary>Xem prompt và cấu trúc phản hồi</summary><pre id="reasoning-prompt-json" class="json-body"></pre></details>
+        </section>
+        <section class="panel artifact-panel"><div class="panel-heading"><div><h2>Phản hồi & dẫn chứng</h2><p>Kiểm tra cấu trúc không thay kiểm chứng ý nghĩa hoặc thẩm định độc lập.</p></div><button id="download-reasoning-validation" class="button button-subtle" hidden>↓ Hồ sơ kiểm tra</button></div><div id="reasoning-result" class="reasoning-result"><div class="reasoning-empty">Chưa có phản hồi. Chế độ offline không tự sinh dự đoán mẫu để thay kết quả LLM thật.</div></div></section>
+      </section>
+      <section id="page-provenance" class="page" hidden><section class="panel"><div class="panel-heading"><div><h2>Nguồn dữ liệu & phạm vi kết luận</h2><p>Hai lớp bằng chứng, hai lượt chạy. Không nhãn nháp hoặc score được đưa vào bundle.</p></div><button id="download-bundle" class="button button-subtle">↓ Bundle demo</button></div><div id="provenance-body" class="provenance-body"></div></section><section class="panel artifact-panel"><div class="panel-heading"><div><h2>Artifact gốc được sử dụng</h2><p>Byte nguồn được kiểm SHA-256 trước khi đóng gói; bản tải giữ nguyên byte.</p></div></div><div id="artifact-list" class="artifact-list"></div></section></section>
+      <footer class="footer"><span>Code GraphRAG / Evidence Lab</span><span>Dependency ≠ behavioral impact ≠ repair</span></footer>
+    </main>
+  </div>
+</body>
+</html>

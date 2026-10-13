@@ -1,0 +1,5 @@
+# Preserve checksummed input bundle bytes across Windows/Linux checkouts.
+/demo/p01/data.js text eol=lf
+*.mjs text eol=lf
+*.js text eol=lf
+*.py text eol=lf
