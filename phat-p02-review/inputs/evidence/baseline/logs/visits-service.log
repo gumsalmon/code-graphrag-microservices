@@ -1,0 +1,136 @@
+.   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.0.1)
+
+2026-10-15T10:24:56.037Z  INFO 1 --- [visits-service] [           main] [                                                 ] o.s.s.p.visits.VisitsServiceApplication  : Starting VisitsServiceApplication v4.0.1 using Java 17.0.20 with PID 1 (/p02.jar started by root in /application)
+2026-10-15T10:24:56.040Z  INFO 1 --- [visits-service] [           main] [                                                 ] o.s.s.p.visits.VisitsServiceApplication  : The following 1 profile is active: "docker"
+2026-10-15T10:24:56.211Z  INFO 1 --- [visits-service] [           main] [                                                 ] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://config-server:8888
+2026-10-15T10:24:56.212Z  INFO 1 --- [visits-service] [           main] [                                                 ] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=application, profiles=[default], label=null, version=null, state=null
+2026-10-15T10:24:56.213Z  INFO 1 --- [visits-service] [           main] [                                                 ] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888/
+2026-10-15T10:24:56.214Z  INFO 1 --- [visits-service] [           main] [                                                 ] o.s.c.c.c.ConfigServerConfigDataLoader   : Exception on Url - http://localhost:8888/:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/visits-service/default": Connection refused. Will be trying the next url if available
+2026-10-15T10:24:56.214Z  WARN 1 --- [visits-service] [           main] [                                                 ] o.s.c.c.c.ConfigServerConfigDataLoader   : Could not locate PropertySource ([ConfigServerConfigDataResource@5d28bcd5 uris = array<String>['http://localhost:8888/'], optional = true, profiles = 'default']): I/O error on GET request for "http://localhost:8888/visits-service/default": Connection refused
+2026-10-15T10:24:56.215Z  INFO 1 --- [visits-service] [           main] [                                                 ] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://config-server:8888
+2026-10-15T10:24:56.215Z  INFO 1 --- [visits-service] [           main] [                                                 ] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=visits-service, profiles=[docker], label=null, version=null, state=null
+2026-10-15T10:24:56.215Z  INFO 1 --- [visits-service] [           main] [                                                 ] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://config-server:8888
+2026-10-15T10:24:56.215Z  INFO 1 --- [visits-service] [           main] [                                                 ] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=visits-service, profiles=[default], label=null, version=null, state=null
+2026-10-15T10:24:56.216Z  INFO 1 --- [visits-service] [           main] [                                                 ] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888/
+2026-10-15T10:24:56.216Z  INFO 1 --- [visits-service] [           main] [                                                 ] o.s.c.c.c.ConfigServerConfigDataLoader   : Exception on Url - http://localhost:8888/:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/visits-service/docker": Connection refused. Will be trying the next url if available
+2026-10-15T10:24:56.216Z  WARN 1 --- [visits-service] [           main] [                                                 ] o.s.c.c.c.ConfigServerConfigDataLoader   : Could not locate PropertySource ([ConfigServerConfigDataResource@408a247c uris = array<String>['http://localhost:8888/'], optional = true, profiles = 'docker']): I/O error on GET request for "http://localhost:8888/visits-service/docker": Connection refused
+2026-10-15T10:24:56.217Z  INFO 1 --- [visits-service] [           main] [                                                 ] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888/
+2026-10-15T10:24:56.217Z  INFO 1 --- [visits-service] [           main] [                                                 ] o.s.c.c.c.ConfigServerConfigDataLoader   : Exception on Url - http://localhost:8888/:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/visits-service/default": Connection refused. Will be trying the next url if available
+2026-10-15T10:24:56.217Z  WARN 1 --- [visits-service] [           main] [                                                 ] o.s.c.c.c.ConfigServerConfigDataLoader   : Could not locate PropertySource ([ConfigServerConfigDataResource@62a8fd44 uris = array<String>['http://localhost:8888/'], optional = true, profiles = 'default']): I/O error on GET request for "http://localhost:8888/visits-service/default": Connection refused
+2026-10-15T10:24:59.139Z  INFO 1 --- [visits-service] [           main] [                                                 ] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-15T10:24:59.457Z  INFO 1 --- [visits-service] [           main] [                                                 ] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 300 ms. Found 1 JPA repository interface.
+2026-10-15T10:25:00.457Z  INFO 1 --- [visits-service] [           main] [                                                 ] o.s.cloud.context.scope.GenericScope     : BeanFactory id=33313e2a-b5a7-3d75-8f7b-75679e42b4a8
+2026-10-15T10:25:02.346Z  INFO 1 --- [visits-service] [           main] [                                                 ] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8082 (http)
+2026-10-15T10:25:02.361Z  INFO 1 --- [visits-service] [           main] [                                                 ] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-10-15T10:25:02.362Z  INFO 1 --- [visits-service] [           main] [                                                 ] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-10-15T10:25:02.537Z  INFO 1 --- [visits-service] [           main] [                                                 ] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 6316 ms
+2026-10-15T10:25:04.047Z  INFO 1 --- [visits-service] [           main] [                                                 ] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-15T10:25:04.749Z  INFO 1 --- [visits-service] [           main] [                                                 ] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Driver does not support get/set network timeout for connections. (feature not supported)
+2026-10-15T10:25:04.750Z  INFO 1 --- [visits-service] [           main] [                                                 ] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.hsqldb.jdbc.JDBCConnection@206b959c
+2026-10-15T10:25:04.807Z  INFO 1 --- [visits-service] [           main] [                                                 ] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-15T10:25:05.451Z  INFO 1 --- [visits-service] [           main] [                                                 ] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-15T10:25:05.653Z  INFO 1 --- [visits-service] [           main] [                                                 ] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.0.Final
+2026-10-15T10:25:06.232Z  WARN 1 --- [visits-service] [/api/v2/spans}}] [                                                 ] z.r.i.AsyncReporter$BoundedAsyncReporter : Spans were dropped due to exceptions. All subsequent errors will be logged at FINE level.
+2026-10-15T10:25:06.233Z  WARN 1 --- [visits-service] [/api/v2/spans}}] [                                                 ] z.r.i.AsyncReporter$BoundedAsyncReporter : Dropped 11 spans due to ConnectException()
+
+java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:900)
+	at java.net.http/jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:133)
+	at org.springframework.boot.zipkin.autoconfigure.ZipkinHttpClientSender.postSpans(ZipkinHttpClientSender.java:59)
+	at org.springframework.boot.zipkin.autoconfigure.HttpSender.postSpans(HttpSender.java:69)
+	at org.springframework.boot.zipkin.autoconfigure.HttpSender.postSpans(HttpSender.java:41)
+	at zipkin2.reporter.BaseHttpSender.send(BaseHttpSender.java:123)
+	at zipkin2.reporter.internal.AsyncReporter$BoundedAsyncReporter.flush(AsyncReporter.java:266)
+	at zipkin2.reporter.internal.AsyncReporter$Flusher.run(AsyncReporter.java:352)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.common.Utils.toConnectException(Utils.java:1107)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:203)
+	at java.net.http/jdk.internal.net.http.Http1Exchange.sendHeadersAsync(Http1Exchange.java:308)
+	at java.net.http/jdk.internal.net.http.Exchange.lambda$responseAsyncImpl0$8(Exchange.java:564)
+	at java.net.http/jdk.internal.net.http.Exchange.checkFor407(Exchange.java:435)
+	at java.net.http/jdk.internal.net.http.Exchange.lambda$responseAsyncImpl0$9(Exchange.java:568)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandleStage(CompletableFuture.java:950)
+	at java.base/java.util.concurrent.CompletableFuture.handle(CompletableFuture.java:2340)
+	at java.net.http/jdk.internal.net.http.Exchange.responseAsyncImpl0(Exchange.java:568)
+	at java.net.http/jdk.internal.net.http.Exchange.responseAsyncImpl(Exchange.java:411)
+	at java.net.http/jdk.internal.net.http.Exchange.responseAsync(Exchange.java:403)
+	at java.net.http/jdk.internal.net.http.MultiExchange.responseAsyncImpl(MultiExchange.java:430)
+	at java.net.http/jdk.internal.net.http.MultiExchange.lambda$responseAsyncImpl$7(MultiExchange.java:471)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandleStage(CompletableFuture.java:950)
+	at java.base/java.util.concurrent.CompletableFuture.handle(CompletableFuture.java:2340)
+	at java.net.http/jdk.internal.net.http.MultiExchange.responseAsyncImpl(MultiExchange.java:461)
+	at java.net.http/jdk.internal.net.http.MultiExchange.lambda$responseAsync0$2(MultiExchange.java:350)
+	at java.base/java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1150)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1773)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl$DelegatingExecutor.execute(HttpClientImpl.java:174)
+	at java.base/java.util.concurrent.CompletableFuture.completeAsync(CompletableFuture.java:2673)
+	at java.net.http/jdk.internal.net.http.MultiExchange.responseAsync(MultiExchange.java:303)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.sendAsync(HttpClientImpl.java:991)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:878)
+	... 8 common frames omitted
+Caused by: java.nio.channels.UnresolvedAddressException
+	at java.base/sun.nio.ch.Net.checkAddress(Net.java:159)
+	at java.base/sun.nio.ch.Net.checkAddress(Net.java:167)
+	at java.base/sun.nio.ch.SocketChannelImpl.checkRemote(SocketChannelImpl.java:816)
+	at java.base/sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:839)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$0(PlainHttpConnection.java:187)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:189)
+	... 33 common frames omitted
+
+2026-10-15T10:25:07.334Z  INFO 1 --- [visits-service] [           main] [                                                 ] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-15T10:25:07.531Z  INFO 1 --- [visits-service] [           main] [                                                 ] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:hsqldb:mem:bd8a8b2e-340d-48bb-834f-83954dd8f8bb]
+	Database driver: HSQL Database Engine Driver
+	Database dialect: HSQLDialect
+	Database version: 2.7.3
+	Default catalog/schema: PUBLIC/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-15T10:25:07.770Z  WARN 1 --- [visits-service] [           main] [                                                 ] org.hibernate.orm.deprecation            : HHH90000033: Encountered use of deprecated annotation [interface jakarta.persistence.Temporal] at org.springframework.samples.petclinic.visits.model.Visit.date.
+2026-10-15T10:25:09.620Z  INFO 1 --- [visits-service] [           main] [                                                 ] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-15T10:25:09.632Z  INFO 1 --- [visits-service] [           main] [                                                 ] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-15T10:25:09.834Z  INFO 1 --- [visits-service] [           main] [                                                 ] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-10-15T10:25:12.828Z  INFO 1 --- [visits-service] [           main] [                                                 ] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestClient.
+2026-10-15T10:25:13.036Z  WARN 1 --- [visits-service] [           main] [                                                 ] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-10-15T10:25:13.045Z  INFO 1 --- [visits-service] [           main] [                                                 ] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoints beneath base path '/actuator'
+2026-10-15T10:25:13.246Z  INFO 1 --- [visits-service] [           main] [                                                 ] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2026-10-15T10:25:13.343Z  INFO 1 --- [visits-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2026-10-15T10:25:13.351Z  INFO 1 --- [visits-service] [           main] [                                                 ] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-10-15T10:25:13.414Z  INFO 1 --- [visits-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2026-10-15T10:25:13.414Z  INFO 1 --- [visits-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2026-10-15T10:25:13.415Z  INFO 1 --- [visits-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2026-10-15T10:25:13.415Z  INFO 1 --- [visits-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2026-10-15T10:25:13.415Z  INFO 1 --- [visits-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2026-10-15T10:25:13.415Z  INFO 1 --- [visits-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2026-10-15T10:25:13.415Z  INFO 1 --- [visits-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2026-10-15T10:25:14.545Z  INFO 1 --- [visits-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2026-10-15T10:25:14.549Z  INFO 1 --- [visits-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 1
+2026-10-15T10:25:14.554Z  INFO 1 --- [visits-service] [           main] [                                                 ] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-10-15T10:25:14.556Z  INFO 1 --- [visits-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1792059914556 with initial instances count: 1
+2026-10-15T10:25:14.566Z  INFO 1 --- [visits-service] [           main] [                                                 ] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application VISITS-SERVICE with eureka with status UP
+2026-10-15T10:25:14.567Z  INFO 1 --- [visits-service] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1792059914567, current=UP, previous=STARTING]
+2026-10-15T10:25:14.574Z  INFO 1 --- [visits-service] [foReplicator-%d] [                                                 ] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_VISITS-SERVICE/305aeb2e30f3:visits-service:8082: registering service...
+2026-10-15T10:25:14.621Z  INFO 1 --- [visits-service] [           main] [                                                 ] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8082 (http) with context path '/'
+2026-10-15T10:25:14.622Z  INFO 1 --- [visits-service] [           main] [                                                 ] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8082
+2026-10-15T10:25:14.702Z  INFO 1 --- [visits-service] [           main] [                                                 ] o.s.s.p.visits.VisitsServiceApplication  : Started VisitsServiceApplication in 21.818 seconds (process running for 23.384)
+2026-10-15T10:25:14.824Z  INFO 1 --- [visits-service] [foReplicator-%d] [                                                 ] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_VISITS-SERVICE/305aeb2e30f3:visits-service:8082 - registration status: 204
+2026-10-15T10:25:16.241Z  INFO 1 --- [visits-service] [nio-8082-exec-1] [                                                 ] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-10-15T10:25:16.241Z  INFO 1 --- [visits-service] [nio-8082-exec-1] [                                                 ] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-10-15T10:25:16.243Z  INFO 1 --- [visits-service] [nio-8082-exec-1] [                                                 ] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2026-10-15T10:25:40.149Z  WARN 1 --- [visits-service] [nio-8082-exec-4] [6ad0aa24ca6f708b4abca23c84ff5e5f-4abca23c84ff5e5f] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'petId' for method parameter type List is not present]

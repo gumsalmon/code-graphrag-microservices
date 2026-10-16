@@ -219,3 +219,16 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Local P02 input/archive copies
+/phat-p02-review_backup/
+/P02_PHAT_REVIEW_*.zip
+/P02_PHAT_REVIEW_*.zip.sha256
+
+# P02 receipt evidence
+!/phat-p02-review/zip-checksum.log
+!/phat-p02-review/package-verifier.log
+!/phat-p02-review/pins-read.log
+
+# Portable P02 baseline evidence
+!/phat-p02-review/inputs/evidence/baseline/logs/*.log

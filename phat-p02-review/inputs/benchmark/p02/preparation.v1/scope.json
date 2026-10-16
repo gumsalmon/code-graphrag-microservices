@@ -1,0 +1,45 @@
+{
+  "schema": "p02-source-inventory-spec/1",
+  "scope_id": "p02-three-file-census-v1",
+  "status": "builder_prepared_scope_awaiting_independent_confirmation",
+  "repository_id": "spring-petclinic-microservices",
+  "baseline_commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+  "inventory_method": "Explicit source declaration census reviewed as text, not parser/Neo4j/RAG/LLM predictions; builder-prepared, not yet independently confirmed by Phat",
+  "logical_hop_limit": 3,
+  "scope_rule": "All explicitly declared non-constructor methods and HTTP mappings in these three files, regardless of reachability or expected behavior; owning services retained, seed Method/API/Service excluded from propagated-impact scoring",
+  "files": [
+    {"file": "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java", "service": "visits-service", "class_fqn": "org.springframework.samples.petclinic.visits.web.VisitResource", "methods": [
+      {"signature": "create(Visit,int)", "anchor": "public Visit create(\n        @Valid @RequestBody Visit visit,\n        @PathVariable(\"petId\") @Min(1) int petId) {", "http": "POST /owners/*/pets/{petId}/visits"},
+      {"signature": "read(int)", "anchor": "public List<Visit> read(@PathVariable(\"petId\") @Min(1) int petId) {", "http": "GET /owners/*/pets/{petId}/visits"},
+      {"signature": "read(List<Integer>)", "anchor": "public Visits read(@RequestParam(\"petId\") List<Integer> petIds) {", "http": "GET /pets/visits", "seed": true}
+    ]},
+    {"file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java", "service": "api-gateway", "class_fqn": "org.springframework.samples.petclinic.api.application.VisitsServiceClient", "methods": [
+      {"signature": "getVisitsForPets(List<Integer>)", "anchor": "public Mono<Visits> getVisitsForPets(final List<Integer> petIds) {"},
+      {"signature": "joinIds(List<Integer>)", "anchor": "private String joinIds(List<Integer> petIds) {"},
+      {"signature": "setHostname(String)", "anchor": "void setHostname(String hostname) {"}
+    ]},
+    {"file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java", "service": "api-gateway", "class_fqn": "org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController", "class_mapping": "/api/gateway", "methods": [
+      {"signature": "getOwnerDetails(int)", "anchor": "public Mono<OwnerDetails> getOwnerDetails(final @PathVariable int ownerId) {", "http": "GET /api/gateway/owners/{ownerId}"},
+      {"signature": "addVisitsToOwner(OwnerDetails)", "anchor": "private Function<Visits, OwnerDetails> addVisitsToOwner(OwnerDetails owner) {"},
+      {"signature": "emptyVisitsForPets()", "anchor": "private Mono<Visits> emptyVisitsForPets() {"}
+    ]}
+  ],
+  "support_files": [
+    "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/model/Visit.java",
+    "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/dto/OwnerDetails.java",
+    "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/dto/Visits.java",
+    "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/CustomersServiceClient.java"
+  ],
+  "exclusions": [
+    {"kind": "constructors", "reason": "Initialization/lifecycle outside declared method target; all three source constructors are recorded as exclusions, not negative labels"},
+    {"kind": "lambda_bodies_record_implicit_accessors_generated_methods", "reason": "No separate canonical Method ID in this bounded pilot; explicit enclosing methods remain in inventory"},
+    {"kind": "other_repository_files_and_services", "reason": "Bounded source-file feasibility study, not full-repository impact recall; support source/SQL is supplied but is not silently added as scored inventory"},
+    {"kind": "seed_method_seed_api_and_owning_visits_service", "reason": "Change seed is context, not propagated impact credit"}
+  ],
+  "evidence_requirements": "Each non-seed entity needs evidence or stays unresolved. Gateway HTTP equality alone does not prove every private helper or setter was exercised/unchanged. No unobserved entity is automatically negative.",
+  "projection_policy": "No automatic credit Method->API->Service yet; future adapter must declare and apply common projection before scoring",
+  "labels_created": false,
+  "independent_inventory_confirmation_received": false,
+  "locked_for_labeling": false,
+  "official_scoring_authorized": false
+}

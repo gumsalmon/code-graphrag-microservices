@@ -1,0 +1,47 @@
+{
+  "schema": "p02-baseline-inputs/1",
+  "run_id": "20261015T102355058Z-2e775d19",
+  "source_commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+  "config_commit": "323993ce2519c6d02df63e08bf4458d123d3b611",
+  "build_directory": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-build\\20261015T101851660Z-95cea45d",
+  "build_metadata_sha256": "97efffd9a85223a7459e59a656cfe8847422f986597e3e9fcbfe034a88554cb9",
+  "jars": {
+    "config-server": {
+      "file": "artifacts/config-server.jar",
+      "sha256": "60e957d71071e8ce34fae5bf2001241125c2617ea97e80347be6b11b41a56cf6",
+      "bytes": 41840261
+    },
+    "discovery-server": {
+      "file": "artifacts/discovery-server.jar",
+      "sha256": "a19ed7cbca91e02de65488580f6b52589c4bd1a5a354912827241cdc56b53d7a",
+      "bytes": 59627345
+    },
+    "customers-service": {
+      "file": "artifacts/customers-service.jar",
+      "sha256": "92c0e977605dbde75f11c675d07a4e6d0e0237084f41b7a929177f293070b75f",
+      "bytes": 92557154
+    },
+    "visits-service": {
+      "file": "artifacts/visits-service.jar",
+      "sha256": "34398a22a60fb0757bd0e16b2b0cf1e59038cc24e82a27599cbf729db3395afd",
+      "bytes": 92543123
+    },
+    "api-gateway": {
+      "file": "artifacts/api-gateway.jar",
+      "sha256": "239f64873fbce6ade5a5ab355a1838a1122d75d2dbe4ae24987437f86b7c5944",
+      "bytes": 76474196
+    }
+  },
+  "preparation_directory": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-preparation\\20261015T095309937Z-d20ef94a",
+  "fixture_sha256": "2a319f48c2d31894718228539c3743396e3d3e5ad04579985f6d2588bb324191",
+  "java_image": "sha256:afed130922b1df5f31b8711f47caa7fa853273f40bc8ba03e72c12f82ede7779",
+  "python_image": "sha256:da047cb8f9d1d98e5c070f5300ba9f7274e33b8fc0e5be5ed88740aed1b95ba9",
+  "code_sha256": {
+    "scripts/run_p02_baseline.mjs": "633e39d703a0e856403fffcbfd6bf07426dc1f7fa4ca48ed04043817e0120d6c",
+    "pipeline/p02/http-probe.py": "74cc3d64630b80b866d98140ce6003c67893b721df37f94b9542d75f59e2c812"
+  },
+  "full_matrix_authorized_or_executed": false,
+  "independent_universe_confirmation_received": false,
+  "mutated_execution": false,
+  "model_calls": 0
+}

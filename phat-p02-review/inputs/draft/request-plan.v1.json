@@ -1,0 +1,480 @@
+{
+  "schema": "p02-runtime-request-plan/1",
+  "status": "not_executed",
+  "base_urls": {
+    "visits": null,
+    "gateway": null
+  },
+  "planned_only": true,
+  "actual_remote_calls": 0,
+  "cases": [
+    {
+      "snapshot": "baseline",
+      "repetition": 1,
+      "id": "direct_omitted",
+      "target": "visits",
+      "method": "GET",
+      "path": "/pets/visits?petId=7,8",
+      "role": "existing client request",
+      "actual_http_status": null,
+      "raw_response_file": null
+    },
+    {
+      "snapshot": "baseline",
+      "repetition": 1,
+      "id": "direct_true",
+      "target": "visits",
+      "method": "GET",
+      "path": "/pets/visits?petId=7,8&includeDetails=true",
+      "role": "explicit valid boolean",
+      "actual_http_status": null,
+      "raw_response_file": null
+    },
+    {
+      "snapshot": "baseline",
+      "repetition": 1,
+      "id": "direct_false",
+      "target": "visits",
+      "method": "GET",
+      "path": "/pets/visits?petId=7,8&includeDetails=false",
+      "role": "explicit default boolean",
+      "actual_http_status": null,
+      "raw_response_file": null
+    },
+    {
+      "snapshot": "baseline",
+      "repetition": 1,
+      "id": "direct_empty",
+      "target": "visits",
+      "method": "GET",
+      "path": "/pets/visits?petId=7,8&includeDetails=",
+      "role": "empty/default binding probe",
+      "actual_http_status": null,
+      "raw_response_file": null
+    },
+    {
+      "snapshot": "baseline",
+      "repetition": 1,
+      "id": "direct_invalid",
+      "target": "visits",
+      "method": "GET",
+      "path": "/pets/visits?petId=7,8&includeDetails=not-a-boolean",
+      "role": "out-of-valid-domain binding probe, report separately; not evidence that an old valid request breaks",
+      "actual_http_status": null,
+      "raw_response_file": null
+    },
+    {
+      "snapshot": "baseline",
+      "repetition": 1,
+      "id": "direct_missing_pet_id",
+      "target": "visits",
+      "method": "GET",
+      "path": "/pets/visits",
+      "role": "existing contract validation control",
+      "actual_http_status": null,
+      "raw_response_file": null
+    },
+    {
+      "snapshot": "baseline",
+      "repetition": 1,
+      "id": "gateway_populated",
+      "target": "gateway",
+      "method": "GET",
+      "path": "/api/gateway/owners/6",
+      "role": "unchanged real consumer, compare full content",
+      "actual_http_status": null,
+      "raw_response_file": null
+    },
+    {
+      "snapshot": "baseline",
+      "repetition": 1,
+      "id": "gateway_empty",
+      "target": "gateway",
+      "method": "GET",
+      "path": "/api/gateway/owners/1",
+      "role": "empty-data sensitivity control, cannot replace populated case",
+      "actual_http_status": null,
+      "raw_response_file": null
+    },
+    {
+      "snapshot": "baseline",
+      "repetition": 1,
+      "id": "overload_read",
+      "target": "visits",
+      "method": "GET",
+      "path": "/owners/6/pets/7/visits",
+      "role": "unchanged overload API control",
+      "actual_http_status": null,
+      "raw_response_file": null
+    },
+    {
+      "snapshot": "baseline",
+      "repetition": 1,
+      "id": "create_control",
+      "target": "visits",
+      "method": "POST",
+      "path": "/owners/6/pets/7/visits",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "date": "2026-10-01",
+        "description": "P02 isolated write control"
+      },
+      "role": "unchanged POST API control; run last in each repetition, isolated DB and reset afterward",
+      "actual_http_status": null,
+      "raw_response_file": null
+    },
+    {
+      "snapshot": "baseline",
+      "repetition": 2,
+      "id": "direct_omitted",
+      "target": "visits",
+      "method": "GET",
+      "path": "/pets/visits?petId=7,8",
+      "role": "existing client request",
+      "actual_http_status": null,
+      "raw_response_file": null
+    },
+    {
+      "snapshot": "baseline",
+      "repetition": 2,
+      "id": "direct_true",
+      "target": "visits",
+      "method": "GET",
+      "path": "/pets/visits?petId=7,8&includeDetails=true",
+      "role": "explicit valid boolean",
+      "actual_http_status": null,
+      "raw_response_file": null
+    },
+    {
+      "snapshot": "baseline",
+      "repetition": 2,
+      "id": "direct_false",
+      "target": "visits",
+      "method": "GET",
+      "path": "/pets/visits?petId=7,8&includeDetails=false",
+      "role": "explicit default boolean",
+      "actual_http_status": null,
+      "raw_response_file": null
+    },
+    {
+      "snapshot": "baseline",
+      "repetition": 2,
+      "id": "direct_empty",
+      "target": "visits",
+      "method": "GET",
+      "path": "/pets/visits?petId=7,8&includeDetails=",
+      "role": "empty/default binding probe",
+      "actual_http_status": null,
+      "raw_response_file": null
+    },
+    {
+      "snapshot": "baseline",
+      "repetition": 2,
+      "id": "direct_invalid",
+      "target": "visits",
+      "method": "GET",
+      "path": "/pets/visits?petId=7,8&includeDetails=not-a-boolean",
+      "role": "out-of-valid-domain binding probe, report separately; not evidence that an old valid request breaks",
+      "actual_http_status": null,
+      "raw_response_file": null
+    },
+    {
+      "snapshot": "baseline",
+      "repetition": 2,
+      "id": "direct_missing_pet_id",
+      "target": "visits",
+      "method": "GET",
+      "path": "/pets/visits",
+      "role": "existing contract validation control",
+      "actual_http_status": null,
+      "raw_response_file": null
+    },
+    {
+      "snapshot": "baseline",
+      "repetition": 2,
+      "id": "gateway_populated",
+      "target": "gateway",
+      "method": "GET",
+      "path": "/api/gateway/owners/6",
+      "role": "unchanged real consumer, compare full content",
+      "actual_http_status": null,
+      "raw_response_file": null
+    },
+    {
+      "snapshot": "baseline",
+      "repetition": 2,
+      "id": "gateway_empty",
+      "target": "gateway",
+      "method": "GET",
+      "path": "/api/gateway/owners/1",
+      "role": "empty-data sensitivity control, cannot replace populated case",
+      "actual_http_status": null,
+      "raw_response_file": null
+    },
+    {
+      "snapshot": "baseline",
+      "repetition": 2,
+      "id": "overload_read",
+      "target": "visits",
+      "method": "GET",
+      "path": "/owners/6/pets/7/visits",
+      "role": "unchanged overload API control",
+      "actual_http_status": null,
+      "raw_response_file": null
+    },
+    {
+      "snapshot": "baseline",
+      "repetition": 2,
+      "id": "create_control",
+      "target": "visits",
+      "method": "POST",
+      "path": "/owners/6/pets/7/visits",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "date": "2026-10-01",
+        "description": "P02 isolated write control"
+      },
+      "role": "unchanged POST API control; run last in each repetition, isolated DB and reset afterward",
+      "actual_http_status": null,
+      "raw_response_file": null
+    },
+    {
+      "snapshot": "mutated",
+      "repetition": 1,
+      "id": "direct_omitted",
+      "target": "visits",
+      "method": "GET",
+      "path": "/pets/visits?petId=7,8",
+      "role": "existing client request",
+      "actual_http_status": null,
+      "raw_response_file": null
+    },
+    {
+      "snapshot": "mutated",
+      "repetition": 1,
+      "id": "direct_true",
+      "target": "visits",
+      "method": "GET",
+      "path": "/pets/visits?petId=7,8&includeDetails=true",
+      "role": "explicit valid boolean",
+      "actual_http_status": null,
+      "raw_response_file": null
+    },
+    {
+      "snapshot": "mutated",
+      "repetition": 1,
+      "id": "direct_false",
+      "target": "visits",
+      "method": "GET",
+      "path": "/pets/visits?petId=7,8&includeDetails=false",
+      "role": "explicit default boolean",
+      "actual_http_status": null,
+      "raw_response_file": null
+    },
+    {
+      "snapshot": "mutated",
+      "repetition": 1,
+      "id": "direct_empty",
+      "target": "visits",
+      "method": "GET",
+      "path": "/pets/visits?petId=7,8&includeDetails=",
+      "role": "empty/default binding probe",
+      "actual_http_status": null,
+      "raw_response_file": null
+    },
+    {
+      "snapshot": "mutated",
+      "repetition": 1,
+      "id": "direct_invalid",
+      "target": "visits",
+      "method": "GET",
+      "path": "/pets/visits?petId=7,8&includeDetails=not-a-boolean",
+      "role": "out-of-valid-domain binding probe, report separately; not evidence that an old valid request breaks",
+      "actual_http_status": null,
+      "raw_response_file": null
+    },
+    {
+      "snapshot": "mutated",
+      "repetition": 1,
+      "id": "direct_missing_pet_id",
+      "target": "visits",
+      "method": "GET",
+      "path": "/pets/visits",
+      "role": "existing contract validation control",
+      "actual_http_status": null,
+      "raw_response_file": null
+    },
+    {
+      "snapshot": "mutated",
+      "repetition": 1,
+      "id": "gateway_populated",
+      "target": "gateway",
+      "method": "GET",
+      "path": "/api/gateway/owners/6",
+      "role": "unchanged real consumer, compare full content",
+      "actual_http_status": null,
+      "raw_response_file": null
+    },
+    {
+      "snapshot": "mutated",
+      "repetition": 1,
+      "id": "gateway_empty",
+      "target": "gateway",
+      "method": "GET",
+      "path": "/api/gateway/owners/1",
+      "role": "empty-data sensitivity control, cannot replace populated case",
+      "actual_http_status": null,
+      "raw_response_file": null
+    },
+    {
+      "snapshot": "mutated",
+      "repetition": 1,
+      "id": "overload_read",
+      "target": "visits",
+      "method": "GET",
+      "path": "/owners/6/pets/7/visits",
+      "role": "unchanged overload API control",
+      "actual_http_status": null,
+      "raw_response_file": null
+    },
+    {
+      "snapshot": "mutated",
+      "repetition": 1,
+      "id": "create_control",
+      "target": "visits",
+      "method": "POST",
+      "path": "/owners/6/pets/7/visits",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "date": "2026-10-01",
+        "description": "P02 isolated write control"
+      },
+      "role": "unchanged POST API control; run last in each repetition, isolated DB and reset afterward",
+      "actual_http_status": null,
+      "raw_response_file": null
+    },
+    {
+      "snapshot": "mutated",
+      "repetition": 2,
+      "id": "direct_omitted",
+      "target": "visits",
+      "method": "GET",
+      "path": "/pets/visits?petId=7,8",
+      "role": "existing client request",
+      "actual_http_status": null,
+      "raw_response_file": null
+    },
+    {
+      "snapshot": "mutated",
+      "repetition": 2,
+      "id": "direct_true",
+      "target": "visits",
+      "method": "GET",
+      "path": "/pets/visits?petId=7,8&includeDetails=true",
+      "role": "explicit valid boolean",
+      "actual_http_status": null,
+      "raw_response_file": null
+    },
+    {
+      "snapshot": "mutated",
+      "repetition": 2,
+      "id": "direct_false",
+      "target": "visits",
+      "method": "GET",
+      "path": "/pets/visits?petId=7,8&includeDetails=false",
+      "role": "explicit default boolean",
+      "actual_http_status": null,
+      "raw_response_file": null
+    },
+    {
+      "snapshot": "mutated",
+      "repetition": 2,
+      "id": "direct_empty",
+      "target": "visits",
+      "method": "GET",
+      "path": "/pets/visits?petId=7,8&includeDetails=",
+      "role": "empty/default binding probe",
+      "actual_http_status": null,
+      "raw_response_file": null
+    },
+    {
+      "snapshot": "mutated",
+      "repetition": 2,
+      "id": "direct_invalid",
+      "target": "visits",
+      "method": "GET",
+      "path": "/pets/visits?petId=7,8&includeDetails=not-a-boolean",
+      "role": "out-of-valid-domain binding probe, report separately; not evidence that an old valid request breaks",
+      "actual_http_status": null,
+      "raw_response_file": null
+    },
+    {
+      "snapshot": "mutated",
+      "repetition": 2,
+      "id": "direct_missing_pet_id",
+      "target": "visits",
+      "method": "GET",
+      "path": "/pets/visits",
+      "role": "existing contract validation control",
+      "actual_http_status": null,
+      "raw_response_file": null
+    },
+    {
+      "snapshot": "mutated",
+      "repetition": 2,
+      "id": "gateway_populated",
+      "target": "gateway",
+      "method": "GET",
+      "path": "/api/gateway/owners/6",
+      "role": "unchanged real consumer, compare full content",
+      "actual_http_status": null,
+      "raw_response_file": null
+    },
+    {
+      "snapshot": "mutated",
+      "repetition": 2,
+      "id": "gateway_empty",
+      "target": "gateway",
+      "method": "GET",
+      "path": "/api/gateway/owners/1",
+      "role": "empty-data sensitivity control, cannot replace populated case",
+      "actual_http_status": null,
+      "raw_response_file": null
+    },
+    {
+      "snapshot": "mutated",
+      "repetition": 2,
+      "id": "overload_read",
+      "target": "visits",
+      "method": "GET",
+      "path": "/owners/6/pets/7/visits",
+      "role": "unchanged overload API control",
+      "actual_http_status": null,
+      "raw_response_file": null
+    },
+    {
+      "snapshot": "mutated",
+      "repetition": 2,
+      "id": "create_control",
+      "target": "visits",
+      "method": "POST",
+      "path": "/owners/6/pets/7/visits",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "date": "2026-10-01",
+        "description": "P02 isolated write control"
+      },
+      "role": "unchanged POST API control; run last in each repetition, isolated DB and reset afterward",
+      "actual_http_status": null,
+      "raw_response_file": null
+    }
+  ]
+}
