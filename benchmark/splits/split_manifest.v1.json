@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0.0",
+  "manifest_version": "1",
+  "protocol_version": "0.2",
+  "status": "draft",
+  "purpose": "Scenario preparation only; no official test split or score is authorized",
+  "approval": null,
+  "selection_criteria": [
+    "Verified repository commit and patch or incident",
+    "Reproducible fixture and call path",
+    "Source and contract evidence available",
+    "Plausible baseline/mutated control",
+    "No near duplicate across development and test"
+  ],
+  "selection_record_status": "P02-P04 candidate list and exclusions not yet recorded",
+  "scenarios": [
+    {
+      "scenario_id": "P01",
+      "scenario_version": "1.0.0",
+      "scenario_file": "benchmark/p01/scenario.json",
+      "scenario_sha256": "51cf6631b5024c564dd72faea7517833287c4af1c0c6cc8df39890d7ac2143a5",
+      "duplicate_group_id": "spring-petclinic-microservices:visits-service:GET-pets-visits:gateway-owner-details:required-query-param:spring-java",
+      "duplicate_group_basis": {
+        "repository": "spring-petclinic-microservices",
+        "changed_service_contract": "visits-service GET /pets/visits",
+        "normalized_call_path": "api-gateway owner details -> visits client -> visits provider",
+        "mutation_template": "add required query parameter",
+        "framework_language": "Spring Java",
+        "semantic_fingerprint": "VisitResource.read List<Integer> adds required boolean includeDetails"
+      },
+      "split": "development",
+      "reason": "P01 is a retrospective pilot already exposed during protocol development",
+      "universe_file": null,
+      "universe_sha256": null,
+      "label_file": "benchmark/p01/labels.v3.json",
+      "label_sha256": "3cc4784c9827f2ac8a034cfe44bbdb838b21ebb7f8a7f9ac49864c70162e2bce",
+      "review_decision_file": "benchmark/p01/review_decision.v1.json",
+      "review_decision_sha256": null
+    }
+  ],
+  "pending_scenarios": [
+    {"scenario_id": "P02", "status": "candidate_selection_required", "split": null},
+    {"scenario_id": "P03", "status": "candidate_selection_required", "split": null},
+    {"scenario_id": "P04", "status": "candidate_selection_required", "split": null}
+  ]
+}

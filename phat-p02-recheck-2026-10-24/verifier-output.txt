@@ -1,0 +1,22 @@
+{
+  "directory": "D:\\P02_PHAT_RECHECK_0.1.1_20261018_719da955",
+  "status": "candidate_bytes_and_bindings_verified_not_a_research_approval",
+  "files_verified": 31,
+  "manifest_sha256": "0358bf86bee591254483e50018f8d601932a8821a323176eaa10a80b86229539",
+  "changed_evidence_refs": 29,
+  "aliases": 15,
+  "fixture_sha256": "2a319f48c2d31894718228539c3743396e3d3e5ad04579985f6d2588bb324191",
+  "inventory_sha256": "9f4a7f1f323a5f11a3902def30f717a16ba3d1b2023ed9982a81f298d9dc74f6",
+  "scenario_version": "0.1.1",
+  "universe_sha256": "d79c07727d6fb5348503f0e4079a0d18c63e26e6d34a1e332825f1cc7680aeb5",
+  "source_files": 12,
+  "independent_confirmation_received": false,
+  "locked_for_labeling": false,
+  "labels_created": false,
+  "official_scoring_authorized": false,
+  "runtime_executed": false,
+  "remote_calls": 0,
+  "f03_status": "missing_unresolved_deferred_runtime_phase"
+}
+
+exit_code=0

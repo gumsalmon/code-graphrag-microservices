@@ -1,0 +1,106 @@
+{
+  "schema_version": "0.1.0",
+  "scenario_id": "P01",
+  "scenario_version": "1.0.0",
+  "label_version": "1.1.0",
+  "protocol_version": "0.1",
+  "created_at": "2026-09-23T14:42:17+07:00",
+  "annotator": "Phát",
+  "ai_assistance": "Codex organized evidence and serialized the candidate labels; it is not an annotator or reviewer",
+  "reviewer": null,
+  "review_status": "reviewer_required",
+  "freeze_state": "provisional_frozen",
+  "frozen_at": "2026-09-23T14:52:00+07:00",
+  "supersedes": {
+    "path": "benchmark/p01/labels.v1.json",
+    "sha256": "32270aed44b91f3436d7ad606f2276430e6ec9f76ea00a84d1f5bce2b21bd807",
+    "reason": "Normalize requires_code_change to the protocol enum and move repair assumptions to a separate field"
+  },
+  "audit_decision": "reproduce_required",
+  "ground_truth_status": "not_accepted",
+  "seed": {
+    "excluded_from_scoring": true,
+    "service": "visits-service",
+    "method_before": "org.springframework.samples.petclinic.visits.web.VisitResource#read(java.util.List<java.lang.Integer>)",
+    "method_after": "org.springframework.samples.petclinic.visits.web.VisitResource#read(java.util.List<java.lang.Integer>,boolean)",
+    "api": "GET /pets/visits",
+    "evidence_refs": ["E-SOURCE-PROVIDER-001", "E-PATCH-001", "E-CONTRACT-001"]
+  },
+  "labels": [
+    {
+      "label_id": "P01-METHOD-001",
+      "level": "method",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(java.util.List<java.lang.Integer>)",
+      "polarity": "positive",
+      "behavioral_impact": true,
+      "requires_code_change": true,
+      "repair_strategy_assumption": "The provider patch is retained and the consumer request is updated to send includeDetails",
+      "logical_hop": 1,
+      "service_boundary_crossings": 1,
+      "confidence": "medium",
+      "review_status": "pending_review_and_clean_runtime",
+      "rationale": "The client sends petId but not the new required includeDetails parameter to the changed provider contract.",
+      "evidence_refs": ["E-SOURCE-CLIENT-001", "E-SOURCE-PROVIDER-001", "E-PATCH-001", "E-CONTRACT-001", "E-RUNTIME-HIST-MUTATED-001"]
+    },
+    {
+      "label_id": "P01-METHOD-002",
+      "level": "method",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)",
+      "polarity": "positive",
+      "behavioral_impact": true,
+      "requires_code_change": false,
+      "logical_hop": 2,
+      "service_boundary_crossings": 1,
+      "confidence": "medium",
+      "review_status": "pending_review_and_clean_runtime",
+      "rationale": "The controller calls the impacted client and its circuit-breaker fallback can return empty visits; repairing the client request does not require changing the controller signature or body.",
+      "evidence_refs": ["E-SOURCE-CONTROLLER-001", "E-SOURCE-CLIENT-001", "E-RUNTIME-HIST-BASELINE-001", "E-RUNTIME-HIST-MUTATED-001"]
+    },
+    {
+      "label_id": "P01-API-001",
+      "level": "api",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::GET /api/gateway/owners/{ownerId}",
+      "polarity": "positive",
+      "behavioral_impact": true,
+      "requires_code_change": false,
+      "logical_hop": 2,
+      "service_boundary_crossings": 1,
+      "confidence": "medium",
+      "review_status": "pending_review_and_clean_runtime",
+      "rationale": "Historical evidence reports HTTP 200 both times but visit content changes from populated to empty after the provider mutation.",
+      "evidence_refs": ["E-SOURCE-CONTROLLER-001", "E-RUNTIME-HIST-BASELINE-001", "E-RUNTIME-HIST-MUTATED-001"]
+    },
+    {
+      "label_id": "P01-SERVICE-001",
+      "level": "service",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway",
+      "polarity": "positive",
+      "behavioral_impact": true,
+      "requires_code_change": true,
+      "repair_strategy_assumption": "At least the gateway client method changes while the provider patch is retained",
+      "logical_hop": 1,
+      "service_boundary_crossings": 1,
+      "confidence": "medium",
+      "review_status": "pending_review_and_clean_runtime",
+      "rationale": "The gateway contains the direct consumer and exposes an endpoint whose response content is historically reported as changed.",
+      "evidence_refs": ["E-SOURCE-CLIENT-001", "E-SOURCE-CONTROLLER-001", "E-RUNTIME-HIST-MUTATED-001"]
+    }
+  ],
+  "excluded_candidates": [
+    {
+      "candidate_id": "P01-NEGATIVE-001",
+      "level": "method_and_api",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(int)",
+      "proposed_polarity": "negative",
+      "reason_excluded": "Clean baseline and mutated behavioral observations have not been produced",
+      "evidence_refs": ["E-SOURCE-NEGATIVE-001"]
+    }
+  ],
+  "limitations": [
+    "The project context exposed an expected candidate path, so this is not a fully blind annotation process.",
+    "Historical runtime files are noisy or lack complete command provenance and cannot support acceptance alone.",
+    "No independent human reviewer is assigned.",
+    "No clean negative behavioral observation exists.",
+    "The Docker daemon was unavailable during the independent rerun attempt."
+  ]
+}

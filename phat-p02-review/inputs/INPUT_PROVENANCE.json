@@ -1,0 +1,2802 @@
+{
+  "schema": "p02-team-handoff-inputs/1",
+  "role": "PHAT",
+  "pins": {
+    "source": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+    "config": "323993ce2519c6d02df63e08bf4458d123d3b611",
+    "implementation": "e95613795133088621117179c9fb9592dab62b16",
+    "protocol": "5f9204d66253604edf9101c2f888fc7e75aa0be7"
+  },
+  "local_project_snapshot": {
+    "base_head": "d1f95eb21c71dd6bfb49d2e450142d1290ceda5f",
+    "dirty_worktree": true,
+    "published_commit_for_this_snapshot": null
+  },
+  "snapshot_note": "Files copied from the local working tree are identified by per-file SHA256, not attributed to base HEAD as a committed version.",
+  "source_snapshot": {
+    "archive_sha256": "9135cfd6869ff2a91f271ab87ff35ffcfea16ef28a2a1843eb722635fdfe688d",
+    "pin": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+    "full_git_blob_tree_verified": true,
+    "files": [
+      {
+        "path": ".devcontainer/devcontainer.json",
+        "mode": "100644",
+        "git_blob": "aee21c032ed62c95530f3164f0e5613275f0f847",
+        "sha256": "04c7055cc2308540a640ab95301847de313abaa11018fe032ed26724c48df25d",
+        "bytes": 1137
+      },
+      {
+        "path": ".editorconfig",
+        "mode": "100644",
+        "git_blob": "8d67bc7a54329a980aaf7798171d52c2ace687ed",
+        "sha256": "27c23911e7dcb775095f321338f143a7208833cd9fe1f94fa90abb3d7aab5e56",
+        "bytes": 192
+      },
+      {
+        "path": ".gitattributes",
+        "mode": "100644",
+        "git_blob": "92e7182f48c9f4504194f6991daa08ce0f049864",
+        "sha256": "e445c695e0d3860b5ed3c9357daaa2afb74a6452574ba454fb952ee392c95556",
+        "bytes": 30
+      },
+      {
+        "path": ".github/PULL_REQUEST_TEMPLATE.md",
+        "mode": "100644",
+        "git_blob": "bfa7b603bf57372e951415151f28f291748c52f4",
+        "sha256": "194ad178e8394a07e8c2869433610d0b7a3af81f2770dbc0f2b42bd313d1057a",
+        "bytes": 914
+      },
+      {
+        "path": ".github/workflows/check-pr-template.yml",
+        "mode": "100644",
+        "git_blob": "0d2474618db02dcbec7a15b276144c3e8ca71faa",
+        "sha256": "62a021216dc13b32a314f842e4bd7daca50ddf4b10687f8dbecf907b358bad34",
+        "bytes": 13800
+      },
+      {
+        "path": ".github/workflows/maven-build.yml",
+        "mode": "100644",
+        "git_blob": "9ca22ed03cc64d79ff30df4936cabf59d98e3b80",
+        "sha256": "f3143565220ad7d595035b205f3e013e6b8a88e9837ac11fc4bfec416698f62c",
+        "bytes": 741
+      },
+      {
+        "path": ".gitignore",
+        "mode": "100644",
+        "git_blob": "1102f15c43ac387d900ff527e37423e3eb3825dd",
+        "sha256": "0bdc655e665b65f69b822bde65587d5c74a5a436fde81a9963291f0cad969a3f",
+        "bytes": 221
+      },
+      {
+        "path": ".mvn/wrapper/maven-wrapper.jar",
+        "mode": "100644",
+        "git_blob": "7967f30dd1d25fe1b79a4a6e50e2aaa0e425c02c",
+        "sha256": "3d8f20ce6103913be8b52aef6d994e0c54705fb527324ceb9b835b338739c7a8",
+        "bytes": 63028
+      },
+      {
+        "path": ".mvn/wrapper/maven-wrapper.properties",
+        "mode": "100644",
+        "git_blob": "c5ac35ee1a12f98f8a965c488ce0055713b29d3a",
+        "sha256": "1552dd227d0933afef982a8655a44b7ce55ed3f1d8480e5b9bdafb4fe17117be",
+        "bytes": 1105
+      },
+      {
+        "path": "CONTRIBUTING.md",
+        "mode": "100644",
+        "git_blob": "6e0754d7a461411ca1a11da7c49855b66a3d8194",
+        "sha256": "6013821b43db6fac6a29eedceb759d0c45a6ee0bd8a6194b1579d891772435d3",
+        "bytes": 1552
+      },
+      {
+        "path": "LICENSE",
+        "mode": "100644",
+        "git_blob": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+        "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+        "bytes": 11357
+      },
+      {
+        "path": "README.md",
+        "mode": "100644",
+        "git_blob": "10406492cfbd53c6711bb555cf3808f9ab88e214",
+        "sha256": "d27fdc7dc3a93c90c6d08fddcfb38cdf3a7930a0b75264194775036fa180ad95",
+        "bytes": 17122
+      },
+      {
+        "path": "docker-compose.yml",
+        "mode": "100644",
+        "git_blob": "426c1bbc8f85d0e31ca9438e865ec895ed439b9b",
+        "sha256": "1c27bdbbd654cd520eecb190c66140d7c540c4803bc8c57194450af8b6051e29",
+        "bytes": 3528
+      },
+      {
+        "path": "docker/Dockerfile",
+        "mode": "100644",
+        "git_blob": "3a0d65f4c005d3a691d52a0af0b98d8aadbfdfe8",
+        "sha256": "a2d54f389c99b43f9d56bb2718e3a0864b3ddaa5f76f7b98ef765d362fc45fbd",
+        "bytes": 858
+      },
+      {
+        "path": "docker/grafana/Dockerfile",
+        "mode": "100644",
+        "git_blob": "6695793da194a9871933c8343be37daf60c44129",
+        "sha256": "d5e9c2e349ae3b2223129a2f647eb8e9c52b7ce8b11e01cb44c1e6f6eac21811",
+        "bytes": 161
+      },
+      {
+        "path": "docker/grafana/dashboards/grafana-petclinic-dashboard.json",
+        "mode": "100644",
+        "git_blob": "b7ece362dccb65371947aa182fd61ad62a2061c2",
+        "sha256": "44720791a62039f47e2f13d515ae26c1bf705823e121023ce03e86ada055d53a",
+        "bytes": 17216
+      },
+      {
+        "path": "docker/grafana/grafana.ini",
+        "mode": "100644",
+        "git_blob": "2919aa46350ba482fe098fb7e34f1fed306a4d8e",
+        "sha256": "b3ab5d211f9638cf9b7d0cd3e8a23c6e900c837e630756d748024a94206fffd5",
+        "bytes": 942
+      },
+      {
+        "path": "docker/grafana/provisioning/dashboards/all.yml",
+        "mode": "100644",
+        "git_blob": "3b978e625482bba3edbde48587da97f154676120",
+        "sha256": "ed0b82f5ba2ba0b1ac563b51101751bb9637bf78d46061e63a1e0fd01ab945bf",
+        "bytes": 235
+      },
+      {
+        "path": "docker/grafana/provisioning/datasources/all.yml",
+        "mode": "100644",
+        "git_blob": "9c88fce5ac1923edb0207ecf34090a3c3642e760",
+        "sha256": "b4b5fa570a10bd3d73683bc5a75cafe4e7a209321d634ede802ce9ffbaeb1870",
+        "bytes": 284
+      },
+      {
+        "path": "docker/prometheus/Dockerfile",
+        "mode": "100644",
+        "git_blob": "87886d26768c73d4568135197e96f168eaf84976",
+        "sha256": "a82d77ab5bb86ac5c87a942ef8d6633c362beb287473238876888f918363851c",
+        "bytes": 64
+      },
+      {
+        "path": "docker/prometheus/prometheus.yml",
+        "mode": "100644",
+        "git_blob": "30f089b72b1fea34e73f61bb4ae2418d05f679d7",
+        "sha256": "ca543e64617778f54ea48c0d514e5a733d9a3c4f4820ca6cc1877695b405af56",
+        "bytes": 941
+      },
+      {
+        "path": "docs/application-screenshot.png",
+        "mode": "100644",
+        "git_blob": "e60a403e2848269873aaf620dae4bbc9e1d363c4",
+        "sha256": "b4cf3366b2fe44669c01478554c94a632b517ab136eee7c5c61532cb3a1c2ba4",
+        "bytes": 183999
+      },
+      {
+        "path": "docs/grafana-custom-metrics-dashboard.png",
+        "mode": "100644",
+        "git_blob": "085ab85a25961e57c06198c093b207730e02520f",
+        "sha256": "ce65461e7b2590959407c361746ff73c9570204fad497c27afd731f5d4757fb4",
+        "bytes": 422552
+      },
+      {
+        "path": "docs/microservices-architecture-diagram.jpg",
+        "mode": "100644",
+        "git_blob": "1d3443988d710b84e6d35ad5c0c7df3822ed8dea",
+        "sha256": "6356a7a938d55def53dce94dd5ec758c0d18d0da1095b62b6f722b8716d3a930",
+        "bytes": 261966
+      },
+      {
+        "path": "docs/spring-ai.png",
+        "mode": "100644",
+        "git_blob": "441de4220f83b07c5d67b711cd01f8739cefe8f0",
+        "sha256": "18889f4446aede1f0123dd4884cddac31856c47e1c0b9dfe5643fc2073dc6acf",
+        "bytes": 109210
+      },
+      {
+        "path": "mvnw",
+        "mode": "100755",
+        "git_blob": "5e9618cac26d1c3254dc88232a8c4d841316bd29",
+        "sha256": "02db01cc3fa5d4e8adaef1050e716841be703078d043f0314b40fad8211d4c82",
+        "bytes": 11172
+      },
+      {
+        "path": "mvnw.cmd",
+        "mode": "100755",
+        "git_blob": "1204076a90ab82b858431b95098c91684868cb03",
+        "sha256": "64756ebaa914d6b9fc3cf2b49db1881b69d741c6f4fd3f710ef8b3c4100c66a1",
+        "bytes": 7903
+      },
+      {
+        "path": "pom.xml",
+        "mode": "100644",
+        "git_blob": "a4d2aa29ccf0ea3e921c40ab25a7ef9c0a088ce9",
+        "sha256": "ca871f79a9f5140fccf71a8347e57a3af3d1949bbffb9e3784bcfe71aaf7c657",
+        "bytes": 10565
+      },
+      {
+        "path": "scripts/chaos/README.md",
+        "mode": "100644",
+        "git_blob": "e7bbc9ed3b4cf2526ae00b4436c071f982d5efeb",
+        "sha256": "b014d05c1695965cea58d454bd40c990b25fec182fed3cdb89ab19b0281c0878",
+        "bytes": 1774
+      },
+      {
+        "path": "scripts/chaos/attacks_disable.json",
+        "mode": "100644",
+        "git_blob": "cc60dbf86a7b940e55e3a55aa10ccf0298f5400b",
+        "sha256": "b4ab4720515df60c4d4aca83dc059b51decef15c662b2200473ffb98be23ca48",
+        "bytes": 125
+      },
+      {
+        "path": "scripts/chaos/attacks_enable_exception.json",
+        "mode": "100644",
+        "git_blob": "4e24f5a149167a007f6f77d14631c0aeec58e80e",
+        "sha256": "786138132084333fe954d1818ceba771d12a6b81d023c9f29feef08da75fff1b",
+        "bytes": 50
+      },
+      {
+        "path": "scripts/chaos/attacks_enable_killapplication.json",
+        "mode": "100644",
+        "git_blob": "ab67208537053a4cf70f70ff02e5b8614d19da60",
+        "sha256": "c594fbe3be5e5e3021fe1e52596d55cbf50784f812c383d85b9a3bed730c0f19",
+        "bytes": 38
+      },
+      {
+        "path": "scripts/chaos/attacks_enable_latency.json",
+        "mode": "100644",
+        "git_blob": "1ef154608f6ee7d4ac7a51066558f9093df90c84",
+        "sha256": "ad810b65d7236cc837c9b0be96b7732238fcf4a9b76293ad7791b80cadd1659c",
+        "bytes": 93
+      },
+      {
+        "path": "scripts/chaos/attacks_enable_memory.json",
+        "mode": "100644",
+        "git_blob": "b9206639326f78621579016b817b17db041041d4",
+        "sha256": "4604825d1668353379ebc1b1144f4d982563dc40449db84fc29c14f5f0e2fe7e",
+        "bytes": 46
+      },
+      {
+        "path": "scripts/chaos/call_chaos.sh",
+        "mode": "100755",
+        "git_blob": "b412427e242325a0e41bbef924c6f07d63837f95",
+        "sha256": "5c3fb354d2a5b28e165189543c61d4f4fd2469925590f62ebfc9feea2b228f6d",
+        "bytes": 1342
+      },
+      {
+        "path": "scripts/chaos/watcher_disable.json",
+        "mode": "100644",
+        "git_blob": "78779dc6b21b1b4dd82c9af766c8ec4b786f4feb",
+        "sha256": "b4e6a37ff26c03870e3c607c3eba8bbde2eaaa35c53e890cae1790f03235dadd",
+        "bytes": 128
+      },
+      {
+        "path": "scripts/chaos/watcher_enable_component.json",
+        "mode": "100644",
+        "git_blob": "10e7f9d58406fdf9af2c675551aca4cba0484ad8",
+        "sha256": "ebd72b4045fda94b7fe0f7c83a4329c866ade30ccb36b2a16e897b350ed5356e",
+        "bytes": 26
+      },
+      {
+        "path": "scripts/chaos/watcher_enable_controller.json",
+        "mode": "100644",
+        "git_blob": "b45401627da16d2ce5142277b82949efe02b6fda",
+        "sha256": "c7f23d7f9565728f889eca2b484ad00aca7bb38c4907a70adc89e7375ca31f08",
+        "bytes": 27
+      },
+      {
+        "path": "scripts/chaos/watcher_enable_repository.json",
+        "mode": "100644",
+        "git_blob": "5e16469c38beb914374d43092d15caa417d2d84b",
+        "sha256": "96d295072b30def0b172dfcaf37afeaf08027877e00374c6d642c4ec6f005d1b",
+        "bytes": 27
+      },
+      {
+        "path": "scripts/chaos/watcher_enable_restcontroller.json",
+        "mode": "100644",
+        "git_blob": "e846f6d6db0a517d7303ae72e3cef7435f68136b",
+        "sha256": "7c978160ee5d8d914f090f0fb55f351cf70e37f5e83d67b885576f9f4eb86bfc",
+        "bytes": 31
+      },
+      {
+        "path": "scripts/chaos/watcher_enable_service.json",
+        "mode": "100644",
+        "git_blob": "f4dd8e7de96c4d6b9d37074f1e9edea212481172",
+        "sha256": "90eb7c8f203d99dbb2caf730be3e9bcd9f68fb595e57c25c57653295cbd902d1",
+        "bytes": 24
+      },
+      {
+        "path": "scripts/pushImages.sh",
+        "mode": "100755",
+        "git_blob": "1a251578ecfed49146fcc5bf01439dfd4a9966fd",
+        "sha256": "dcb578ce8220b19756253e1819de110fad9821c1bb61640e722f54b289b416aa",
+        "bytes": 616
+      },
+      {
+        "path": "scripts/run_all.sh",
+        "mode": "100755",
+        "git_blob": "18aec7e9bed8589692d22276f2ff3deff48437fa",
+        "sha256": "5bac796655dc3ea58c22087db16a1cedc0cf71056f0ea455d99b820c685d6845",
+        "bytes": 1706
+      },
+      {
+        "path": "scripts/tagImages.sh",
+        "mode": "100755",
+        "git_blob": "c8e77c9caeca94fc90b0b990632e99dc939478db",
+        "sha256": "bf85ae524c7d6f091fd4a8a371d7381fc4e2b3578fe296e306a4a09fbe95baf7",
+        "bytes": 1028
+      },
+      {
+        "path": "spring-petclinic-admin-server/pom.xml",
+        "mode": "100644",
+        "git_blob": "c8fd59858c07caf0cddbb2be26535f4b38b83f7a",
+        "sha256": "837ea1f32653bbf041ad70bc9e7d61f5e25debfce323a93b898c53367b3e4721",
+        "bytes": 2880
+      },
+      {
+        "path": "spring-petclinic-admin-server/src/main/java/org/springframework/samples/petclinic/admin/SpringBootAdminApplication.java",
+        "mode": "100644",
+        "git_blob": "49785d15e7ca18553a75a4b7bd8bcdc94570e2b5",
+        "sha256": "21fd12bd1f1fb7bb2aa35fa8e7d025776c90751cec9eab477013bdc4b0efbab3",
+        "bytes": 1167
+      },
+      {
+        "path": "spring-petclinic-admin-server/src/main/resources/application.yml",
+        "mode": "100644",
+        "git_blob": "d745bb18b0b45f384e288f4507c0f135b60a9c94",
+        "sha256": "60774b114f1dbce1433e2db0f75635b1c67f60336f560681a1a17cb6e06d5eef",
+        "bytes": 248
+      },
+      {
+        "path": "spring-petclinic-admin-server/src/main/resources/logback-spring.xml",
+        "mode": "100644",
+        "git_blob": "5d03f79413815de8cfffdc114e57b1cc53b68be4",
+        "sha256": "457ac6aa96bbcb5f814d61be22be737e423cfcc355abeb7812b23a60c78d295f",
+        "bytes": 254
+      },
+      {
+        "path": "spring-petclinic-api-gateway/.gitignore",
+        "mode": "100644",
+        "git_blob": "c71ea97aba955d5f7b40f76332ab7316ed2affa6",
+        "sha256": "8ce5572575bdf502f4b9f4fcd2fd8d78c0dc35a3b99699fb0f3a972e879d47d4",
+        "bytes": 17
+      },
+      {
+        "path": "spring-petclinic-api-gateway/pom.xml",
+        "mode": "100644",
+        "git_blob": "efa8d425fe4280b36033246904b934fa2c12e570",
+        "sha256": "8f74b5ad1bde9384bb62740066ccc282f1a92a70c9f4f354bf8a3d02c67b8ad6",
+        "bytes": 9331
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java",
+        "mode": "100644",
+        "git_blob": "f872c1c1783e074611fdf803ce7d241dfde97b42",
+        "sha256": "b7b06fd3b577c61f250b1eb53ea0aeb202d4b02adba3152deeedecae4294b186",
+        "bytes": 3543
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/CustomersServiceClient.java",
+        "mode": "100644",
+        "git_blob": "8112b9651bdc0c2419c85fc4764a92696a5e5626",
+        "sha256": "e143b78217975d0a6c2d0da704e483cd931180c7bb95cc76cad3807cc852e4f5",
+        "bytes": 1430
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+        "mode": "100644",
+        "git_blob": "dcb222583fab13d007f67a9094941bd1472eb5f0",
+        "sha256": "d7d1437c4dce96d4de5f636511d3bcf5549df4a11b7826fde0375bce358f1e13",
+        "bytes": 1831
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+        "mode": "100644",
+        "git_blob": "fba887553753f4f9cc76acdbf0f3a8a1579f6491",
+        "sha256": "bb815e3727be7e56330072d54774944ef5029d66d2d7e56976d7c60dbeafbb21",
+        "bytes": 3264
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/FallbackController.java",
+        "mode": "100644",
+        "git_blob": "b3e0f69a78b52c7bb45dabca6b4219d5c957d47b",
+        "sha256": "1bf3d67a1c1a9e19e4ff811e8a0fa498ae4899c6744dc630970836f178581299",
+        "bytes": 570
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/dto/OwnerDetails.java",
+        "mode": "100644",
+        "git_blob": "18c58bf904f15ab9b1b8b4bccb3dff6811c080a3",
+        "sha256": "99ee6937040e1c09dd969f7911e829f3435ebe0b553f5d960579b152e6a28823",
+        "bytes": 2622
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/dto/PetDetails.java",
+        "mode": "100644",
+        "git_blob": "a1bacf1646781a819bcaf5b64d58bf38fde35b56",
+        "sha256": "a5cf53654dd3635ed68395c88df650309467352485ddfa4b84b810af1822c1ad",
+        "bytes": 2127
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/dto/PetType.java",
+        "mode": "100644",
+        "git_blob": "e6977b125c720fc9e9b2042c76fd036df7a3c13b",
+        "sha256": "a9e1e64a128dee6acfac2a14e034396548de927cef5c1c812d218f094554ab18",
+        "bytes": 753
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/dto/VisitDetails.java",
+        "mode": "100644",
+        "git_blob": "da9747f5bf9008dd11cd188fba484dfb66cfbcf5",
+        "sha256": "6f8bd6fd1b1a327e0ea3f488635cbac30bb580b479bb0509abac046de6ff8d0f",
+        "bytes": 823
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/dto/Visits.java",
+        "mode": "100644",
+        "git_blob": "1ef90a0d2d94c4d3ca2dcb740e8bbeab0d7e9254",
+        "sha256": "b9be7d4f5f57e26beac0202d23c6b0d58bccf1e30f2901dfdfe0b421ced6203f",
+        "bytes": 886
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/application.yml",
+        "mode": "100644",
+        "git_blob": "d4e05f84b9d34788b8a68bec416adc75126d2081",
+        "sha256": "6cc8fcf6d3cf9ae4ac1416ed9ae7fea2e056462c88959fb2b83ed5ccdf887a30",
+        "bytes": 1520
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/logback-spring.xml",
+        "mode": "100644",
+        "git_blob": "5d03f79413815de8cfffdc114e57b1cc53b68be4",
+        "sha256": "457ac6aa96bbcb5f814d61be22be737e423cfcc355abeb7812b23a60c78d295f",
+        "bytes": 254
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/messages/messages.properties",
+        "mode": "100644",
+        "git_blob": "f916c7a4ec3da01a09d9fa0b7024c1b36d3a278c",
+        "sha256": "dde81dd9598a0933c2c98ddce06337e19a1f27dbed42a94b6da121d66113bc80",
+        "bytes": 240
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/messages/messages_de.properties",
+        "mode": "100644",
+        "git_blob": "46c70b5b012fde3a0e9ba288f294c4d84610eba5",
+        "sha256": "8639f9dadbebf97de5fe463e6f7c07189255d0f5fb76a0811d4ef34248480c5b",
+        "bytes": 284
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/messages/messages_en.properties",
+        "mode": "100644",
+        "git_blob": "05d519bb86d059e73ce879196658c54c1e8cd7dc",
+        "sha256": "9a73ca97a971bcb58cf5819b00454e63c7339331d93f9ee4662162a838ad413b",
+        "bytes": 110
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/css/header.css",
+        "mode": "100644",
+        "git_blob": "edd0889f012ccbf825725dd19d4e5058a3963181",
+        "sha256": "a02e73878e0decb287c8100d9cc14808345e5ecc74dc76ee10562c853e3bb680",
+        "bytes": 1473
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/css/petclinic.css",
+        "mode": "100644",
+        "git_blob": "3928143e79c9953eb5eab1c3f70aa3b19b260bf1",
+        "sha256": "00b5fe0b6387d97ada9bf0602b66ee3a5f6732a135806f228deb98a82686370e",
+        "bytes": 280912
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/css/responsive.css",
+        "mode": "100644",
+        "git_blob": "4d2cb8d9b8c9c312965544d7a026c3612749f470",
+        "sha256": "c19f0a8f84b6cc3f525e06cf23b498bfb986f7e472dea814a07e51f7d5e21882",
+        "bytes": 725
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/css/typography.css",
+        "mode": "100644",
+        "git_blob": "da0411668ef9e6df1ebeb644ae273460647460f7",
+        "sha256": "147fb39913e9f098d5129a46bcfc9ca5eb11321e30e0e3a458133c4ba944acd5",
+        "bytes": 1443
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/fonts/montserrat-webfont.eot",
+        "mode": "100644",
+        "git_blob": "0caea9169a83c1707e3f3b849a685200a4f0d046",
+        "sha256": "29e202a22d1ee04e74893ebd3adf4103d09b191477077d10a7785915e7b62ee4",
+        "bytes": 20979
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/fonts/montserrat-webfont.svg",
+        "mode": "100644",
+        "git_blob": "7bd96bdfdc1f7a0b8110812c0cb6ba2ae302bb79",
+        "sha256": "b0f7c984e112956977df1ca3833838150b2fe786732411df9693cd9ec5a9f91c",
+        "bytes": 84634
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/fonts/montserrat-webfont.ttf",
+        "mode": "100644",
+        "git_blob": "9953fe62e0002951d13e04023f534b504f158f5d",
+        "sha256": "de07c23f54404d0a3be116a48378b27ee588a63999f6e14e3276d807ec422e59",
+        "bytes": 42692
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/fonts/montserrat-webfont.woff",
+        "mode": "100644",
+        "git_blob": "eb49333f716be52b58f29f6c866e40d73b891150",
+        "sha256": "effdf66928d36c8e909bd6ab7a976f1cc52647655d9c507cccbaed7c5fac4d4d",
+        "bytes": 24240
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/fonts/varela_round-webfont.eot",
+        "mode": "100644",
+        "git_blob": "dfee0c26e7bf8cd2e2d0712a6835f3b910b637c6",
+        "sha256": "a5a520a5875692ae39c2f99dcef268181bf53711636a450e9d4112c222ad4668",
+        "bytes": 28963
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/fonts/varela_round-webfont.svg",
+        "mode": "100644",
+        "git_blob": "3280e2c43c0d7984a3ba5be89b22a89a3f0ef3eb",
+        "sha256": "79c3ac674e684446998f4dbfb72f5eea37a2d5a3d98504e47de478c7298f725f",
+        "bytes": 370273
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/fonts/varela_round-webfont.ttf",
+        "mode": "100644",
+        "git_blob": "3ca0666937719a3b757dd792d770646fd8f8dba9",
+        "sha256": "43ae2535586cf9167c65c0a75143cf3e0e07e4eedb8d3de9adaaa003fec640c5",
+        "bytes": 63044
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/fonts/varela_round-webfont.woff",
+        "mode": "100644",
+        "git_blob": "77ba16614b8fa5030e048630882e493cdcbd8ab3",
+        "sha256": "65bafcfe682d2c1e13579ab9b44a72d4d4c7d13cfc114123051124e6f3907f33",
+        "bytes": 32712
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/images/favicon.png",
+        "mode": "100644",
+        "git_blob": "1c649a3cdeb151c78c41f1958a80f1ca120f9d32",
+        "sha256": "0bc3f6a4f2d564abab734219d24f2c33662c2fff62d3e0e484b0a0fe7d4e0b6c",
+        "bytes": 528
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/images/pets.png",
+        "mode": "100644",
+        "git_blob": "bb5cf3a341298064901422ee30f3515a41acf4a6",
+        "sha256": "b6c2e3df2f52fc3b31373cf8951778e41545591df0a8be0eca92e4f574769aef",
+        "bytes": 67721
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/images/platform-bg.png",
+        "mode": "100644",
+        "git_blob": "512185839bdd94afc996e737d61041d9600e8eb9",
+        "sha256": "06dd23904cd7a1bcf09971447139569eccbf62aef11e6f19e44e03333766c632",
+        "bytes": 9162
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/images/spring-logo-dataflow-mobile.png",
+        "mode": "100644",
+        "git_blob": "45d24a6f3e53b709821db86857f4caaa867ed526",
+        "sha256": "298ad70d96d8acfd8e5084b756e03dfdc882579482222c44a62a6fa268effdbb",
+        "bytes": 3705
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/images/spring-logo-dataflow.png",
+        "mode": "100644",
+        "git_blob": "ff7cdbb40d78468b08701431128bb972c34a3587",
+        "sha256": "377d7fec1dd74c6990393d4c5638376d1ba0419e5160675774e6a326fbd0eb9c",
+        "bytes": 6888
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/images/spring-pivotal-logo.png",
+        "mode": "100644",
+        "git_blob": "1840af274b55e7f2d19931a5afecb576cb17f44a",
+        "sha256": "35ff03edb760351f73a0dad79c93214d0d718cd8ab9bf8079b7f9691319abbb3",
+        "bytes": 2818
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/index.html",
+        "mode": "100644",
+        "git_blob": "776f11d38ee573c9b27957290abf523c4c6b365c",
+        "sha256": "a79dd0fbc875f1a3cd5fac73c8b6e55b5e238cbac79c691e4d49d3a56e127389",
+        "bytes": 3597
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/scripts/app.js",
+        "mode": "100644",
+        "git_blob": "66db62a2716d5d8b58b7cca98bd86ce9600f7632",
+        "sha256": "0b8099a99f0491c356d67059820cd4ea1010506807066fd08488e8c5a6e656c5",
+        "bytes": 1295
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/scripts/fragments/footer.html",
+        "mode": "100644",
+        "git_blob": "cc1e7c516bba3d66610db2dbb77e99a367966573",
+        "sha256": "681acbf80e48d5bed4584f5ea743eef5d805285ccddb69d11bcae0e7ad10f024",
+        "bytes": 226
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/scripts/fragments/nav.html",
+        "mode": "100644",
+        "git_blob": "f1ed2851de6f9f9b21954bf845ffa299a99a4ad9",
+        "sha256": "df3e0dcba503799699971912ba1cbfd1cf60dc08c76d66656308bc58e7429757",
+        "bytes": 1651
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/scripts/fragments/welcome.html",
+        "mode": "100644",
+        "git_blob": "df0b55e9eaa457f021d70cbc479309dc5c8b026c",
+        "sha256": "d07f372c803bf77f249f80dcd9f270821a4ac304297c15f082a2b3715f5538e0",
+        "bytes": 165
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/scripts/genai/chat.js",
+        "mode": "100644",
+        "git_blob": "ec789161457fe2e74aa1eaee94eaa0f26383c283",
+        "sha256": "4e7f713405e84e871bbdc4b1f37eb79d23ba41fab35e68a9bfa1ff2ed9133d7e",
+        "bytes": 2783
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/scripts/infrastructure/httpErrorHandlingInterceptor.js",
+        "mode": "100644",
+        "git_blob": "f65ab687d056d65054824aa9420183cb6f776176",
+        "sha256": "5dd07585a9c264d079725d63e8b81afcdd570a37c8d5fb98cabf6e995118788b",
+        "bytes": 493
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/scripts/infrastructure/infrastructure.js",
+        "mode": "100644",
+        "git_blob": "58dd767c42cbac0c5b12a059facfab4c250c10a9",
+        "sha256": "7bd1756794cdf4fe83d4dc5ebf093bcd077c981d3e214cdb28bb21067396f24e",
+        "bytes": 53
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/scripts/owner-details/owner-details.component.js",
+        "mode": "100644",
+        "git_blob": "98a43fcbe857c16477d6bf109b4a187c1d82744f",
+        "sha256": "3124c343aa7759bfcdd7a84a8e412601a9492a8c46421e141f2cd9085a172d08",
+        "bytes": 206
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/scripts/owner-details/owner-details.controller.js",
+        "mode": "100644",
+        "git_blob": "d164378dc96668c512ec501496ee3938853cbde2",
+        "sha256": "e407485289cfb4dbd78db2b7de50db7a82afbbac70061e5bd2d15d40d016bac2",
+        "bytes": 317
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/scripts/owner-details/owner-details.js",
+        "mode": "100644",
+        "git_blob": "670f24beebd460b816e2ca243fe63dc8bd274291",
+        "sha256": "59c380cfeb3e75b1c2590dc52f5fd4a919dbf2b535fb341624f7de0321793933",
+        "bytes": 343
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/scripts/owner-details/owner-details.template.html",
+        "mode": "100644",
+        "git_blob": "126848da892d91c9a6475862b6724916810e6143",
+        "sha256": "c2ac34339e5f69a5514f8ef6e23fe649a39dee0c097990430e4535037f0e86d9",
+        "bytes": 2115
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/scripts/owner-form/owner-form.component.js",
+        "mode": "100644",
+        "git_blob": "e8dec69c4ac6874ed2bb8f00e47e9272596242cb",
+        "sha256": "2d1dbedf9b1dc508498a79fe6aa10adf77e92e5b6b14fc5be44f382faf0517f0",
+        "bytes": 191
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/scripts/owner-form/owner-form.controller.js",
+        "mode": "100644",
+        "git_blob": "d25f7a5697463eb8afcfeb8f673b22458cba1adf",
+        "sha256": "cd2d65255142d5133942fb2e1b2882b91efd09404a49a3ec3e0c827cbaf7c59e",
+        "bytes": 925
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/scripts/owner-form/owner-form.js",
+        "mode": "100644",
+        "git_blob": "1bb61591346cd1b223d3ddb0b53b0ad7f930d29b",
+        "sha256": "553acd24c0d9ca3cdbabaee042b5f2ac7bd96a701e4abdd90d63e9d919ae29b6",
+        "bytes": 498
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/scripts/owner-form/owner-form.template.html",
+        "mode": "100644",
+        "git_blob": "af76090d477cea86c6439532c45e27bf727f82cf",
+        "sha256": "d0dc7c1eb978edc52d55d5eb045d6051d947bcdaa5d565b9a39f79352770b91b",
+        "bytes": 1652
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/scripts/owner-list/owner-list.component.js",
+        "mode": "100644",
+        "git_blob": "55b6b253f53030b5802e3269e54dd96b8e535108",
+        "sha256": "9ff52a0e4860350f1f20a96456c58cff96f16c561d994f48751e67aa1080f03e",
+        "bytes": 191
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/scripts/owner-list/owner-list.controller.js",
+        "mode": "100644",
+        "git_blob": "8229f43c81c6b5f93e6c0c995e5eb17166f7553f",
+        "sha256": "1455b678a4fdd2a26266c38bb0b3850677cd98ee66c60b966dc24184993f4a86",
+        "bytes": 259
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/scripts/owner-list/owner-list.js",
+        "mode": "100644",
+        "git_blob": "4714a2f97930edfd9088a60d5695597fcee63d22",
+        "sha256": "594f493cd627fe8acd5c79ecfc4c7194fb6cd295d9c0df78af0142120000a03e",
+        "bytes": 311
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/scripts/owner-list/owner-list.template.html",
+        "mode": "100644",
+        "git_blob": "fc784631a7d088e3094ccee990c524beac371bb6",
+        "sha256": "e2726d8071c7c0ff7564b7ec0cd939a8e783cd8efb7117053f78b7d4d116b983",
+        "bytes": 999
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/scripts/pet-form/pet-form.component.js",
+        "mode": "100644",
+        "git_blob": "6f5e13bb6e0d91dbbdfb3d96b724b4aa401ce428",
+        "sha256": "7f86cb2736a991b7440e3d6e34b99f934f62b5d4d79911b8b77f193eacf3b42e",
+        "bytes": 181
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/scripts/pet-form/pet-form.controller.js",
+        "mode": "100644",
+        "git_blob": "93bbb6c8b302d93cac7e60248dff76e5a8a1c405",
+        "sha256": "f70b9106b6c466992e983c9041667e43d517f0256bda336c9202e027ce280ab0",
+        "bytes": 1718
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/scripts/pet-form/pet-form.js",
+        "mode": "100644",
+        "git_blob": "70292ad68ba542b6843a1c039c1c72ad781dff09",
+        "sha256": "f70f4cab7be4bf1066e1b1e6ed5b9c59c7c0992dc779d5017b990930d744159c",
+        "bytes": 504
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/scripts/pet-form/pet-form.template.html",
+        "mode": "100644",
+        "git_blob": "56b61556c76ef159bc36d79d2bc1fff2469c5087",
+        "sha256": "d61577befe6cbf9bddea20ea1a903b5dc27c29210589c0694af4553ce815d5bf",
+        "bytes": 1555
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/scripts/vet-list/vet-list.component.js",
+        "mode": "100644",
+        "git_blob": "6d8e95081ebc34f0d27845e0426e527b7c3772dc",
+        "sha256": "407b0210f5ba948fde488313d11ede5a73105bc3ccc379ec47d5f86e790d7873",
+        "bytes": 181
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/scripts/vet-list/vet-list.controller.js",
+        "mode": "100644",
+        "git_blob": "4adc7fc18fc519a41e6e3c6ca736be7fc9e27086",
+        "sha256": "fec15049da66e0bac6b3bd55f82b2281ab596c71b726d14bc8dffb4c529075b4",
+        "bytes": 249
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/scripts/vet-list/vet-list.js",
+        "mode": "100644",
+        "git_blob": "bcecacc0c8e4a355bc079971ccc6b474af472ce8",
+        "sha256": "82df14b2a481aeb534e1f09a39ef40ff3d23c77c0817436aba8ce2352f4b3c43",
+        "bytes": 301
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/scripts/vet-list/vet-list.template.html",
+        "mode": "100644",
+        "git_blob": "e705f050862bc64dc916e14fe0fbbf3be338f85f",
+        "sha256": "4d680bd1df1d8b4d093d3f4034e6503cdf827211e96324335c8c1faaadd4fe2d",
+        "bytes": 365
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/scripts/visits/visits.component.js",
+        "mode": "100644",
+        "git_blob": "0bfbcad332af6266bb30ae469e62aa5521ac3c41",
+        "sha256": "a12e28508e86cd741db40daa711271ceeec7123d16c8b668d353adae7ffd1ac8",
+        "bytes": 174
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/scripts/visits/visits.controller.js",
+        "mode": "100644",
+        "git_blob": "d68798b39da19c550e0886585df488c06cc1e47a",
+        "sha256": "8dc294ca9b2fe4b0d46fffc0fccfc7f6bc9938608d8b45e6894ee5d5e6b83f69",
+        "bytes": 843
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/scripts/visits/visits.js",
+        "mode": "100644",
+        "git_blob": "10821acaa95508bcebbec486535b7c3893520d87",
+        "sha256": "3b367efb4cc34685b536a616c73599e7ef02d8ef78849df4e1ebc5e9d31286f7",
+        "bytes": 329
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/scripts/visits/visits.template.html",
+        "mode": "100644",
+        "git_blob": "30f136a6317ec172897a6cd8b56856bf270787ba",
+        "sha256": "57930aff3b46a3f0d7dfe0219101ac6845af9a8555d9d3d4be1139247898107a",
+        "bytes": 718
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/scss/header.scss",
+        "mode": "100644",
+        "git_blob": "7cb1a7888e00190caf26af5de8f7f7c1d903a1bf",
+        "sha256": "d821032e01174e208f52eacc9a15987a63bc01eac3e0f1ed2682244ac30e5745",
+        "bytes": 1386
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/scss/petclinic.scss",
+        "mode": "100644",
+        "git_blob": "9136fbd6efb20b716d6c586a58766ec04935a07b",
+        "sha256": "e567c3d7647bb6876213e4d8703a6bb47a6bfc5ca06bc559929ad6ff4ae2432e",
+        "bytes": 7116
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/scss/responsive.scss",
+        "mode": "100644",
+        "git_blob": "96a720cbd5ab59806f9239f24060eee39886dda6",
+        "sha256": "45c953ffce047758ef33c17793392397a2dc9d535fce79ea19a06a4b640c7ab4",
+        "bytes": 678
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/main/resources/static/scss/typography.scss",
+        "mode": "100644",
+        "git_blob": "8b8436e13e8f5bdd00683b2a3841b6c7ce179987",
+        "sha256": "5091e9376e4cf8117dde2fdb08ed3d91d1334966cfef0f7fe0e6b5d2879933a4",
+        "bytes": 1472
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/test/java/org/springframework/samples/petclinic/api/ApiGatewayApplicationTests.java",
+        "mode": "100644",
+        "git_blob": "864d4fbf3bdbaf1add8d3585d418b6b76b9aa052",
+        "sha256": "0eca366ea411ca4f126c44844feed794eea7948123d6d9ffcde71d327fd31c0c",
+        "bytes": 317
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/test/java/org/springframework/samples/petclinic/api/application/VisitsServiceClientIntegrationTest.java",
+        "mode": "100644",
+        "git_blob": "89f3aa9bd1a6c12648031984f30c44d7e69b3eef",
+        "sha256": "af1fab7e0f690b320e27003d4f77eb79870b4ecbe73dd0c4408845810433e869",
+        "bytes": 2039
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/test/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayControllerTest.java",
+        "mode": "100644",
+        "git_blob": "c65114efa7bc860f3f1973adb3e50ea1587d2a77",
+        "sha256": "db6d79b846a8b6ae2932376675fe27cfc1da4a26889f59f09ce2495c2c12afa7",
+        "bytes": 3596
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/test/java/org/springframework/samples/petclinic/api/boundary/web/CircuitBreakerConfiguration.java",
+        "mode": "100644",
+        "git_blob": "16b04ef4381203a90c9cd2d6221b67532677938d",
+        "sha256": "b16731fd3e55986ee8a4cd13c9e7c6545b1c6250949677798973157d7dc7a393",
+        "bytes": 1120
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/test/jmeter/petclinic_test_plan.jmx",
+        "mode": "100644",
+        "git_blob": "9e88f1a8e5c61b88bc2ef804a99568a8b77b5278",
+        "sha256": "02e17edc592c3ccfa21afd7d17563ed0e484de005148320b697996886272d17b",
+        "bytes": 33514
+      },
+      {
+        "path": "spring-petclinic-api-gateway/src/test/resources/application-test.yml",
+        "mode": "100644",
+        "git_blob": "cb8e4f5f71f9bb0ad387936a799227ae84da4bf7",
+        "sha256": "80a7e0b16c52349fbfbacee37afb3a45ed5ea3ac20b4c0ac4e87310dfb070e08",
+        "bytes": 64
+      },
+      {
+        "path": "spring-petclinic-config-server/pom.xml",
+        "mode": "100644",
+        "git_blob": "e401b9653951be5b7d0fe1e9e36c7994585ec233",
+        "sha256": "9b6701548668d74b0901d5e636c711d91da46e770a0c8b15c750ef9556dd1093",
+        "bytes": 2242
+      },
+      {
+        "path": "spring-petclinic-config-server/src/main/java/org/springframework/samples/petclinic/config/ConfigServerApplication.java",
+        "mode": "100644",
+        "git_blob": "e6b810b5896b1a5e00797e98742bea143ecb8e0d",
+        "sha256": "c1f6d1eb615d4e1c436eab8813f7492e64f11403924913c33ef2776b56f2f3bc",
+        "bytes": 1093
+      },
+      {
+        "path": "spring-petclinic-config-server/src/main/resources/application.yml",
+        "mode": "100644",
+        "git_blob": "9a58811ba7188ff76799a7d12a3a870cc0eb9286",
+        "sha256": "92f7c34cb2c45dce26c2d3b79f91c7582fefaaf16dec582202ed4e6f529448d4",
+        "bytes": 363
+      },
+      {
+        "path": "spring-petclinic-config-server/src/main/resources/static/index.html",
+        "mode": "100644",
+        "git_blob": "6208dd874a0ef48d4fdb8bdce75f1f62970bd3c2",
+        "sha256": "319ffce337210981a81ef1d80740c82dd3a6394c43fc3c68473ec71442b2424e",
+        "bytes": 637
+      },
+      {
+        "path": "spring-petclinic-config-server/src/test/java/org/springframework/samples/petclinic/config/PetclinicConfigServerApplicationTests.java",
+        "mode": "100644",
+        "git_blob": "e3d5191a4fcfa15429d055f725b2c37d0db45df5",
+        "sha256": "323a4ec971dff1be2378841877b7e8332c95e3a0c614890b31e745c7aca9745d",
+        "bytes": 872
+      },
+      {
+        "path": "spring-petclinic-config-server/src/test/resources/application.yml",
+        "mode": "100644",
+        "git_blob": "b4fb9c744c43b6040ad93ac394099157c06016e9",
+        "sha256": "b22e5b93f9a9112f6f60b7c4e52de10dfbc7d2c6c0c73cbfa851a607810124b3",
+        "bytes": 145
+      },
+      {
+        "path": "spring-petclinic-customers-service/pom.xml",
+        "mode": "100644",
+        "git_blob": "d60204e9fd08358ac2679dd86fe605c283c8b02e",
+        "sha256": "faa55bad0f079d5a21a2aa55b2b699f0f75bd8be9ffdbb6e4765cc8a2e348cb5",
+        "bytes": 4243
+      },
+      {
+        "path": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/CustomersServiceApplication.java",
+        "mode": "100644",
+        "git_blob": "867cdc198af08b4f0a9c38ea500ebc7764e11995",
+        "sha256": "8247c41005cbfefceb31a73f1b883681294140f5b644eabd14333a5f009b0c8b",
+        "bytes": 1113
+      },
+      {
+        "path": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/config/MetricConfig.java",
+        "mode": "100644",
+        "git_blob": "cf1b1920bb3581bfa0d55c2604d4ad5072d87469",
+        "sha256": "391e11da952279591d9e3a62275e2942d8e80c4788f655ecbae200bd42587905",
+        "bytes": 722
+      },
+      {
+        "path": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java",
+        "mode": "100644",
+        "git_blob": "2a7adc7d28e9913573b079f3d0270fd45a34432f",
+        "sha256": "a449018f09c712828d6540d2aef7d7095bf3f0d45d3034ef8e112530c606ed5a",
+        "bytes": 3658
+      },
+      {
+        "path": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/OwnerRepository.java",
+        "mode": "100644",
+        "git_blob": "aa720f24f1fda9a015d3a2a38dedf1952cd9a292",
+        "sha256": "9b8e09e7ca4ee43bd7a6374713861de4ef0d8b54b46dd76f01f0ac8f4c6e379e",
+        "bytes": 1283
+      },
+      {
+        "path": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Pet.java",
+        "mode": "100644",
+        "git_blob": "029b804949145daf6ccb5021b053304ce81bbef9",
+        "sha256": "01eb6a5edba88f0e884f2f755f942b725171ff6c0860680574b765db63f3f826",
+        "bytes": 3159
+      },
+      {
+        "path": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/PetRepository.java",
+        "mode": "100644",
+        "git_blob": "5bd16dbee5b6e35813803584a98449c9be54cef7",
+        "sha256": "064208d0bde9c466378ba0246e97c8e806da2e0dc72f6dc5ae46ec2de9d616c7",
+        "bytes": 1792
+      },
+      {
+        "path": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/PetType.java",
+        "mode": "100644",
+        "git_blob": "f390ef8d3d69649a471d27db1b5774b582193ebb",
+        "sha256": "7b0ec34882d05b43f98701cc06a251df9a03d86f30cb971a47c1bd2f876bb74f",
+        "bytes": 1265
+      },
+      {
+        "path": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerRequest.java",
+        "mode": "100644",
+        "git_blob": "cf0e4575ec2263d2c9d5f71bf3d117c6fe237b60",
+        "sha256": "2405941bfab3fb4678020e86f2c799c4ca55731bf5aec61fe7fcc8c2eaec3829",
+        "bytes": 519
+      },
+      {
+        "path": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java",
+        "mode": "100644",
+        "git_blob": "5b5a5315d62716e5a832893b2ba6a6c04d2cde17",
+        "sha256": "c72a9c611a46ab96db76421646fdde93ff8b1530bfb57ff29b847ed9e7b8d2fe",
+        "bytes": 3059
+      },
+      {
+        "path": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/PetDetails.java",
+        "mode": "100644",
+        "git_blob": "6726228620ea93775241a65140a4e067ca907adb",
+        "sha256": "c2f51190f22aac1efdbf07650758e09e592eea4a672949ab31e59b50cdec9e22",
+        "bytes": 1316
+      },
+      {
+        "path": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/PetRequest.java",
+        "mode": "100644",
+        "git_blob": "b03e3a3fd4286a862126e485fae988a3518c444b",
+        "sha256": "153a3ba099d487631ef70f9a1540ac70cc8291bbe9d0ce4b99bd224865fe4b43",
+        "bytes": 1085
+      },
+      {
+        "path": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/PetResource.java",
+        "mode": "100644",
+        "git_blob": "204c1a7af3fcec35a29b8fd31c11e09132f0f1f3",
+        "sha256": "460217364ea0f59e70b2a4413e0109fbb70415914c891b1b013c7a2604fe6d58",
+        "bytes": 3163
+      },
+      {
+        "path": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/ResourceNotFoundException.java",
+        "mode": "100644",
+        "git_blob": "c321a99d0d76880f524f42c72cf06a372f7e8064",
+        "sha256": "8d5705072d1f0ca05f11badb0c99b63f92e138b976fa772b536a0f0e9d1ef751",
+        "bytes": 371
+      },
+      {
+        "path": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/mapper/Mapper.java",
+        "mode": "100644",
+        "git_blob": "8b32efe5b50b96d19ec7029781a3db285d4242a0",
+        "sha256": "c5353ad738bf4db1b894802e3ff804d926374515d91bd307215940ec3e90b087",
+        "bytes": 137
+      },
+      {
+        "path": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/mapper/OwnerEntityMapper.java",
+        "mode": "100644",
+        "git_blob": "06779ec85d928ac56218daa2ddfe156fada18ac0",
+        "sha256": "c3752d284f1858948ac6b75142e4e7b62a993e1248d9224b8aea8e2c31eb0da4",
+        "bytes": 798
+      },
+      {
+        "path": "spring-petclinic-customers-service/src/main/resources/application.yml",
+        "mode": "100644",
+        "git_blob": "7c95adf788d53cf00bba4fd0eaf47cfad744701c",
+        "sha256": "5b1dee448adfff6af1e358b5f9bfe421dfa338bf20b86fd780f5ae81f41dbe3d",
+        "bytes": 253
+      },
+      {
+        "path": "spring-petclinic-customers-service/src/main/resources/db/hsqldb/data.sql",
+        "mode": "100644",
+        "git_blob": "676b55f3d6647340e465506dee53e68ab18da4f8",
+        "sha256": "e8bf4ae1127f10b4f7a69f89999f94a0d0f286ba25ddb29ffff82d5df30adb92",
+        "bytes": 1971
+      },
+      {
+        "path": "spring-petclinic-customers-service/src/main/resources/db/hsqldb/schema.sql",
+        "mode": "100644",
+        "git_blob": "33d42ee5ac39900e8b7703cda33fcd4a00b1000a",
+        "sha256": "f0c5a917934dd6ba0258a8a5b4223725885454808a48661b6698c582558f7219",
+        "bytes": 855
+      },
+      {
+        "path": "spring-petclinic-customers-service/src/main/resources/db/mysql/data.sql",
+        "mode": "100644",
+        "git_blob": "d6e91b1b34d21d8d60e9365851575296d4398945",
+        "sha256": "6ca8d1327d662a65db58ea0da74f5201dac37238e8d31c9777c119373c776f06",
+        "bytes": 2174
+      },
+      {
+        "path": "spring-petclinic-customers-service/src/main/resources/db/mysql/schema.sql",
+        "mode": "100644",
+        "git_blob": "33104a0a8174c3b4ffb5988d1f2b5ece3c078b94",
+        "sha256": "1c6e030b62ac4afd6aa7df9fca46f52f2b89cfb9c76e54c2e2f737e6d821c024",
+        "bytes": 783
+      },
+      {
+        "path": "spring-petclinic-customers-service/src/main/resources/logback-spring.xml",
+        "mode": "100644",
+        "git_blob": "5d03f79413815de8cfffdc114e57b1cc53b68be4",
+        "sha256": "457ac6aa96bbcb5f814d61be22be737e423cfcc355abeb7812b23a60c78d295f",
+        "bytes": 254
+      },
+      {
+        "path": "spring-petclinic-customers-service/src/test/java/org/springframework/samples/petclinic/customers/web/PetResourceTest.java",
+        "mode": "100644",
+        "git_blob": "672535c78897b50be95f1d6a97e0685565964c3c",
+        "sha256": "56002272e0f2259c519d8c3b91d33aa44477521c146a44530c0b97aa7a9fec30",
+        "bytes": 2694
+      },
+      {
+        "path": "spring-petclinic-customers-service/src/test/resources/application-test.yml",
+        "mode": "100644",
+        "git_blob": "b9c699b5f0eadca5049a606feaed853e51090715",
+        "sha256": "9fa1d78cbe03f9a29cb3e769d8060b995bff1e6182c11b486068135e22c1f155",
+        "bytes": 298
+      },
+      {
+        "path": "spring-petclinic-discovery-server/pom.xml",
+        "mode": "100644",
+        "git_blob": "b27e540bbe32deb1c0d8fcbd2066cbb82241d54f",
+        "sha256": "9cae8a93226ad16793823b7f3e3f7ef0dd6346497e29a80c6ceb2e766c1ebf54",
+        "bytes": 2118
+      },
+      {
+        "path": "spring-petclinic-discovery-server/src/main/java/org/springframework/samples/petclinic/discovery/DiscoveryServerApplication.java",
+        "mode": "100644",
+        "git_blob": "56c49ed2d536bf011654d19746b29af01a280ebe",
+        "sha256": "d62db029d14f97419f9f220bd44fc1d3c4003e82f3c9e566a484c19a0b31d88b",
+        "bytes": 1110
+      },
+      {
+        "path": "spring-petclinic-discovery-server/src/main/resources/application.yml",
+        "mode": "100644",
+        "git_blob": "9fbcbc588a00431ec56a776f38a6afc7646998bb",
+        "sha256": "70d97c4f6867eec07a37077a5ed8ccc865de00f60918ea478b94f67eb6110c85",
+        "bytes": 379
+      },
+      {
+        "path": "spring-petclinic-discovery-server/src/test/java/org/springframework/samples/petclinic/discovery/DiscoveryServerApplicationTests.java",
+        "mode": "100644",
+        "git_blob": "8bcc0afd578e60ed4890902ff58ca207a1e06091",
+        "sha256": "b3cdc50270e60aaaefac61fbaafbfb2ca0f6cda9f7573f4a01c9a1e03ef22ceb",
+        "bytes": 869
+      },
+      {
+        "path": "spring-petclinic-genai-service/.gitignore",
+        "mode": "100644",
+        "git_blob": "c71ea97aba955d5f7b40f76332ab7316ed2affa6",
+        "sha256": "8ce5572575bdf502f4b9f4fcd2fd8d78c0dc35a3b99699fb0f3a972e879d47d4",
+        "bytes": 17
+      },
+      {
+        "path": "spring-petclinic-genai-service/pom.xml",
+        "mode": "100644",
+        "git_blob": "e5c439ad7ea741b44cb245405feceb112b84cba7",
+        "sha256": "36590007298967870580685e5311638b822472d9d83057800c0e7b1ef6b31451",
+        "bytes": 5942
+      },
+      {
+        "path": "spring-petclinic-genai-service/src/main/java/org/springframework/samples/petclinic/genai/AIBeanConfiguration.java",
+        "mode": "100644",
+        "git_blob": "c43cefe062c0224725ddd30b388c256deff98dc2",
+        "sha256": "a56c6d1f0776af08e73b854fe53ff49f154b9f08de74584676d1d0b0a8960c1a",
+        "bytes": 882
+      },
+      {
+        "path": "spring-petclinic-genai-service/src/main/java/org/springframework/samples/petclinic/genai/AIDataProvider.java",
+        "mode": "100644",
+        "git_blob": "0f88d97efa04975a160b495c398f24d3f84583da",
+        "sha256": "ca097a1a1ac235ff70d21bbc9d47ea5f694a20abe41aad5efa04850fbeb0d41e",
+        "bytes": 3067
+      },
+      {
+        "path": "spring-petclinic-genai-service/src/main/java/org/springframework/samples/petclinic/genai/GenAIServiceApplication.java",
+        "mode": "100644",
+        "git_blob": "c2c02cf06572415d5c0b1da5403ae13456365545",
+        "sha256": "c208ae41bad12e3022bc98ccdfc8980135a69fe079ef81c5652177fffe49deba",
+        "bytes": 1095
+      },
+      {
+        "path": "spring-petclinic-genai-service/src/main/java/org/springframework/samples/petclinic/genai/PetclinicChatClient.java",
+        "mode": "100644",
+        "git_blob": "c2aaac16ac050fa4173ac7de1b8bbdab8afb275f",
+        "sha256": "434546a64aab15cd508738f4c83d891830ebc6a7c9372cae138b0d94a84f2ccf",
+        "bytes": 3462
+      },
+      {
+        "path": "spring-petclinic-genai-service/src/main/java/org/springframework/samples/petclinic/genai/PetclinicTools.java",
+        "mode": "100644",
+        "git_blob": "6e8268ab2ddb627f77d04403bb183fb945f94213",
+        "sha256": "568f44a01d0f40e62813d6ea8209106f7ee63badbf16bc484d7b81b2f51816dd",
+        "bytes": 3112
+      },
+      {
+        "path": "spring-petclinic-genai-service/src/main/java/org/springframework/samples/petclinic/genai/VectorStoreController.java",
+        "mode": "100644",
+        "git_blob": "489e9def74961eca2323311680c8c305cfb2e460",
+        "sha256": "1fca19ebbda55e59786728f9590dcf81326fbbf9ef6878102e43a100d7ef21f2",
+        "bytes": 4203
+      },
+      {
+        "path": "spring-petclinic-genai-service/src/main/java/org/springframework/samples/petclinic/genai/dto/OwnerDetails.java",
+        "mode": "100644",
+        "git_blob": "ca940faa4e0db8def57a13559077870edc848c6f",
+        "sha256": "eaa1bd079c2011d58d8633afafa27be34e0ad5cc0c7ea743623e72cb8f941f99",
+        "bytes": 965
+      },
+      {
+        "path": "spring-petclinic-genai-service/src/main/java/org/springframework/samples/petclinic/genai/dto/PetDetails.java",
+        "mode": "100644",
+        "git_blob": "53ff420ad50e50ac584a4b06082520c5e43094a1",
+        "sha256": "70d4b7ad5a5302d6d467f4079050e0cab5fdd4e79d48ab885489961186a9e46d",
+        "bytes": 928
+      },
+      {
+        "path": "spring-petclinic-genai-service/src/main/java/org/springframework/samples/petclinic/genai/dto/PetRequest.java",
+        "mode": "100644",
+        "git_blob": "b16d33db37144574d4dd7ede2c16c3c366fc138f",
+        "sha256": "67deb1c04c6f9701fd6a0048644480bece4828a9ddc2991b730f2d6ecdc48393",
+        "bytes": 1037
+      },
+      {
+        "path": "spring-petclinic-genai-service/src/main/java/org/springframework/samples/petclinic/genai/dto/PetType.java",
+        "mode": "100644",
+        "git_blob": "d635dea1054ef3f01d6128132f7b3161e870f960",
+        "sha256": "88208323c501224952013be751c5cf22e1596229195801b5797548c629103244",
+        "bytes": 808
+      },
+      {
+        "path": "spring-petclinic-genai-service/src/main/java/org/springframework/samples/petclinic/genai/dto/Specialty.java",
+        "mode": "100644",
+        "git_blob": "1ffae46eb884d66390338f2b5b377bf07fe921c4",
+        "sha256": "2c7b7f1315a1f1e8a790c326eca31ff11233a8e1895c306617a6abb586123c28",
+        "bytes": 840
+      },
+      {
+        "path": "spring-petclinic-genai-service/src/main/java/org/springframework/samples/petclinic/genai/dto/Vet.java",
+        "mode": "100644",
+        "git_blob": "6119f22858e7ecad7862ad589dc884bda4fcd84e",
+        "sha256": "5ece79519f614e8ddf7160c6240ced7b5d12050cde8a4f21a2992cdbc6bb1680",
+        "bytes": 901
+      },
+      {
+        "path": "spring-petclinic-genai-service/src/main/java/org/springframework/samples/petclinic/genai/dto/VisitDetails.java",
+        "mode": "100644",
+        "git_blob": "623b5d026b26af5b8765c90370d16ffbb7783790",
+        "sha256": "a564cb856bc8a04ef430fb5760f92f87731a320265ac71e2f438792345ea6ecf",
+        "bytes": 883
+      },
+      {
+        "path": "spring-petclinic-genai-service/src/main/resources/application.yml",
+        "mode": "100644",
+        "git_blob": "883713607a8f86d1929ffa71e74b323745432491",
+        "sha256": "54c1c0c9608491b07c72e8d5e01716b393982aa3dfcd68dc2c7e0005c57f6830",
+        "bytes": 1005
+      },
+      {
+        "path": "spring-petclinic-genai-service/src/main/resources/logback-spring.xml",
+        "mode": "100644",
+        "git_blob": "5d03f79413815de8cfffdc114e57b1cc53b68be4",
+        "sha256": "457ac6aa96bbcb5f814d61be22be737e423cfcc355abeb7812b23a60c78d295f",
+        "bytes": 254
+      },
+      {
+        "path": "spring-petclinic-genai-service/src/main/resources/vectorstore.json",
+        "mode": "100755",
+        "git_blob": "cf9b0c712a9d0c2a1e721574bcab1533e9272d0d",
+        "sha256": "06d0dcfb6e425e2aa81c9fd2f46ee208c96829a8d6a3dbb0082ed7bde10e689c",
+        "bytes": 126771
+      },
+      {
+        "path": "spring-petclinic-vets-service/.gitignore",
+        "mode": "100644",
+        "git_blob": "c71ea97aba955d5f7b40f76332ab7316ed2affa6",
+        "sha256": "8ce5572575bdf502f4b9f4fcd2fd8d78c0dc35a3b99699fb0f3a972e879d47d4",
+        "bytes": 17
+      },
+      {
+        "path": "spring-petclinic-vets-service/pom.xml",
+        "mode": "100644",
+        "git_blob": "618638be8b1087ab49fbe07faf6ba92f3b68b3ae",
+        "sha256": "12f6ff895633827a93cd89901aba687341caabef52eebca550d388bc59c90d86",
+        "bytes": 4773
+      },
+      {
+        "path": "spring-petclinic-vets-service/src/main/java/org/springframework/samples/petclinic/vets/VetsServiceApplication.java",
+        "mode": "100644",
+        "git_blob": "e11e1b00d839ef24de9270f6193319db2c64ce4c",
+        "sha256": "df157a2e5765fd149220a822b51e3774e79163cd262669dd4f6c269505f3ed26",
+        "bytes": 1306
+      },
+      {
+        "path": "spring-petclinic-vets-service/src/main/java/org/springframework/samples/petclinic/vets/model/Specialty.java",
+        "mode": "100644",
+        "git_blob": "eeeea282e09b9a4868b86e3cceadce53ecb08b2b",
+        "sha256": "03cc7d7536d441c75a27c72ce3a64d6876b23e76913e4d7e6a65ff5785761747",
+        "bytes": 1241
+      },
+      {
+        "path": "spring-petclinic-vets-service/src/main/java/org/springframework/samples/petclinic/vets/model/Vet.java",
+        "mode": "100644",
+        "git_blob": "150b19abf917903f88d5787de9bca73b4c12a5e4",
+        "sha256": "677ac7ca62b972fb3155fb427f03bdcdcda7e0de820457369702c0f11a190219",
+        "bytes": 2846
+      },
+      {
+        "path": "spring-petclinic-vets-service/src/main/java/org/springframework/samples/petclinic/vets/model/VetRepository.java",
+        "mode": "100644",
+        "git_blob": "cb22d143b0b8cebd9de600b93b841e43a1a14824",
+        "sha256": "761ec53d7baf955b8dd5cfa1b2e8a1c958adf5ba109031d48a98e279f75f0034",
+        "bytes": 1272
+      },
+      {
+        "path": "spring-petclinic-vets-service/src/main/java/org/springframework/samples/petclinic/vets/system/CacheConfig.java",
+        "mode": "100644",
+        "git_blob": "2f3fb794a111fd1fa06713ee22c54fbdb68c7e6e",
+        "sha256": "4c3a00eef865ba69aaf62d199e2f2d17739d6c6b04d0e986473ce703d6d4062a",
+        "bytes": 1009
+      },
+      {
+        "path": "spring-petclinic-vets-service/src/main/java/org/springframework/samples/petclinic/vets/system/VetsProperties.java",
+        "mode": "100644",
+        "git_blob": "f369a6f147377521c08aa9c4ce6c896674d7a5e7",
+        "sha256": "d63f5c6994a78dc5c775625674c6a712362d1b9c0fdffc02013fd9ef1441d1fd",
+        "bytes": 1003
+      },
+      {
+        "path": "spring-petclinic-vets-service/src/main/java/org/springframework/samples/petclinic/vets/web/VetResource.java",
+        "mode": "100644",
+        "git_blob": "09e4b19f868320ea2b40560890b4ce4cf1df3166",
+        "sha256": "c4725470e149e191ba55194686411d09aaf43d2c575ae6ec84e43a5b019b3a92",
+        "bytes": 1549
+      },
+      {
+        "path": "spring-petclinic-vets-service/src/main/resources/application.yml",
+        "mode": "100644",
+        "git_blob": "983a015db84829c303cf7613ecf6637696595635",
+        "sha256": "c9a02068c769c5266cd23f15755b456906bae6b4ad679f6c55863e65ea6d0e41",
+        "bytes": 313
+      },
+      {
+        "path": "spring-petclinic-vets-service/src/main/resources/db/hsqldb/data.sql",
+        "mode": "100644",
+        "git_blob": "e6658a527e1df8336fc6ac455cec582d97e521e2",
+        "sha256": "fbdeca1d6410b299ae4d00e5ba5ac47ba0e77bf2410fe51c1bbdcad7a444ed0f",
+        "bytes": 654
+      },
+      {
+        "path": "spring-petclinic-vets-service/src/main/resources/db/hsqldb/schema.sql",
+        "mode": "100644",
+        "git_blob": "eb916e1b7b8adb661263305c80cce9278e38e46d",
+        "sha256": "f0a04361558a24050c20da58892ccb9faa97889ee1d0bdb857c9d9cb3d93b400",
+        "bytes": 746
+      },
+      {
+        "path": "spring-petclinic-vets-service/src/main/resources/db/mysql/data.sql",
+        "mode": "100644",
+        "git_blob": "9159eca22e3e2771f8b156bc9be39b91a4424a66",
+        "sha256": "4e3beb276725d5b25c7c182e43eff5b60402d0c8e8490d2376e77feed5cbf4cd",
+        "bytes": 752
+      },
+      {
+        "path": "spring-petclinic-vets-service/src/main/resources/db/mysql/schema.sql",
+        "mode": "100644",
+        "git_blob": "bf4f6c5a22fc62dd04386c1008faf4c9b007250f",
+        "sha256": "65cfee96a84647c714e2d38827cd8e36194e836c804f76480a0d161097e6f5a3",
+        "bytes": 659
+      },
+      {
+        "path": "spring-petclinic-vets-service/src/main/resources/logback-spring.xml",
+        "mode": "100644",
+        "git_blob": "5d03f79413815de8cfffdc114e57b1cc53b68be4",
+        "sha256": "457ac6aa96bbcb5f814d61be22be737e423cfcc355abeb7812b23a60c78d295f",
+        "bytes": 254
+      },
+      {
+        "path": "spring-petclinic-vets-service/src/test/java/org/springframework/samples/petclinic/vets/web/VetResourceTest.java",
+        "mode": "100644",
+        "git_blob": "df7476e2384d817938b31d41d2425801e66ad0b9",
+        "sha256": "6a2659e1898752007d38449c49bafebf95848712f1bfe8fb59f4c80c235b0ba0",
+        "bytes": 2092
+      },
+      {
+        "path": "spring-petclinic-vets-service/src/test/resources/application-test.yml",
+        "mode": "100644",
+        "git_blob": "684fa89889d49de8a7f22de1769cd4d72bb243b8",
+        "sha256": "517972e4eccaad47f67ec33a70032c2f915cd686622ac7484d68e5ee24d2e0ff",
+        "bytes": 302
+      },
+      {
+        "path": "spring-petclinic-visits-service/pom.xml",
+        "mode": "100644",
+        "git_blob": "8b707877f127206b560f4b49f2a04a5d1d2f53fb",
+        "sha256": "9a56f6d6b27bb645de373b12b02008561d85f77194c879a9b413f790c932431b",
+        "bytes": 4127
+      },
+      {
+        "path": "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/VisitsServiceApplication.java",
+        "mode": "100644",
+        "git_blob": "78f2963f8d57a62f171374128eb710eaebab53c0",
+        "sha256": "e5900b0b7adbbab5333d78042a625c633d0af2694d65d2555af4b4b6fb28239d",
+        "bytes": 1116
+      },
+      {
+        "path": "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/config/MetricConfig.java",
+        "mode": "100644",
+        "git_blob": "3fc0ace5cee31224e8c6b37d0dc6519a77b154bc",
+        "sha256": "b7176c323895814c43268d07ad62c3784426ea72c3a04d9b275ad2e758ba1017",
+        "bytes": 717
+      },
+      {
+        "path": "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/model/Visit.java",
+        "mode": "100644",
+        "git_blob": "ef0fa1a2c19216863f6b018b298e49f5aa1033fb",
+        "sha256": "1ba057811b032114a7c3ebf70672ac946857bbf93f8313685d74263c707db71b",
+        "bytes": 3032
+      },
+      {
+        "path": "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/model/VisitRepository.java",
+        "mode": "100644",
+        "git_blob": "bd7a6d726bf0ece3b328641e39b18d8e0d7ffd60",
+        "sha256": "549fc7196f7a70fc9b84c08cac7de600de30bbef183e60bb4b700f20b6578922",
+        "bytes": 1434
+      },
+      {
+        "path": "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java",
+        "mode": "100644",
+        "git_blob": "07f42ba4ca56a8e04cb433327a8b784d1786944e",
+        "sha256": "0bf7d4638add57363cde29b964d9fcc44ac55da9df320ff1ebfebc5c9f0786cd",
+        "bytes": 2758
+      },
+      {
+        "path": "spring-petclinic-visits-service/src/main/resources/application.yml",
+        "mode": "100644",
+        "git_blob": "ada02194cf39152fa9373eb61bb27202ec226d48",
+        "sha256": "129ebad1487c0c78d10bd083658fc7b1712f0b0147c682dd56b7ae82239b9007",
+        "bytes": 250
+      },
+      {
+        "path": "spring-petclinic-visits-service/src/main/resources/db/hsqldb/data.sql",
+        "mode": "100644",
+        "git_blob": "29bc762e65d9cd091eb22fe85e1fa50d41578b91",
+        "sha256": "59b606da305562e38e835128d97d22d23b73031ad1ce72060746ef35c5e82756",
+        "bytes": 244
+      },
+      {
+        "path": "spring-petclinic-visits-service/src/main/resources/db/hsqldb/schema.sql",
+        "mode": "100644",
+        "git_blob": "9714a58064c925192950cbf00838bf76172e39e4",
+        "sha256": "2b46bd5480d06b9737dd4ad605517a2686da3e499ce924ed9eccb5ef3f7c26af",
+        "bytes": 227
+      },
+      {
+        "path": "spring-petclinic-visits-service/src/main/resources/db/mysql/data.sql",
+        "mode": "100644",
+        "git_blob": "d57dce6e56e18e66500506274f0508e477d29963",
+        "sha256": "88863383b18d40fe7c06184d3a7a16592afe504120a4b6e5ea095ab6343ca57b",
+        "bytes": 272
+      },
+      {
+        "path": "spring-petclinic-visits-service/src/main/resources/db/mysql/schema.sql",
+        "mode": "100644",
+        "git_blob": "2663f71a4216980ef352065e2bd9262d798c0bc7",
+        "sha256": "aa376fc9f6c99d0d1d6f84e71881ba618912db25b1f83bdb79ab06e0697217f3",
+        "bytes": 295
+      },
+      {
+        "path": "spring-petclinic-visits-service/src/main/resources/logback-spring.xml",
+        "mode": "100644",
+        "git_blob": "5d03f79413815de8cfffdc114e57b1cc53b68be4",
+        "sha256": "457ac6aa96bbcb5f814d61be22be737e423cfcc355abeb7812b23a60c78d295f",
+        "bytes": 254
+      },
+      {
+        "path": "spring-petclinic-visits-service/src/test/java/org/springframework/samples/petclinic/visits/web/VisitResourceTest.java",
+        "mode": "100644",
+        "git_blob": "05cb4fc4d0b7a844166c0137758585529a0e259e",
+        "sha256": "99bc97c08399cd183a8927031231a2cb20f1a1a24c5247a7607e91a1add0a8ec",
+        "bytes": 2197
+      },
+      {
+        "path": "spring-petclinic-visits-service/src/test/resources/application-test.yml",
+        "mode": "100644",
+        "git_blob": "b9c699b5f0eadca5049a606feaed853e51090715",
+        "sha256": "9fa1d78cbe03f9a29cb3e769d8060b995bff1e6182c11b486068135e22c1f155",
+        "bytes": 298
+      }
+    ]
+  },
+  "config_snapshot": {
+    "archive_sha256": "a0c450c76ef55bd2419b5e915f96c66ca0fefa4a178eeb3beca810fc0135d3ce",
+    "pin": "323993ce2519c6d02df63e08bf4458d123d3b611",
+    "full_git_blob_tree_verified": true,
+    "files": [
+      {
+        "path": ".gitignore",
+        "mode": "100644",
+        "git_blob": "249963d2c17e609f65fa35934d8dc453d01c9611",
+        "sha256": "3e99b4edbad99294a744637e63102b494b0ac5e619d1ecddda9fc69daf32a26e",
+        "bytes": 12
+      },
+      {
+        "path": "LICENSE",
+        "mode": "100644",
+        "git_blob": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+        "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+        "bytes": 11357
+      },
+      {
+        "path": "README.md",
+        "mode": "100644",
+        "git_blob": "f05177717e61b09ffb0434082e3dbb123c5271b7",
+        "sha256": "70ac057d5134f4de37329bb299b1beb572f40dc92572bb7d9a2ca4f56451439c",
+        "bytes": 229
+      },
+      {
+        "path": "admin-server.yml",
+        "mode": "100644",
+        "git_blob": "95f97271d787a89d37f2e5fc345800af8928834a",
+        "sha256": "2cc68dc4dc1df4030edce86729437c8732e3d2b9357245644924980e665e3b21",
+        "bytes": 173
+      },
+      {
+        "path": "api-gateway.yml",
+        "mode": "100644",
+        "git_blob": "e36cb8851787e92a539f7318dcb8f5cb58125e73",
+        "sha256": "e248484d6ab632dd8a2da679defa57e480fbe26b46ed4e4f3eab1e7408a65414",
+        "bytes": 416
+      },
+      {
+        "path": "application.yml",
+        "mode": "100644",
+        "git_blob": "f96f7fbaa4f5200653b3c38e6cb6eb5297503f49",
+        "sha256": "c2c1f1d6153cc869ff53a60702b1f48dc1bc7a75bf29afc91b0534f332495da3",
+        "bytes": 2583
+      },
+      {
+        "path": "customers-service.yml",
+        "mode": "100644",
+        "git_blob": "9dd436c2143a9a111e155f9c986e1eed85a5cca6",
+        "sha256": "5754a56fbb6e32b8e05c2cecfcc1bfc0b96d946084fe4ba4d47e3d78b57c5213",
+        "bytes": 387
+      },
+      {
+        "path": "discovery-server.yml",
+        "mode": "100644",
+        "git_blob": "297a9a0988a5c476d5ab3dd756ddbf1027169d1e",
+        "sha256": "6cda6ee60f38c5b7fd4cd3fd22de199aa13359749ef004599622d75260253152",
+        "bytes": 248
+      },
+      {
+        "path": "genai-service.yml",
+        "mode": "100644",
+        "git_blob": "9c4a73d8f5cef008be7340350eda4091e3045b4e",
+        "sha256": "278a6dbca716448d0a775ca573f6f3859ddfcb5fa21ab723c119164ceb2e8de5",
+        "bytes": 387
+      },
+      {
+        "path": "tracing-server.yml",
+        "mode": "100644",
+        "git_blob": "f18f88fb4d7005c2a058cea2c38b2fef861300fc",
+        "sha256": "cd9244c0d550275f3ee91823a6ca21c80a9d2c909f301ff6bca311b280c57fc5",
+        "bytes": 389
+      },
+      {
+        "path": "vets-service.yml",
+        "mode": "100644",
+        "git_blob": "3617175c282c5f551fdfaaeaa5e6bfc2e0c70199",
+        "sha256": "6c151710f4f4df51d26b36eb41ae75be87595b7d3df585a96041955d27d13e0e",
+        "bytes": 438
+      },
+      {
+        "path": "visits-service.yml",
+        "mode": "100644",
+        "git_blob": "99bf661ec87b2eb041e3c1656a231c9ae8a23d63",
+        "sha256": "93a9716ef2d439aa129191cfecfa759d4b5bccf6ead8d1100768db509d319a95",
+        "bytes": 387
+      }
+    ]
+  },
+  "pinned_git_exports": [
+    {
+      "package_path": "benchmark/protocol/benchmark_protocol_v0.2.md",
+      "commit": "5f9204d66253604edf9101c2f888fc7e75aa0be7",
+      "git_path": "benchmark/protocol/benchmark_protocol_v0.2.md",
+      "sha256": "92258d2a19599f202c39ab5067191248c17631565391ffab9f96d9cc0608d6cb"
+    }
+  ],
+  "copied_files": [
+    {
+      "package_path": "PROJECT_CONTEXT.md",
+      "sha256": "c1c8ad23f95a8e9e2fd4a8762b23d41c3984fd5ddc9bffc19a48617d18aa5434",
+      "bytes": 43538,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\PROJECT_CONTEXT.md"
+    },
+    {
+      "package_path": "tasks/P02_P04_TASK_PACKETS.md",
+      "sha256": "6928665d6316dc745e03b0bf77d4898b6a7741bfa80c497d7d668bce45085263",
+      "bytes": 9712,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\tasks\\P02_P04_TASK_PACKETS.md"
+    },
+    {
+      "package_path": "tasks/P02_P04_EXECUTION_PLAN.md",
+      "sha256": "e783c948d7a5169e24adafdff1e65093855ed6764fdd93b66ba43bf8cd31368d",
+      "bytes": 17469,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\tasks\\P02_P04_EXECUTION_PLAN.md"
+    },
+    {
+      "package_path": "tasks/P02_P04_RESEARCH_REGISTER.json",
+      "sha256": "d805c615fe505cbc02c7b626eed46ebef6ce738d89b8fe3d8860aceea5021986",
+      "bytes": 7398,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\tasks\\P02_P04_RESEARCH_REGISTER.json"
+    },
+    {
+      "package_path": "benchmark/p02/README.md",
+      "sha256": "01ad78e405dcaaae4973bcf5b9246f1d45d88ca0662d541905599930e9a586d2",
+      "bytes": 8144,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\benchmark\\p02\\README.md"
+    },
+    {
+      "package_path": "pipeline/p02/README.md",
+      "sha256": "a2df6f0dc8db333fe2d8edcf1fae134c49a00bcc822573d61153518e30c51a30",
+      "bytes": 7029,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\pipeline\\p02\\README.md"
+    },
+    {
+      "package_path": "benchmark/p02/preparation.v1/scenario.json",
+      "sha256": "7d415b72a0d60911c104afe012d912ab3c600cb8f2da24e94791f7ab90264557",
+      "bytes": 2929,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\benchmark\\p02\\preparation.v1\\scenario.json"
+    },
+    {
+      "package_path": "benchmark/p02/preparation.v1/fixture.json",
+      "sha256": "2a319f48c2d31894718228539c3743396e3d3e5ad04579985f6d2588bb324191",
+      "bytes": 4082,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\benchmark\\p02\\preparation.v1\\fixture.json"
+    },
+    {
+      "package_path": "benchmark/p02/preparation.v1/scope.json",
+      "sha256": "4faf66f411ca91799fb67b5698a7541c8859a50f08bcb628323eccb5cabf6695",
+      "bytes": 4659,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\benchmark\\p02\\preparation.v1\\scope.json"
+    },
+    {
+      "package_path": "benchmark/p02/preparation.v1/optional-query.patch",
+      "sha256": "091b04de4a504512cbda4e0c5c0759b747b056b4c7028923d8b7808b43303c4f",
+      "bytes": 938,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\benchmark\\p02\\preparation.v1\\optional-query.patch"
+    },
+    {
+      "package_path": "START_HERE.md",
+      "sha256": "40b0ebe9ff55793084ac59908b0fadea264ed31c36e3b41162fba1ab78915e8b",
+      "bytes": 6066,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\tasks\\p02-handoff\\PHAT_START_HERE.md"
+    },
+    {
+      "package_path": "AI_PROMPT.txt",
+      "sha256": "12258373e9aa5fe6a248fda70e40d5d74076dafc18d9ff514c90f75d58661c18",
+      "bytes": 2203,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\tasks\\p02-handoff\\AI_PHAT_PROMPT.txt"
+    },
+    {
+      "package_path": "RETURN_TEMPLATE.md",
+      "sha256": "7c622123139713a115f7d6fcc199afe61b8b599f8132431d97a552c361bf5a61",
+      "bytes": 1492,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\tasks\\p02-handoff\\RETURN_PHAT_TEMPLATE.md"
+    },
+    {
+      "package_path": "ACKNOWLEDGEMENT_TEMPLATE.md",
+      "sha256": "28110187d49226bf061f25300ceef9380a1e275bd89e13732d6888ad8b9ba3f4",
+      "bytes": 741,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\tasks\\p02-handoff\\ACKNOWLEDGEMENT_TEMPLATE.md"
+    },
+    {
+      "package_path": "VERIFY_PACKAGE.ps1",
+      "sha256": "f9007cca3d3f79ed64699b5dd56f4131f90dc183558ef3f935da283e447c88f4",
+      "bytes": 1679,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\tasks\\p02-handoff\\VERIFY_PACKAGE.ps1"
+    },
+    {
+      "package_path": "SOURCE_NOTES_TEMPLATE.md",
+      "sha256": "3cb9835b92dfc862a94cf49f89fe2b035c6fcc1772c106cd1ce8f155cadf8b08",
+      "bytes": 937,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\tasks\\p02-handoff\\SOURCE_NOTES_TEMPLATE.md"
+    },
+    {
+      "package_path": "verify_package.mjs",
+      "sha256": "5f46ebac66ba43b2cb1730d7e9a21659d0602c48cbbaddf2c424e7ca89bdaa37",
+      "bytes": 5237,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\scripts\\verify_p02_handoff.mjs"
+    },
+    {
+      "package_path": "draft/inventory.v1.json",
+      "sha256": "9f4a7f1f323a5f11a3902def30f717a16ba3d1b2023ed9982a81f298d9dc74f6",
+      "bytes": 13858,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-preparation\\20261015T095309937Z-d20ef94a\\inventory.v1.json"
+    },
+    {
+      "package_path": "draft/evaluation_universe.draft.v1.json",
+      "sha256": "8c04bbca98318c3d358ec9135516d889f3b7c017793dbc4aa5319771ed8d7424",
+      "bytes": 18922,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-preparation\\20261015T095309937Z-d20ef94a\\evaluation_universe.draft.v1.json"
+    },
+    {
+      "package_path": "draft/request-plan.v1.json",
+      "sha256": "a4613b82f251b957fd97b0e6ba565db913d11e613472c7915b6647fbb0aa43b2",
+      "bytes": 13796,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-preparation\\20261015T095309937Z-d20ef94a\\request-plan.v1.json"
+    },
+    {
+      "package_path": "evidence/baseline/cleanup.json",
+      "sha256": "f100ba65d5501d431bba2313e84448d1e741f016c6319c3033a0ed058b1671c6",
+      "bytes": 1224,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\cleanup.json"
+    },
+    {
+      "package_path": "evidence/baseline/config-extract.command.json",
+      "sha256": "336e771934ce7e3828017bf8e1f7f73b61fb09e3c7271815d978a4419f687df5",
+      "bytes": 355,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\config-extract.command.json"
+    },
+    {
+      "package_path": "evidence/baseline/config-extract.exit.json",
+      "sha256": "5e382f8172af8a61fa3e9bc1e08ba0cb16e725042ab4829b6c59a48ede555eda",
+      "bytes": 38,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\config-extract.exit.json"
+    },
+    {
+      "package_path": "evidence/baseline/config-extract.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\config-extract.stderr.log"
+    },
+    {
+      "package_path": "evidence/baseline/config-extract.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\config-extract.stdout.log"
+    },
+    {
+      "package_path": "evidence/baseline/config/.gitignore",
+      "sha256": "3e99b4edbad99294a744637e63102b494b0ac5e619d1ecddda9fc69daf32a26e",
+      "bytes": 12,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\config\\.gitignore"
+    },
+    {
+      "package_path": "evidence/baseline/config/LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "bytes": 11357,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\config\\LICENSE"
+    },
+    {
+      "package_path": "evidence/baseline/config/README.md",
+      "sha256": "70ac057d5134f4de37329bb299b1beb572f40dc92572bb7d9a2ca4f56451439c",
+      "bytes": 229,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\config\\README.md"
+    },
+    {
+      "package_path": "evidence/baseline/config/admin-server.yml",
+      "sha256": "2cc68dc4dc1df4030edce86729437c8732e3d2b9357245644924980e665e3b21",
+      "bytes": 173,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\config\\admin-server.yml"
+    },
+    {
+      "package_path": "evidence/baseline/config/api-gateway.yml",
+      "sha256": "e248484d6ab632dd8a2da679defa57e480fbe26b46ed4e4f3eab1e7408a65414",
+      "bytes": 416,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\config\\api-gateway.yml"
+    },
+    {
+      "package_path": "evidence/baseline/config/application.yml",
+      "sha256": "c2c1f1d6153cc869ff53a60702b1f48dc1bc7a75bf29afc91b0534f332495da3",
+      "bytes": 2583,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\config\\application.yml"
+    },
+    {
+      "package_path": "evidence/baseline/config/customers-service.yml",
+      "sha256": "5754a56fbb6e32b8e05c2cecfcc1bfc0b96d946084fe4ba4d47e3d78b57c5213",
+      "bytes": 387,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\config\\customers-service.yml"
+    },
+    {
+      "package_path": "evidence/baseline/config/discovery-server.yml",
+      "sha256": "6cda6ee60f38c5b7fd4cd3fd22de199aa13359749ef004599622d75260253152",
+      "bytes": 248,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\config\\discovery-server.yml"
+    },
+    {
+      "package_path": "evidence/baseline/config/genai-service.yml",
+      "sha256": "278a6dbca716448d0a775ca573f6f3859ddfcb5fa21ab723c119164ceb2e8de5",
+      "bytes": 387,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\config\\genai-service.yml"
+    },
+    {
+      "package_path": "evidence/baseline/config/tracing-server.yml",
+      "sha256": "cd9244c0d550275f3ee91823a6ca21c80a9d2c909f301ff6bca311b280c57fc5",
+      "bytes": 389,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\config\\tracing-server.yml"
+    },
+    {
+      "package_path": "evidence/baseline/config/vets-service.yml",
+      "sha256": "6c151710f4f4df51d26b36eb41ae75be87595b7d3df585a96041955d27d13e0e",
+      "bytes": 438,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\config\\vets-service.yml"
+    },
+    {
+      "package_path": "evidence/baseline/config/visits-service.yml",
+      "sha256": "93a9716ef2d439aa129191cfecfa759d4b5bccf6ead8d1100768db509d319a95",
+      "bytes": 387,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\config\\visits-service.yml"
+    },
+    {
+      "package_path": "evidence/baseline/inputs.json",
+      "sha256": "08ce94a37eb6a172cee24321b74ec8520440d30c079055d51bf70a44674b1245",
+      "bytes": 2145,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\inputs.json"
+    },
+    {
+      "package_path": "evidence/baseline/logs/api-gateway.log",
+      "sha256": "aa228ed3446a1d4b5b789671cd3c700472354dd24fb1b3933f62c7fc7cdbd515",
+      "bytes": 51682,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\logs\\api-gateway.log"
+    },
+    {
+      "package_path": "evidence/baseline/logs/config-server.log",
+      "sha256": "fc8aadf4b9daa17c344a73043c3d075787b7a71af4789cc5b05cc45d30a696f7",
+      "bytes": 10208,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\logs\\config-server.log"
+    },
+    {
+      "package_path": "evidence/baseline/logs/customers-service.log",
+      "sha256": "e6054897ced37fc2a5ffad54052bd2516b83702cad46a343c6064712eaed411a",
+      "bytes": 22852,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\logs\\customers-service.log"
+    },
+    {
+      "package_path": "evidence/baseline/logs/discovery-server.log",
+      "sha256": "4bdd16d3d9871bf4f9c892069873c98b8b7a04c07466a22ed43cf435a798e0b6",
+      "bytes": 12644,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\logs\\discovery-server.log"
+    },
+    {
+      "package_path": "evidence/baseline/logs/visits-service.log",
+      "sha256": "c87491ff266e3591a639d9b17a4ef9700063c3a005fcebef0802edabc947fe6c",
+      "bytes": 21275,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\logs\\visits-service.log"
+    },
+    {
+      "package_path": "evidence/baseline/network-create.command.json",
+      "sha256": "ada99e466bddc10c427ba36e599992a2b93982734731cbd06f79589c4f3f090e",
+      "bytes": 284,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\network-create.command.json"
+    },
+    {
+      "package_path": "evidence/baseline/network-create.exit.json",
+      "sha256": "5e382f8172af8a61fa3e9bc1e08ba0cb16e725042ab4829b6c59a48ede555eda",
+      "bytes": 38,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\network-create.exit.json"
+    },
+    {
+      "package_path": "evidence/baseline/network-create.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\network-create.stderr.log"
+    },
+    {
+      "package_path": "evidence/baseline/network-create.stdout.log",
+      "sha256": "40099b78db0a7e189703063c32296888d1c7e6e2396c10d650a9680d22c22c31",
+      "bytes": 65,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\network-create.stdout.log"
+    },
+    {
+      "package_path": "evidence/baseline/observations.command.json",
+      "sha256": "74e4de0474a30083c7516d3b0521b14988b81b654d3cb6b410c54fe12cd84b99",
+      "bytes": 1232,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\observations.command.json"
+    },
+    {
+      "package_path": "evidence/baseline/observations.exit.json",
+      "sha256": "5e382f8172af8a61fa3e9bc1e08ba0cb16e725042ab4829b6c59a48ede555eda",
+      "bytes": 38,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\observations.exit.json"
+    },
+    {
+      "package_path": "evidence/baseline/observations.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\observations.stderr.log"
+    },
+    {
+      "package_path": "evidence/baseline/observations/config-customers.body",
+      "sha256": "b0c9c4417b5312c4cf66e719579d1db37b95d84c2641e8ec27352a4edf8c44bb",
+      "bytes": 1499,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\observations\\config-customers.body"
+    },
+    {
+      "package_path": "evidence/baseline/observations/config-customers.json",
+      "sha256": "13c2fae7e4c72f7bc2f987ed1bb5cc6c6fd4cad2448994fb652300cb7718bc20",
+      "bytes": 724,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\observations\\config-customers.json"
+    },
+    {
+      "package_path": "evidence/baseline/observations/config-gateway.body",
+      "sha256": "f6817f4d62272b8eb0610fdcd143e3a8925747fd9d15c2997e4ce060cc3b4a5a",
+      "bytes": 1853,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\observations\\config-gateway.body"
+    },
+    {
+      "package_path": "evidence/baseline/observations/config-gateway.json",
+      "sha256": "1f3d0d079ba3817f91bdd316a796f02c3bd4fe2abe1a239f40a1fda616b0ac11",
+      "bytes": 714,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\observations\\config-gateway.json"
+    },
+    {
+      "package_path": "evidence/baseline/observations/config-visits.body",
+      "sha256": "8e6a8f6ecc2868087c31895f818ce6269ccd55229689c0370bf5f97fb9f08fa5",
+      "bytes": 1493,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\observations\\config-visits.body"
+    },
+    {
+      "package_path": "evidence/baseline/observations/config-visits.json",
+      "sha256": "f5a099ecd6afbf8ee48fecef03d33be31c8db2909b049379fcfc6410e1e6d8c5",
+      "bytes": 715,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\observations\\config-visits.json"
+    },
+    {
+      "package_path": "evidence/baseline/observations/direct_empty.body",
+      "sha256": "8e0a343551d92ce841e0f20cb8708859a7bf07ae5d2a1bd6ca6c0ef6ac04144c",
+      "bytes": 271,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\observations\\direct_empty.body"
+    },
+    {
+      "package_path": "evidence/baseline/observations/direct_empty.json",
+      "sha256": "f56408d61eb4fbc04d4c7bb834b3ec8fe88232bc813428ace48ccabbe26a6918",
+      "bytes": 729,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\observations\\direct_empty.json"
+    },
+    {
+      "package_path": "evidence/baseline/observations/direct_false.body",
+      "sha256": "8e0a343551d92ce841e0f20cb8708859a7bf07ae5d2a1bd6ca6c0ef6ac04144c",
+      "bytes": 271,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\observations\\direct_false.body"
+    },
+    {
+      "package_path": "evidence/baseline/observations/direct_false.json",
+      "sha256": "88452eb03b3d4664c460cf122ed90dda29065ba6ba312cadf35cfb0215d52342",
+      "bytes": 734,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\observations\\direct_false.json"
+    },
+    {
+      "package_path": "evidence/baseline/observations/direct_invalid.body",
+      "sha256": "8e0a343551d92ce841e0f20cb8708859a7bf07ae5d2a1bd6ca6c0ef6ac04144c",
+      "bytes": 271,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\observations\\direct_invalid.body"
+    },
+    {
+      "package_path": "evidence/baseline/observations/direct_invalid.json",
+      "sha256": "f204ba9d8022f30e35580bd12eafa92d116ab57d680f178472d7896e48358057",
+      "bytes": 746,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\observations\\direct_invalid.json"
+    },
+    {
+      "package_path": "evidence/baseline/observations/direct_missing_pet_id.body",
+      "sha256": "710eb63ad119331c42f87e1b67ac8a4270de15f35537fb454e2e0d157776c42f",
+      "bytes": 97,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\observations\\direct_missing_pet_id.body"
+    },
+    {
+      "package_path": "evidence/baseline/observations/direct_missing_pet_id.json",
+      "sha256": "2a720d9cd4d48e0341a91b4c77493234dc6c99dc776769829f4dbde8fd970b41",
+      "bytes": 767,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\observations\\direct_missing_pet_id.json"
+    },
+    {
+      "package_path": "evidence/baseline/observations/direct_omitted.body",
+      "sha256": "8e0a343551d92ce841e0f20cb8708859a7bf07ae5d2a1bd6ca6c0ef6ac04144c",
+      "bytes": 271,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\observations\\direct_omitted.body"
+    },
+    {
+      "package_path": "evidence/baseline/observations/direct_omitted.json",
+      "sha256": "1f0ff98c55b0cbad205785b92cd7fe87c32c7d6ef601e91cd82ba0c01df175d6",
+      "bytes": 717,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\observations\\direct_omitted.json"
+    },
+    {
+      "package_path": "evidence/baseline/observations/direct_true.body",
+      "sha256": "8e0a343551d92ce841e0f20cb8708859a7bf07ae5d2a1bd6ca6c0ef6ac04144c",
+      "bytes": 271,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\observations\\direct_true.body"
+    },
+    {
+      "package_path": "evidence/baseline/observations/direct_true.json",
+      "sha256": "b2466379734e9e54ad37b10f3d49672c78529f746ec738c8e689994b338c757b",
+      "bytes": 731,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\observations\\direct_true.json"
+    },
+    {
+      "package_path": "evidence/baseline/observations/discovery-registry.body",
+      "sha256": "fa6be55b5cdbc08692b5a82c221a20d679139251038cbefb5208b0c7ffb0e7b0",
+      "bytes": 3018,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\observations\\discovery-registry.body"
+    },
+    {
+      "package_path": "evidence/baseline/observations/discovery-registry.json",
+      "sha256": "e9e2663bab5a4039f4b0d80554be378f44decc2bc3151985d2a333bd9ad71ac7",
+      "bytes": 711,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\observations\\discovery-registry.json"
+    },
+    {
+      "package_path": "evidence/baseline/observations/gateway_empty.body",
+      "sha256": "c32094f8acca185aa105ffbb15f4b98ca25f12e467871668fb372510f5d833c8",
+      "bytes": 228,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\observations\\gateway_empty.body"
+    },
+    {
+      "package_path": "evidence/baseline/observations/gateway_empty.json",
+      "sha256": "388f10dd1b48e78f414ee8b9e69258cac4466c91162f1744172f41de8a34a1dc",
+      "bytes": 639,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\observations\\gateway_empty.json"
+    },
+    {
+      "package_path": "evidence/baseline/observations/gateway_populated.body",
+      "sha256": "4cec186c7c41d5b0e8471457323c97ec49254b8d3358fdf2daeb00c381db0acf",
+      "bytes": 579,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\observations\\gateway_populated.body"
+    },
+    {
+      "package_path": "evidence/baseline/observations/gateway_populated.json",
+      "sha256": "1d33e9dcbe76a1cd1ce9b0f38ebabc74b4c9ba8f475f421fc5101fc2e043af8d",
+      "bytes": 647,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\observations\\gateway_populated.json"
+    },
+    {
+      "package_path": "evidence/baseline/observations/overload_read.body",
+      "sha256": "8cbcdc3afb8c9c4e05f13edb8dba94e441cc6df540764b9507f4748a2ab1906f",
+      "bytes": 130,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\observations\\overload_read.body"
+    },
+    {
+      "package_path": "evidence/baseline/observations/overload_read.json",
+      "sha256": "93023496c1470ed26942cd68170810a1aef1359fca5ab01c67bf3dbb3650ef1a",
+      "bytes": 716,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\observations\\overload_read.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-api-gateway.command.json",
+      "sha256": "c4f0a7f717c0e25380ab84198eb5402f7ebcfe0a9af76280b643c55219335e98",
+      "bytes": 1221,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-api-gateway.command.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-api-gateway.exit.json",
+      "sha256": "5e382f8172af8a61fa3e9bc1e08ba0cb16e725042ab4829b6c59a48ede555eda",
+      "bytes": 38,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-api-gateway.exit.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-api-gateway.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-api-gateway.stderr.log"
+    },
+    {
+      "package_path": "evidence/baseline/ready-api-gateway/readiness-001.json",
+      "sha256": "2a53ddd2a3e129bbc8bb4595264678c387ac9c8263e66f2129de34033ed3e8a6",
+      "bytes": 460,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-api-gateway\\readiness-001.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-api-gateway/readiness-002.json",
+      "sha256": "0c94c01f482ebba30d79e934a76279551daa70d8e6f913b6239626351ce6d22b",
+      "bytes": 460,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-api-gateway\\readiness-002.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-api-gateway/readiness-003.json",
+      "sha256": "fd98a4735d535d3e0632bd7c2d45af9e920451c496c74bdf5cd7d07db49c483d",
+      "bytes": 460,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-api-gateway\\readiness-003.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-api-gateway/readiness-004.json",
+      "sha256": "42aa7b9ba78e0cc980950d826db7217ef2d781e4f4da775ae87bf61348231d95",
+      "bytes": 460,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-api-gateway\\readiness-004.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-api-gateway/readiness-005.json",
+      "sha256": "b1747e1f203d3ebd289161fd8ffa3ed4d1ea324112070e4478e527c784cd0fd4",
+      "bytes": 460,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-api-gateway\\readiness-005.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-api-gateway/readiness-006.json",
+      "sha256": "30159311240bf125a80791ab465695413e34123ffdd7832fa10083956b29bdad",
+      "bytes": 460,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-api-gateway\\readiness-006.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-api-gateway/readiness-007.json",
+      "sha256": "bb09b299838fde75a539edffcd4e992c57116e49f88c3e71bfd2e21a4e3682c9",
+      "bytes": 460,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-api-gateway\\readiness-007.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-api-gateway/readiness-008.json",
+      "sha256": "7757b87e02717d5608cb2a2a49dc7842862b8e8f58eaf584c3ec992e612b5acc",
+      "bytes": 460,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-api-gateway\\readiness-008.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-api-gateway/readiness-009.json",
+      "sha256": "bb5f818f46139ea7612fa4b32f66a8f35d108ee7dcaf7588b6e7753a3f2f3f99",
+      "bytes": 460,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-api-gateway\\readiness-009.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-api-gateway/readiness-010.body",
+      "sha256": "4cec186c7c41d5b0e8471457323c97ec49254b8d3358fdf2daeb00c381db0acf",
+      "bytes": 579,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-api-gateway\\readiness-010.body"
+    },
+    {
+      "package_path": "evidence/baseline/ready-api-gateway/readiness-010.json",
+      "sha256": "2bc85faa777bbde5ceb33bfbbf453ee74c3e4dad290c725c087f3c33043a9f44",
+      "bytes": 641,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-api-gateway\\readiness-010.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-config-server.command.json",
+      "sha256": "d9ee7d2541326cdbebd0cabd9bda8b802965cf282ff8668ead444f886ec16a41",
+      "bytes": 1224,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-config-server.command.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-config-server.exit.json",
+      "sha256": "5e382f8172af8a61fa3e9bc1e08ba0cb16e725042ab4829b6c59a48ede555eda",
+      "bytes": 38,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-config-server.exit.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-config-server.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-config-server.stderr.log"
+    },
+    {
+      "package_path": "evidence/baseline/ready-config-server/readiness-001.json",
+      "sha256": "88c5ff1f37d6281c413d37613d36fa070362e2a5acd9f87dfd72c0dff9a375a1",
+      "bytes": 461,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-config-server\\readiness-001.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-config-server/readiness-002.json",
+      "sha256": "1e1d676ba34ef15810adda7b288028188232804c6d3c11e2fe1f9d5bfe7ab368",
+      "bytes": 460,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-config-server\\readiness-002.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-config-server/readiness-003.json",
+      "sha256": "d3fb25542d5f5aa53ffa45c6c86d3dfc11b5a6c1495fe6d1d98d4238c8322265",
+      "bytes": 460,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-config-server\\readiness-003.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-config-server/readiness-004.json",
+      "sha256": "ed4aaaf185be0381f3bf9863e4cf30b271e651b81401869d7092bd3f13004379",
+      "bytes": 460,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-config-server\\readiness-004.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-config-server/readiness-005.body",
+      "sha256": "bd6a5e603dfd2d4b41e3c6caae997ecbc627448123825d61c465173269bec4b7",
+      "bytes": 1231,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-config-server\\readiness-005.body"
+    },
+    {
+      "package_path": "evidence/baseline/ready-config-server/readiness-005.json",
+      "sha256": "839c6c7c919fee0d85cd2c50a50a8b4a39ddb1683a833b0b93ca8413f146d46f",
+      "bytes": 713,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-config-server\\readiness-005.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-customers-service.command.json",
+      "sha256": "37d12285f2604c25164a52a56fc68f2cde3ecb43490babc24e33809b4d37df60",
+      "bytes": 1235,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-customers-service.command.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-customers-service.exit.json",
+      "sha256": "5e382f8172af8a61fa3e9bc1e08ba0cb16e725042ab4829b6c59a48ede555eda",
+      "bytes": 38,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-customers-service.exit.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-customers-service.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-customers-service.stderr.log"
+    },
+    {
+      "package_path": "evidence/baseline/ready-customers-service/readiness-001.json",
+      "sha256": "35ddfe454389bbe103202ce98a9becdba7bb9d5889138f23aaed5ac4b9d7c12d",
+      "bytes": 454,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-customers-service\\readiness-001.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-customers-service/readiness-002.json",
+      "sha256": "fd3770790fd7bcc48b7908f73e835e06eb9772c87df3e4b8a8ffe2949068400f",
+      "bytes": 454,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-customers-service\\readiness-002.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-customers-service/readiness-003.json",
+      "sha256": "ff1dd513f26b9d2df16031fd27ab24ea36dfe641cd522ecec2f32b44acc30e18",
+      "bytes": 454,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-customers-service\\readiness-003.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-customers-service/readiness-004.json",
+      "sha256": "c43d847a531db1de09f025b1c043d03cf224518e79925d6fdcb725f2cfcbca69",
+      "bytes": 454,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-customers-service\\readiness-004.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-customers-service/readiness-005.json",
+      "sha256": "94bdc7cc94fc0bf8163631867aad2199ab8335840a0fc7f827124a9d057bc4b4",
+      "bytes": 454,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-customers-service\\readiness-005.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-customers-service/readiness-006.json",
+      "sha256": "c223e48ca2453dc90cef5bec3f405c5c33075676bb851dece4758f8aab556ced",
+      "bytes": 454,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-customers-service\\readiness-006.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-customers-service/readiness-007.json",
+      "sha256": "3bfe1ae1b01cca053f8a63c735f0b5e963f8ff4d1ed08919e7757aef52a38659",
+      "bytes": 454,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-customers-service\\readiness-007.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-customers-service/readiness-008.json",
+      "sha256": "8de680f9591284cfe466f844804070bbc03256c6a2b78aa977ea15840243c977",
+      "bytes": 454,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-customers-service\\readiness-008.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-customers-service/readiness-009.json",
+      "sha256": "f03e05df57f9d28795269d3cc32e4b36a929592cc7251bdef465148ff119f884",
+      "bytes": 454,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-customers-service\\readiness-009.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-customers-service/readiness-010.json",
+      "sha256": "221b2286a6d4a44b09ed0b99b90d57c2d59a41110edb1f1e7bd14f8d741b0ae7",
+      "bytes": 454,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-customers-service\\readiness-010.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-customers-service/readiness-011.json",
+      "sha256": "1d0cf163e6fefc87c48e99357e3a7db84d06636599829131a14b44dc3825022e",
+      "bytes": 454,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-customers-service\\readiness-011.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-customers-service/readiness-012.json",
+      "sha256": "b925a8563f37cba58ee67f033e358f8e95ae6aa5235c663f5e181bd1557f190e",
+      "bytes": 454,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-customers-service\\readiness-012.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-customers-service/readiness-013.json",
+      "sha256": "7b571e120dc42004b2b31c2cb44969668ba87244b2c1b9941726162ca178f3ea",
+      "bytes": 454,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-customers-service\\readiness-013.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-customers-service/readiness-014.body",
+      "sha256": "907cef8ca2ee1993d2a7f2a98da280a398be37fa1f5d1d0e85ebe0757923670e",
+      "bytes": 311,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-customers-service\\readiness-014.body"
+    },
+    {
+      "package_path": "evidence/baseline/ready-customers-service/readiness-014.json",
+      "sha256": "f3fb2196483d3e9cdeea7b252e48d1513461b1a419bde9bf73a509fc3e891c52",
+      "bytes": 706,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-customers-service\\readiness-014.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-discovery-server.command.json",
+      "sha256": "66a778afd9a8c8a5031fbd77792e9ead1caed2b4805bab8038d6b589a9377cde",
+      "bytes": 1233,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-discovery-server.command.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-discovery-server.exit.json",
+      "sha256": "5e382f8172af8a61fa3e9bc1e08ba0cb16e725042ab4829b6c59a48ede555eda",
+      "bytes": 38,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-discovery-server.exit.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-discovery-server.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-discovery-server.stderr.log"
+    },
+    {
+      "package_path": "evidence/baseline/ready-discovery-server/readiness-001.json",
+      "sha256": "6a826d2309c5b32b10d894e99ba2edd32e34a4456463224d7a9bb019abe9ca9e",
+      "bytes": 456,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-discovery-server\\readiness-001.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-discovery-server/readiness-002.json",
+      "sha256": "3348847d5daedaddb2adc9cc63e709b903d5b3548214432dbbd48b53ed07726f",
+      "bytes": 456,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-discovery-server\\readiness-002.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-discovery-server/readiness-003.json",
+      "sha256": "7efc9076485cd49fc5c774070f0793a69fdd57bc6b5d1a07fd44ca2dcca7ad7a",
+      "bytes": 456,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-discovery-server\\readiness-003.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-discovery-server/readiness-004.json",
+      "sha256": "a05988bbbc4533ad8114dce569b412d7a0a0218918c1039baee3933e950918c6",
+      "bytes": 456,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-discovery-server\\readiness-004.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-discovery-server/readiness-005.json",
+      "sha256": "ce3515507003fb27501b3ede2792b447d84e8b69658819cbf0b8ebb3befff143",
+      "bytes": 456,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-discovery-server\\readiness-005.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-discovery-server/readiness-006.json",
+      "sha256": "477e6db9beafa508f27e04ecc9e05f0364153d90e39865873069e85f9a0fddce",
+      "bytes": 456,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-discovery-server\\readiness-006.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-discovery-server/readiness-007.json",
+      "sha256": "0a266b9f8ff6aed49df98b5fafdb47dba32fd03e1b8b8bce28153e525ae2a051",
+      "bytes": 456,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-discovery-server\\readiness-007.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-discovery-server/readiness-008.json",
+      "sha256": "39121fb50a25480cd88010bba05f6775ddc628a2e4433f0a2fa2b31d19ebf931",
+      "bytes": 456,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-discovery-server\\readiness-008.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-discovery-server/readiness-009.body",
+      "sha256": "23b45b39f97869a48d826eaac744cb9fb69aa695c5f0424ab4bb3933b55eb759",
+      "bytes": 77,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-discovery-server\\readiness-009.body"
+    },
+    {
+      "package_path": "evidence/baseline/ready-discovery-server/readiness-009.json",
+      "sha256": "5bbf547313c083562bbbf1d1e5b79d5bf0dca171d0689e717c7d864892594036",
+      "bytes": 699,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-discovery-server\\readiness-009.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-visits-service.command.json",
+      "sha256": "57a209557222f08459f8d4c9366fbb9ab89048ea549720ad8ffa9e8912bf5685",
+      "bytes": 1226,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-visits-service.command.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-visits-service.exit.json",
+      "sha256": "5e382f8172af8a61fa3e9bc1e08ba0cb16e725042ab4829b6c59a48ede555eda",
+      "bytes": 38,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-visits-service.exit.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-visits-service.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-visits-service.stderr.log"
+    },
+    {
+      "package_path": "evidence/baseline/ready-visits-service/readiness-001.json",
+      "sha256": "171e31366439b42caf867940ccf8c378f1e21d2da477524c8fcd13cbc31bea28",
+      "bytes": 464,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-visits-service\\readiness-001.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-visits-service/readiness-002.json",
+      "sha256": "5fdc235df88648fdb15e8629cccdb27209b89ff2eaa92c706f005cfb38abebf0",
+      "bytes": 464,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-visits-service\\readiness-002.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-visits-service/readiness-003.json",
+      "sha256": "3ae6608692628b9b6b93f86aef9a75727cb34621e9436be0b6e94553de737c17",
+      "bytes": 464,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-visits-service\\readiness-003.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-visits-service/readiness-004.json",
+      "sha256": "e7ed3a1765643fa03438d400f66cd3b032a45a185ab758e7e56736e881931643",
+      "bytes": 464,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-visits-service\\readiness-004.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-visits-service/readiness-005.json",
+      "sha256": "15dc9261a71cbeb286d6e700840543900dc0522730c8771543006f20be35cc3c",
+      "bytes": 464,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-visits-service\\readiness-005.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-visits-service/readiness-006.json",
+      "sha256": "fe57c770f5a85332e66904b1d5a2ef867b810d9f21d1e7527e5822844670753d",
+      "bytes": 464,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-visits-service\\readiness-006.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-visits-service/readiness-007.json",
+      "sha256": "512056c555bba9b78325b337ca5b33d1df02a4e4a502641a9c5ac486239da036",
+      "bytes": 464,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-visits-service\\readiness-007.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-visits-service/readiness-008.json",
+      "sha256": "091adada7e8cb17cdb98a9d08b0caa175002c93da1fb0ba410ddd425839847ea",
+      "bytes": 464,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-visits-service\\readiness-008.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-visits-service/readiness-009.json",
+      "sha256": "7fa7ac67ac5fcff672ba7f7f05fc7ec09b054e16c003775afa8bd9b2d29bf30d",
+      "bytes": 464,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-visits-service\\readiness-009.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-visits-service/readiness-010.json",
+      "sha256": "22e0e8fdd8a5a723c382995313887baad64719a07b83d49b3536d7888bdcf6b2",
+      "bytes": 464,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-visits-service\\readiness-010.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-visits-service/readiness-011.json",
+      "sha256": "c0579c830e8a1561ab3870ec86e6bf16627c9075dfcf1d329bba819818f11062",
+      "bytes": 464,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-visits-service\\readiness-011.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-visits-service/readiness-012.json",
+      "sha256": "f2773425d97350f6304e40db164c677bf176a4a7b1e14b21833094d2c89aeea2",
+      "bytes": 464,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-visits-service\\readiness-012.json"
+    },
+    {
+      "package_path": "evidence/baseline/ready-visits-service/readiness-013.body",
+      "sha256": "8e0a343551d92ce841e0f20cb8708859a7bf07ae5d2a1bd6ca6c0ef6ac04144c",
+      "bytes": 271,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-visits-service\\readiness-013.body"
+    },
+    {
+      "package_path": "evidence/baseline/ready-visits-service/readiness-013.json",
+      "sha256": "97980aa0b752b39fadcaf5f11e9454d74bd49cccaedce5e1e205cc3c274e6559",
+      "bytes": 717,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\ready-visits-service\\readiness-013.json"
+    },
+    {
+      "package_path": "evidence/baseline/start-api-gateway.command.json",
+      "sha256": "9f71f0317c36d81a53e6c747cd744245f442dffe13d0ef561110dc2117bb24fe",
+      "bytes": 1472,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\start-api-gateway.command.json"
+    },
+    {
+      "package_path": "evidence/baseline/start-api-gateway.exit.json",
+      "sha256": "5e382f8172af8a61fa3e9bc1e08ba0cb16e725042ab4829b6c59a48ede555eda",
+      "bytes": 38,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\start-api-gateway.exit.json"
+    },
+    {
+      "package_path": "evidence/baseline/start-api-gateway.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\start-api-gateway.stderr.log"
+    },
+    {
+      "package_path": "evidence/baseline/start-api-gateway.stdout.log",
+      "sha256": "be316bc94614d9a90a8e9923ab2b6899a503f739568ad1151dd711fcc3dd5c24",
+      "bytes": 65,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\start-api-gateway.stdout.log"
+    },
+    {
+      "package_path": "evidence/baseline/start-config-server.command.json",
+      "sha256": "0952df4a03afe0c45d04c0542b3b7592675ecaf867b11febfd14d203c00f4abf",
+      "bytes": 1396,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\start-config-server.command.json"
+    },
+    {
+      "package_path": "evidence/baseline/start-config-server.exit.json",
+      "sha256": "5e382f8172af8a61fa3e9bc1e08ba0cb16e725042ab4829b6c59a48ede555eda",
+      "bytes": 38,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\start-config-server.exit.json"
+    },
+    {
+      "package_path": "evidence/baseline/start-config-server.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\start-config-server.stderr.log"
+    },
+    {
+      "package_path": "evidence/baseline/start-config-server.stdout.log",
+      "sha256": "b92b9379d613b4a3e0fa137e3db707b2626462e1fb6980b7c5163264ef89b3a3",
+      "bytes": 65,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\start-config-server.stdout.log"
+    },
+    {
+      "package_path": "evidence/baseline/start-customers-service.command.json",
+      "sha256": "cdd386014bba8dd79c752209eb4a26a59e80d836e1f622d515537eee4e39c68a",
+      "bytes": 1490,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\start-customers-service.command.json"
+    },
+    {
+      "package_path": "evidence/baseline/start-customers-service.exit.json",
+      "sha256": "5e382f8172af8a61fa3e9bc1e08ba0cb16e725042ab4829b6c59a48ede555eda",
+      "bytes": 38,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\start-customers-service.exit.json"
+    },
+    {
+      "package_path": "evidence/baseline/start-customers-service.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\start-customers-service.stderr.log"
+    },
+    {
+      "package_path": "evidence/baseline/start-customers-service.stdout.log",
+      "sha256": "5f502389517a8706714273c8de726e408ccdbfbd4a68f307ff45f40243804b08",
+      "bytes": 65,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\start-customers-service.stdout.log"
+    },
+    {
+      "package_path": "evidence/baseline/start-discovery-server.command.json",
+      "sha256": "98d6cbdb6f27dcb1e454f493b8ff1c62ec6e13f50bfad3a01754aaadb5b1418a",
+      "bytes": 1549,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\start-discovery-server.command.json"
+    },
+    {
+      "package_path": "evidence/baseline/start-discovery-server.exit.json",
+      "sha256": "5e382f8172af8a61fa3e9bc1e08ba0cb16e725042ab4829b6c59a48ede555eda",
+      "bytes": 38,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\start-discovery-server.exit.json"
+    },
+    {
+      "package_path": "evidence/baseline/start-discovery-server.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\start-discovery-server.stderr.log"
+    },
+    {
+      "package_path": "evidence/baseline/start-discovery-server.stdout.log",
+      "sha256": "eeb5836d3a7d732e74ddb08f560a3e93b48305fc238b61b5719fa98b64a6ab82",
+      "bytes": 65,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\start-discovery-server.stdout.log"
+    },
+    {
+      "package_path": "evidence/baseline/start-visits-service.command.json",
+      "sha256": "40921cccdd5fa4b75ba5c2d327967097212821d11ab3073c34e8f55a2668af89",
+      "bytes": 1481,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\start-visits-service.command.json"
+    },
+    {
+      "package_path": "evidence/baseline/start-visits-service.exit.json",
+      "sha256": "5e382f8172af8a61fa3e9bc1e08ba0cb16e725042ab4829b6c59a48ede555eda",
+      "bytes": 38,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\start-visits-service.exit.json"
+    },
+    {
+      "package_path": "evidence/baseline/start-visits-service.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\start-visits-service.stderr.log"
+    },
+    {
+      "package_path": "evidence/baseline/start-visits-service.stdout.log",
+      "sha256": "ed382cc5beebf2b1db92e3d4848de5b06fda4f550a77cf4e80b6fef81a4f7cc0",
+      "bytes": 65,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\start-visits-service.stdout.log"
+    },
+    {
+      "package_path": "provenance/build.json",
+      "sha256": "97efffd9a85223a7459e59a656cfe8847422f986597e3e9fcbfe034a88554cb9",
+      "bytes": 1648,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-build\\20261015T101851660Z-95cea45d\\build.json"
+    },
+    {
+      "package_path": "provenance/maven-build.command.json",
+      "sha256": "263123d6747cbf45802c48d695548bb1be389ff82289ed135228b101a57bbf10",
+      "bytes": 1720,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-build\\20261015T101851660Z-95cea45d\\maven-build.command.json"
+    },
+    {
+      "package_path": "provenance/maven-build.exit.json",
+      "sha256": "5e382f8172af8a61fa3e9bc1e08ba0cb16e725042ab4829b6c59a48ede555eda",
+      "bytes": 38,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-build\\20261015T101851660Z-95cea45d\\maven-build.exit.json"
+    },
+    {
+      "package_path": "provenance/maven-build.stdout.log",
+      "sha256": "aab6683a50b45335f1f67f10893498de606d3b55d0a5da8a1f4f1183a658011d",
+      "bytes": 16957,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-build\\20261015T101851660Z-95cea45d\\maven-build.stdout.log"
+    },
+    {
+      "package_path": "provenance/maven-build.stderr.log",
+      "sha256": "824a4a3b052fc8c232ea14a250cf4927df680190d6bb04fc9da675555c829608",
+      "bytes": 504,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-build\\20261015T101851660Z-95cea45d\\maven-build.stderr.log"
+    },
+    {
+      "package_path": "provenance/build-original-checksums.sha256",
+      "sha256": "dfbd669718b45de4f72d4e83b2ef251f2c1b32545ddaf59291631c24d1e653ff",
+      "bytes": 1881,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-build\\20261015T101851660Z-95cea45d\\checksums.sha256"
+    },
+    {
+      "package_path": "provenance/baseline-original-checksums.sha256",
+      "sha256": "499b25697056c38fe0ad833b290b72d272edb72e91b935922a35c006e94cad55",
+      "bytes": 15438,
+      "source_path": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p02-baseline\\20261015T102355058Z-2e775d19\\checksums.sha256"
+    }
+  ],
+  "baseline": {
+    "original_run_id": "20261015T102355058Z-2e775d19",
+    "selected_files": [
+      "cleanup.json",
+      "config-extract.command.json",
+      "config-extract.exit.json",
+      "config-extract.stderr.log",
+      "config-extract.stdout.log",
+      "config/.gitignore",
+      "config/LICENSE",
+      "config/README.md",
+      "config/admin-server.yml",
+      "config/api-gateway.yml",
+      "config/application.yml",
+      "config/customers-service.yml",
+      "config/discovery-server.yml",
+      "config/genai-service.yml",
+      "config/tracing-server.yml",
+      "config/vets-service.yml",
+      "config/visits-service.yml",
+      "inputs.json",
+      "logs/api-gateway.log",
+      "logs/config-server.log",
+      "logs/customers-service.log",
+      "logs/discovery-server.log",
+      "logs/visits-service.log",
+      "network-create.command.json",
+      "network-create.exit.json",
+      "network-create.stderr.log",
+      "network-create.stdout.log",
+      "observations.command.json",
+      "observations.exit.json",
+      "observations.stderr.log",
+      "observations/config-customers.body",
+      "observations/config-customers.json",
+      "observations/config-gateway.body",
+      "observations/config-gateway.json",
+      "observations/config-visits.body",
+      "observations/config-visits.json",
+      "observations/direct_empty.body",
+      "observations/direct_empty.json",
+      "observations/direct_false.body",
+      "observations/direct_false.json",
+      "observations/direct_invalid.body",
+      "observations/direct_invalid.json",
+      "observations/direct_missing_pet_id.body",
+      "observations/direct_missing_pet_id.json",
+      "observations/direct_omitted.body",
+      "observations/direct_omitted.json",
+      "observations/direct_true.body",
+      "observations/direct_true.json",
+      "observations/discovery-registry.body",
+      "observations/discovery-registry.json",
+      "observations/gateway_empty.body",
+      "observations/gateway_empty.json",
+      "observations/gateway_populated.body",
+      "observations/gateway_populated.json",
+      "observations/overload_read.body",
+      "observations/overload_read.json",
+      "ready-api-gateway.command.json",
+      "ready-api-gateway.exit.json",
+      "ready-api-gateway.stderr.log",
+      "ready-api-gateway/readiness-001.json",
+      "ready-api-gateway/readiness-002.json",
+      "ready-api-gateway/readiness-003.json",
+      "ready-api-gateway/readiness-004.json",
+      "ready-api-gateway/readiness-005.json",
+      "ready-api-gateway/readiness-006.json",
+      "ready-api-gateway/readiness-007.json",
+      "ready-api-gateway/readiness-008.json",
+      "ready-api-gateway/readiness-009.json",
+      "ready-api-gateway/readiness-010.body",
+      "ready-api-gateway/readiness-010.json",
+      "ready-config-server.command.json",
+      "ready-config-server.exit.json",
+      "ready-config-server.stderr.log",
+      "ready-config-server/readiness-001.json",
+      "ready-config-server/readiness-002.json",
+      "ready-config-server/readiness-003.json",
+      "ready-config-server/readiness-004.json",
+      "ready-config-server/readiness-005.body",
+      "ready-config-server/readiness-005.json",
+      "ready-customers-service.command.json",
+      "ready-customers-service.exit.json",
+      "ready-customers-service.stderr.log",
+      "ready-customers-service/readiness-001.json",
+      "ready-customers-service/readiness-002.json",
+      "ready-customers-service/readiness-003.json",
+      "ready-customers-service/readiness-004.json",
+      "ready-customers-service/readiness-005.json",
+      "ready-customers-service/readiness-006.json",
+      "ready-customers-service/readiness-007.json",
+      "ready-customers-service/readiness-008.json",
+      "ready-customers-service/readiness-009.json",
+      "ready-customers-service/readiness-010.json",
+      "ready-customers-service/readiness-011.json",
+      "ready-customers-service/readiness-012.json",
+      "ready-customers-service/readiness-013.json",
+      "ready-customers-service/readiness-014.body",
+      "ready-customers-service/readiness-014.json",
+      "ready-discovery-server.command.json",
+      "ready-discovery-server.exit.json",
+      "ready-discovery-server.stderr.log",
+      "ready-discovery-server/readiness-001.json",
+      "ready-discovery-server/readiness-002.json",
+      "ready-discovery-server/readiness-003.json",
+      "ready-discovery-server/readiness-004.json",
+      "ready-discovery-server/readiness-005.json",
+      "ready-discovery-server/readiness-006.json",
+      "ready-discovery-server/readiness-007.json",
+      "ready-discovery-server/readiness-008.json",
+      "ready-discovery-server/readiness-009.body",
+      "ready-discovery-server/readiness-009.json",
+      "ready-visits-service.command.json",
+      "ready-visits-service.exit.json",
+      "ready-visits-service.stderr.log",
+      "ready-visits-service/readiness-001.json",
+      "ready-visits-service/readiness-002.json",
+      "ready-visits-service/readiness-003.json",
+      "ready-visits-service/readiness-004.json",
+      "ready-visits-service/readiness-005.json",
+      "ready-visits-service/readiness-006.json",
+      "ready-visits-service/readiness-007.json",
+      "ready-visits-service/readiness-008.json",
+      "ready-visits-service/readiness-009.json",
+      "ready-visits-service/readiness-010.json",
+      "ready-visits-service/readiness-011.json",
+      "ready-visits-service/readiness-012.json",
+      "ready-visits-service/readiness-013.body",
+      "ready-visits-service/readiness-013.json",
+      "start-api-gateway.command.json",
+      "start-api-gateway.exit.json",
+      "start-api-gateway.stderr.log",
+      "start-api-gateway.stdout.log",
+      "start-config-server.command.json",
+      "start-config-server.exit.json",
+      "start-config-server.stderr.log",
+      "start-config-server.stdout.log",
+      "start-customers-service.command.json",
+      "start-customers-service.exit.json",
+      "start-customers-service.stderr.log",
+      "start-customers-service.stdout.log",
+      "start-discovery-server.command.json",
+      "start-discovery-server.exit.json",
+      "start-discovery-server.stderr.log",
+      "start-discovery-server.stdout.log",
+      "start-visits-service.command.json",
+      "start-visits-service.exit.json",
+      "start-visits-service.stderr.log",
+      "start-visits-service.stdout.log"
+    ],
+    "omitted_files": [
+      "checksums.sha256",
+      "observations.stdout.log",
+      "observations/observations.json",
+      "ready-api-gateway.stdout.log",
+      "ready-config-server.stdout.log",
+      "ready-customers-service.stdout.log",
+      "ready-discovery-server.stdout.log",
+      "ready-visits-service.stdout.log",
+      "result.json"
+    ],
+    "byte_preservation": "Copied raw files are unchanged. Original manifests describe original runs, not this filtered transfer."
+  },
+  "portable_verification": "SHA256SUMS.txt and VERIFY_PACKAGE.ps1 or verify_package.mjs; original build checker requires the sender JARs and paths, which are not shipped.",
+  "omitted": [
+    ".git",
+    "application build JARs/target",
+    "Maven cache/distribution",
+    "Docker images",
+    "model cache",
+    "credentials",
+    "P01 labels and evaluated-system outputs",
+    "team parser/Neo4j/Chroma implementation",
+    "runtime probe/runner code",
+    "derived baseline result and probe summaries"
+  ],
+  "known_exposure": "Full project context includes draft census counts and P01 history; do not claim blinded review. Declare additional exposure honestly."
+}

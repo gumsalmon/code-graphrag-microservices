@@ -1,0 +1,84 @@
+{
+  "schema_version": "0.1.0",
+  "scenario_id": "P01",
+  "scenario_version": "1.0.0",
+  "protocol_version": "0.1",
+  "title": "Required includeDetails query parameter on visits provider",
+  "scenario_kind": "synthetic_mutation",
+  "created_at": "2026-09-23T14:42:17+07:00",
+  "author": "Phát",
+  "audit_decision": "pending_review",
+  "repository": {
+    "url": "https://github.com/spring-petclinic/spring-petclinic-microservices",
+    "baseline_commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+    "checkout_state_verified": true,
+    "tracked_tree_clean": true,
+    "verification_method": "fresh official clone, detached checkout and git diff --quiet"
+  },
+  "configuration": {
+    "observed_revision": "323993ce2519c6d02df63e08bf4458d123d3b611",
+    "evidence_id": "E-RUNTIME-CONFIG-001"
+  },
+  "patch": {
+    "path": "benchmark/p01/raw/historical/mutation.patch",
+    "sha256": "42394ca361d07db58ba6a73cfc1ddb8bd1d9aeddb59292873552573adfa5cc21",
+    "encoding": "UTF-16LE with BOM",
+    "applies_directly_with_git_apply": false,
+    "canonical_utf8_sha256": "901b19f5dab72c65d3bb424a24e53ea4c3a83cfc5bd72332bdbaf297031441f5",
+    "canonical_utf8_apply_check": "passed",
+    "semantic_change": "Add required boolean query parameter includeDetails to GET /pets/visits while retaining response logic"
+  },
+  "seed": {
+    "excluded_from_impact_set": true,
+    "service": "visits-service",
+    "baseline_method_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(java.util.List<java.lang.Integer>)",
+    "mutated_method_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+patch:42394ca3::visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(java.util.List<java.lang.Integer>,boolean)",
+    "api_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::visits-service::GET /pets/visits",
+    "new_query_parameter": {
+      "name": "includeDetails",
+      "java_type": "boolean",
+      "required": true,
+      "default_value": null
+    }
+  },
+  "fixture": {
+    "historical_owner_id": 6,
+    "historical_pet_ids": [7, 8],
+    "precondition": "Owner 6 has pets 7 and 8 and each pet has at least one visit",
+    "clean_rerun_verified": true,
+    "clean_rerun_path": "benchmark/p01/raw/rerun-20260923-152742/summary.json"
+  },
+  "required_observations": [
+    "baseline_direct",
+    "baseline_gateway",
+    "mutated_direct_missing_includeDetails",
+    "mutated_direct_valid_includeDetails",
+    "mutated_gateway",
+    "negative_case_baseline_and_mutated"
+  ],
+  "negative_candidate": {
+    "method_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(int)",
+    "api_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::visits-service::GET /owners/*/pets/{petId}/visits",
+    "selection_reason": "Real repository overload in the same class and service, but a different mapping and parameter shape; useful for detecting name-only or overload-insensitive matching",
+    "status": "verified_negative",
+    "evidence_id": "E-RUNTIME-CLEAN-001"
+  },
+  "evaluated_system_output": {
+    "access_allowed": false,
+    "accessed_for_labels": false,
+    "prohibited_until_label_checksum": [
+      "p01_label.md",
+      "report.md",
+      "parser JSON",
+      "Cypher",
+      "Neo4j results",
+      "GraphRAG output",
+      "Vector RAG output",
+      "LLM output",
+      "benchmark scores"
+    ]
+  },
+  "blockers": [
+    "Independent human reviewer has not been named"
+  ]
+}

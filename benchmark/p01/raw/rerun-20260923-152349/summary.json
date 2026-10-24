@@ -1,0 +1,74 @@
+{
+  "completed_at": "2026-09-23T15:26:05.2028529+07:00",
+  "decision_input": "runtime_complete_pending_human_review",
+  "baseline_direct": {
+    "id": "baseline_direct",
+    "snapshot": "baseline",
+    "timestamp": "2026-09-23T15:25:24.9295390+07:00",
+    "method": "GET",
+    "uri": "http://localhost:28082/pets/visits?petId=7,8",
+    "exit_code": 0,
+    "http_status": 200,
+    "body": "{\"items\":[{\"date\":\"2013-01-01\",\"description\":\"rabies shot\",\"id\":1,\"petId\":7},{\"date\":\"2013-01-04\",\"description\":\"spayed\",\"id\":4,\"petId\":7},{\"date\":\"2013-01-02\",\"description\":\"rabies shot\",\"id\":2,\"petId\":8},{\"date\":\"2013-01-03\",\"description\":\"neutered\",\"id\":3,\"petId\":8}]}"
+  },
+  "baseline_gateway": {
+    "id": "baseline_gateway",
+    "snapshot": "baseline",
+    "timestamp": "2026-09-23T15:25:24.9600010+07:00",
+    "method": "GET",
+    "uri": "http://localhost:28080/api/gateway/owners/6",
+    "exit_code": 0,
+    "http_status": 200,
+    "body": "{\"id\":6,\"firstName\":\"Jean\",\"lastName\":\"Coleman\",\"address\":\"105 N. Lake St.\",\"city\":\"Monona\",\"telephone\":\"6085552654\",\"pets\":[{\"id\":8,\"name\":\"Max\",\"birthDate\":\"2012-09-04T00:00:00.000Z\",\"type\":{\"name\":\"cat\"},\"visits\":[{\"id\":2,\"petId\":8,\"date\":\"2013-01-02\",\"description\":\"rabies shot\"},{\"id\":3,\"petId\":8,\"date\":\"2013-01-03\",\"description\":\"neutered\"}]},{\"id\":7,\"name\":\"Samantha\",\"birthDate\":\"2012-09-04T00:00:00.000Z\",\"type\":{\"name\":\"cat\"},\"visits\":[{\"id\":1,\"petId\":7,\"date\":\"2013-01-01\",\"description\":\"rabies shot\"},{\"id\":4,\"petId\":7,\"date\":\"2013-01-04\",\"description\":\"spayed\"}]}]}"
+  },
+  "baseline_negative": {
+    "id": "baseline_negative_overload",
+    "snapshot": "baseline",
+    "timestamp": "2026-09-23T15:25:25.0153006+07:00",
+    "method": "GET",
+    "uri": "http://localhost:28082/owners/6/pets/7/visits",
+    "exit_code": 0,
+    "http_status": 200,
+    "body": "[{\"date\":\"2013-01-01\",\"description\":\"rabies shot\",\"id\":1,\"petId\":7},{\"date\":\"2013-01-04\",\"description\":\"spayed\",\"id\":4,\"petId\":7}]"
+  },
+  "mutated_missing": {
+    "id": "mutated_direct_missing_parameter",
+    "snapshot": "mutated",
+    "timestamp": "2026-09-23T15:26:02.0546663+07:00",
+    "method": "GET",
+    "uri": "http://localhost:28082/pets/visits?petId=7,8",
+    "exit_code": 0,
+    "http_status": 400,
+    "body": "{\"timestamp\":\"2026-09-23T08:26:02.085Z\",\"status\":400,\"error\":\"Bad Request\",\"path\":\"/pets/visits\"}"
+  },
+  "mutated_valid": {
+    "id": "mutated_direct_valid_parameter",
+    "snapshot": "mutated",
+    "timestamp": "2026-09-23T15:26:02.0929383+07:00",
+    "method": "GET",
+    "uri": "http://localhost:28082/pets/visits?petId=7,8&includeDetails=true",
+    "exit_code": 0,
+    "http_status": 200,
+    "body": "{\"items\":[{\"date\":\"2013-01-01\",\"description\":\"rabies shot\",\"id\":1,\"petId\":7},{\"date\":\"2013-01-04\",\"description\":\"spayed\",\"id\":4,\"petId\":7},{\"date\":\"2013-01-02\",\"description\":\"rabies shot\",\"id\":2,\"petId\":8},{\"date\":\"2013-01-03\",\"description\":\"neutered\",\"id\":3,\"petId\":8}]}"
+  },
+  "mutated_gateway": {
+    "id": "mutated_gateway",
+    "snapshot": "mutated",
+    "timestamp": "2026-09-23T15:26:02.1156972+07:00",
+    "method": "GET",
+    "uri": "http://localhost:28080/api/gateway/owners/6",
+    "exit_code": 0,
+    "http_status": 200,
+    "body": "{\"id\":6,\"firstName\":\"Jean\",\"lastName\":\"Coleman\",\"address\":\"105 N. Lake St.\",\"city\":\"Monona\",\"telephone\":\"6085552654\",\"pets\":[{\"id\":8,\"name\":\"Max\",\"birthDate\":\"2012-09-04T00:00:00.000Z\",\"type\":{\"name\":\"cat\"},\"visits\":[]},{\"id\":7,\"name\":\"Samantha\",\"birthDate\":\"2012-09-04T00:00:00.000Z\",\"type\":{\"name\":\"cat\"},\"visits\":[]}]}"
+  },
+  "mutated_negative": {
+    "id": "mutated_negative_overload",
+    "snapshot": "mutated",
+    "timestamp": "2026-09-23T15:26:02.1761123+07:00",
+    "method": "GET",
+    "uri": "http://localhost:28082/owners/6/pets/7/visits",
+    "exit_code": 0,
+    "http_status": 200,
+    "body": "[{\"date\":\"2013-01-01\",\"description\":\"rabies shot\",\"id\":1,\"petId\":7},{\"date\":\"2013-01-04\",\"description\":\"spayed\",\"id\":4,\"petId\":7}]"
+  }
+}

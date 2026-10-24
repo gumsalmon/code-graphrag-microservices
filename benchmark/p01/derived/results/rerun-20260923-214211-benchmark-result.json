@@ -1,0 +1,249 @@
+﻿{
+    "schema_version":  "0.1.0",
+    "result_kind":  "automated_benchmark_observation_and_candidate_labels",
+    "scenario_id":  "P01",
+    "scenario_version":  "1.0.0",
+    "protocol_version":  "0.1",
+    "generated_at":  "2026-09-23T21:44:07.9306065+07:00",
+    "generator":  {
+                      "script":  "scripts/export_p01_benchmark_json.ps1",
+                      "ruleset":  "P01-v1",
+                      "automated":  true,
+                      "limitation":  "Candidate labels are deterministic scenario-rule output, not independently reviewed ground truth"
+                  },
+    "audit_decision":  "pending_review",
+    "ground_truth_status":  "not_accepted",
+    "reviewer":  null,
+    "source_run":  "benchmark/p01/raw/rerun-20260923-214211",
+    "inputs":  {
+                   "repository":  "https://github.com/spring-petclinic/spring-petclinic-microservices",
+                   "baseline_commit":  "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+                   "config_revision":  "323993ce2519c6d02df63e08bf4458d123d3b611",
+                   "patch_sha256":  "42394ca361d07db58ba6a73cfc1ddb8bd1d9aeddb59292873552573adfa5cc21",
+                   "baseline_visits_image":  "p01/visits:baseline-3858f9c",
+                   "mutated_visits_image":  "p01/visits:mutated-42394ca3",
+                   "fixture":  {
+                                   "owner_id":  6,
+                                   "pet_ids":  [
+                                                   7,
+                                                   8
+                                               ],
+                                   "negative_pet_id":  7
+                               }
+               },
+    "observed_results":  [
+                             {
+                                 "id":  "baseline_direct",
+                                 "snapshot":  "baseline",
+                                 "timestamp":  "2026-09-23T21:43:13.3868118+07:00",
+                                 "method":  "GET",
+                                 "uri":  "http://localhost:28082/pets/visits?petId=7,8",
+                                 "exit_code":  0,
+                                 "http_status":  200,
+                                 "body":  "{\"items\":[{\"date\":\"2013-01-01\",\"description\":\"rabies shot\",\"id\":1,\"petId\":7},{\"date\":\"2013-01-04\",\"description\":\"spayed\",\"id\":4,\"petId\":7},{\"date\":\"2013-01-02\",\"description\":\"rabies shot\",\"id\":2,\"petId\":8},{\"date\":\"2013-01-03\",\"description\":\"neutered\",\"id\":3,\"petId\":8}]}"
+                             },
+                             {
+                                 "id":  "baseline_gateway",
+                                 "snapshot":  "baseline",
+                                 "timestamp":  "2026-09-23T21:43:13.4092904+07:00",
+                                 "method":  "GET",
+                                 "uri":  "http://localhost:28080/api/gateway/owners/6",
+                                 "exit_code":  0,
+                                 "http_status":  200,
+                                 "body":  "{\"id\":6,\"firstName\":\"Jean\",\"lastName\":\"Coleman\",\"address\":\"105 N. Lake St.\",\"city\":\"Monona\",\"telephone\":\"6085552654\",\"pets\":[{\"id\":8,\"name\":\"Max\",\"birthDate\":\"2012-09-04T00:00:00.000Z\",\"type\":{\"name\":\"cat\"},\"visits\":[{\"id\":2,\"petId\":8,\"date\":\"2013-01-02\",\"description\":\"rabies shot\"},{\"id\":3,\"petId\":8,\"date\":\"2013-01-03\",\"description\":\"neutered\"}]},{\"id\":7,\"name\":\"Samantha\",\"birthDate\":\"2012-09-04T00:00:00.000Z\",\"type\":{\"name\":\"cat\"},\"visits\":[{\"id\":1,\"petId\":7,\"date\":\"2013-01-01\",\"description\":\"rabies shot\"},{\"id\":4,\"petId\":7,\"date\":\"2013-01-04\",\"description\":\"spayed\"}]}]}"
+                             },
+                             {
+                                 "id":  "baseline_negative_overload",
+                                 "snapshot":  "baseline",
+                                 "timestamp":  "2026-09-23T21:43:13.4894680+07:00",
+                                 "method":  "GET",
+                                 "uri":  "http://localhost:28082/owners/6/pets/7/visits",
+                                 "exit_code":  0,
+                                 "http_status":  200,
+                                 "body":  "[{\"date\":\"2013-01-01\",\"description\":\"rabies shot\",\"id\":1,\"petId\":7},{\"date\":\"2013-01-04\",\"description\":\"spayed\",\"id\":4,\"petId\":7}]"
+                             },
+                             {
+                                 "id":  "mutated_direct_missing_parameter",
+                                 "snapshot":  "mutated",
+                                 "timestamp":  "2026-09-23T21:44:03.4675386+07:00",
+                                 "method":  "GET",
+                                 "uri":  "http://localhost:28082/pets/visits?petId=7,8",
+                                 "exit_code":  0,
+                                 "http_status":  400,
+                                 "body":  "{\"timestamp\":\"2026-09-23T14:44:03.477Z\",\"status\":400,\"error\":\"Bad Request\",\"path\":\"/pets/visits\"}"
+                             },
+                             {
+                                 "id":  "mutated_direct_valid_parameter",
+                                 "snapshot":  "mutated",
+                                 "timestamp":  "2026-09-23T21:44:03.4826671+07:00",
+                                 "method":  "GET",
+                                 "uri":  "http://localhost:28082/pets/visits?petId=7,8\u0026includeDetails=true",
+                                 "exit_code":  0,
+                                 "http_status":  200,
+                                 "body":  "{\"items\":[{\"date\":\"2013-01-01\",\"description\":\"rabies shot\",\"id\":1,\"petId\":7},{\"date\":\"2013-01-04\",\"description\":\"spayed\",\"id\":4,\"petId\":7},{\"date\":\"2013-01-02\",\"description\":\"rabies shot\",\"id\":2,\"petId\":8},{\"date\":\"2013-01-03\",\"description\":\"neutered\",\"id\":3,\"petId\":8}]}"
+                             },
+                             {
+                                 "id":  "mutated_gateway",
+                                 "snapshot":  "mutated",
+                                 "timestamp":  "2026-09-23T21:44:03.5041458+07:00",
+                                 "method":  "GET",
+                                 "uri":  "http://localhost:28080/api/gateway/owners/6",
+                                 "exit_code":  0,
+                                 "http_status":  200,
+                                 "body":  "{\"id\":6,\"firstName\":\"Jean\",\"lastName\":\"Coleman\",\"address\":\"105 N. Lake St.\",\"city\":\"Monona\",\"telephone\":\"6085552654\",\"pets\":[{\"id\":8,\"name\":\"Max\",\"birthDate\":\"2012-09-04T00:00:00.000Z\",\"type\":{\"name\":\"cat\"},\"visits\":[]},{\"id\":7,\"name\":\"Samantha\",\"birthDate\":\"2012-09-04T00:00:00.000Z\",\"type\":{\"name\":\"cat\"},\"visits\":[]}]}"
+                             },
+                             {
+                                 "id":  "mutated_negative_overload",
+                                 "snapshot":  "mutated",
+                                 "timestamp":  "2026-09-23T21:44:03.5591184+07:00",
+                                 "method":  "GET",
+                                 "uri":  "http://localhost:28082/owners/6/pets/7/visits",
+                                 "exit_code":  0,
+                                 "http_status":  200,
+                                 "body":  "[{\"date\":\"2013-01-01\",\"description\":\"rabies shot\",\"id\":1,\"petId\":7},{\"date\":\"2013-01-04\",\"description\":\"spayed\",\"id\":4,\"petId\":7}]"
+                             }
+                         ],
+    "derived_metrics":  {
+                            "baseline_direct_visit_count":  4,
+                            "mutated_valid_visit_count":  4,
+                            "baseline_gateway_visit_count":  4,
+                            "mutated_gateway_visit_count":  0
+                        },
+    "comparisons":  [
+                        {
+                            "comparison_id":  "runtime.direct_contract",
+                            "passed":  true,
+                            "rule":  "baseline=200, patched missing parameter=400, patched valid parameter=200 with same visit count"
+                        },
+                        {
+                            "comparison_id":  "runtime.gateway_behavior",
+                            "passed":  true,
+                            "rule":  "baseline and patched gateway status=200, patched total visit count is lower"
+                        },
+                        {
+                            "comparison_id":  "runtime.gateway_routing",
+                            "passed":  true,
+                            "rule":  "gateway discovery preflight reaches the recreated patched visits service"
+                        },
+                        {
+                            "comparison_id":  "runtime.negative_control",
+                            "passed":  true,
+                            "rule":  "negative endpoint status and canonical response body are identical"
+                        }
+                    ],
+    "seed":  {
+                 "excluded_from_scoring":  true,
+                 "service":  "visits-service",
+                 "method_before":  "org.springframework.samples.petclinic.visits.web.VisitResource#read(java.util.List\u003cjava.lang.Integer\u003e)",
+                 "method_after":  "org.springframework.samples.petclinic.visits.web.VisitResource#read(java.util.List\u003cjava.lang.Integer\u003e,boolean)",
+                 "api":  "GET /pets/visits"
+             },
+    "candidate_labels":  [
+                             {
+                                 "label_id":  "P01-METHOD-001",
+                                 "level":  "method",
+                                 "entity_id":  "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(java.util.List\u003cjava.lang.Integer\u003e)",
+                                 "polarity":  "positive",
+                                 "behavioral_impact":  true,
+                                 "requires_code_change":  true,
+                                 "logical_hop":  1,
+                                 "service_boundary_crossings":  1,
+                                 "confidence":  "high",
+                                 "review_status":  "pending_review",
+                                 "rationale":  "Rule P01-CONSUMER: the client omits includeDetails and the routed patched request fails the provider contract.",
+                                 "evidence_refs":  [
+                                                       "runtime.direct_contract",
+                                                       "runtime.gateway_routing"
+                                                   ]
+                             },
+                             {
+                                 "label_id":  "P01-METHOD-002",
+                                 "level":  "method",
+                                 "entity_id":  "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)",
+                                 "polarity":  "positive",
+                                 "behavioral_impact":  true,
+                                 "requires_code_change":  false,
+                                 "logical_hop":  2,
+                                 "service_boundary_crossings":  1,
+                                 "confidence":  "high",
+                                 "review_status":  "pending_review",
+                                 "rationale":  "Rule P01-CONTROLLER: gateway response content changes through the visits fallback.",
+                                 "evidence_refs":  [
+                                                       "runtime.gateway_behavior",
+                                                       "runtime.gateway_routing"
+                                                   ]
+                             },
+                             {
+                                 "label_id":  "P01-API-001",
+                                 "level":  "api",
+                                 "entity_id":  "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::GET /api/gateway/owners/{ownerId}",
+                                 "polarity":  "positive",
+                                 "behavioral_impact":  true,
+                                 "requires_code_change":  false,
+                                 "logical_hop":  2,
+                                 "service_boundary_crossings":  1,
+                                 "confidence":  "high",
+                                 "review_status":  "pending_review",
+                                 "rationale":  "Rule P01-GATEWAY-API: baseline and patched responses differ in total visit content.",
+                                 "evidence_refs":  [
+                                                       "runtime.gateway_behavior",
+                                                       "runtime.gateway_routing"
+                                                   ]
+                             },
+                             {
+                                 "label_id":  "P01-SERVICE-001",
+                                 "level":  "service",
+                                 "entity_id":  "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway",
+                                 "polarity":  "positive",
+                                 "behavioral_impact":  true,
+                                 "requires_code_change":  true,
+                                 "logical_hop":  1,
+                                 "service_boundary_crossings":  1,
+                                 "confidence":  "high",
+                                 "review_status":  "pending_review",
+                                 "rationale":  "Rule P01-SERVICE: the service owns the impacted direct consumer.",
+                                 "evidence_refs":  [
+                                                       "runtime.direct_contract",
+                                                       "runtime.gateway_behavior"
+                                                   ]
+                             },
+                             {
+                                 "label_id":  "P01-METHOD-NEG-001",
+                                 "level":  "method",
+                                 "entity_id":  "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(int)",
+                                 "polarity":  "negative",
+                                 "behavioral_impact":  false,
+                                 "requires_code_change":  false,
+                                 "logical_hop":  null,
+                                 "service_boundary_crossings":  0,
+                                 "confidence":  "high",
+                                 "review_status":  "pending_review",
+                                 "rationale":  "Rule P01-NEGATIVE: same-class overload returns the same body before and after the patch.",
+                                 "evidence_refs":  [
+                                                       "runtime.negative_control"
+                                                   ]
+                             },
+                             {
+                                 "label_id":  "P01-API-NEG-001",
+                                 "level":  "api",
+                                 "entity_id":  "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::visits-service::GET /owners/*/pets/{petId}/visits",
+                                 "polarity":  "negative",
+                                 "behavioral_impact":  false,
+                                 "requires_code_change":  false,
+                                 "logical_hop":  null,
+                                 "service_boundary_crossings":  0,
+                                 "confidence":  "high",
+                                 "review_status":  "pending_review",
+                                 "rationale":  "Rule P01-NEGATIVE: control endpoint remains behaviorally identical.",
+                                 "evidence_refs":  [
+                                                       "runtime.negative_control"
+                                                   ]
+                             }
+                         ],
+    "acceptance_gate":  {
+                            "runtime_complete":  true,
+                            "scenario_rules_passed":  true,
+                            "independent_reviewer_required":  true,
+                            "accepted":  false
+                        }
+}

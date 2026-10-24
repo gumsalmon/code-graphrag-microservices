@@ -1,0 +1,241 @@
+{
+  "schema": "p02-source-inventory/1",
+  "source_commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+  "scope_id": "p02-three-file-census-v1",
+  "prepared_by": "Codex assisting Huy",
+  "independently_confirmed": false,
+  "entities": [
+    {
+      "level": "method",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#create(Visit,int)",
+      "service": "visits-service",
+      "seed": false,
+      "source": {
+        "file": "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java",
+        "line_start": 58,
+        "line_end": 60,
+        "declaration": "public Visit create(\n        @Valid @RequestBody Visit visit,\n        @PathVariable(\"petId\") @Min(1) int petId) {",
+        "sha256": "0bf7d4638add57363cde29b964d9fcc44ac55da9df320ff1ebfebc5c9f0786cd"
+      }
+    },
+    {
+      "level": "api",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::visits-service::POST /owners/*/pets/{petId}/visits",
+      "service": "visits-service",
+      "seed": false,
+      "handler_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#create(Visit,int)",
+      "source": {
+        "file": "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java",
+        "line_start": 58,
+        "line_end": 60,
+        "declaration": "public Visit create(\n        @Valid @RequestBody Visit visit,\n        @PathVariable(\"petId\") @Min(1) int petId) {",
+        "sha256": "0bf7d4638add57363cde29b964d9fcc44ac55da9df320ff1ebfebc5c9f0786cd"
+      }
+    },
+    {
+      "level": "method",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(int)",
+      "service": "visits-service",
+      "seed": false,
+      "source": {
+        "file": "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java",
+        "line_start": 68,
+        "line_end": 68,
+        "declaration": "public List<Visit> read(@PathVariable(\"petId\") @Min(1) int petId) {",
+        "sha256": "0bf7d4638add57363cde29b964d9fcc44ac55da9df320ff1ebfebc5c9f0786cd"
+      }
+    },
+    {
+      "level": "api",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::visits-service::GET /owners/*/pets/{petId}/visits",
+      "service": "visits-service",
+      "seed": false,
+      "handler_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(int)",
+      "source": {
+        "file": "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java",
+        "line_start": 68,
+        "line_end": 68,
+        "declaration": "public List<Visit> read(@PathVariable(\"petId\") @Min(1) int petId) {",
+        "sha256": "0bf7d4638add57363cde29b964d9fcc44ac55da9df320ff1ebfebc5c9f0786cd"
+      }
+    },
+    {
+      "level": "method",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(List<Integer>)",
+      "service": "visits-service",
+      "seed": true,
+      "source": {
+        "file": "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java",
+        "line_start": 73,
+        "line_end": 73,
+        "declaration": "public Visits read(@RequestParam(\"petId\") List<Integer> petIds) {",
+        "sha256": "0bf7d4638add57363cde29b964d9fcc44ac55da9df320ff1ebfebc5c9f0786cd"
+      }
+    },
+    {
+      "level": "api",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::visits-service::GET /pets/visits",
+      "service": "visits-service",
+      "seed": true,
+      "handler_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(List<Integer>)",
+      "source": {
+        "file": "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java",
+        "line_start": 73,
+        "line_end": 73,
+        "declaration": "public Visits read(@RequestParam(\"petId\") List<Integer> petIds) {",
+        "sha256": "0bf7d4638add57363cde29b964d9fcc44ac55da9df320ff1ebfebc5c9f0786cd"
+      }
+    },
+    {
+      "level": "method",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)",
+      "service": "api-gateway",
+      "seed": false,
+      "source": {
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+        "line_start": 42,
+        "line_end": 42,
+        "declaration": "public Mono<Visits> getVisitsForPets(final List<Integer> petIds) {",
+        "sha256": "d7d1437c4dce96d4de5f636511d3bcf5549df4a11b7826fde0375bce358f1e13"
+      }
+    },
+    {
+      "level": "method",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#joinIds(List<Integer>)",
+      "service": "api-gateway",
+      "seed": false,
+      "source": {
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+        "line_start": 50,
+        "line_end": 50,
+        "declaration": "private String joinIds(List<Integer> petIds) {",
+        "sha256": "d7d1437c4dce96d4de5f636511d3bcf5549df4a11b7826fde0375bce358f1e13"
+      }
+    },
+    {
+      "level": "method",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#setHostname(String)",
+      "service": "api-gateway",
+      "seed": false,
+      "source": {
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+        "line_start": 54,
+        "line_end": 54,
+        "declaration": "void setHostname(String hostname) {",
+        "sha256": "d7d1437c4dce96d4de5f636511d3bcf5549df4a11b7826fde0375bce358f1e13"
+      }
+    },
+    {
+      "level": "method",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)",
+      "service": "api-gateway",
+      "seed": false,
+      "source": {
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+        "line_start": 55,
+        "line_end": 55,
+        "declaration": "public Mono<OwnerDetails> getOwnerDetails(final @PathVariable int ownerId) {",
+        "sha256": "bb815e3727be7e56330072d54774944ef5029d66d2d7e56976d7c60dbeafbb21"
+      }
+    },
+    {
+      "level": "api",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::GET /api/gateway/owners/{ownerId}",
+      "service": "api-gateway",
+      "seed": false,
+      "handler_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)",
+      "source": {
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+        "line_start": 55,
+        "line_end": 55,
+        "declaration": "public Mono<OwnerDetails> getOwnerDetails(final @PathVariable int ownerId) {",
+        "sha256": "bb815e3727be7e56330072d54774944ef5029d66d2d7e56976d7c60dbeafbb21"
+      }
+    },
+    {
+      "level": "method",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#addVisitsToOwner(OwnerDetails)",
+      "service": "api-gateway",
+      "seed": false,
+      "source": {
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+        "line_start": 68,
+        "line_end": 68,
+        "declaration": "private Function<Visits, OwnerDetails> addVisitsToOwner(OwnerDetails owner) {",
+        "sha256": "bb815e3727be7e56330072d54774944ef5029d66d2d7e56976d7c60dbeafbb21"
+      }
+    },
+    {
+      "level": "method",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#emptyVisitsForPets()",
+      "service": "api-gateway",
+      "seed": false,
+      "source": {
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+        "line_start": 80,
+        "line_end": 80,
+        "declaration": "private Mono<Visits> emptyVisitsForPets() {",
+        "sha256": "bb815e3727be7e56330072d54774944ef5029d66d2d7e56976d7c60dbeafbb21"
+      }
+    },
+    {
+      "level": "service",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::visits-service",
+      "service": "visits-service",
+      "seed": true,
+      "source_files": [
+        "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java"
+      ]
+    },
+    {
+      "level": "service",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway",
+      "service": "api-gateway",
+      "seed": false,
+      "source_files": [
+        "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+        "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java"
+      ]
+    }
+  ],
+  "excluded": [
+    {
+      "kind": "constructor",
+      "file": "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java",
+      "line_start": 52,
+      "line_end": 52,
+      "declaration": "    VisitResource(VisitRepository visitRepository) {",
+      "reason": "Initialization excluded by predeclared scope, not a negative label"
+    },
+    {
+      "kind": "constructor",
+      "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+      "line_start": 38,
+      "line_end": 38,
+      "declaration": "    public VisitsServiceClient(WebClient.Builder webClientBuilder) {",
+      "reason": "Initialization excluded by predeclared scope, not a negative label"
+    },
+    {
+      "kind": "constructor",
+      "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+      "line_start": 46,
+      "line_end": 46,
+      "declaration": "    public ApiGatewayController(CustomersServiceClient customersServiceClient,",
+      "reason": "Initialization excluded by predeclared scope, not a negative label"
+    }
+  ],
+  "source_files_sha256": {
+    "LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/CustomersServiceClient.java": "e143b78217975d0a6c2d0da704e483cd931180c7bb95cc76cad3807cc852e4f5",
+    "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java": "d7d1437c4dce96d4de5f636511d3bcf5549df4a11b7826fde0375bce358f1e13",
+    "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java": "bb815e3727be7e56330072d54774944ef5029d66d2d7e56976d7c60dbeafbb21",
+    "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/dto/OwnerDetails.java": "99ee6937040e1c09dd969f7911e829f3435ebe0b553f5d960579b152e6a28823",
+    "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/dto/Visits.java": "b9be7d4f5f57e26beac0202d23c6b0d58bccf1e30f2901dfdfe0b421ced6203f",
+    "spring-petclinic-customers-service/src/main/resources/db/hsqldb/data.sql": "e8bf4ae1127f10b4f7a69f89999f94a0d0f286ba25ddb29ffff82d5df30adb92",
+    "spring-petclinic-customers-service/src/main/resources/db/hsqldb/schema.sql": "f0c5a917934dd6ba0258a8a5b4223725885454808a48661b6698c582558f7219",
+    "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/model/Visit.java": "1ba057811b032114a7c3ebf70672ac946857bbf93f8313685d74263c707db71b",
+    "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java": "0bf7d4638add57363cde29b964d9fcc44ac55da9df320ff1ebfebc5c9f0786cd",
+    "spring-petclinic-visits-service/src/main/resources/db/hsqldb/data.sql": "59b606da305562e38e835128d97d22d23b73031ad1ce72060746ef35c5e82756",
+    "spring-petclinic-visits-service/src/main/resources/db/hsqldb/schema.sql": "2b46bd5480d06b9737dd4ad605517a2686da3e499ce924ed9eccb5ef3f7c26af"
+  }
+}

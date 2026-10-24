@@ -1,0 +1,19 @@
+.gitattributes text eol=lf
+benchmark/protocol/*.md text eol=lf
+benchmark/splits/*.json text eol=lf
+benchmark/splits/*.md text eol=lf
+benchmark/p01/*.json text eol=lf
+benchmark/p01/*.md text eol=lf
+benchmark/p01/*.sha256 text eol=lf
+benchmark/p01/derived/*.md text eol=lf
+benchmark/p01/derived/*.yml text eol=lf
+benchmark/p01/derived/results/*.json -text
+benchmark/p01/derived/results/*.sha256 -text
+benchmark/p01/raw/** -text
+docs/P01_INTAKE_CONFIRMATION.md text eol=lf
+scripts/run_p01_runtime.ps1 text eol=lf
+scripts/export_p01_benchmark_json.ps1 text eol=lf
+scripts/run_p01_benchmark.ps1 text eol=lf
+scripts/update_p01_checksums.ps1 text eol=lf
+scripts/score_benchmark.py text eol=lf
+tests/*.py text eol=lf

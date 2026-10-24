@@ -1,0 +1,29 @@
+{
+  "id": "gateway_empty",
+  "timestamp_utc": "2026-10-15T10:25:40.221325+00:00",
+  "method": "GET",
+  "host": "api-gateway",
+  "port": 8080,
+  "path": "/api/gateway/owners/1",
+  "status": 200,
+  "error": null,
+  "request_headers": {
+    "Accept": "application/json",
+    "Accept-Encoding": "identity"
+  },
+  "redirects_followed": false,
+  "response_headers": [
+    [
+      "Content-Type",
+      "application/json"
+    ],
+    [
+      "Content-Length",
+      "228"
+    ]
+  ],
+  "body_file": "gateway_empty.body",
+  "body_sha256": "c32094f8acca185aa105ffbb15f4b98ca25f12e467871668fb372510f5d833c8",
+  "body_bytes": 228,
+  "elapsed_ms": 64
+}
