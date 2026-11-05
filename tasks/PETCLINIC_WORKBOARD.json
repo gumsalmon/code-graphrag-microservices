@@ -487,7 +487,7 @@
     {
       "id": "CODE-RELEASE",
       "owner": "huy",
-      "status": "in_progress",
+      "status": "verified_scoped",
       "depends_on": [],
       "input": "Huy authorized publication on 05/11; fetched main and current branch match origin",
       "output": "Bản thay đổi được rà/test/scan rồi commit/push đúng phạm vi được duyệt",
@@ -495,9 +495,10 @@
       "evidence": [
         "tasks/P01_CLOSEOUT.md",
         "tasks/project-transfer/START_HERE.md",
-        "tasks/GITHUB_PUBLICATION_2026-11-05.md"
+        "tasks/GITHUB_PUBLICATION_2026-11-05.md",
+        "tasks/GITHUB_PUBLICATION_STATUS_2026-11-05.json"
       ],
-      "next_action": "Publish R1 front door and reviewed development branch/PR after integrity/security/staged checks; keep R2 private and do not self-merge code"
+      "next_action": "R1 is public on main and development evidence/code is in open PR #3; no self-merge. Await actual R1 notes/exposure/checkpoint before R2. Publication is not scientific completion."
     },
     {
       "id": "P04-OPEN",

@@ -1,5 +1,7 @@
 # Theo dõi PetClinic
 
+Công bố GitHub 05/11 đã kiểm remote: R1 trên main; code/bằng chứng ở PR #3, chưa merge. CODE-RELEASE verified_scoped cho công bố, không nghiệm thu nghiên cứu. [Status công bố](GITHUB_PUBLICATION_STATUS_2026-11-05.json) thay các dòng chưa có quyền push lịch sử; R2 giữ riêng, reviewer/notes/accepted vẫn chưa.
+
 Mới nhất05/11: [hai ZIP review đã lắp/kiểm](research/PETCLINIC_REVIEW_PACKAGES_2026-11-05.md), [status](PETCLINIC_REVIEW_PACKAGE_STATUS_2026-11-05.json), [cách gửi R1 trước](petclinic-review-release/COORDINATION_2026-11-05.md). REVIEW-PACKET verified_scoped mức assembly; chưa gửi/nhận việc/notes/accepted. R2 giữ riêng tới sau checkpointR1 thật, không dùng synthetic fixture làm review. ACK Hiển không bắt buộc; không model/scoring/push.
 
 Mới nhất05/11: [context P03 và actual review data previews đã chuẩn bị](research/P03_CONTEXT_REVIEW_PREPARATION_2026-11-05.md), [status](P03_CONTEXT_REVIEW_PREPARATION_STATUS_2026-11-05.json). ACK Hiển không bắt buộc. 14 tests/bảy contexts, R1/R2 data và allowlist/checker đã có; official assembly/release/reviewer/accepted vẫn chưa. [Readiness mới](petclinic-review-draft/readiness.2026-11-05.json) bổ sung snapshot cũ; không model/scoring/push.
