@@ -1,0 +1,128 @@
+{
+  "schema": "p03-source-audit-candidate/1",
+  "source_commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+  "kind": "builder_prepared_source_locations_not_runtime_or_labels",
+  "evidence": [
+    {
+      "id": "customers_class_mapping",
+      "file": "input/app/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java",
+      "sha256": "c72a9c611a46ab96db76421646fdde93ff8b1530bfb57ff29b847ed9e7b8d2fe",
+      "line_start": 39,
+      "line_end": 39,
+      "excerpt": "@RequestMapping(\"/owners\")"
+    },
+    {
+      "id": "single_owner_mapping",
+      "file": "input/app/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java",
+      "sha256": "c72a9c611a46ab96db76421646fdde93ff8b1530bfb57ff29b847ed9e7b8d2fe",
+      "line_start": 67,
+      "line_end": 67,
+      "excerpt": "    @GetMapping(value = \"/{ownerId}\")"
+    },
+    {
+      "id": "single_owner_baseline",
+      "file": "input/app/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java",
+      "sha256": "c72a9c611a46ab96db76421646fdde93ff8b1530bfb57ff29b847ed9e7b8d2fe",
+      "line_start": 68,
+      "line_end": 70,
+      "excerpt": "    public Optional<Owner> findOwner(@PathVariable(\"ownerId\") @Min(1) int ownerId) {\n        return ownerRepository.findById(ownerId);\n    }"
+    },
+    {
+      "id": "shared_list_handler",
+      "file": "input/app/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java",
+      "sha256": "c72a9c611a46ab96db76421646fdde93ff8b1530bfb57ff29b847ed9e7b8d2fe",
+      "line_start": 76,
+      "line_end": 76,
+      "excerpt": "    public List<Owner> findAll() {"
+    },
+    {
+      "id": "shared_entity_pet_getter",
+      "file": "input/app/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java",
+      "sha256": "a449018f09c712828d6540d2aef7d7095bf3f0d45d3034ef8e112530c606ed5a",
+      "line_start": 76,
+      "line_end": 76,
+      "excerpt": "    public List<Pet> getPets() {"
+    },
+    {
+      "id": "literal_customers_uri",
+      "file": "input/app/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/CustomersServiceClient.java",
+      "sha256": "e143b78217975d0a6c2d0da704e483cd931180c7bb95cc76cad3807cc852e4f5",
+      "line_start": 37,
+      "line_end": 37,
+      "excerpt": "            .uri(\"http://customers-service/owners/{ownerId}\", ownerId)"
+    },
+    {
+      "id": "consumer_decode_type",
+      "file": "input/app/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/CustomersServiceClient.java",
+      "sha256": "e143b78217975d0a6c2d0da704e483cd931180c7bb95cc76cad3807cc852e4f5",
+      "line_start": 39,
+      "line_end": 39,
+      "excerpt": "            .bodyToMono(OwnerDetails.class);"
+    },
+    {
+      "id": "record_pet_component",
+      "file": "input/app/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/dto/OwnerDetails.java",
+      "sha256": "99ee6937040e1c09dd969f7911e829f3435ebe0b553f5d960579b152e6a28823",
+      "line_start": 32,
+      "line_end": 32,
+      "excerpt": "    List<PetDetails> pets) {"
+    },
+    {
+      "id": "consumer_pet_stream",
+      "file": "input/app/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/dto/OwnerDetails.java",
+      "sha256": "99ee6937040e1c09dd969f7911e829f3435ebe0b553f5d960579b152e6a28823",
+      "line_start": 36,
+      "line_end": 36,
+      "excerpt": "        return pets.stream()"
+    },
+    {
+      "id": "gateway_class_mapping",
+      "file": "input/app/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+      "sha256": "bb815e3727be7e56330072d54774944ef5029d66d2d7e56976d7c60dbeafbb21",
+      "line_start": 37,
+      "line_end": 37,
+      "excerpt": "@RequestMapping(\"/api/gateway\")"
+    },
+    {
+      "id": "gateway_method_mapping",
+      "file": "input/app/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+      "sha256": "bb815e3727be7e56330072d54774944ef5029d66d2d7e56976d7c60dbeafbb21",
+      "line_start": 54,
+      "line_end": 54,
+      "excerpt": "    @GetMapping(value = \"owners/{ownerId}\")"
+    },
+    {
+      "id": "gateway_pet_id_use",
+      "file": "input/app/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+      "sha256": "bb815e3727be7e56330072d54774944ef5029d66d2d7e56976d7c60dbeafbb21",
+      "line_start": 58,
+      "line_end": 58,
+      "excerpt": "                visitsServiceClient.getVisitsForPets(owner.getPetIds())"
+    },
+    {
+      "id": "visits_cb_scope",
+      "file": "input/app/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+      "sha256": "bb815e3727be7e56330072d54774944ef5029d66d2d7e56976d7c60dbeafbb21",
+      "line_start": 61,
+      "line_end": 61,
+      "excerpt": "                        return cb.run(it, throwable -> emptyVisitsForPets());"
+    }
+  ],
+  "mutated_boundary": {
+    "file": "mutated/app/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java",
+    "sha256": "fb9e1635b423b0cf2b6ae2067a95a66070f8583814fc28ad7ddd29223c88d864",
+    "line_start": 70,
+    "line_end": 82,
+    "excerpt": "    public Optional<Map<String, Object>> findOwner(@PathVariable(\"ownerId\") @Min(1) int ownerId) {\n        return ownerRepository.findById(ownerId).map(owner -> {\n            Map<String, Object> response = new LinkedHashMap<>();\n            response.put(\"id\", owner.getId());\n            response.put(\"firstName\", owner.getFirstName());\n            response.put(\"lastName\", owner.getLastName());\n            response.put(\"address\", owner.getAddress());\n            response.put(\"city\", owner.getCity());\n            response.put(\"telephone\", owner.getTelephone());\n            response.put(\"animals\", owner.getPets());\n            return response;\n        });\n    }"
+  },
+  "questions_requiring_runtime": [
+    "Optional.empty response semantics",
+    "All nested fields retained at changed boundary",
+    "Jackson record handling of missing pets and unknown animals",
+    "Where a consumer error is propagated or handled",
+    "Behavior of list/POST/PUT using unchanged shared Owner representation",
+    "Which eligible helpers/getters/setters have sufficient evidence"
+  ],
+  "output_contract_adopted": false,
+  "label_polarity_assigned": false
+}

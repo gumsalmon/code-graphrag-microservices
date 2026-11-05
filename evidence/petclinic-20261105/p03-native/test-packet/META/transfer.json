@@ -1,0 +1,383 @@
+{
+  "schema": "code-graphrag-project-transfer/1",
+  "profile": "full",
+  "status": "snapshot_not_research_approval",
+  "package_role": "hien_p03_checked_receipt_and_source_inputs",
+  "source_head": "d1f95eb21c71dd6bfb49d2e450142d1290ceda5f",
+  "source_branch": "codex/p01-evidence-demo",
+  "git_directory_included": false,
+  "api_credentials_included": false,
+  "research_approval": false,
+  "official_scoring_authorized": false,
+  "files": [
+    {
+      "path": "META/security-scan.json",
+      "sha256": "0820ae7875d573e6294bb7a0defae8c5ae317095c6232c258b2d524d24a4f7ed",
+      "bytes": 546
+    },
+    {
+      "path": "P03_TECHNICAL_RECEIPT_2026-11-02.json",
+      "sha256": "b73e4dd44a1cbd9ffe05d148d2c0742f4ab685cb4c7a4cac7b949ed4d429ce20",
+      "bytes": 2598
+    },
+    {
+      "path": "START_HERE.md",
+      "sha256": "63c84e80f9d243e0728386f33967937c2f65f9786f090955df658a0ee2139b02",
+      "bytes": 1293
+    },
+    {
+      "path": "TASK_HIEN.md",
+      "sha256": "995317c97b3cc21624d38a2a661635a53e6d94d60f853a81677530d89aac8944",
+      "bytes": 4602
+    },
+    {
+      "path": "candidate/PROVENANCE.json",
+      "sha256": "f836f92e855153112f8a6ad0161cce7e46ac10272d205b3b47742002c6066821",
+      "bytes": 6621
+    },
+    {
+      "path": "candidate/SHA256SUMS.txt",
+      "sha256": "c52f085be74406e542de93db7f6d70b2fc3fe60f215ae47bd45df5b1cc5cec92",
+      "bytes": 6943
+    },
+    {
+      "path": "candidate/START_HERE.md",
+      "sha256": "dfe0fe2d0f5c0d351680d14271f96bdd71e7e639d35e5b5297e120cfacbcfd23",
+      "bytes": 3334
+    },
+    {
+      "path": "candidate/commands.json",
+      "sha256": "d415aab9f5aeacb034b73000a0679617e168d94f70f00ed3c59b64a80c0c4961",
+      "bytes": 956
+    },
+    {
+      "path": "candidate/draft/evaluation_universe.draft.v1.json",
+      "sha256": "79a3def8a58e62f376d2ff594a71831163bbbf472fa54c29fbf0defd1b7d43d7",
+      "bytes": 44104
+    },
+    {
+      "path": "candidate/draft/inventory.v1.json",
+      "sha256": "5ab81b134c0d9bed32ab4943c1b35ffc860f34d0204dbfcd825e008cb8c067a4",
+      "bytes": 28390
+    },
+    {
+      "path": "candidate/draft/runtime-plan.v1.json",
+      "sha256": "3ae065eef4d0c5265ef54cfac7082afcb061e7bbd609d00af47fd49aef4a0c7e",
+      "bytes": 16956
+    },
+    {
+      "path": "candidate/draft/source-audit.v1.json",
+      "sha256": "8d118e07c62d2c7a8720dae4555277517c72aba7c4988a6e4bc1cb4e59af4f0d",
+      "bytes": 6856
+    },
+    {
+      "path": "candidate/input/app/LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "bytes": 11357
+    },
+    {
+      "path": "candidate/input/app/pom.xml",
+      "sha256": "ca871f79a9f5140fccf71a8347e57a3af3d1949bbffb9e3784bcfe71aaf7c657",
+      "bytes": 10565
+    },
+    {
+      "path": "candidate/input/app/spring-petclinic-api-gateway/pom.xml",
+      "sha256": "8f74b5ad1bde9384bb62740066ccc282f1a92a70c9f4f354bf8a3d02c67b8ad6",
+      "bytes": 9331
+    },
+    {
+      "path": "candidate/input/app/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/CustomersServiceClient.java",
+      "sha256": "e143b78217975d0a6c2d0da704e483cd931180c7bb95cc76cad3807cc852e4f5",
+      "bytes": 1430
+    },
+    {
+      "path": "candidate/input/app/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+      "sha256": "d7d1437c4dce96d4de5f636511d3bcf5549df4a11b7826fde0375bce358f1e13",
+      "bytes": 1831
+    },
+    {
+      "path": "candidate/input/app/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+      "sha256": "bb815e3727be7e56330072d54774944ef5029d66d2d7e56976d7c60dbeafbb21",
+      "bytes": 3264
+    },
+    {
+      "path": "candidate/input/app/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/dto/OwnerDetails.java",
+      "sha256": "99ee6937040e1c09dd969f7911e829f3435ebe0b553f5d960579b152e6a28823",
+      "bytes": 2622
+    },
+    {
+      "path": "candidate/input/app/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/dto/PetDetails.java",
+      "sha256": "a5cf53654dd3635ed68395c88df650309467352485ddfa4b84b810af1822c1ad",
+      "bytes": 2127
+    },
+    {
+      "path": "candidate/input/app/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/dto/VisitDetails.java",
+      "sha256": "6f8bd6fd1b1a327e0ea3f488635cbac30bb580b479bb0509abac046de6ff8d0f",
+      "bytes": 823
+    },
+    {
+      "path": "candidate/input/app/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/dto/Visits.java",
+      "sha256": "b9be7d4f5f57e26beac0202d23c6b0d58bccf1e30f2901dfdfe0b421ced6203f",
+      "bytes": 886
+    },
+    {
+      "path": "candidate/input/app/spring-petclinic-api-gateway/src/main/resources/application.yml",
+      "sha256": "6cc8fcf6d3cf9ae4ac1416ed9ae7fea2e056462c88959fb2b83ed5ccdf887a30",
+      "bytes": 1520
+    },
+    {
+      "path": "candidate/input/app/spring-petclinic-customers-service/pom.xml",
+      "sha256": "faa55bad0f079d5a21a2aa55b2b699f0f75bd8be9ffdbb6e4765cc8a2e348cb5",
+      "bytes": 4243
+    },
+    {
+      "path": "candidate/input/app/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java",
+      "sha256": "a449018f09c712828d6540d2aef7d7095bf3f0d45d3034ef8e112530c606ed5a",
+      "bytes": 3658
+    },
+    {
+      "path": "candidate/input/app/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/OwnerRepository.java",
+      "sha256": "9b8e09e7ca4ee43bd7a6374713861de4ef0d8b54b46dd76f01f0ac8f4c6e379e",
+      "bytes": 1283
+    },
+    {
+      "path": "candidate/input/app/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Pet.java",
+      "sha256": "01eb6a5edba88f0e884f2f755f942b725171ff6c0860680574b765db63f3f826",
+      "bytes": 3159
+    },
+    {
+      "path": "candidate/input/app/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/PetType.java",
+      "sha256": "7b0ec34882d05b43f98701cc06a251df9a03d86f30cb971a47c1bd2f876bb74f",
+      "bytes": 1265
+    },
+    {
+      "path": "candidate/input/app/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerRequest.java",
+      "sha256": "2405941bfab3fb4678020e86f2c799c4ca55731bf5aec61fe7fcc8c2eaec3829",
+      "bytes": 519
+    },
+    {
+      "path": "candidate/input/app/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java",
+      "sha256": "c72a9c611a46ab96db76421646fdde93ff8b1530bfb57ff29b847ed9e7b8d2fe",
+      "bytes": 3059
+    },
+    {
+      "path": "candidate/input/app/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/mapper/OwnerEntityMapper.java",
+      "sha256": "c3752d284f1858948ac6b75142e4e7b62a993e1248d9224b8aea8e2c31eb0da4",
+      "bytes": 798
+    },
+    {
+      "path": "candidate/input/app/spring-petclinic-customers-service/src/main/resources/application.yml",
+      "sha256": "5b1dee448adfff6af1e358b5f9bfe421dfa338bf20b86fd780f5ae81f41dbe3d",
+      "bytes": 253
+    },
+    {
+      "path": "candidate/input/app/spring-petclinic-customers-service/src/main/resources/db/hsqldb/data.sql",
+      "sha256": "e8bf4ae1127f10b4f7a69f89999f94a0d0f286ba25ddb29ffff82d5df30adb92",
+      "bytes": 1971
+    },
+    {
+      "path": "candidate/input/app/spring-petclinic-customers-service/src/main/resources/db/hsqldb/schema.sql",
+      "sha256": "f0c5a917934dd6ba0258a8a5b4223725885454808a48661b6698c582558f7219",
+      "bytes": 855
+    },
+    {
+      "path": "candidate/input/app/spring-petclinic-visits-service/pom.xml",
+      "sha256": "9a56f6d6b27bb645de373b12b02008561d85f77194c879a9b413f790c932431b",
+      "bytes": 4127
+    },
+    {
+      "path": "candidate/input/app/spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java",
+      "sha256": "0bf7d4638add57363cde29b964d9fcc44ac55da9df320ff1ebfebc5c9f0786cd",
+      "bytes": 2758
+    },
+    {
+      "path": "candidate/input/app/spring-petclinic-visits-service/src/main/resources/application.yml",
+      "sha256": "129ebad1487c0c78d10bd083658fc7b1712f0b0147c682dd56b7ae82239b9007",
+      "bytes": 250
+    },
+    {
+      "path": "candidate/input/app/spring-petclinic-visits-service/src/main/resources/db/hsqldb/data.sql",
+      "sha256": "59b606da305562e38e835128d97d22d23b73031ad1ce72060746ef35c5e82756",
+      "bytes": 244
+    },
+    {
+      "path": "candidate/input/app/spring-petclinic-visits-service/src/main/resources/db/hsqldb/schema.sql",
+      "sha256": "2b46bd5480d06b9737dd4ad605517a2686da3e499ce924ed9eccb5ef3f7c26af",
+      "bytes": 227
+    },
+    {
+      "path": "candidate/input/config/LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "bytes": 11357
+    },
+    {
+      "path": "candidate/input/config/api-gateway.yml",
+      "sha256": "e248484d6ab632dd8a2da679defa57e480fbe26b46ed4e4f3eab1e7408a65414",
+      "bytes": 416
+    },
+    {
+      "path": "candidate/input/config/application.yml",
+      "sha256": "c2c1f1d6153cc869ff53a60702b1f48dc1bc7a75bf29afc91b0534f332495da3",
+      "bytes": 2583
+    },
+    {
+      "path": "candidate/input/config/customers-service.yml",
+      "sha256": "5754a56fbb6e32b8e05c2cecfcc1bfc0b96d946084fe4ba4d47e3d78b57c5213",
+      "bytes": 387
+    },
+    {
+      "path": "candidate/input/config/discovery-server.yml",
+      "sha256": "6cda6ee60f38c5b7fd4cd3fd22de199aa13359749ef004599622d75260253152",
+      "bytes": 248
+    },
+    {
+      "path": "candidate/input/config/visits-service.yml",
+      "sha256": "93a9716ef2d439aa129191cfecfa759d4b5bccf6ead8d1100768db509d319a95",
+      "bytes": 387
+    },
+    {
+      "path": "candidate/mutated/app/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java",
+      "sha256": "fb9e1635b423b0cf2b6ae2067a95a66070f8583814fc28ad7ddd29223c88d864",
+      "bytes": 3638
+    },
+    {
+      "path": "candidate/protocol/benchmark_protocol_v0.2.md",
+      "sha256": "92258d2a19599f202c39ab5067191248c17631565391ffab9f96d9cc0608d6cb",
+      "bytes": 21174
+    },
+    {
+      "path": "candidate/spec/fixture.candidate.v1.json",
+      "sha256": "52172f64187d29461a754a7535bb5ec14f7a9ac0141e9e35e89f99848df1cc21",
+      "bytes": 6405
+    },
+    {
+      "path": "candidate/spec/owner-response-rename.patch",
+      "sha256": "87b0083ca0b1c9a01badb94f3cf8ecdf1918a24517d91e7b2690810c8080fbc0",
+      "bytes": 1751
+    },
+    {
+      "path": "candidate/spec/scenario.candidate.v0.1.0.json",
+      "sha256": "36fc64997ed04a5fb9782231471bbd2dec5a0177c0ae0e428f2ff48457a1bed8",
+      "bytes": 4809
+    },
+    {
+      "path": "candidate/spec/scope.candidate.v1.json",
+      "sha256": "8db699e76e1d6c2d340e26f5d82080c4bea08ef574c7b500146da5cc9d3c4c53",
+      "bytes": 8466
+    },
+    {
+      "path": "candidate/tooling/pipeline/p03/README.md",
+      "sha256": "b436a422e600cc4e455809706102e89a705def3b953ccb44dea58cad8070dc5c",
+      "bytes": 2069
+    },
+    {
+      "path": "candidate/tooling/pipeline/p03/preparation.mjs",
+      "sha256": "1cae58b2296dc4ce0af6776ae3a17974add1a0428c04243d6db957b197c01781",
+      "bytes": 25584
+    },
+    {
+      "path": "candidate/tooling/pipeline/p03/preparation.test.mjs",
+      "sha256": "50ac39d77975512139bc31856b9f72abe3b2b64ae32c864bcdaaf1c7e9695e08",
+      "bytes": 5411
+    },
+    {
+      "path": "candidate/tooling/pipeline/p03/response_checks.py",
+      "sha256": "ed1b32188c6e0b583718f0a7653084e8975106d5f7befbdf650690395f724836",
+      "bytes": 3618
+    },
+    {
+      "path": "candidate/tooling/pipeline/p03/response_checks_test.py",
+      "sha256": "ecae6de5b1a0f67811eb29af83c2010230bbc34d5474d0e38eecf9f52997bef0",
+      "bytes": 3355
+    },
+    {
+      "path": "candidate/tooling/scripts/prepare_p03_inputs.mjs",
+      "sha256": "236b6fb012d91d903d2bbc70deec391d0c4850949449b14e416e70f70a6bc6b8",
+      "bytes": 11940
+    },
+    {
+      "path": "decisions/D19.json",
+      "sha256": "dd59272a190ce17f0aff9fee9d1008bd3969945a57152d60a68579e6bc72830c",
+      "bytes": 2960
+    },
+    {
+      "path": "decisions/D20.json",
+      "sha256": "bced4426f7e9ce6c7f26c31668faaf36d3ed770acd60a6a93147d7aebc06671f",
+      "bytes": 2928
+    },
+    {
+      "path": "implementation-reference/requirements.txt",
+      "sha256": "ad37493462c30310b8a854315b1d7d5ab8b8239102b3391ce631b6f1f47b1026",
+      "bytes": 113
+    },
+    {
+      "path": "implementation-reference/src/neo4j_importer.py",
+      "sha256": "8e418f34cc4e620cc924b37f23baccd8ad2f150579768cb34fffc97ec55ed08c",
+      "bytes": 12224
+    },
+    {
+      "path": "implementation-reference/src/parser.py",
+      "sha256": "fb20def957a46c5bf41662326fa5c4e955593cb532cdad476dc9263ae9b6e8d9",
+      "bytes": 46588
+    },
+    {
+      "path": "implementation-reference/src/response_survey.py",
+      "sha256": "461e9b27495f09faa7beb232c3ddcc7f80614a2db08cc5062e619bb9f0111a9b",
+      "bytes": 5429
+    },
+    {
+      "path": "implementation-reference/src/synthetic_adapter.py",
+      "sha256": "5a982fbf63671cdf46e27cc318dbe27eea1189d3b461f43ddf68b3ca0bfea431",
+      "bytes": 7233
+    },
+    {
+      "path": "implementation-reference/tests/test_importer_metadata.py",
+      "sha256": "7c8ee9fa98aa264df69b752a123af52d59881676e04f8dbd77efcbab22a39700",
+      "bytes": 4658
+    },
+    {
+      "path": "implementation-reference/tests/test_synthetic_adapter.py",
+      "sha256": "a2274344855c9fee413345a499dafb302a50601e2ee61ae5a42f1f3442deb840",
+      "bytes": 10305
+    },
+    {
+      "path": "implementation-reference/tests/test_synthetic_resolution.py",
+      "sha256": "c60f77a0674dff9ed79dbbec0bae3472fc16c246eb9ef3777243b4403cc43eb9",
+      "bytes": 3766
+    },
+    {
+      "path": "implementation-reference/tools/SYNTHETIC_PREPARATION.md",
+      "sha256": "a88eadeabeefc370e7ac038c14928b31994a6a90308b7e573be3ab7028c28717",
+      "bytes": 4422
+    },
+    {
+      "path": "implementation-reference/tools/run_synthetic_preparation.py",
+      "sha256": "57ae690bd47770310e7295d03b7db83a6403c86ab17be90ac4692779e209c1a3",
+      "bytes": 785
+    },
+    {
+      "path": "provenance/SELECTED_FILES.json",
+      "sha256": "63b3081d113ac1c588eb3d5c91b0946345b22330dabff3ed5907aa86c5a44320",
+      "bytes": 27884
+    },
+    {
+      "path": "tooling/scripts/verify_project_transfer.mjs",
+      "sha256": "1345318a3de97b10c18f7b84623b175c3f76a2e0fe9c91a910d5ece1ca58a2e2",
+      "bytes": 14175
+    }
+  ],
+  "historical_manifests": [
+    {
+      "path": "candidate/SHA256SUMS.txt",
+      "verified": 52,
+      "omitted": 0
+    }
+  ],
+  "omissions": [],
+  "limitations": [
+    "Selected technical materials, no annotation/raw outcome or full runtime replay",
+    "Reference implementation is previously checked, not necessarily the recipient latest branch"
+  ],
+  "packet_sent": false,
+  "recipient_acknowledged": false
+}

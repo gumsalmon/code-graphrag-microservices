@@ -7,8 +7,12 @@ import { execFileSync } from 'node:child_process';
 import core from '../demo/p01/reasoning-core.js';
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const SCRIPTS = ['build_p01_demo.mjs', 'check_p01_demo_browser.mjs', 'check_p01_retrieval_run.mjs', 'configure_gemini_key.ps1',
-  'run_p01_reasoning.mjs', 'run_p01_retrieval.mjs', 'run_p01_pipeline.mjs', 'check_p01_pipeline.mjs', 'package_p01_candidate.mjs'];
-const EXPORTED_ROOT_FILES = ['README.md', 'PROJECT_CONTEXT.md', '.gitignore', '.gitattributes'];
+  'run_p01_reasoning.mjs', 'run_p01_retrieval.mjs', 'run_p01_pipeline.mjs', 'check_p01_pipeline.mjs', 'package_p01_candidate.mjs', 'package_p01_comparison.mjs', 'prepare_p01_abstention.mjs', 'audit_p01_closeout.mjs', 'prepare_p02_inputs.mjs', 'run_p02_baseline.mjs', 'check_p02_baseline.mjs'];
+const EXPORTED_ROOT_FILES = ['README.md', 'PROJECT_CONTEXT.md', '.gitignore', '.gitattributes',
+  'tasks/README.md', 'tasks/P01_CLOSEOUT.md', 'tasks/P02_P04_EXECUTION_PLAN.md', 'tasks/P02_P04_TASK_PACKETS.md', 'tasks/P02_P04_RESEARCH_REGISTER.json',
+  'benchmark/p02/README.md', 'benchmark/p02/preparation.v1/scenario.json', 'benchmark/p02/preparation.v1/fixture.json',
+  'benchmark/p02/preparation.v1/scope.json', 'benchmark/p02/preparation.v1/optional-query.patch', 'pipeline/p02/preparation.test.mjs',
+  'pipeline/p02/runtime.test.mjs', 'pipeline/p02/baseline-check.test.mjs', 'pipeline/p02/http-probe.py', 'pipeline/p02/http_probe_test.py', 'pipeline/p02/maven-settings.xml', 'pipeline/p02/README.md'];
 export async function candidateFiles() {
   const paths = [...EXPORTED_ROOT_FILES, ...SCRIPTS.map(name => 'scripts/' + name)];
   async function visit(prefix) {

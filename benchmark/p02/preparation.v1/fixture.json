@@ -1,0 +1,41 @@
+{
+  "schema": "p02-fixture-plan/1",
+  "fixture_id": "petclinic-hsqldb-seed-owner6-pets7-8-v1",
+  "status": "prepared_from_pinned_sql_not_runtime_observed",
+  "database_mode": "Fresh isolated HSQLDB for each snapshot and repetition; verify active profile, loaded SQL and effective config before any observation",
+  "sql_files": {
+    "visits_data": "spring-petclinic-visits-service/src/main/resources/db/hsqldb/data.sql",
+    "visits_schema": "spring-petclinic-visits-service/src/main/resources/db/hsqldb/schema.sql",
+    "customers_data": "spring-petclinic-customers-service/src/main/resources/db/hsqldb/data.sql",
+    "customers_schema": "spring-petclinic-customers-service/src/main/resources/db/hsqldb/schema.sql"
+  },
+  "primary": {"owner_id": 6, "pet_ids": [7, 8]},
+  "auxiliary_empty": {"owner_id": 1, "pet_ids": [1]},
+  "seed_visits": [
+    {"id": 1, "pet_id": 7, "date": "2013-01-01", "description": "rabies shot"},
+    {"id": 2, "pet_id": 8, "date": "2013-01-02", "description": "rabies shot"},
+    {"id": 3, "pet_id": 8, "date": "2013-01-03", "description": "neutered"},
+    {"id": 4, "pet_id": 7, "date": "2013-01-04", "description": "spayed"}
+  ],
+  "snapshots": ["baseline", "mutated"],
+  "repetitions": 2,
+  "requests": [
+    {"id": "direct_omitted", "target": "visits", "method": "GET", "path": "/pets/visits?petId=7,8", "role": "existing client request"},
+    {"id": "direct_true", "target": "visits", "method": "GET", "path": "/pets/visits?petId=7,8&includeDetails=true", "role": "explicit valid boolean"},
+    {"id": "direct_false", "target": "visits", "method": "GET", "path": "/pets/visits?petId=7,8&includeDetails=false", "role": "explicit default boolean"},
+    {"id": "direct_empty", "target": "visits", "method": "GET", "path": "/pets/visits?petId=7,8&includeDetails=", "role": "empty/default binding probe"},
+    {"id": "direct_invalid", "target": "visits", "method": "GET", "path": "/pets/visits?petId=7,8&includeDetails=not-a-boolean", "role": "out-of-valid-domain binding probe, report separately; not evidence that an old valid request breaks"},
+    {"id": "direct_missing_pet_id", "target": "visits", "method": "GET", "path": "/pets/visits", "role": "existing contract validation control"},
+    {"id": "gateway_populated", "target": "gateway", "method": "GET", "path": "/api/gateway/owners/6", "role": "unchanged real consumer, compare full content"},
+    {"id": "gateway_empty", "target": "gateway", "method": "GET", "path": "/api/gateway/owners/1", "role": "empty-data sensitivity control, cannot replace populated case"},
+    {"id": "overload_read", "target": "visits", "method": "GET", "path": "/owners/6/pets/7/visits", "role": "unchanged overload API control"},
+    {"id": "create_control", "target": "visits", "method": "POST", "path": "/owners/6/pets/7/visits", "headers": {"Content-Type": "application/json"}, "body": {"date": "2026-10-01", "description": "P02 isolated write control"}, "role": "unchanged POST API control; run last in each repetition, isolated DB and reset afterward"}
+  ],
+  "execution_policy": {"unknown_base_urls_until_runtime_setup": true, "automatic_execution": false, "post_only_in_run_owned_disposable_database": true, "no_repair_or_consumer_changes": true, "retain_raw_bodies_headers_status_stderr_and_service_logs": true},
+  "comparison_policy": {
+    "primary_domain": "Existing valid requests: unchanged petId and no includeDetails; true/false/empty are binding coverage; invalid boolean/missing petId are diagnostic domain, reported separately",
+    "raw_files": "Always keep byte-exact original bodies and headers before normalization",
+    "normalization": "For successful JSON only, canonicalize object keys; sort items, pets and per-pet visits by numeric id without dropping fields; retain status and all fields. Error timestamps may be isolated for diagnosis with a recorded transformation; do not silently delete them or claim byte-identical errors",
+    "labels": "No status/body equality or inequality here is a gold polarity; Phat independently determines evidence sufficiency and unresolved cases"
+  }
+}

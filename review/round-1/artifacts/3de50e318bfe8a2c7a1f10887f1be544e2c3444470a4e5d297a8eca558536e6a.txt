@@ -1,0 +1,38 @@
+{
+  "id": "direct_missing_pet_id",
+  "timestamp_utc": "2026-10-24T10:44:02.308106+00:00",
+  "method": "GET",
+  "host": "visits-service",
+  "port": 8082,
+  "path": "/pets/visits",
+  "request_headers": {
+    "Accept": "application/json",
+    "Accept-Encoding": "identity"
+  },
+  "request_body_file": null,
+  "status": 400,
+  "error": null,
+  "response_headers": [
+    [
+      "Content-Type",
+      "application/json"
+    ],
+    [
+      "Transfer-Encoding",
+      "chunked"
+    ],
+    [
+      "Date",
+      "Sat, 24 Oct 2026 10:44:02 GMT"
+    ],
+    [
+      "Connection",
+      "close"
+    ]
+  ],
+  "body_file": "direct_missing_pet_id.body",
+  "redirects_followed": false,
+  "body_sha256": "8e11b90c89c0fb7e9dbe219d7ab6ad3f3f949eb7774f6e76449d821d553b1361",
+  "body_bytes": 97,
+  "elapsed_ms": 31
+}

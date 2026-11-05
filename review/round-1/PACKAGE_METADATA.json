@@ -1,0 +1,29 @@
+{
+  "schema": "petclinic-review-package/1",
+  "package_version": "1.0.0",
+  "package_id": "PETCLINIC-R1-20261105-45a9dd18",
+  "review_round": 1,
+  "prepared_date": "2026-11-05",
+  "prepared_utc": "2026-11-05T09:32:52.936978+00:00",
+  "source_commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+  "config_commit": "323993ce2519c6d02df63e08bf4458d123d3b611",
+  "purpose": "Independent source-first benchmark evidence review, then draft comparison",
+  "distribution_state": "assembled_not_sent",
+  "reviewer": null,
+  "review_decision": null,
+  "ground_truth_accepted": false,
+  "model_calls": 0,
+  "official_scoring": false,
+  "final_test_locked": false,
+  "shared_draft_contract_adopted": false,
+  "evidence_index_sha256": "25bc434568c6f2a40e2ead32cdc8ed7d0884bd52af529b31e7cc0c7533c54440",
+  "logical_evidence_files": 911,
+  "unique_payload_files": 516,
+  "case_ids": [
+    "P01",
+    "P02",
+    "P03"
+  ],
+  "physical_storage_note": "Payload bytes unchanged; logical paths/refs retained in index; identical bytes deduplicated",
+  "scope_note": "Development pilot cases; no claim of unseen-test status, complete runtime replay or certified blinding"
+}

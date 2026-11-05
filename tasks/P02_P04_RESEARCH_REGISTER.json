@@ -1,0 +1,153 @@
+{
+  "schema": "p02-p04-preparation-register/3",
+  "version": "3",
+  "supersedes_version": "2",
+  "supersedes_sha256": "ba4936fbded6f19cfcc3fa008aa264919b729b80e9e23e57b407fd66701c0e24",
+  "decision_date": "2026-10-15",
+  "authorized_by": "Huy",
+  "authorization_scope": "preparation_and_development_before_batch_review",
+  "status": "p02_baseline_verified_universe_confirmation_pending",
+  "protocol_base": {
+    "commit": "5f9204d66253604edf9101c2f888fc7e75aa0be7",
+    "path": "benchmark/protocol/benchmark_protocol_v0.2.md",
+    "version": "0.2",
+    "coordination_addendum": "PROJECT_CONTEXT.md",
+    "coordination_addendum_section": "8.4"
+  },
+  "gates": {
+    "batch_review_allowed": true,
+    "independent_human_review_required": true,
+    "official_scoring_authorized": false,
+    "final_test_locked": false,
+    "labels_may_be_derived_from_system_outputs": false
+  },
+  "roles": {
+    "coordinator": "Huy",
+    "implementation": "Hiển",
+    "benchmark_evidence_and_draft_labels": "Phát",
+    "independent_reviewer": null,
+    "new_task_acknowledgements_received": false
+  },
+  "candidates": [
+    {
+      "candidate_id": "C02-A",
+      "planned_scenario_id": "P02",
+      "repository": "https://github.com/spring-petclinic/spring-petclinic-microservices",
+      "candidate_commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+      "operator": "add_optional_query_with_default_preserve_handler_logic",
+      "source_anchor": "VisitResource.read(List<Integer>) GET /pets/visits",
+      "selection_decision": "selected_for_preparation",
+      "source_inspected": true,
+      "split_intent": "development",
+      "duplicate_group": "spring-petclinic-microservices:visits-service:GET-pets-visits:gateway-owner-details:required-query-param:spring-java",
+      "related_scenarios": ["P01"],
+      "runtime_status": "baseline_verified",
+      "patch_sha256": "091b04de4a504512cbda4e0c5c0759b747b056b4c7028923d8b7808b43303c4f",
+      "fixture_sha256": "2a319f48c2d31894718228539c3743396e3d3e5ad04579985f6d2588bb324191",
+      "evaluation_universe_draft_sha256": "8c04bbca98318c3d358ec9135516d889f3b7c017793dbc4aa5319771ed8d7424",
+      "independent_inventory_confirmation_received": false,
+      "baseline_feasibility_verified_for_p02": true,
+      "baseline_evidence": {
+        "run_id": "20261015T102355058Z-2e775d19",
+        "local_directory": "handoff-out/p02-baseline/20261015T102355058Z-2e775d19",
+        "result_sha256": "cae57bce80d02415b1eed773cf41e7a9d38303917fe9a89a0cd1197284e4d878",
+        "manifest_sha256": "499b25697056c38fe0ad833b290b72d272edb72e91b935922a35c006e94cad55",
+        "source_commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+        "config_commit": "323993ce2519c6d02df63e08bf4458d123d3b611",
+        "fixture_get_observations": 9,
+        "full_matrix_executed": false,
+        "mutated_executed": false,
+        "post_executed": false
+      },
+      "preparation_spec": "benchmark/p02/preparation.v1/scenario.json",
+      "evaluation_universe_sha256": null,
+      "label_sha256": null,
+      "review_status": "pending_review",
+      "selected_at": "2026-10-15",
+      "selected_by": "Huy",
+      "selection_reason": "Paired compatible-control design; not an assumed negative label",
+      "fallback": "Record feasibility blocker; no substitution based on evaluated-system output"
+    },
+    {
+      "candidate_id": "C03-A",
+      "planned_scenario_id": "P03",
+      "repository": "https://github.com/spring-petclinic/spring-petclinic-microservices",
+      "candidate_commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+      "operator": "rename_response_field_pets_to_animals_at_single_owner_get_boundary",
+      "source_anchor": "OwnerResource.findOwner(int), CustomersServiceClient.getOwner(int), OwnerDetails",
+      "selection_decision": "proposed_primary",
+      "source_inspected": true,
+      "split_intent": "development",
+      "duplicate_group": "petclinic:customers-owner-get:response-field-rename:gateway-owner-details:spring-java",
+      "related_scenarios": ["P01", "P02"],
+      "runtime_status": "not_started",
+      "patch_sha256": null,
+      "evaluation_universe_sha256": null,
+      "label_sha256": null,
+      "review_status": "pending_review",
+      "selected_at": null,
+      "selection_reason": "Response-shape and consumer-use coverage; runtime behavior deliberately unassigned",
+      "fallback": "If mutation cannot be isolated, document exclusions and version scope before universe lock"
+    },
+    {
+      "candidate_id": "C04-A",
+      "planned_scenario_id": "P04",
+      "repository": "https://github.com/GoogleCloudPlatform/microservices-demo",
+      "candidate_commit": "38e7348eb289eb5b87c0c6e8cb19ced0449dc389",
+      "operator": "provider_only_get_product_request_id_wire_tag_change_with_legacy_consumers",
+      "source_anchor": "protos/demo.proto GetProductRequest.id=1; productcatalog.GetProduct; checkout.prepOrderItems",
+      "selection_decision": "proposed_primary",
+      "source_inspected": true,
+      "split_intent": "development",
+      "duplicate_group": "online-boutique:productcatalog-getproduct:protobuf-tag-change:go-grpc",
+      "related_scenarios": [],
+      "runtime_status": "not_started",
+      "patch_sha256": null,
+      "evaluation_universe_sha256": null,
+      "label_sha256": null,
+      "review_status": "pending_review",
+      "selected_at": null,
+      "selection_reason": "Second-system and wire-contract feasibility; no claim of polyglot or runtime support",
+      "fallback": "Stop at baseline feasibility blocker; no cloud deployment or silent substitute"
+    },
+    {
+      "candidate_id": "C02-B",
+      "planned_scenario_id": "P02",
+      "repository": "https://github.com/spring-petclinic/spring-petclinic-microservices",
+      "candidate_commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+      "operator": "repeat_p01_required_query_with_new_literal",
+      "selection_decision": "not_prioritized",
+      "selection_reason": "Near duplicate of P01; little coverage gain; not rejected on prediction or score"
+    },
+    {
+      "candidate_id": "C03-B",
+      "planned_scenario_id": "P03",
+      "repository": "https://github.com/spring-petclinic/spring-petclinic-microservices",
+      "candidate_commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+      "operator": "rename_shared_owner_getter_serialization_globally",
+      "selection_decision": "not_prioritized",
+      "selection_reason": "Shared representation expands mutation across multiple APIs; prefer boundary-isolated operator"
+    },
+    {
+      "candidate_id": "C04-B",
+      "planned_scenario_id": "P04",
+      "repository": "https://github.com/GoogleCloudPlatform/microservices-demo",
+      "candidate_commit": "38e7348eb289eb5b87c0c6e8cb19ced0449dc389",
+      "operator": "whole_system_multilanguage_cloud_deployment",
+      "selection_decision": "deferred_scope",
+      "selection_reason": "Too broad before local gRPC baseline; no approved cloud spend or all-language resolver"
+    }
+  ],
+  "held_out_test": {
+    "status": "not_selected_not_locked",
+    "must_not_reuse_debugged_scenarios_as_unseen": true,
+    "requires_separate_approval_before_official_inference": true
+  },
+  "batch_review": {
+    "planned_after": "P04_evidence_packages_ready",
+    "source_first_then_label_comparison": true,
+    "reviewer_confirmation_received": false,
+    "accepted_scenarios": [],
+    "review_decisions": []
+  }
+}

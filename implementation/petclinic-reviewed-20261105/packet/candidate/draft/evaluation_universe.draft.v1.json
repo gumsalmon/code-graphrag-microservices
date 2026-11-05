@@ -1,0 +1,581 @@
+{
+  "schema": "p03-evaluation-universe-candidate/1",
+  "universe_version": "draft.v1",
+  "scenario_id": "P03",
+  "scenario_version": "0.1.0",
+  "status": "candidate_pending_selection_and_independent_inventory_confirmation",
+  "split_intent": "development",
+  "fixture_sha256": "52172f64187d29461a754a7535bb5ec14f7a9ac0141e9e35e89f99848df1cc21",
+  "inventory_sha256": "5ab81b134c0d9bed32ab4943c1b35ffc860f34d0204dbfcd825e008cb8c067a4",
+  "scope_sha256": "8db699e76e1d6c2d340e26f5d82080c4bea08ef574c7b500146da5cc9d3c4c53",
+  "baseline_commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+  "mutated_snapshot_id": "3858f9c630cf989bb6809a86edf47c2be78dc9f1+P03-0.1.0-87b0083ca0b1",
+  "logical_hop_limit": 3,
+  "evidence_root": ".",
+  "eligible_entities": [
+    {
+      "level": "method",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.web.OwnerResource#createOwner(OwnerRequest)"
+    },
+    {
+      "level": "api",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::POST /owners"
+    },
+    {
+      "level": "method",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.web.OwnerResource#findAll()"
+    },
+    {
+      "level": "api",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::GET /owners"
+    },
+    {
+      "level": "method",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.web.OwnerResource#updateOwner(int,OwnerRequest)"
+    },
+    {
+      "level": "api",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::PUT /owners/{ownerId}"
+    },
+    {
+      "level": "method",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#getPetsInternal()"
+    },
+    {
+      "level": "method",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#getPets()"
+    },
+    {
+      "level": "method",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#addPet(Pet)"
+    },
+    {
+      "level": "method",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#toString()"
+    },
+    {
+      "level": "method",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#getId()"
+    },
+    {
+      "level": "method",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#getFirstName()"
+    },
+    {
+      "level": "method",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#getLastName()"
+    },
+    {
+      "level": "method",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#getAddress()"
+    },
+    {
+      "level": "method",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#getCity()"
+    },
+    {
+      "level": "method",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#getTelephone()"
+    },
+    {
+      "level": "method",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#setFirstName(String)"
+    },
+    {
+      "level": "method",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#setLastName(String)"
+    },
+    {
+      "level": "method",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#setAddress(String)"
+    },
+    {
+      "level": "method",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#setCity(String)"
+    },
+    {
+      "level": "method",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#setTelephone(String)"
+    },
+    {
+      "level": "method",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.application.CustomersServiceClient#getOwner(int)"
+    },
+    {
+      "level": "method",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.dto.OwnerDetails#getPetIds()"
+    },
+    {
+      "level": "method",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)"
+    },
+    {
+      "level": "api",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::GET /api/gateway/owners/{ownerId}"
+    },
+    {
+      "level": "method",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#addVisitsToOwner(OwnerDetails)"
+    },
+    {
+      "level": "method",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#emptyVisitsForPets()"
+    },
+    {
+      "level": "method",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)"
+    },
+    {
+      "level": "method",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#joinIds(List<Integer>)"
+    },
+    {
+      "level": "method",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#setHostname(String)"
+    },
+    {
+      "level": "service",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway"
+    }
+  ],
+  "excluded_seeds": [
+    {
+      "level": "method",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.web.OwnerResource#findOwner(int)"
+    },
+    {
+      "level": "api",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::GET /owners/{ownerId}"
+    },
+    {
+      "level": "service",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service"
+    }
+  ],
+  "aliases": [
+    {
+      "level": "method",
+      "baseline_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.web.OwnerResource#createOwner(OwnerRequest)",
+      "canonical_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.web.OwnerResource#createOwner(OwnerRequest)",
+      "mutated_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+P03-0.1.0-87b0083ca0b1::customers-service::org.springframework.samples.petclinic.customers.web.OwnerResource#createOwner(OwnerRequest)",
+      "evidence_refs": [
+        "input/app/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java",
+        "spec/owner-response-rename.patch"
+      ],
+      "reason": "Same service/class/signature/path; seed return type changes but parameter signature is preserved; source and patch need independent confirmation",
+      "independently_confirmed": false
+    },
+    {
+      "level": "api",
+      "baseline_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::POST /owners",
+      "canonical_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::POST /owners",
+      "mutated_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+P03-0.1.0-87b0083ca0b1::customers-service::POST /owners",
+      "evidence_refs": [
+        "input/app/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java",
+        "spec/owner-response-rename.patch"
+      ],
+      "reason": "Same service/class/signature/path; seed return type changes but parameter signature is preserved; source and patch need independent confirmation",
+      "independently_confirmed": false
+    },
+    {
+      "level": "method",
+      "baseline_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.web.OwnerResource#findOwner(int)",
+      "canonical_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.web.OwnerResource#findOwner(int)",
+      "mutated_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+P03-0.1.0-87b0083ca0b1::customers-service::org.springframework.samples.petclinic.customers.web.OwnerResource#findOwner(int)",
+      "evidence_refs": [
+        "input/app/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java",
+        "spec/owner-response-rename.patch"
+      ],
+      "reason": "Same service/class/signature/path; seed return type changes but parameter signature is preserved; source and patch need independent confirmation",
+      "independently_confirmed": false
+    },
+    {
+      "level": "api",
+      "baseline_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::GET /owners/{ownerId}",
+      "canonical_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::GET /owners/{ownerId}",
+      "mutated_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+P03-0.1.0-87b0083ca0b1::customers-service::GET /owners/{ownerId}",
+      "evidence_refs": [
+        "input/app/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java",
+        "spec/owner-response-rename.patch"
+      ],
+      "reason": "Same service/class/signature/path; seed return type changes but parameter signature is preserved; source and patch need independent confirmation",
+      "independently_confirmed": false
+    },
+    {
+      "level": "method",
+      "baseline_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.web.OwnerResource#findAll()",
+      "canonical_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.web.OwnerResource#findAll()",
+      "mutated_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+P03-0.1.0-87b0083ca0b1::customers-service::org.springframework.samples.petclinic.customers.web.OwnerResource#findAll()",
+      "evidence_refs": [
+        "input/app/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java",
+        "spec/owner-response-rename.patch"
+      ],
+      "reason": "Same service/class/signature/path; seed return type changes but parameter signature is preserved; source and patch need independent confirmation",
+      "independently_confirmed": false
+    },
+    {
+      "level": "api",
+      "baseline_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::GET /owners",
+      "canonical_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::GET /owners",
+      "mutated_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+P03-0.1.0-87b0083ca0b1::customers-service::GET /owners",
+      "evidence_refs": [
+        "input/app/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java",
+        "spec/owner-response-rename.patch"
+      ],
+      "reason": "Same service/class/signature/path; seed return type changes but parameter signature is preserved; source and patch need independent confirmation",
+      "independently_confirmed": false
+    },
+    {
+      "level": "method",
+      "baseline_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.web.OwnerResource#updateOwner(int,OwnerRequest)",
+      "canonical_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.web.OwnerResource#updateOwner(int,OwnerRequest)",
+      "mutated_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+P03-0.1.0-87b0083ca0b1::customers-service::org.springframework.samples.petclinic.customers.web.OwnerResource#updateOwner(int,OwnerRequest)",
+      "evidence_refs": [
+        "input/app/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java",
+        "spec/owner-response-rename.patch"
+      ],
+      "reason": "Same service/class/signature/path; seed return type changes but parameter signature is preserved; source and patch need independent confirmation",
+      "independently_confirmed": false
+    },
+    {
+      "level": "api",
+      "baseline_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::PUT /owners/{ownerId}",
+      "canonical_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::PUT /owners/{ownerId}",
+      "mutated_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+P03-0.1.0-87b0083ca0b1::customers-service::PUT /owners/{ownerId}",
+      "evidence_refs": [
+        "input/app/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java",
+        "spec/owner-response-rename.patch"
+      ],
+      "reason": "Same service/class/signature/path; seed return type changes but parameter signature is preserved; source and patch need independent confirmation",
+      "independently_confirmed": false
+    },
+    {
+      "level": "method",
+      "baseline_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#getPetsInternal()",
+      "canonical_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#getPetsInternal()",
+      "mutated_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+P03-0.1.0-87b0083ca0b1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#getPetsInternal()",
+      "evidence_refs": [
+        "input/app/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java",
+        "spec/owner-response-rename.patch"
+      ],
+      "reason": "Same service/class/signature/path; seed return type changes but parameter signature is preserved; source and patch need independent confirmation",
+      "independently_confirmed": false
+    },
+    {
+      "level": "method",
+      "baseline_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#getPets()",
+      "canonical_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#getPets()",
+      "mutated_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+P03-0.1.0-87b0083ca0b1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#getPets()",
+      "evidence_refs": [
+        "input/app/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java",
+        "spec/owner-response-rename.patch"
+      ],
+      "reason": "Same service/class/signature/path; seed return type changes but parameter signature is preserved; source and patch need independent confirmation",
+      "independently_confirmed": false
+    },
+    {
+      "level": "method",
+      "baseline_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#addPet(Pet)",
+      "canonical_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#addPet(Pet)",
+      "mutated_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+P03-0.1.0-87b0083ca0b1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#addPet(Pet)",
+      "evidence_refs": [
+        "input/app/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java",
+        "spec/owner-response-rename.patch"
+      ],
+      "reason": "Same service/class/signature/path; seed return type changes but parameter signature is preserved; source and patch need independent confirmation",
+      "independently_confirmed": false
+    },
+    {
+      "level": "method",
+      "baseline_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#toString()",
+      "canonical_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#toString()",
+      "mutated_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+P03-0.1.0-87b0083ca0b1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#toString()",
+      "evidence_refs": [
+        "input/app/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java",
+        "spec/owner-response-rename.patch"
+      ],
+      "reason": "Same service/class/signature/path; seed return type changes but parameter signature is preserved; source and patch need independent confirmation",
+      "independently_confirmed": false
+    },
+    {
+      "level": "method",
+      "baseline_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#getId()",
+      "canonical_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#getId()",
+      "mutated_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+P03-0.1.0-87b0083ca0b1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#getId()",
+      "evidence_refs": [
+        "input/app/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java",
+        "spec/owner-response-rename.patch"
+      ],
+      "reason": "Same service/class/signature/path; seed return type changes but parameter signature is preserved; source and patch need independent confirmation",
+      "independently_confirmed": false
+    },
+    {
+      "level": "method",
+      "baseline_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#getFirstName()",
+      "canonical_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#getFirstName()",
+      "mutated_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+P03-0.1.0-87b0083ca0b1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#getFirstName()",
+      "evidence_refs": [
+        "input/app/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java",
+        "spec/owner-response-rename.patch"
+      ],
+      "reason": "Same service/class/signature/path; seed return type changes but parameter signature is preserved; source and patch need independent confirmation",
+      "independently_confirmed": false
+    },
+    {
+      "level": "method",
+      "baseline_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#getLastName()",
+      "canonical_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#getLastName()",
+      "mutated_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+P03-0.1.0-87b0083ca0b1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#getLastName()",
+      "evidence_refs": [
+        "input/app/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java",
+        "spec/owner-response-rename.patch"
+      ],
+      "reason": "Same service/class/signature/path; seed return type changes but parameter signature is preserved; source and patch need independent confirmation",
+      "independently_confirmed": false
+    },
+    {
+      "level": "method",
+      "baseline_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#getAddress()",
+      "canonical_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#getAddress()",
+      "mutated_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+P03-0.1.0-87b0083ca0b1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#getAddress()",
+      "evidence_refs": [
+        "input/app/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java",
+        "spec/owner-response-rename.patch"
+      ],
+      "reason": "Same service/class/signature/path; seed return type changes but parameter signature is preserved; source and patch need independent confirmation",
+      "independently_confirmed": false
+    },
+    {
+      "level": "method",
+      "baseline_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#getCity()",
+      "canonical_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#getCity()",
+      "mutated_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+P03-0.1.0-87b0083ca0b1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#getCity()",
+      "evidence_refs": [
+        "input/app/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java",
+        "spec/owner-response-rename.patch"
+      ],
+      "reason": "Same service/class/signature/path; seed return type changes but parameter signature is preserved; source and patch need independent confirmation",
+      "independently_confirmed": false
+    },
+    {
+      "level": "method",
+      "baseline_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#getTelephone()",
+      "canonical_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#getTelephone()",
+      "mutated_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+P03-0.1.0-87b0083ca0b1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#getTelephone()",
+      "evidence_refs": [
+        "input/app/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java",
+        "spec/owner-response-rename.patch"
+      ],
+      "reason": "Same service/class/signature/path; seed return type changes but parameter signature is preserved; source and patch need independent confirmation",
+      "independently_confirmed": false
+    },
+    {
+      "level": "method",
+      "baseline_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#setFirstName(String)",
+      "canonical_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#setFirstName(String)",
+      "mutated_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+P03-0.1.0-87b0083ca0b1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#setFirstName(String)",
+      "evidence_refs": [
+        "input/app/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java",
+        "spec/owner-response-rename.patch"
+      ],
+      "reason": "Same service/class/signature/path; seed return type changes but parameter signature is preserved; source and patch need independent confirmation",
+      "independently_confirmed": false
+    },
+    {
+      "level": "method",
+      "baseline_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#setLastName(String)",
+      "canonical_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#setLastName(String)",
+      "mutated_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+P03-0.1.0-87b0083ca0b1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#setLastName(String)",
+      "evidence_refs": [
+        "input/app/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java",
+        "spec/owner-response-rename.patch"
+      ],
+      "reason": "Same service/class/signature/path; seed return type changes but parameter signature is preserved; source and patch need independent confirmation",
+      "independently_confirmed": false
+    },
+    {
+      "level": "method",
+      "baseline_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#setAddress(String)",
+      "canonical_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#setAddress(String)",
+      "mutated_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+P03-0.1.0-87b0083ca0b1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#setAddress(String)",
+      "evidence_refs": [
+        "input/app/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java",
+        "spec/owner-response-rename.patch"
+      ],
+      "reason": "Same service/class/signature/path; seed return type changes but parameter signature is preserved; source and patch need independent confirmation",
+      "independently_confirmed": false
+    },
+    {
+      "level": "method",
+      "baseline_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#setCity(String)",
+      "canonical_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#setCity(String)",
+      "mutated_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+P03-0.1.0-87b0083ca0b1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#setCity(String)",
+      "evidence_refs": [
+        "input/app/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java",
+        "spec/owner-response-rename.patch"
+      ],
+      "reason": "Same service/class/signature/path; seed return type changes but parameter signature is preserved; source and patch need independent confirmation",
+      "independently_confirmed": false
+    },
+    {
+      "level": "method",
+      "baseline_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#setTelephone(String)",
+      "canonical_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#setTelephone(String)",
+      "mutated_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+P03-0.1.0-87b0083ca0b1::customers-service::org.springframework.samples.petclinic.customers.model.Owner#setTelephone(String)",
+      "evidence_refs": [
+        "input/app/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java",
+        "spec/owner-response-rename.patch"
+      ],
+      "reason": "Same service/class/signature/path; seed return type changes but parameter signature is preserved; source and patch need independent confirmation",
+      "independently_confirmed": false
+    },
+    {
+      "level": "method",
+      "baseline_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.application.CustomersServiceClient#getOwner(int)",
+      "canonical_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.application.CustomersServiceClient#getOwner(int)",
+      "mutated_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+P03-0.1.0-87b0083ca0b1::api-gateway::org.springframework.samples.petclinic.api.application.CustomersServiceClient#getOwner(int)",
+      "evidence_refs": [
+        "input/app/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/CustomersServiceClient.java",
+        "spec/owner-response-rename.patch"
+      ],
+      "reason": "Same service/class/signature/path; seed return type changes but parameter signature is preserved; source and patch need independent confirmation",
+      "independently_confirmed": false
+    },
+    {
+      "level": "method",
+      "baseline_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.dto.OwnerDetails#getPetIds()",
+      "canonical_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.dto.OwnerDetails#getPetIds()",
+      "mutated_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+P03-0.1.0-87b0083ca0b1::api-gateway::org.springframework.samples.petclinic.api.dto.OwnerDetails#getPetIds()",
+      "evidence_refs": [
+        "input/app/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/dto/OwnerDetails.java",
+        "spec/owner-response-rename.patch"
+      ],
+      "reason": "Same service/class/signature/path; seed return type changes but parameter signature is preserved; source and patch need independent confirmation",
+      "independently_confirmed": false
+    },
+    {
+      "level": "method",
+      "baseline_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)",
+      "canonical_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)",
+      "mutated_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+P03-0.1.0-87b0083ca0b1::api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)",
+      "evidence_refs": [
+        "input/app/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+        "spec/owner-response-rename.patch"
+      ],
+      "reason": "Same service/class/signature/path; seed return type changes but parameter signature is preserved; source and patch need independent confirmation",
+      "independently_confirmed": false
+    },
+    {
+      "level": "api",
+      "baseline_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::GET /api/gateway/owners/{ownerId}",
+      "canonical_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::GET /api/gateway/owners/{ownerId}",
+      "mutated_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+P03-0.1.0-87b0083ca0b1::api-gateway::GET /api/gateway/owners/{ownerId}",
+      "evidence_refs": [
+        "input/app/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+        "spec/owner-response-rename.patch"
+      ],
+      "reason": "Same service/class/signature/path; seed return type changes but parameter signature is preserved; source and patch need independent confirmation",
+      "independently_confirmed": false
+    },
+    {
+      "level": "method",
+      "baseline_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#addVisitsToOwner(OwnerDetails)",
+      "canonical_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#addVisitsToOwner(OwnerDetails)",
+      "mutated_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+P03-0.1.0-87b0083ca0b1::api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#addVisitsToOwner(OwnerDetails)",
+      "evidence_refs": [
+        "input/app/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+        "spec/owner-response-rename.patch"
+      ],
+      "reason": "Same service/class/signature/path; seed return type changes but parameter signature is preserved; source and patch need independent confirmation",
+      "independently_confirmed": false
+    },
+    {
+      "level": "method",
+      "baseline_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#emptyVisitsForPets()",
+      "canonical_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#emptyVisitsForPets()",
+      "mutated_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+P03-0.1.0-87b0083ca0b1::api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#emptyVisitsForPets()",
+      "evidence_refs": [
+        "input/app/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+        "spec/owner-response-rename.patch"
+      ],
+      "reason": "Same service/class/signature/path; seed return type changes but parameter signature is preserved; source and patch need independent confirmation",
+      "independently_confirmed": false
+    },
+    {
+      "level": "method",
+      "baseline_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)",
+      "canonical_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)",
+      "mutated_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+P03-0.1.0-87b0083ca0b1::api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)",
+      "evidence_refs": [
+        "input/app/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+        "spec/owner-response-rename.patch"
+      ],
+      "reason": "Same service/class/signature/path; seed return type changes but parameter signature is preserved; source and patch need independent confirmation",
+      "independently_confirmed": false
+    },
+    {
+      "level": "method",
+      "baseline_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#joinIds(List<Integer>)",
+      "canonical_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#joinIds(List<Integer>)",
+      "mutated_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+P03-0.1.0-87b0083ca0b1::api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#joinIds(List<Integer>)",
+      "evidence_refs": [
+        "input/app/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+        "spec/owner-response-rename.patch"
+      ],
+      "reason": "Same service/class/signature/path; seed return type changes but parameter signature is preserved; source and patch need independent confirmation",
+      "independently_confirmed": false
+    },
+    {
+      "level": "method",
+      "baseline_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#setHostname(String)",
+      "canonical_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#setHostname(String)",
+      "mutated_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+P03-0.1.0-87b0083ca0b1::api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#setHostname(String)",
+      "evidence_refs": [
+        "input/app/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+        "spec/owner-response-rename.patch"
+      ],
+      "reason": "Same service/class/signature/path; seed return type changes but parameter signature is preserved; source and patch need independent confirmation",
+      "independently_confirmed": false
+    },
+    {
+      "level": "service",
+      "baseline_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service",
+      "canonical_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::customers-service",
+      "mutated_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+P03-0.1.0-87b0083ca0b1::customers-service",
+      "evidence_refs": [
+        "input/app/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java",
+        "input/app/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java",
+        "spec/owner-response-rename.patch"
+      ],
+      "reason": "Same service/class/signature/path; seed return type changes but parameter signature is preserved; source and patch need independent confirmation",
+      "independently_confirmed": false
+    },
+    {
+      "level": "service",
+      "baseline_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway",
+      "canonical_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway",
+      "mutated_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+P03-0.1.0-87b0083ca0b1::api-gateway",
+      "evidence_refs": [
+        "input/app/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/CustomersServiceClient.java",
+        "input/app/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/dto/OwnerDetails.java",
+        "input/app/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+        "input/app/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+        "spec/owner-response-rename.patch"
+      ],
+      "reason": "Same service/class/signature/path; seed return type changes but parameter signature is preserved; source and patch need independent confirmation",
+      "independently_confirmed": false
+    }
+  ],
+  "candidate_selected_by_huy": false,
+  "independently_confirmed": false,
+  "input_locked": false,
+  "application_build_performed": false,
+  "runtime_executed": false,
+  "labels_created": false,
+  "draft_annotation_authorized": false,
+  "evaluated_system_outputs_read": false,
+  "final_test_locked": false,
+  "official_scoring_authorized": false,
+  "model_calls_authorized": false,
+  "github_push_authorized": false
+}

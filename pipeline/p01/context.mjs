@@ -34,6 +34,7 @@ export async function contextFromFreshGraph({ input, patch, graph, query, enviro
 }
 
 export async function preparePair(fresh, corpus, retrieval, options = {}) {
+  options = { ...options, promptVersion: options.promptVersion ?? core.ABSTENTION_PROMPT_VERSION };
   const vector = await buildRetrievalRequest(fresh.source, corpus, retrieval, { ...options, mode: 'vector_retrieved' });
   const graph = await buildRetrievalRequest(fresh.source, corpus, retrieval, { ...options, mode: 'graph_vector', graphRequest: fresh.graphRequest });
   return { vector, graph, plan: pairedPlan(vector, graph), providerPlans: { vector: buildGeminiRequest(vector), graph: buildGeminiRequest(graph) } };

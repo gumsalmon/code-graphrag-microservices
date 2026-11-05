@@ -1,0 +1,31 @@
+# Căn cứ cho Methods draft
+
+Ngày 01/11/2026. Chỉ dùng trong nhóm điều phối/viết bài. Bảng này nối phát biểu với hồ sơ đã có, không là ground truth hoặc chứng nhận mọi lập luận khoa học đúng. Byte identities cụ thể nằm trong [sources.snapshot.json](sources.snapshot.json); trạng thái thiếu được ghi tại lúc soạn, không tự thay bằng return tương lai.
+
+| Ref | Nội dung có thể viết | Nguồn chính | Giới hạn cần giữ |
+|---|---|---|---|
+| E01 | Định nghĩa task/ID/seed/hop/behavior/repair, evidence, review và công thức metrics | Protocol v0.2 tại Git object `5f9204d66253604edf9101c2f888fc7e75aa0be7:benchmark/protocol/benchmark_protocol_v0.2.md`; [hồ sơ P01](../../tasks/P01_CLOSEOUT.md) | Chỉ được dùng làm khung chuẩn bị/review pilot; chưa final test/scoring. Không tự gán nguồn quy định này cho mọi tạp chí |
+| E02 | P02/P03 đã chốt input và quyền kỹ thuật theo từng giai đoạn | [P02 lock](../../benchmark/p02/decisions/INPUT_LOCK_2026-10-24.json), [P03 lock](../../benchmark/p03/decisions/INPUT_LOCK_2026-10-31.json), [D20](../../benchmark/decisions/PETCLINIC_DRAFT_INTEGRATION_2026-10-31.json) | D20 mở draft/integration có điều kiện, không rewrite flags lịch sử của D15/D19 hoặc cấp accepted/scoring |
+| E03 | Ba operator, source pin và scope/census độc lập của các ca | Scenario/patch/universe byte bindings của P02/P03 trong input locks/candidate manifests; P01 scenario/patch tại snapshot benchmark E01 | P02 12 eligible và P03 31 eligible là entities trong scope, không là số scenario/hệ thống. Không historical-change claim |
+| E04 | P02 F03 và direct-helper measurements, controls/reps/reset/projection/provenance | [F03 report](../../tasks/research/P02_F03_RUNTIME_2026-10-24.md), [helper report](../../tasks/research/P02_HELPER_RUNTIME_2026-10-25.md), các run manifests trong snapshot | Không production callback tracing; projection DTO được khai, không sửa raw; app Java suite không được chạy trong build này |
+| E05 | P03 paired setup/readiness/control/reset và bảo toàn failures | [Paired report](../../tasks/research/P03_PAIRED_RUNTIME_2026-10-31.md), [status runtime](../../tasks/P03_PAIRED_STATUS_2026-10-31.json), run/audit manifests | Snapshot runtime cũ không là quyền annotation hiện tại; D20 thay quyền điều phối. Không lấy runtime observations làm labels do AI tự ký |
+| E06 | Native logical graph, saved reverse traversal/source chunks và giới hạn inventory/parity P02 | [Run checker](../../scripts/check_p02_offline_method.mjs), [run audit đã lưu](../../handoff-out/team-returns-20261101/20261101T054957Z-a801d6ca/independent-commands/p02-method-audit.stdout.log), native run manifest | Chỉ technical reachability/context, không impact prediction. 4/8 eligible Method represented; Class.name lệch chưa sửa |
+| E07 | Parser/importer candidate thực tế và scope pattern resolution | [Code identities Hiển](../../handoff-out/team-returns-20261101/20261101T054957Z-a801d6ca/hien/received/CODE_HASHES.json), parser/importer files trong snapshot, [hướng dẫn run](../../pipeline/p02/OFFLINE_METHOD.md) | Candidate giữ hash, chưa commit mới của Hiển; không full-repo Java/gRPC analysis; DB riêng thay vì snapshot-qualified keys |
+| E08 | P02 draft checkpoint đã kiểm, human self-report/exposure và P03 checkpoint còn thiếu | [Audit checkpoint P02](../../handoff-out/team-returns-20261101/20261101T054957Z-a801d6ca/P02_INDEPENDENT_AUDIT.json), [receipt](../../tasks/hien-next/P02_TECHNICAL_RECEIPT_2026-11-01.json), [Hiển static audit](../../handoff-out/team-returns-20261101/20261101T054957Z-a801d6ca/HIEN_A_STATIC_AUDIT.json) | Chưa accepted/human reading authenticated/blinded. Milestone A response survey syntax-only, chưa P03 serialization/dataflow |
+| E09 | Static baseline-source P01 retrieval/context thực tế | [Retrieval context code](../../reasoning/p01/retrieval-context.mjs), [retrieval report](../../tasks/research/P01_RETRIEVAL_OFFLINE_2026-10-12.md) | Không dùng raw/labels trong primary context; byte ceiling chưa token fairness toàn request; P02 mutated graph là diagnostic khác |
+| E10 | Pure unknown/abstention đã áp cho P01, versioning và trạng thái smoke hiện có | [Abstention contract](../../reasoning/p01/ABSTENTION_CONTRACT.md), [smoke report](../../tasks/research/P01_ABSTENTION_LIVE_2026-10-15.md) | Quote/ID/path valid không chứng minh semantic impact; Vector pass + Graph+Vector 503 chưa thành paired comparison |
+| E11 | Thiết kế baseline/ablation/fairness/split/statistics/metrics dự kiến | [Experiment draft](../experiments/EXPERIMENT_DESIGN.v0.1.DRAFT.md), [output draft](../contracts/IMPACT_OUTPUT_CONTRACT.v0.1.DRAFT.md) | Chưa adopted; trạng thái các ca trong bản 15/10 là lịch sử. Dùng input/runtime/receipt mới cho actual progress, không biến proposal thành implemented |
+| E12 | Review hiện đang chuẩn bị, code/model/test/scoring chưa mở thêm | [Khung review](../../tasks/petclinic-review-draft/COORDINATOR.md), [readiness snapshot](../../tasks/petclinic-review-draft/readiness.snapshot.json), [kế hoạch PetClinic](../../tasks/PETCLINIC_PRE_REVIEW_PLAN_2026-10-24.md) | Templates chưa reviewer/decision; chưa official packet hoặc code release. Các link local/Git ignored chưa là artifact public |
+
+## Những câu chưa được đưa vào manuscript như kết quả
+
+- “Ground truth đã được chuyên gia độc lập thẩm định” — chưa có quyết định thật/hash review tương ứng.
+- “Hệ thống phân tích đầy đủ Method/API/Service trên PetClinic” — inventory, output/projection và P03 support còn thiếu.
+- “B5 tốt hơn B4/rules” hoặc “nhiều hop cải thiện F1” — chưa có fair paired experiment và official labels/scoring.
+- “Cùng byte budget là cùng token budget”, “Free Tier đo được chi phí 0” — chưa có phép đo/config tương ứng.
+- “31 entities hoặc hai repetitions là 31 ca/những mẫu độc lập” — sai đơn vị thiết kế.
+- “Graph baseline/mutated đã chạy nên primary static prediction setting đã được triển khai đầy đủ” — hai mục đích thí nghiệm khác nhau.
+
+## Để bản Methods có thể dùng khi nộp
+
+Con người kiểm lại định nghĩa và claim; cập nhật input/implementation/evidence versions theo tiến độ; hoàn tất feedback contract/thiết kế, review nhãn và campaign đúng gate; ghi rõ phần không triển khai; thêm literature citations đã đọc trực tiếp và artifact public/version thực. Chưa chọn venue hoặc yêu cầu riêng của tạp chí, không tự suy chuẩn công bố chỉ từ các artifact này.

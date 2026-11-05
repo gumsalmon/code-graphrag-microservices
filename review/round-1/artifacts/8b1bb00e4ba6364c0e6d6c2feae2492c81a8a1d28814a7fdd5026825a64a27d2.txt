@@ -1,0 +1,60 @@
+{
+  "projected_owner" : {
+    "address" : "105 N. Lake St.",
+    "city" : "Monona",
+    "firstName" : "Jean",
+    "id" : 6,
+    "lastName" : "Coleman",
+    "pets" : [ {
+      "birthDate" : "2012-09-04T00:00:00.000Z",
+      "id" : 8,
+      "name" : "Max",
+      "type" : {
+        "name" : "cat"
+      }
+    }, {
+      "birthDate" : "2012-09-04T00:00:00.000Z",
+      "id" : 7,
+      "name" : "Samantha",
+      "type" : {
+        "name" : "cat"
+      }
+    } ],
+    "telephone" : "6085552654"
+  },
+  "raw_owner" : {
+    "address" : "105 N. Lake St.",
+    "city" : "Monona",
+    "firstName" : "Jean",
+    "id" : 6,
+    "lastName" : "Coleman",
+    "pets" : [ {
+      "birthDate" : "2012-09-04T00:00:00.000Z",
+      "id" : 8,
+      "name" : "Max",
+      "type" : {
+        "id" : 1,
+        "name" : "cat"
+      }
+    }, {
+      "birthDate" : "2012-09-04T00:00:00.000Z",
+      "id" : 7,
+      "name" : "Samantha",
+      "type" : {
+        "id" : 1,
+        "name" : "cat"
+      }
+    } ],
+    "telephone" : "6085552654"
+  },
+  "projection" : {
+    "removed_fields" : [ {
+      "value" : 1,
+      "json_pointer" : "/pets/0/type/id"
+    }, {
+      "value" : 1,
+      "json_pointer" : "/pets/1/type/id"
+    } ],
+    "policy" : "remove_pets_type_id_only_for_declared_consumer_record"
+  }
+}

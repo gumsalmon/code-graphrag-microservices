@@ -1,0 +1,13 @@
+{
+  "status": "reviewed_native_full_properties_inventory_and_graph_retrieval_verified",
+  "reviewed_implementation_profile_sha256": "c1f8aed32565e50512f4cdea32742892b0ae2ea3db4a2177846c69fef88051a0",
+  "snapshots_completed": [
+    "baseline",
+    "mutated"
+  ],
+  "receipt_sha256": "a62b36183102023fd9d6f51228e782c5e41375493cfba5acba69bcb44cda7e58",
+  "labels_or_runtime_used_as_oracle": false,
+  "model_calls": 0,
+  "embedding_inference": false,
+  "scoring_performed": false
+}

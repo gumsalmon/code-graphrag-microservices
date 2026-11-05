@@ -11,6 +11,7 @@ const files = new Map([
   ['/app.js', ['app.js', 'text/javascript; charset=utf-8']],
   ['/data.js', ['data.js', 'text/javascript; charset=utf-8']],
   ['/reasoning-core.js', ['reasoning-core.js', 'text/javascript; charset=utf-8']],
+  ['/comparison-core.js', ['comparison-core.js', 'text/javascript; charset=utf-8']],
 ]);
 
 export function createDemoServer() {

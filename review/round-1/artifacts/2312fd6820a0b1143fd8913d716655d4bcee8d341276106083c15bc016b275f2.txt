@@ -1,0 +1,60 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.0.1)
+
+2026-10-31T05:35:27.511Z  INFO 1 --- [           main] o.s.s.p.config.ConfigServerApplication   : Starting ConfigServerApplication v4.0.1 using Java 17.0.20 with PID 1 (/p02.jar started by root in /application)
+2026-10-31T05:35:27.514Z  INFO 1 --- [           main] o.s.s.p.config.ConfigServerApplication   : The following 1 profile is active: "native"
+2026-10-31T05:35:29.309Z  INFO 1 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=5dac0989-b323-3bdb-90df-31c7a5f59bcf
+2026-10-31T05:35:30.056Z  INFO 1 --- [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8888 (http)
+2026-10-31T05:35:30.107Z  INFO 1 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-10-31T05:35:30.107Z  INFO 1 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-10-31T05:35:30.250Z  INFO 1 --- [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 2629 ms
+2026-10-31T05:35:31.118Z  INFO 1 --- [           main] o.s.b.w.a.WelcomePageHandlerMapping      : Adding welcome page: class path resource [static/index.html]
+2026-10-31T05:35:32.439Z  INFO 1 --- [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8888 (http) with context path '/'
+2026-10-31T05:35:32.452Z  INFO 1 --- [           main] o.s.s.p.config.ConfigServerApplication   : Started ConfigServerApplication in 6.376 seconds (process running for 7.613)
+2026-10-31T05:35:34.330Z  INFO 1 --- [nio-8888-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-10-31T05:35:34.330Z  INFO 1 --- [nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-10-31T05:35:34.331Z  INFO 1 --- [nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-10-31T05:35:34.539Z  INFO 1 --- [nio-8888-exec-1] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/config/application.yml]' via location 'file:/config/' (document #2)
+2026-10-31T05:35:34.539Z  INFO 1 --- [nio-8888-exec-1] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/config/application.yml]' via location 'file:/config/' (document #0)
+2026-10-31T05:35:38.753Z  INFO 1 --- [nio-8888-exec-3] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/config/application.yml]' via location 'file:/config/' (document #0)
+2026-10-31T05:35:39.442Z  INFO 1 --- [nio-8888-exec-4] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/config/discovery-server.yml]' via location 'file:/config/'
+2026-10-31T05:35:39.442Z  INFO 1 --- [nio-8888-exec-4] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/config/application.yml]' via location 'file:/config/' (document #2)
+2026-10-31T05:35:39.443Z  INFO 1 --- [nio-8888-exec-4] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/config/application.yml]' via location 'file:/config/' (document #0)
+2026-10-31T05:35:39.472Z  INFO 1 --- [nio-8888-exec-5] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/config/discovery-server.yml]' via location 'file:/config/'
+2026-10-31T05:35:39.473Z  INFO 1 --- [nio-8888-exec-5] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/config/application.yml]' via location 'file:/config/' (document #0)
+2026-10-31T05:35:53.960Z  INFO 1 --- [nio-8888-exec-6] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/config/application.yml]' via location 'file:/config/' (document #0)
+2026-10-31T05:35:54.579Z  INFO 1 --- [nio-8888-exec-7] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/config/customers-service.yml]' via location 'file:/config/' (document #1)
+2026-10-31T05:35:54.579Z  INFO 1 --- [nio-8888-exec-7] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/config/application.yml]' via location 'file:/config/' (document #2)
+2026-10-31T05:35:54.579Z  INFO 1 --- [nio-8888-exec-7] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/config/application.yml]' via location 'file:/config/' (document #0)
+2026-10-31T05:35:54.607Z  INFO 1 --- [nio-8888-exec-8] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/config/customers-service.yml]' via location 'file:/config/' (document #0)
+2026-10-31T05:35:54.608Z  INFO 1 --- [nio-8888-exec-8] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/config/application.yml]' via location 'file:/config/' (document #0)
+2026-10-31T05:36:23.762Z  INFO 1 --- [nio-8888-exec-9] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/config/application.yml]' via location 'file:/config/' (document #0)
+2026-10-31T05:36:24.688Z  INFO 1 --- [io-8888-exec-10] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/config/visits-service.yml]' via location 'file:/config/' (document #1)
+2026-10-31T05:36:24.689Z  INFO 1 --- [io-8888-exec-10] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/config/application.yml]' via location 'file:/config/' (document #2)
+2026-10-31T05:36:24.689Z  INFO 1 --- [io-8888-exec-10] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/config/application.yml]' via location 'file:/config/' (document #0)
+2026-10-31T05:36:24.731Z  INFO 1 --- [nio-8888-exec-1] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/config/visits-service.yml]' via location 'file:/config/' (document #0)
+2026-10-31T05:36:24.731Z  INFO 1 --- [nio-8888-exec-1] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/config/application.yml]' via location 'file:/config/' (document #0)
+2026-10-31T05:36:49.881Z  INFO 1 --- [nio-8888-exec-3] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/config/application.yml]' via location 'file:/config/' (document #0)
+2026-10-31T05:36:50.677Z  INFO 1 --- [nio-8888-exec-4] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/config/api-gateway.yml]' via location 'file:/config/' (document #1)
+2026-10-31T05:36:50.677Z  INFO 1 --- [nio-8888-exec-4] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/config/api-gateway.yml]' via location 'file:/config/' (document #0)
+2026-10-31T05:36:50.677Z  INFO 1 --- [nio-8888-exec-4] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/config/application.yml]' via location 'file:/config/' (document #2)
+2026-10-31T05:36:50.677Z  INFO 1 --- [nio-8888-exec-4] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/config/application.yml]' via location 'file:/config/' (document #0)
+2026-10-31T05:36:50.709Z  INFO 1 --- [nio-8888-exec-5] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/config/api-gateway.yml]' via location 'file:/config/' (document #0)
+2026-10-31T05:36:50.709Z  INFO 1 --- [nio-8888-exec-5] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/config/application.yml]' via location 'file:/config/' (document #0)
+2026-10-31T05:37:10.524Z  INFO 1 --- [nio-8888-exec-7] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/config/visits-service.yml]' via location 'file:/config/' (document #1)
+2026-10-31T05:37:10.524Z  INFO 1 --- [nio-8888-exec-7] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/config/application.yml]' via location 'file:/config/' (document #2)
+2026-10-31T05:37:10.524Z  INFO 1 --- [nio-8888-exec-7] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/config/application.yml]' via location 'file:/config/' (document #0)
+2026-10-31T05:37:10.599Z  INFO 1 --- [nio-8888-exec-9] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/config/customers-service.yml]' via location 'file:/config/' (document #1)
+2026-10-31T05:37:10.600Z  INFO 1 --- [nio-8888-exec-9] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/config/application.yml]' via location 'file:/config/' (document #2)
+2026-10-31T05:37:10.600Z  INFO 1 --- [nio-8888-exec-9] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/config/application.yml]' via location 'file:/config/' (document #0)
+2026-10-31T05:37:10.633Z  INFO 1 --- [nio-8888-exec-1] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/config/api-gateway.yml]' via location 'file:/config/' (document #1)
+2026-10-31T05:37:10.633Z  INFO 1 --- [nio-8888-exec-1] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/config/api-gateway.yml]' via location 'file:/config/' (document #0)
+2026-10-31T05:37:10.633Z  INFO 1 --- [nio-8888-exec-1] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/config/application.yml]' via location 'file:/config/' (document #2)
+2026-10-31T05:37:10.633Z  INFO 1 --- [nio-8888-exec-1] o.s.c.c.s.e.NativeEnvironmentRepository  : Adding property source: Config resource 'file [/config/application.yml]' via location 'file:/config/' (document #0)

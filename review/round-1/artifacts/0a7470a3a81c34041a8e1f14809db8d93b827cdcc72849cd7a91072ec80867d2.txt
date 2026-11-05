@@ -1,0 +1,82 @@
+{
+  "schema": "p02-f03-group-observations/1",
+  "status": "ten_fixture_slots_captured",
+  "slots": [
+    {
+      "order": 1,
+      "id": "direct_omitted",
+      "method": "GET",
+      "status": 200,
+      "error": null
+    },
+    {
+      "order": 2,
+      "id": "direct_true",
+      "method": "GET",
+      "status": 200,
+      "error": null
+    },
+    {
+      "order": 3,
+      "id": "direct_false",
+      "method": "GET",
+      "status": 200,
+      "error": null
+    },
+    {
+      "order": 4,
+      "id": "direct_empty",
+      "method": "GET",
+      "status": 200,
+      "error": null
+    },
+    {
+      "order": 5,
+      "id": "direct_invalid",
+      "method": "GET",
+      "status": 200,
+      "error": null
+    },
+    {
+      "order": 6,
+      "id": "direct_missing_pet_id",
+      "method": "GET",
+      "status": 400,
+      "error": null
+    },
+    {
+      "order": 7,
+      "id": "gateway_populated",
+      "method": "GET",
+      "status": 200,
+      "error": null
+    },
+    {
+      "order": 8,
+      "id": "gateway_empty",
+      "method": "GET",
+      "status": 200,
+      "error": null
+    },
+    {
+      "order": 9,
+      "id": "overload_read",
+      "method": "GET",
+      "status": 200,
+      "error": null
+    },
+    {
+      "order": 10,
+      "id": "create_control",
+      "method": "POST",
+      "status": 201,
+      "error": null
+    }
+  ],
+  "fixture_slots": 10,
+  "post_requests": 1,
+  "post_last": true,
+  "post_readback_extra": true,
+  "labels_created": false,
+  "model_calls": 0
+}

@@ -1,0 +1,9 @@
+{
+  "schema": "p02-f03-controlled-fault/1",
+  "http_status": 200,
+  "transport_error": null,
+  "owner_id": 6,
+  "visits_count": 0,
+  "labels_created": false,
+  "note": "Additional fault intervention, not part of the 40-slot paired matrix"
+}

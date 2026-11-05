@@ -1,0 +1,122 @@
+{
+  "case": "P03",
+  "receipt_sha256": "b73e4dd44a1cbd9ffe05d148d2c0742f4ab685cb4c7a4cac7b949ed4d429ce20",
+  "manifest_listed_files": {
+    ".": 163,
+    "packet": 72,
+    "packet/candidate": 52
+  },
+  "canonical_packet_files_byte_equal": 73,
+  "parser_before_identity_verified": true,
+  "candidate_core_preserved": true,
+  "importer_and_old_tools_tests_unchanged": true,
+  "parser_after_sha256": "75e5d0fa0b2e958fb8a6604516e95dd24e65905bb6617b3820112d0270438005",
+  "code_hashes": {
+    "working/src/neo4j_importer.py": "93c20bd93e6dd5997043b4e4806aa5df7523426b4a82e6607b694934e5d4d7d3",
+    "working/src/parser.py": "75e5d0fa0b2e958fb8a6604516e95dd24e65905bb6617b3820112d0270438005",
+    "working/src/response_survey.py": "461e9b27495f09faa7beb232c3ddcc7f80614a2db08cc5062e619bb9f0111a9b",
+    "working/src/synthetic_adapter.py": "5a982fbf63671cdf46e27cc318dbe27eea1189d3b461f43ddf68b3ca0bfea431",
+    "working/tests/test_breaker_association.py": "9ff0923bdcb5d3284cb399e38efde9d9a4fc2b377c35c45438c6496a2a79cd75",
+    "working/tests/test_importer_metadata.py": "7c8ee9fa98aa264df69b752a123af52d59881676e04f8dbd77efcbab22a39700",
+    "working/tests/test_p02_technical_fixes.py": "d12608cf82d9241231f63d86718234381daa37e992f6c3ee296be614b7d8c319",
+    "working/tests/test_p03_technical.py": "9889419513474848582ef8fa92f0b7dc4f574542cd98360730b8b83029a9eb41",
+    "working/tests/test_synthetic_adapter.py": "a2274344855c9fee413345a499dafb302a50601e2ee61ae5a42f1f3442deb840",
+    "working/tests/test_synthetic_resolution.py": "c60f77a0674dff9ed79dbbec0bae3472fc16c246eb9ef3777243b4403cc43eb9",
+    "working/tools/run_p03_technical.py": "c45c573ccfe1994113fa481236589abfab462417c9c6ce875b1c767a1e1caf93",
+    "working/tools/verify_p03_neo4j.py": "b926656d3d6cd7700d7eca9ef28cdbc2e4691217b853883d15d6acc784f0c970"
+  },
+  "patch_reconstructed_on_lf_copies": true,
+  "parser_ast_changes_confined_to_reviewed_methods": true,
+  "hardcoded_case_identity_in_helper": false,
+  "groups": [
+    {
+      "snapshot": "baseline",
+      "native_methods": 35,
+      "top_level_explicit": 27,
+      "represented_top_level": 26,
+      "nested_extras": 9,
+      "endpoints": 5,
+      "edges": 3,
+      "native_unresolved": 2,
+      "source_expression_spans_verified": 413,
+      "saved_full_db_parity": true,
+      "specific_breaker_fix_verified_statically": true
+    },
+    {
+      "snapshot": "mutated",
+      "native_methods": 35,
+      "top_level_explicit": 27,
+      "represented_top_level": 26,
+      "nested_extras": 9,
+      "endpoints": 5,
+      "edges": 3,
+      "native_unresolved": 2,
+      "source_expression_spans_verified": 451,
+      "saved_full_db_parity": true,
+      "specific_breaker_fix_verified_statically": true
+    }
+  ],
+  "graph_before_after_changes": [
+    {
+      "snapshot": "baseline",
+      "changes": [
+        {
+          "source_id": "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)",
+          "target_id": "api-gateway::org.springframework.samples.petclinic.api.application.CustomersServiceClient#getOwner(int)",
+          "changed_fields": [
+            "assumptions",
+            "fallback_method",
+            "has_circuit_breaker"
+          ]
+        }
+      ]
+    },
+    {
+      "snapshot": "mutated",
+      "changes": [
+        {
+          "source_id": "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)",
+          "target_id": "api-gateway::org.springframework.samples.petclinic.api.application.CustomersServiceClient#getOwner(int)",
+          "changed_fields": [
+            "assumptions",
+            "fallback_method",
+            "has_circuit_breaker"
+          ]
+        }
+      ]
+    }
+  ],
+  "security_scan": {
+    "schema": "transfer-security-scan/1",
+    "scope": "selected_bytes_and_recursive_supported_archives",
+    "top_level_files": 163,
+    "inspected_members": 163,
+    "expanded_bytes": 2581353,
+    "archives": 0,
+    "text_files": 163,
+    "failures": {
+      "inline_neo4j_credential": 1
+    },
+    "budgets": {
+      "max_depth": 6,
+      "max_member_bytes": 536870912,
+      "max_expanded_bytes": 2147483648,
+      "max_entries": 100000,
+      "max_compression_ratio": 2000
+    },
+    "limitations": "Pattern checks cannot prove absence of arbitrary private data. No credential decryption, extraction or execution."
+  },
+  "scan_rejections": [
+    {
+      "file": "COMMANDS.md",
+      "sha256": "369adfce0814e1c1e1db7c96b5165b4c2e630e7d9491a47790ddac6719d96395",
+      "category": "inline_neo4j_credential"
+    }
+  ],
+  "reviewed_code_eligible_for_sandbox_technical_tests": true,
+  "received_helpers_executed": false,
+  "hien_human_final_diff_review_confirmed": false,
+  "labels_read_or_modified": false,
+  "model_calls": 0,
+  "scope": "Static/byte check of bounded syntactic fix; full Java/reactive dataflow and human review not certified"
+}

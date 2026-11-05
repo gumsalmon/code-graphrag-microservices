@@ -1,0 +1,105 @@
+{
+  "schema": "petclinic-review-packages-status/1",
+  "record_date": "2026-11-05",
+  "status": "versioned_R1_R2_assembled_verified_not_sent",
+  "user_assembly_authorization": {
+    "quote": "oke tôi đồng ý, hãy làm thật tốt bước tiếp theo",
+    "scope": "Package assembly and verification; no external messages, GitHub push or label approval"
+  },
+  "build_directory": "handoff-out/petclinic-review-packages/20261105T093250Z-45a9dd18",
+  "audit_directory": "handoff-out/petclinic-review-package-audit/20261105T093415Z-d1bebdf9",
+  "report": "tasks/research/PETCLINIC_REVIEW_PACKAGES_2026-11-05.md",
+  "coordination_guide": "tasks/petclinic-review-release/COORDINATION_2026-11-05.md",
+  "packages": [
+    {
+      "review_round": 1,
+      "package_id": "PETCLINIC-R1-20261105-45a9dd18",
+      "directory": "handoff-out/petclinic-review-packages/20261105T093250Z-45a9dd18/PETCLINIC_R1_SOURCE_FIRST",
+      "archive": "handoff-out/petclinic-review-packages/20261105T093250Z-45a9dd18/PETCLINIC_R1_SOURCE_FIRST_2026-11-05.zip",
+      "archive_sha256": "f0e1876e34a4f56cbf012403276569802396d1ee1956da2dc4fcd584084b3b2d",
+      "archive_bytes": 1056532,
+      "manifest_sha256": "8e1bb39449f109ce7531f0e51dd293c114851175891ac532879715149d490998",
+      "manifest_listed_files": 529,
+      "logical_evidence_files": 911,
+      "unique_payload_files": 516,
+      "max_member_path_length": 78,
+      "sent": false,
+      "review_decision": null
+    },
+    {
+      "review_round": 2,
+      "package_id": "PETCLINIC-R2-20261105-45a9dd18",
+      "directory": "handoff-out/petclinic-review-packages/20261105T093250Z-45a9dd18/PETCLINIC_R2_LABEL_COMPARISON",
+      "archive": "handoff-out/petclinic-review-packages/20261105T093250Z-45a9dd18/PETCLINIC_R2_LABEL_COMPARISON_2026-11-05.zip",
+      "archive_sha256": "adbfc134f25a0f9ba82ac6259a0e05125b07b8a32724c4084aaddeec64a69b8f",
+      "archive_bytes": 6072010,
+      "manifest_sha256": "32fbfa1b68f0ebd4c822e21806a1da585bf5528ea2aa4662b9df6cf547d00f12",
+      "manifest_listed_files": 3097,
+      "logical_evidence_files": 6392,
+      "unique_payload_files": 3083,
+      "max_member_path_length": 78,
+      "sent": false,
+      "review_decision": null
+    }
+  ],
+  "ready_to_share_round1": true,
+  "round2_keep_private_until_retained_R1_notes_exposure_checkpoint": true,
+  "actual_reviewer_notes_received": false,
+  "actual_reviewer_checkpoint_received": false,
+  "reviewer_identity": null,
+  "reviewer_appointment": null,
+  "review_decision": null,
+  "validation": {
+    "source_to_package_logical_entries_byte_verified": 7303,
+    "source_preview_unchanged": true,
+    "zip_crc_regular_member_and_safe_path_checks": true,
+    "max_archive_member_path_chars": 78,
+    "simulated_relocation": "Directory with spaces/Unicode on current Windows machine; not a second physical machine",
+    "max_relocated_absolute_path_chars": 182,
+    "python_and_powershell_checks_passed": 8,
+    "payload_tamper_refused_by_both": true,
+    "extra_file_refused_by_both": true,
+    "wrong_R1_checkpoint_refused": true,
+    "changed_retained_notes_refused": true,
+    "synthetic_file_checkpoint_fixture_verified": true,
+    "synthetic_fixtures_are_not_real_review": true,
+    "offline_browser_QA_passed": true,
+    "browser_page_errors": 0,
+    "browser_HTTP_requests": 0,
+    "desktop_mobile_screenshots_viewed_by_AI": true,
+    "bounded_security_scan_passed_with_documented_exact_byte_semantic_exceptions": true
+  },
+  "labels_modified_or_accepted": false,
+  "ground_truth_accepted": false,
+  "final_test_locked": false,
+  "model_calls": 0,
+  "embedding_inference": false,
+  "official_scoring": false,
+  "shared_draft_contract_adopted": false,
+  "messages_sent": false,
+  "github_push": false,
+  "optional_hien_ACK_required": false,
+  "next_action": "User may forward only R1 ZIP plus sidecar with the neutral message; retain actual reviewer notes/exposure/checkpoint before sharing R2. No new Hien/Phat task or human approval fabricated. Other permitted technical preparation can continue separately.",
+  "package_readiness": {
+    "path": "tasks/petclinic-review-release/PACKAGE_READINESS_2026-11-05.json",
+    "sha256": "905b19ed5fd9959c6f94c9844210043ab37999177d05834e73c1eeb4a7c37a94"
+  },
+  "build_seal": {
+    "manifest_sha256": "5b94e5fd9236f33b138d948e1e9789b04cdfb8454f4b8c8309abbfc8d531ca5a",
+    "listed_files_verified": 3637
+  },
+  "audit_seal": {
+    "manifest_sha256": "94d4ba89df97cad506b76afa805f5c0e28eadd990d5f44efbd1330e2a76c925a",
+    "listed_files_verified": 1188
+  },
+  "final_checks": {
+    "workboard_tasks": 29,
+    "workboard_check_passed": true,
+    "prior_authoring_files_unchanged": 66,
+    "older_review_methods_files_unchanged": 12,
+    "prior_sealed_manifest_entries_verified": 10839,
+    "git_head": "d1f95eb21c71dd6bfb49d2e450142d1290ceda5f",
+    "git_index_empty": true,
+    "working_tree_clean": false
+  }
+}

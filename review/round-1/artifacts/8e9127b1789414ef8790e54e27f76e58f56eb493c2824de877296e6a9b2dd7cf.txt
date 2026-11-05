@@ -1,0 +1,29 @@
+{
+  "id": "update_control",
+  "method": "PUT",
+  "host": "customers-service",
+  "port": 8081,
+  "path": "/owners/12",
+  "timestamp_utc": "2026-10-31T05:35:17.010786+00:00",
+  "request_headers": {
+    "Accept": "application/json",
+    "Accept-Encoding": "identity",
+    "Content-Type": "application/json"
+  },
+  "request_body_file": "update_control.request.body",
+  "status": 204,
+  "error": null,
+  "body_file": "update_control.body",
+  "response_headers": [
+    [
+      "Date",
+      "Sat, 31 Oct 2026 05:35:17 GMT"
+    ]
+  ],
+  "redirects_followed": false,
+  "request_body_sha256": "9059256a7f8c76275fbf5403446d663d9f8c9459d946d8ef8cfd2b10a252e1d2",
+  "request_body_bytes": 116,
+  "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "body_bytes": 0,
+  "elapsed_ms": 33
+}

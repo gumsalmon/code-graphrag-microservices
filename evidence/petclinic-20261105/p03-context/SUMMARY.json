@@ -1,0 +1,245 @@
+{
+  "case_id": "P03",
+  "preparation_only": true,
+  "experimental_scenarios": 1,
+  "preview_configurations": 7,
+  "model_calls": 0,
+  "embedding_inference": false,
+  "official_metrics_computed": false,
+  "source_commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+  "patch_sha256": "87b0083ca0b1c9a01badb94f3cf8ecdf1918a24517d91e7b2690810c8080fbc0",
+  "source_corpus_files": 6,
+  "source_units": "whole baseline files, common corpus; development preview, not adopted final chunking",
+  "budget": {
+    "scope": "whole serialized context preview, not provider/system/schema/output request",
+    "byte_limit": 32768,
+    "token_count": null,
+    "official_token_fairness_established": false
+  },
+  "plans": [
+    {
+      "id": "lexical",
+      "status": "prepared_no_inference",
+      "context_bytes": 13342,
+      "context_sha256": "272860be3521eb2d178fbc2692bc31593338c74a79a5548b59b92b20bffb4984",
+      "selected_source_files": [
+        "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java",
+        "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java",
+        "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/dto/OwnerDetails.java"
+      ],
+      "dropped": [
+        {
+          "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/CustomersServiceClient.java",
+          "reason": "not_selected_by_route_or_top_k"
+        },
+        {
+          "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+          "reason": "not_selected_by_route_or_top_k"
+        },
+        {
+          "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+          "reason": "not_selected_by_route_or_top_k"
+        }
+      ],
+      "saved_graph_candidates": [],
+      "retained_graph_candidates": [],
+      "same_source_set_as_lexical": true
+    },
+    {
+      "id": "graph-h1",
+      "status": "prepared_no_inference",
+      "context_bytes": 12491,
+      "context_sha256": "3ea04b8c7a25b7737c345be076b3d62deb5655ae2721926dca5f22c57e452443",
+      "selected_source_files": [
+        "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java",
+        "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/CustomersServiceClient.java"
+      ],
+      "dropped": [
+        {
+          "file": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java",
+          "reason": "not_selected_by_route_or_top_k"
+        },
+        {
+          "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/dto/OwnerDetails.java",
+          "reason": "not_selected_by_route_or_top_k"
+        },
+        {
+          "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+          "reason": "not_selected_by_route_or_top_k"
+        },
+        {
+          "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+          "reason": "not_selected_by_route_or_top_k"
+        }
+      ],
+      "saved_graph_candidates": [
+        "api-gateway::org.springframework.samples.petclinic.api.application.CustomersServiceClient#getOwner(int)"
+      ],
+      "retained_graph_candidates": [
+        "api-gateway::org.springframework.samples.petclinic.api.application.CustomersServiceClient#getOwner(int)"
+      ],
+      "same_source_set_as_lexical": false
+    },
+    {
+      "id": "graph-h2",
+      "status": "prepared_no_inference",
+      "context_bytes": 19273,
+      "context_sha256": "a0620c5a05189c2477811ea80c18c076f18e04f4f62c0dc4dff08b0a64052ca9",
+      "selected_source_files": [
+        "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java",
+        "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/CustomersServiceClient.java",
+        "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java"
+      ],
+      "dropped": [
+        {
+          "file": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java",
+          "reason": "not_selected_by_route_or_top_k"
+        },
+        {
+          "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/dto/OwnerDetails.java",
+          "reason": "not_selected_by_route_or_top_k"
+        },
+        {
+          "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+          "reason": "not_selected_by_route_or_top_k"
+        }
+      ],
+      "saved_graph_candidates": [
+        "api-gateway::org.springframework.samples.petclinic.api.application.CustomersServiceClient#getOwner(int)",
+        "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)"
+      ],
+      "retained_graph_candidates": [
+        "api-gateway::org.springframework.samples.petclinic.api.application.CustomersServiceClient#getOwner(int)",
+        "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)"
+      ],
+      "same_source_set_as_lexical": false
+    },
+    {
+      "id": "graph-h3",
+      "status": "prepared_no_inference",
+      "context_bytes": 19273,
+      "context_sha256": "30baa1dbaa7ac6fdf4c24c30783b30d724843c416a40b47f4a4ae7854121d17e",
+      "selected_source_files": [
+        "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java",
+        "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/CustomersServiceClient.java",
+        "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java"
+      ],
+      "dropped": [
+        {
+          "file": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java",
+          "reason": "not_selected_by_route_or_top_k"
+        },
+        {
+          "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/dto/OwnerDetails.java",
+          "reason": "not_selected_by_route_or_top_k"
+        },
+        {
+          "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+          "reason": "not_selected_by_route_or_top_k"
+        }
+      ],
+      "saved_graph_candidates": [
+        "api-gateway::org.springframework.samples.petclinic.api.application.CustomersServiceClient#getOwner(int)",
+        "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)"
+      ],
+      "retained_graph_candidates": [
+        "api-gateway::org.springframework.samples.petclinic.api.application.CustomersServiceClient#getOwner(int)",
+        "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)"
+      ],
+      "same_source_set_as_lexical": false
+    },
+    {
+      "id": "combined-h1",
+      "status": "prepared_no_inference",
+      "context_bytes": 19760,
+      "context_sha256": "6120d60aa44c33c803df5a48149bf860b9a7b0b13c5f844f4bc7831c9b12d0e7",
+      "selected_source_files": [
+        "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java",
+        "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/CustomersServiceClient.java",
+        "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java",
+        "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/dto/OwnerDetails.java"
+      ],
+      "dropped": [
+        {
+          "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+          "reason": "not_selected_by_route_or_top_k"
+        },
+        {
+          "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+          "reason": "not_selected_by_route_or_top_k"
+        }
+      ],
+      "saved_graph_candidates": [
+        "api-gateway::org.springframework.samples.petclinic.api.application.CustomersServiceClient#getOwner(int)"
+      ],
+      "retained_graph_candidates": [
+        "api-gateway::org.springframework.samples.petclinic.api.application.CustomersServiceClient#getOwner(int)"
+      ],
+      "same_source_set_as_lexical": false
+    },
+    {
+      "id": "combined-h2",
+      "status": "prepared_no_inference",
+      "context_bytes": 26542,
+      "context_sha256": "dc2b2bbac2067ee8b1d0c5fa85bd56895c2b8959711e6307a585c1c9bade6157",
+      "selected_source_files": [
+        "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java",
+        "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/CustomersServiceClient.java",
+        "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+        "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java",
+        "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/dto/OwnerDetails.java"
+      ],
+      "dropped": [
+        {
+          "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+          "reason": "not_selected_by_route_or_top_k"
+        }
+      ],
+      "saved_graph_candidates": [
+        "api-gateway::org.springframework.samples.petclinic.api.application.CustomersServiceClient#getOwner(int)",
+        "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)"
+      ],
+      "retained_graph_candidates": [
+        "api-gateway::org.springframework.samples.petclinic.api.application.CustomersServiceClient#getOwner(int)",
+        "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)"
+      ],
+      "same_source_set_as_lexical": false
+    },
+    {
+      "id": "combined-h3",
+      "status": "prepared_no_inference",
+      "context_bytes": 26542,
+      "context_sha256": "2ebc1d55b512da10152077433e6c327af0f639a3391fce6dca5b398cc2f62dc7",
+      "selected_source_files": [
+        "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java",
+        "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/CustomersServiceClient.java",
+        "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+        "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java",
+        "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/dto/OwnerDetails.java"
+      ],
+      "dropped": [
+        {
+          "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+          "reason": "not_selected_by_route_or_top_k"
+        }
+      ],
+      "saved_graph_candidates": [
+        "api-gateway::org.springframework.samples.petclinic.api.application.CustomersServiceClient#getOwner(int)",
+        "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)"
+      ],
+      "retained_graph_candidates": [
+        "api-gateway::org.springframework.samples.petclinic.api.application.CustomersServiceClient#getOwner(int)",
+        "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)"
+      ],
+      "same_source_set_as_lexical": false
+    }
+  ],
+  "limitations": [
+    "BM25 is lexical, not dense/vector retrieval or semantic GraphRAG",
+    "No model request, response, impact assessment or scorer output created",
+    "Small six-file corpus can yield identical source sets; this is not evidence of retrieval superiority",
+    "This checked P03 run has full fresh-DB parity; explicit record getPetIds is missing and nested builder extras do not compensate; no serialization/dataflow or field binding guarantee; breaker false can mean unestablished, not absence",
+    "Only baseline code and the proposed provider patch enter the preview; no mutated source, benchmark runtime or labels",
+    "Output/experiment contracts and final model/token budget remain unadopted"
+  ]
+}

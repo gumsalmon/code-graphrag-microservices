@@ -1,0 +1,137 @@
+{
+  "schema": "p02-static-context-status/1",
+  "record_date": "2026-11-01",
+  "scope": "Coordinator technical component under existing D20/P02 receipt; not an impact prediction or adopted shared output contract",
+  "status": "verified_scoped_preparation_only",
+  "authority": {
+    "decision": "benchmark/decisions/PETCLINIC_DRAFT_INTEGRATION_2026-10-31.json",
+    "decision_sha256": "bced4426f7e9ce6c7f26c31668faaf36d3ed770acd60a6a93147d7aebc06671f",
+    "receipt": "tasks/hien-next/P02_TECHNICAL_RECEIPT_2026-11-01.json",
+    "receipt_sha256": "a62b36183102023fd9d6f51228e782c5e41375493cfba5acba69bcb44cda7e58"
+  },
+  "implementation": [
+    "pipeline/p02/static-context.mjs",
+    "pipeline/p02/static-context.test.mjs",
+    "scripts/prepare_p02_static_context.mjs",
+    "scripts/check_p02_static_context.mjs"
+  ],
+  "guide": "pipeline/p02/STATIC_CONTEXT.md",
+  "report": "tasks/research/P02_STATIC_CONTEXT_2026-11-01.md",
+  "native_input": {
+    "directory": "handoff-out/p02-offline-method/20261101t061314799z-a263deac",
+    "manifest_sha256": "ad7fe3ac6536a54315219a44533f73a36a016a1c1f362e4c7026134971c126d4",
+    "snapshot_used": "baseline_source_and_proposed_change_only",
+    "source_commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+    "config_commit": "323993ce2519c6d02df63e08bf4458d123d3b611",
+    "patch_sha256": "091b04de4a504512cbda4e0c5c0759b747b056b4c7028923d8b7808b43303c4f",
+    "shared_baseline_corpus_files": 3,
+    "method_inputs_include_label_content_or_annotation_notes_or_raw_runtime_outcomes": false,
+    "lexical_selection_reads_graph": false,
+    "native_graph_parity_or_inventory_issues_repaired_by_this_component": false
+  },
+  "result": {
+    "directory": "handoff-out/p02-static-context/20261101T163443406Z-ec587653",
+    "manifest_sha256": "522ff7cf930884a6be8d317b7b0b1a16ecf4f463fb2f6560407bec5fa22fb435",
+    "files": 26,
+    "development_scenarios": 1,
+    "prepared_context_configurations": 7,
+    "configurations": [
+      {
+        "id": "lexical",
+        "bytes": 10893,
+        "source_files": 3,
+        "retained_graph_candidates": 0
+      },
+      {
+        "id": "graph-h1",
+        "bytes": 11350,
+        "source_files": 2,
+        "retained_graph_candidates": 1
+      },
+      {
+        "id": "graph-h2",
+        "bytes": 17778,
+        "source_files": 3,
+        "retained_graph_candidates": 2
+      },
+      {
+        "id": "graph-h3",
+        "bytes": 17778,
+        "source_files": 3,
+        "retained_graph_candidates": 2
+      },
+      {
+        "id": "combined-h1",
+        "bytes": 15077,
+        "source_files": 3,
+        "retained_graph_candidates": 1
+      },
+      {
+        "id": "combined-h2",
+        "bytes": 17778,
+        "source_files": 3,
+        "retained_graph_candidates": 2
+      },
+      {
+        "id": "combined-h3",
+        "bytes": 17778,
+        "source_files": 3,
+        "retained_graph_candidates": 2
+      }
+    ],
+    "source_units": "Whole baseline files; not final paper chunking policy",
+    "retrieval": "Lexical BM25, saved baseline graph, and graph-plus-lexical union; not dense/vector retrieval",
+    "byte_budget_scope": "All serialized preview content and metadata; excludes provider/system/schema/output overhead",
+    "preview_byte_limit": 32768,
+    "provider_token_count": null,
+    "official_token_fairness_established": false,
+    "graph_edge_assumptions_and_evidence_preserved": true,
+    "mandatory_source_and_patch_or_explicit_failure": true
+  },
+  "verification": {
+    "unit_tests_passed": 12,
+    "independent_pinned_authority_source_and_artifact_checker_passed": true,
+    "mandatory_overflow_expected_exit": 1,
+    "mandatory_overflow_directory": "handoff-out/p02-static-context/20261101T163517180Z-99cbf0e0",
+    "mandatory_overflow_manifest_sha256": "bce427d8ef9a51ec4ac809057344af413131c35c7c639696aff05600cf31b262",
+    "resealed_source_tamper_expected_exit": 1,
+    "security_pattern_scan_failures": {},
+    "superseded_initial": {
+      "directory": "handoff-out/p02-static-context/20261101T162939420Z-df0eb1f0",
+      "manifest_sha256": "3562500ee8b68daeb849e42092d18880101b1a7d8396057c3e3c8afc9a594ec5",
+      "limitation": "Initial structural check passed but manual review found native edge assumptions/evidence omitted despite retained flag",
+      "failing_regression_recorded_before_fix": true,
+      "preserved_unchanged": true,
+      "used_for_inference_or_scoring": false
+    }
+  },
+  "audit": {
+    "directory": "handoff-out/p02-static-context-audit/20261101T163425528Z-bda056f1",
+    "status": "sealed_and_verified",
+    "manifest_sha256": "b32268623885609a9c7cde4ae4b8857b902d05aa94b3119aa675bb68d6e59004",
+    "files": 103,
+    "protected_prior_identities_unchanged": 23,
+    "prior_authoring_files_unchanged": 12,
+    "historical_and_new_manifest_files_rechecked": 262,
+    "workboard_check_passed": true,
+    "workboard_tasks": 28,
+    "git_head": "d1f95eb21c71dd6bfb49d2e450142d1290ceda5f",
+    "git_index_empty": true,
+    "working_tree_clean": false
+  },
+  "p03_checkpoint_received": false,
+  "new_parser_or_neo4j_execution": false,
+  "model_calls": 0,
+  "embedding_inference": false,
+  "official_scoring": false,
+  "labels_modified_or_accepted": false,
+  "shared_draft_contract_adopted": false,
+  "git_stage_commit_push": false,
+  "annotator_or_source_first_reviewer_delivery": false,
+  "remaining_dependencies": [
+    "Hien: general Class.name property parity and explicit-method inventory fixes with new source/native evidence",
+    "Phat: P03 source/raw draft checkpoint with notes/exposure and checked version/hash before actual P03 method integration",
+    "Output contract, full request/token budget, model inference and official scoring require their own decisions; preparation does not settle them"
+  ],
+  "next_action": "Reuse this tested component in the permitted P02 offline integration flow. Intake team returns as they arrive, without waiting for both cases or doing annotation/parser work twice. Recheck and pin any replacement native run before preparing contexts from it."
+}

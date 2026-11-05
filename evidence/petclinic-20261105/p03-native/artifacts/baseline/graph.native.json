@@ -1,0 +1,586 @@
+{
+  "metadata": {
+    "schema_version": "0.2.0",
+    "repository": "spring-petclinic-microservices",
+    "commit_sha": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+    "snapshot_kind": "baseline",
+    "patch_id": null
+  },
+  "nodes": [
+    {
+      "id": "customers-service::org.springframework.samples.petclinic.customers.web.OwnerResource#createOwner(OwnerRequest)",
+      "service": "customers-service",
+      "class_fqn": "org.springframework.samples.petclinic.customers.web.OwnerResource",
+      "method_name": "createOwner",
+      "parameter_types": [
+        "OwnerRequest"
+      ],
+      "file": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java",
+      "line_start": 57,
+      "line_end": 62
+    },
+    {
+      "id": "customers-service::org.springframework.samples.petclinic.customers.web.OwnerResource#findOwner(int)",
+      "service": "customers-service",
+      "class_fqn": "org.springframework.samples.petclinic.customers.web.OwnerResource",
+      "method_name": "findOwner",
+      "parameter_types": [
+        "int"
+      ],
+      "file": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java",
+      "line_start": 67,
+      "line_end": 70
+    },
+    {
+      "id": "customers-service::org.springframework.samples.petclinic.customers.web.OwnerResource#findAll()",
+      "service": "customers-service",
+      "class_fqn": "org.springframework.samples.petclinic.customers.web.OwnerResource",
+      "method_name": "findAll",
+      "parameter_types": [],
+      "file": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java",
+      "line_start": 75,
+      "line_end": 78
+    },
+    {
+      "id": "customers-service::org.springframework.samples.petclinic.customers.web.OwnerResource#updateOwner(int,OwnerRequest)",
+      "service": "customers-service",
+      "class_fqn": "org.springframework.samples.petclinic.customers.web.OwnerResource",
+      "method_name": "updateOwner",
+      "parameter_types": [
+        "int",
+        "OwnerRequest"
+      ],
+      "file": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java",
+      "line_start": 83,
+      "line_end": 91
+    },
+    {
+      "id": "customers-service::org.springframework.samples.petclinic.customers.model.Owner#getPetsInternal()",
+      "service": "customers-service",
+      "class_fqn": "org.springframework.samples.petclinic.customers.model.Owner",
+      "method_name": "getPetsInternal",
+      "parameter_types": [],
+      "file": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java",
+      "line_start": 69,
+      "line_end": 74
+    },
+    {
+      "id": "customers-service::org.springframework.samples.petclinic.customers.model.Owner#getPets()",
+      "service": "customers-service",
+      "class_fqn": "org.springframework.samples.petclinic.customers.model.Owner",
+      "method_name": "getPets",
+      "parameter_types": [],
+      "file": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java",
+      "line_start": 76,
+      "line_end": 80
+    },
+    {
+      "id": "customers-service::org.springframework.samples.petclinic.customers.model.Owner#addPet(Pet)",
+      "service": "customers-service",
+      "class_fqn": "org.springframework.samples.petclinic.customers.model.Owner",
+      "method_name": "addPet",
+      "parameter_types": [
+        "Pet"
+      ],
+      "file": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java",
+      "line_start": 82,
+      "line_end": 85
+    },
+    {
+      "id": "customers-service::org.springframework.samples.petclinic.customers.model.Owner#toString()",
+      "service": "customers-service",
+      "class_fqn": "org.springframework.samples.petclinic.customers.model.Owner",
+      "method_name": "toString",
+      "parameter_types": [],
+      "file": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java",
+      "line_start": 87,
+      "line_end": 97
+    },
+    {
+      "id": "customers-service::org.springframework.samples.petclinic.customers.model.Owner#getId()",
+      "service": "customers-service",
+      "class_fqn": "org.springframework.samples.petclinic.customers.model.Owner",
+      "method_name": "getId",
+      "parameter_types": [],
+      "file": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java",
+      "line_start": 99,
+      "line_end": 101
+    },
+    {
+      "id": "customers-service::org.springframework.samples.petclinic.customers.model.Owner#getFirstName()",
+      "service": "customers-service",
+      "class_fqn": "org.springframework.samples.petclinic.customers.model.Owner",
+      "method_name": "getFirstName",
+      "parameter_types": [],
+      "file": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java",
+      "line_start": 103,
+      "line_end": 105
+    },
+    {
+      "id": "customers-service::org.springframework.samples.petclinic.customers.model.Owner#getLastName()",
+      "service": "customers-service",
+      "class_fqn": "org.springframework.samples.petclinic.customers.model.Owner",
+      "method_name": "getLastName",
+      "parameter_types": [],
+      "file": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java",
+      "line_start": 107,
+      "line_end": 109
+    },
+    {
+      "id": "customers-service::org.springframework.samples.petclinic.customers.model.Owner#getAddress()",
+      "service": "customers-service",
+      "class_fqn": "org.springframework.samples.petclinic.customers.model.Owner",
+      "method_name": "getAddress",
+      "parameter_types": [],
+      "file": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java",
+      "line_start": 111,
+      "line_end": 113
+    },
+    {
+      "id": "customers-service::org.springframework.samples.petclinic.customers.model.Owner#getCity()",
+      "service": "customers-service",
+      "class_fqn": "org.springframework.samples.petclinic.customers.model.Owner",
+      "method_name": "getCity",
+      "parameter_types": [],
+      "file": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java",
+      "line_start": 115,
+      "line_end": 117
+    },
+    {
+      "id": "customers-service::org.springframework.samples.petclinic.customers.model.Owner#getTelephone()",
+      "service": "customers-service",
+      "class_fqn": "org.springframework.samples.petclinic.customers.model.Owner",
+      "method_name": "getTelephone",
+      "parameter_types": [],
+      "file": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java",
+      "line_start": 119,
+      "line_end": 121
+    },
+    {
+      "id": "customers-service::org.springframework.samples.petclinic.customers.model.Owner#setFirstName(String)",
+      "service": "customers-service",
+      "class_fqn": "org.springframework.samples.petclinic.customers.model.Owner",
+      "method_name": "setFirstName",
+      "parameter_types": [
+        "String"
+      ],
+      "file": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java",
+      "line_start": 123,
+      "line_end": 125
+    },
+    {
+      "id": "customers-service::org.springframework.samples.petclinic.customers.model.Owner#setLastName(String)",
+      "service": "customers-service",
+      "class_fqn": "org.springframework.samples.petclinic.customers.model.Owner",
+      "method_name": "setLastName",
+      "parameter_types": [
+        "String"
+      ],
+      "file": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java",
+      "line_start": 127,
+      "line_end": 129
+    },
+    {
+      "id": "customers-service::org.springframework.samples.petclinic.customers.model.Owner#setAddress(String)",
+      "service": "customers-service",
+      "class_fqn": "org.springframework.samples.petclinic.customers.model.Owner",
+      "method_name": "setAddress",
+      "parameter_types": [
+        "String"
+      ],
+      "file": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java",
+      "line_start": 131,
+      "line_end": 133
+    },
+    {
+      "id": "customers-service::org.springframework.samples.petclinic.customers.model.Owner#setCity(String)",
+      "service": "customers-service",
+      "class_fqn": "org.springframework.samples.petclinic.customers.model.Owner",
+      "method_name": "setCity",
+      "parameter_types": [
+        "String"
+      ],
+      "file": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java",
+      "line_start": 135,
+      "line_end": 137
+    },
+    {
+      "id": "customers-service::org.springframework.samples.petclinic.customers.model.Owner#setTelephone(String)",
+      "service": "customers-service",
+      "class_fqn": "org.springframework.samples.petclinic.customers.model.Owner",
+      "method_name": "setTelephone",
+      "parameter_types": [
+        "String"
+      ],
+      "file": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java",
+      "line_start": 139,
+      "line_end": 141
+    },
+    {
+      "id": "api-gateway::org.springframework.samples.petclinic.api.application.CustomersServiceClient#getOwner(int)",
+      "service": "api-gateway",
+      "class_fqn": "org.springframework.samples.petclinic.api.application.CustomersServiceClient",
+      "method_name": "getOwner",
+      "parameter_types": [
+        "int"
+      ],
+      "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/CustomersServiceClient.java",
+      "line_start": 35,
+      "line_end": 40
+    },
+    {
+      "id": "api-gateway::org.springframework.samples.petclinic.api.dto.OwnerDetailsBuilder#anOwnerDetails()",
+      "service": "api-gateway",
+      "class_fqn": "org.springframework.samples.petclinic.api.dto.OwnerDetailsBuilder",
+      "method_name": "anOwnerDetails",
+      "parameter_types": [],
+      "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/dto/OwnerDetailsBuilder.java",
+      "line_start": 54,
+      "line_end": 56
+    },
+    {
+      "id": "api-gateway::org.springframework.samples.petclinic.api.dto.OwnerDetailsBuilder#id(int)",
+      "service": "api-gateway",
+      "class_fqn": "org.springframework.samples.petclinic.api.dto.OwnerDetailsBuilder",
+      "method_name": "id",
+      "parameter_types": [
+        "int"
+      ],
+      "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/dto/OwnerDetailsBuilder.java",
+      "line_start": 58,
+      "line_end": 61
+    },
+    {
+      "id": "api-gateway::org.springframework.samples.petclinic.api.dto.OwnerDetailsBuilder#firstName(String)",
+      "service": "api-gateway",
+      "class_fqn": "org.springframework.samples.petclinic.api.dto.OwnerDetailsBuilder",
+      "method_name": "firstName",
+      "parameter_types": [
+        "String"
+      ],
+      "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/dto/OwnerDetailsBuilder.java",
+      "line_start": 63,
+      "line_end": 66
+    },
+    {
+      "id": "api-gateway::org.springframework.samples.petclinic.api.dto.OwnerDetailsBuilder#lastName(String)",
+      "service": "api-gateway",
+      "class_fqn": "org.springframework.samples.petclinic.api.dto.OwnerDetailsBuilder",
+      "method_name": "lastName",
+      "parameter_types": [
+        "String"
+      ],
+      "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/dto/OwnerDetailsBuilder.java",
+      "line_start": 68,
+      "line_end": 71
+    },
+    {
+      "id": "api-gateway::org.springframework.samples.petclinic.api.dto.OwnerDetailsBuilder#address(String)",
+      "service": "api-gateway",
+      "class_fqn": "org.springframework.samples.petclinic.api.dto.OwnerDetailsBuilder",
+      "method_name": "address",
+      "parameter_types": [
+        "String"
+      ],
+      "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/dto/OwnerDetailsBuilder.java",
+      "line_start": 73,
+      "line_end": 76
+    },
+    {
+      "id": "api-gateway::org.springframework.samples.petclinic.api.dto.OwnerDetailsBuilder#city(String)",
+      "service": "api-gateway",
+      "class_fqn": "org.springframework.samples.petclinic.api.dto.OwnerDetailsBuilder",
+      "method_name": "city",
+      "parameter_types": [
+        "String"
+      ],
+      "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/dto/OwnerDetailsBuilder.java",
+      "line_start": 78,
+      "line_end": 81
+    },
+    {
+      "id": "api-gateway::org.springframework.samples.petclinic.api.dto.OwnerDetailsBuilder#telephone(String)",
+      "service": "api-gateway",
+      "class_fqn": "org.springframework.samples.petclinic.api.dto.OwnerDetailsBuilder",
+      "method_name": "telephone",
+      "parameter_types": [
+        "String"
+      ],
+      "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/dto/OwnerDetailsBuilder.java",
+      "line_start": 83,
+      "line_end": 86
+    },
+    {
+      "id": "api-gateway::org.springframework.samples.petclinic.api.dto.OwnerDetailsBuilder#pets(List<PetDetails>)",
+      "service": "api-gateway",
+      "class_fqn": "org.springframework.samples.petclinic.api.dto.OwnerDetailsBuilder",
+      "method_name": "pets",
+      "parameter_types": [
+        "List<PetDetails>"
+      ],
+      "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/dto/OwnerDetailsBuilder.java",
+      "line_start": 88,
+      "line_end": 91
+    },
+    {
+      "id": "api-gateway::org.springframework.samples.petclinic.api.dto.OwnerDetailsBuilder#build()",
+      "service": "api-gateway",
+      "class_fqn": "org.springframework.samples.petclinic.api.dto.OwnerDetailsBuilder",
+      "method_name": "build",
+      "parameter_types": [],
+      "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/dto/OwnerDetailsBuilder.java",
+      "line_start": 93,
+      "line_end": 95
+    },
+    {
+      "id": "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)",
+      "service": "api-gateway",
+      "class_fqn": "org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController",
+      "method_name": "getOwnerDetails",
+      "parameter_types": [
+        "int"
+      ],
+      "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+      "line_start": 54,
+      "line_end": 66
+    },
+    {
+      "id": "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#addVisitsToOwner(OwnerDetails)",
+      "service": "api-gateway",
+      "class_fqn": "org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController",
+      "method_name": "addVisitsToOwner",
+      "parameter_types": [
+        "OwnerDetails"
+      ],
+      "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+      "line_start": 68,
+      "line_end": 78
+    },
+    {
+      "id": "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#emptyVisitsForPets()",
+      "service": "api-gateway",
+      "class_fqn": "org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController",
+      "method_name": "emptyVisitsForPets",
+      "parameter_types": [],
+      "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+      "line_start": 80,
+      "line_end": 82
+    },
+    {
+      "id": "api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)",
+      "service": "api-gateway",
+      "class_fqn": "org.springframework.samples.petclinic.api.application.VisitsServiceClient",
+      "method_name": "getVisitsForPets",
+      "parameter_types": [
+        "List<Integer>"
+      ],
+      "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+      "line_start": 42,
+      "line_end": 48
+    },
+    {
+      "id": "api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#joinIds(List<Integer>)",
+      "service": "api-gateway",
+      "class_fqn": "org.springframework.samples.petclinic.api.application.VisitsServiceClient",
+      "method_name": "joinIds",
+      "parameter_types": [
+        "List<Integer>"
+      ],
+      "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+      "line_start": 50,
+      "line_end": 52
+    },
+    {
+      "id": "api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#setHostname(String)",
+      "service": "api-gateway",
+      "class_fqn": "org.springframework.samples.petclinic.api.application.VisitsServiceClient",
+      "method_name": "setHostname",
+      "parameter_types": [
+        "String"
+      ],
+      "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+      "line_start": 54,
+      "line_end": 56
+    }
+  ],
+  "endpoints": [
+    {
+      "handler_id": "customers-service::org.springframework.samples.petclinic.customers.web.OwnerResource#createOwner(OwnerRequest)",
+      "service": "customers-service",
+      "http_method": "POST",
+      "normalized_path": "/owners",
+      "query_parameters": [],
+      "evidence": {
+        "commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+        "file": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java",
+        "line_start": 57,
+        "line_end": 62,
+        "evidence_type": "ANNOTATION_MAPPING",
+        "expression": "@PostMapping\n    @ResponseStatus(HttpStatus.CREATED)\n    public Owner createOwner(@Valid @RequestBody OwnerRequest ownerRequest)"
+      }
+    },
+    {
+      "handler_id": "customers-service::org.springframework.samples.petclinic.customers.web.OwnerResource#findOwner(int)",
+      "service": "customers-service",
+      "http_method": "GET",
+      "normalized_path": "/owners/{ownerId}",
+      "query_parameters": [],
+      "evidence": {
+        "commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+        "file": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java",
+        "line_start": 67,
+        "line_end": 70,
+        "evidence_type": "ANNOTATION_MAPPING",
+        "expression": "@GetMapping(value = \"/{ownerId}\")\n    public Optional<Owner> findOwner(@PathVariable(\"ownerId\") @Min(1) int ownerId)"
+      }
+    },
+    {
+      "handler_id": "customers-service::org.springframework.samples.petclinic.customers.web.OwnerResource#findAll()",
+      "service": "customers-service",
+      "http_method": "GET",
+      "normalized_path": "/owners",
+      "query_parameters": [],
+      "evidence": {
+        "commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+        "file": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java",
+        "line_start": 75,
+        "line_end": 78,
+        "evidence_type": "ANNOTATION_MAPPING",
+        "expression": "@GetMapping\n    public List<Owner> findAll()"
+      }
+    },
+    {
+      "handler_id": "customers-service::org.springframework.samples.petclinic.customers.web.OwnerResource#updateOwner(int,OwnerRequest)",
+      "service": "customers-service",
+      "http_method": "PUT",
+      "normalized_path": "/owners/{ownerId}",
+      "query_parameters": [],
+      "evidence": {
+        "commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+        "file": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java",
+        "line_start": 83,
+        "line_end": 91,
+        "evidence_type": "ANNOTATION_MAPPING",
+        "expression": "@PutMapping(value = \"/{ownerId}\")\n    @ResponseStatus(HttpStatus.NO_CONTENT)\n    public void updateOwner(@PathVariable(\"ownerId\") @Min(1) int ownerId, @Valid @RequestBody OwnerRequest ownerRequest)"
+      }
+    },
+    {
+      "handler_id": "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)",
+      "service": "api-gateway",
+      "http_method": "GET",
+      "normalized_path": "/api/gateway/owners/{ownerId}",
+      "query_parameters": [],
+      "evidence": {
+        "commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+        "line_start": 54,
+        "line_end": 66,
+        "evidence_type": "ANNOTATION_MAPPING",
+        "expression": "@GetMapping(value = \"owners/{ownerId}\")\n    public Mono<OwnerDetails> getOwnerDetails(final @PathVariable int ownerId)"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "api-gateway::org.springframework.samples.petclinic.api.application.CustomersServiceClient#getOwner(int)",
+      "target_id": "customers-service::org.springframework.samples.petclinic.customers.web.OwnerResource#findOwner(int)",
+      "type": "INVOKES_API",
+      "target_service": "customers-service",
+      "http_method": "GET",
+      "normalized_path": "/owners/{ownerId}",
+      "sent_query_parameters": [],
+      "resolution_status": "RESOLVED",
+      "contract_status": "VALID",
+      "missing_required_parameters": [],
+      "cross_service": true,
+      "assumptions": [
+        "Target service derived from URL host 'customers-service' with default configuration",
+        "Matched by exact service name, HTTP method, and normalized endpoint path",
+        "Target handler overload: customers-service::org.springframework.samples.petclinic.customers.web.OwnerResource#findOwner(int)"
+      ],
+      "evidence": [
+        {
+          "commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+          "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/CustomersServiceClient.java",
+          "line_start": 36,
+          "line_end": 37,
+          "evidence_type": "WEBCLIENT_CALL",
+          "expression": "webClientBuilder.build().get()\n            .uri(\"http://customers-service/owners/{ownerId}\", ownerId)"
+        },
+        {
+          "commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+          "file": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java",
+          "line_start": 67,
+          "line_end": 70,
+          "evidence_type": "ENDPOINT_HANDLER",
+          "expression": "@GetMapping(value = \"/{ownerId}\")\n    public Optional<Owner> findOwner(@PathVariable(\"ownerId\") @Min(1) int ownerId)"
+        }
+      ]
+    },
+    {
+      "source_id": "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)",
+      "target_id": "api-gateway::org.springframework.samples.petclinic.api.application.CustomersServiceClient#getOwner(int)",
+      "type": "CALLS",
+      "target_service": "api-gateway",
+      "resolution_status": "RESOLVED",
+      "contract_status": "VALID",
+      "cross_service": false,
+      "has_circuit_breaker": false,
+      "fallback_method": null,
+      "assumptions": [
+        "Intra-service bean invocation resolved via Spring DI field type"
+      ],
+      "evidence": [
+        {
+          "commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+          "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+          "line_start": 56,
+          "line_end": 56,
+          "evidence_type": "METHOD_CALL",
+          "expression": "customersServiceClient.getOwner(ownerId)"
+        }
+      ]
+    },
+    {
+      "source_id": "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)",
+      "target_id": "api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)",
+      "type": "CALLS",
+      "target_service": "api-gateway",
+      "resolution_status": "RESOLVED",
+      "contract_status": "VALID",
+      "cross_service": false,
+      "has_circuit_breaker": true,
+      "fallback_method": "emptyVisitsForPets",
+      "assumptions": [
+        "Intra-service bean invocation resolved via Spring DI field type",
+        "Protected by ReactiveCircuitBreaker with fallback: 'emptyVisitsForPets'"
+      ],
+      "evidence": [
+        {
+          "commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+          "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+          "line_start": 58,
+          "line_end": 58,
+          "evidence_type": "METHOD_CALL",
+          "expression": "visitsServiceClient.getVisitsForPets(owner.getPetIds())"
+        }
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+      "line_start": 54,
+      "line_end": 56,
+      "expression": "void setHostname(String hostname) {",
+      "reason": "Setter 'setHostname' could mutate default field 'hostname' at runtime via configuration or external caller"
+    },
+    {
+      "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+      "line_start": 43,
+      "line_end": 45,
+      "expression": "webClientBuilder.build()\n            .get()\n            .uri(hostname + \"pets/visits?petId={petId}\", joinIds(petIds))",
+      "reason": "No matching endpoint within supplied endpoints for service='visits-service', HTTP method='GET', path='/pets/visits'; exact service, HTTP method and path required"
+    }
+  ]
+}

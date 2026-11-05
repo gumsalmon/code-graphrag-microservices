@@ -1,0 +1,340 @@
+{
+  "schema": "manuscript-authoring-evidence-snapshot/1",
+  "created_utc": "2026-11-01T13:43:15.559586+00:00",
+  "scope": "Byte identities for draft authoring, not label evidence oracle, external publication or scientific acceptance",
+  "interpretation": "Local paths are relative to project root; reports can be historical snapshots; current rights come from D20. Files are hashed this turn; old runtime is not re-executed or all raw files manually reviewed.",
+  "evidence": [
+    {
+      "ref": "E02",
+      "kind": "local_file",
+      "path": "benchmark/p02/decisions/INPUT_LOCK_2026-10-24.json",
+      "sha256": "680fadfe22bc27f54b6471ea8d760482d3b0b5ad2b0fe92daf920600fc7335cc",
+      "bytes": 2687
+    },
+    {
+      "ref": "E02",
+      "kind": "local_file",
+      "path": "benchmark/p03/decisions/INPUT_LOCK_2026-10-31.json",
+      "sha256": "dd59272a190ce17f0aff9fee9d1008bd3969945a57152d60a68579e6bc72830c",
+      "bytes": 2960
+    },
+    {
+      "ref": "E02",
+      "kind": "local_file",
+      "path": "benchmark/decisions/PETCLINIC_DRAFT_INTEGRATION_2026-10-31.json",
+      "sha256": "bced4426f7e9ce6c7f26c31668faaf36d3ed770acd60a6a93147d7aebc06671f",
+      "bytes": 2928
+    },
+    {
+      "ref": "E04",
+      "kind": "local_file",
+      "path": "tasks/research/P02_F03_RUNTIME_2026-10-24.md",
+      "sha256": "7ae82a418f637e751762859abdf5f12d070ac4644d67b4d90bf35ba99e733590",
+      "bytes": 10152
+    },
+    {
+      "ref": "E04",
+      "kind": "local_file",
+      "path": "tasks/research/P02_HELPER_RUNTIME_2026-10-25.md",
+      "sha256": "87a8a71eaad8ab70f91075412cf51571643ad91726db3ad3fa1bcca9961b9e91",
+      "bytes": 7927
+    },
+    {
+      "ref": "E04",
+      "kind": "local_file",
+      "path": "handoff-out/p02-f03/20261024t103954400z-989f2a57/SHA256SUMS.txt",
+      "sha256": "bce38e90d518c2f35860569aea479e476e8ca786c5e3494ef5522da31da65f20",
+      "bytes": 3146
+    },
+    {
+      "ref": "E04",
+      "kind": "local_file",
+      "path": "handoff-out/p02-helper-supplement/20261025t121836544z-0997bbbe/SHA256SUMS.txt",
+      "sha256": "fed3742ce6d836e225a8711ebc71118594c2dfe8cd5fad8989e6feba3210772e",
+      "bytes": 3974
+    },
+    {
+      "ref": "E05",
+      "kind": "local_file",
+      "path": "tasks/research/P03_PAIRED_RUNTIME_2026-10-31.md",
+      "sha256": "93f4e4095e5a6bd81061140697e681d4a2dbbdb47899f47af7a9b4a9064c236e",
+      "bytes": 12207
+    },
+    {
+      "ref": "E05",
+      "kind": "local_file",
+      "path": "tasks/P03_PAIRED_STATUS_2026-10-31.json",
+      "sha256": "c403f004e473c5fdb9e2d1a6365063ef5e3b472c7e5fab69ea14435b5fecf2b1",
+      "bytes": 3348
+    },
+    {
+      "ref": "E05",
+      "kind": "local_file",
+      "path": "handoff-out/p03-paired/20261031t052939742z-be07ff6d/SHA256SUMS.txt",
+      "sha256": "65057ce36b3c4235943090079a1fe7384660bafa1f31b5ec3e8d113a764dce56",
+      "bytes": 4889
+    },
+    {
+      "ref": "E06",
+      "kind": "local_file",
+      "path": "scripts/check_p02_offline_method.mjs",
+      "sha256": "e4089a5b7f574db8d7ac840049788961ff55c1368c674359217a06b2ae5994b3",
+      "bytes": 7758
+    },
+    {
+      "ref": "E06",
+      "kind": "local_file",
+      "path": "handoff-out/team-returns-20261101/20261101T054957Z-a801d6ca/independent-commands/p02-method-audit.stdout.log",
+      "sha256": "d0745e5c6a9dd418d70029318307cc6c51f5796865caafc8855dd45b2f06497a",
+      "bytes": 4089
+    },
+    {
+      "ref": "E06",
+      "kind": "local_file",
+      "path": "handoff-out/p02-offline-method/20261101t061314799z-a263deac/SHA256SUMS.txt",
+      "sha256": "ad7fe3ac6536a54315219a44533f73a36a016a1c1f362e4c7026134971c126d4",
+      "bytes": 15348
+    },
+    {
+      "ref": "E07",
+      "kind": "local_file",
+      "path": "handoff-out/team-returns-20261101/20261101T054957Z-a801d6ca/hien/received/CODE_HASHES.json",
+      "sha256": "69385e3d5650194aa9581854d22cf537d8c5adc6ae691529c0d21e7cb2e722f6",
+      "bytes": 2009
+    },
+    {
+      "ref": "E07",
+      "kind": "local_file",
+      "path": "handoff-out/team-returns-20261101/20261101T054957Z-a801d6ca/hien/received/code/src/parser.py",
+      "sha256": "fb20def957a46c5bf41662326fa5c4e955593cb532cdad476dc9263ae9b6e8d9",
+      "bytes": 46588
+    },
+    {
+      "ref": "E07",
+      "kind": "local_file",
+      "path": "handoff-out/team-returns-20261101/20261101T054957Z-a801d6ca/hien/received/code/src/neo4j_importer.py",
+      "sha256": "8e418f34cc4e620cc924b37f23baccd8ad2f150579768cb34fffc97ec55ed08c",
+      "bytes": 12224
+    },
+    {
+      "ref": "E08",
+      "kind": "local_file",
+      "path": "handoff-out/team-returns-20261101/20261101T054957Z-a801d6ca/P02_INDEPENDENT_AUDIT.json",
+      "sha256": "720f865917788db4ccc1d55f357cde749f25fd8ca20e65ad5918390b9fa5c29d",
+      "bytes": 3239
+    },
+    {
+      "ref": "E08",
+      "kind": "local_file",
+      "path": "handoff-out/team-returns-20261101/20261101T054957Z-a801d6ca/HIEN_A_STATIC_AUDIT.json",
+      "sha256": "9eec85aadf7fe331f31aa8a1658d805e1105e95b8384bc6f602df64e062d7f8c",
+      "bytes": 945
+    },
+    {
+      "ref": "E08",
+      "kind": "local_file",
+      "path": "tasks/hien-next/P02_TECHNICAL_RECEIPT_2026-11-01.json",
+      "sha256": "a62b36183102023fd9d6f51228e782c5e41375493cfba5acba69bcb44cda7e58",
+      "bytes": 2226
+    },
+    {
+      "ref": "E09",
+      "kind": "local_file",
+      "path": "reasoning/p01/retrieval-context.mjs",
+      "sha256": "de4b866d7313ae1873761d1d4c092f4d70e2ff547ce14c5c43786bf152bb1735",
+      "bytes": 12352
+    },
+    {
+      "ref": "E09",
+      "kind": "local_file",
+      "path": "tasks/research/P01_RETRIEVAL_OFFLINE_2026-10-12.md",
+      "sha256": "77dda94bdd1c3c141c8a9f9f94fcc648da53fdefa179176632e9ac1997e51278",
+      "bytes": 11656
+    },
+    {
+      "ref": "E10",
+      "kind": "local_file",
+      "path": "reasoning/p01/ABSTENTION_CONTRACT.md",
+      "sha256": "f6bd5a55c52939772887d44acf6df96364c8ca1669727965d455177719e59f8b",
+      "bytes": 7658
+    },
+    {
+      "ref": "E10",
+      "kind": "local_file",
+      "path": "tasks/research/P01_ABSTENTION_LIVE_2026-10-15.md",
+      "sha256": "8f9811adbb30b7b8632b854d22c6494db0c05fecf8b5ead895ae05ce83df5dd1",
+      "bytes": 8903
+    },
+    {
+      "ref": "E11",
+      "kind": "local_file",
+      "path": "docs/experiments/EXPERIMENT_DESIGN.v0.1.DRAFT.md",
+      "sha256": "94bd592cfbde9c2d35b68e41291419d019dcc109c34e590e7b54141cee50dc22",
+      "bytes": 23910
+    },
+    {
+      "ref": "E11",
+      "kind": "local_file",
+      "path": "docs/experiments/experiment-design.v0.1.draft.json",
+      "sha256": "246f3453b9dfb5a06fecd4bf3dca3ca2b96cf4a35be020462abd9d04db6e0010",
+      "bytes": 10369
+    },
+    {
+      "ref": "E11",
+      "kind": "local_file",
+      "path": "docs/contracts/IMPACT_OUTPUT_CONTRACT.v0.1.DRAFT.md",
+      "sha256": "f74074e81f3e2328e28463280da640f11c13d0cab9339cce37378e4de413524b",
+      "bytes": 19806
+    },
+    {
+      "ref": "E11",
+      "kind": "local_file",
+      "path": "docs/contracts/impact-output.v0.1.draft.json",
+      "sha256": "75fd19b22496b467af8afd3ef59c312da7094591b8a0bc8b4005df2949e23726",
+      "bytes": 6180
+    },
+    {
+      "ref": "E12",
+      "kind": "local_file",
+      "path": "tasks/petclinic-review-draft/COORDINATOR.md",
+      "sha256": "d0d62b692591634828d8f844ca03d9e278eaece412d7ae359682b347a9edad8f",
+      "bytes": 9169
+    },
+    {
+      "ref": "E12",
+      "kind": "local_file",
+      "path": "tasks/petclinic-review-draft/readiness.snapshot.json",
+      "sha256": "1593fdfd43d10e2b81c0b0c293c4b9419cdb615013010e90bb6ffdfb16850ef9",
+      "bytes": 6718
+    },
+    {
+      "ref": "E12",
+      "kind": "local_file",
+      "path": "tasks/PETCLINIC_PRE_REVIEW_PLAN_2026-10-24.md",
+      "sha256": "a6dfa74ac993dcdea746babd53a358c7b024971a7fd892cca2650d79cb52d69f",
+      "bytes": 5169
+    },
+    {
+      "ref": "E03",
+      "kind": "local_file",
+      "path": "handoff-out/p02-input-revision/20261018T065307839Z-719da955/benchmark/p02/preparation.v1/fixture.json",
+      "sha256": "2a319f48c2d31894718228539c3743396e3d3e5ad04579985f6d2588bb324191",
+      "bytes": 4082
+    },
+    {
+      "ref": "E03",
+      "kind": "local_file",
+      "path": "handoff-out/p02-input-revision/20261018T065307839Z-719da955/benchmark/p02/preparation.v1/scenario.json",
+      "sha256": "7d415b72a0d60911c104afe012d912ab3c600cb8f2da24e94791f7ab90264557",
+      "bytes": 2929
+    },
+    {
+      "ref": "E03",
+      "kind": "local_file",
+      "path": "handoff-out/p02-input-revision/20261018T065307839Z-719da955/benchmark/p02/preparation.v2/scenario.json",
+      "sha256": "762d993901f1388584adf066f396acd2ad46a7550f1f6b0b12dd6a8c61663ce9",
+      "bytes": 3866
+    },
+    {
+      "ref": "E03",
+      "kind": "local_file",
+      "path": "handoff-out/p02-input-revision/20261018T065307839Z-719da955/draft/evaluation_universe.draft.v2.json",
+      "sha256": "d79c07727d6fb5348503f0e4079a0d18c63e26e6d34a1e332825f1cc7680aeb5",
+      "bytes": 20430
+    },
+    {
+      "ref": "E03",
+      "kind": "local_file",
+      "path": "handoff-out/p02-input-revision/20261018T065307839Z-719da955/history/evaluation_universe.draft.v1.json",
+      "sha256": "8c04bbca98318c3d358ec9135516d889f3b7c017793dbc4aa5319771ed8d7424",
+      "bytes": 18922
+    },
+    {
+      "ref": "E03",
+      "kind": "local_file",
+      "path": "handoff-out/p03-preparation/20261024T190227112Z-a8e852db/spec/scenario.candidate.v0.1.0.json",
+      "sha256": "36fc64997ed04a5fb9782231471bbd2dec5a0177c0ae0e428f2ff48457a1bed8",
+      "bytes": 4809
+    },
+    {
+      "ref": "E03",
+      "kind": "local_file",
+      "path": "handoff-out/p03-preparation/20261024T190227112Z-a8e852db/spec/owner-response-rename.patch",
+      "sha256": "87b0083ca0b1c9a01badb94f3cf8ecdf1918a24517d91e7b2690810c8080fbc0",
+      "bytes": 1751
+    },
+    {
+      "ref": "E03",
+      "kind": "local_file",
+      "path": "handoff-out/p03-preparation/20261024T190227112Z-a8e852db/spec/fixture.candidate.v1.json",
+      "sha256": "52172f64187d29461a754a7535bb5ec14f7a9ac0141e9e35e89f99848df1cc21",
+      "bytes": 6405
+    },
+    {
+      "ref": "E03",
+      "kind": "local_file",
+      "path": "handoff-out/p03-preparation/20261024T190227112Z-a8e852db/spec/scope.candidate.v1.json",
+      "sha256": "8db699e76e1d6c2d340e26f5d82080c4bea08ef574c7b500146da5cc9d3c4c53",
+      "bytes": 8466
+    },
+    {
+      "ref": "E03",
+      "kind": "local_file",
+      "path": "handoff-out/p03-preparation/20261024T190227112Z-a8e852db/draft/inventory.v1.json",
+      "sha256": "5ab81b134c0d9bed32ab4943c1b35ffc860f34d0204dbfcd825e008cb8c067a4",
+      "bytes": 28390
+    },
+    {
+      "ref": "E03",
+      "kind": "local_file",
+      "path": "handoff-out/p03-preparation/20261024T190227112Z-a8e852db/draft/evaluation_universe.draft.v1.json",
+      "sha256": "79a3def8a58e62f376d2ff594a71831163bbbf472fa54c29fbf0defd1b7d43d7",
+      "bytes": 44104
+    },
+    {
+      "ref": "E01",
+      "kind": "git_object",
+      "commit": "5f9204d66253604edf9101c2f888fc7e75aa0be7",
+      "path": "benchmark/protocol/benchmark_protocol_v0.2.md",
+      "sha256": "92258d2a19599f202c39ab5067191248c17631565391ffab9f96d9cc0608d6cb",
+      "bytes": 21174
+    },
+    {
+      "ref": "E01",
+      "kind": "git_object",
+      "commit": "5f9204d66253604edf9101c2f888fc7e75aa0be7",
+      "path": "benchmark/p01/review_decision.v1.json",
+      "sha256": "4d0a99973f7d39470554e4f6b3f82b21aa43f53910c2fae0afeabf9838fadd16",
+      "bytes": 444
+    },
+    {
+      "ref": "E03",
+      "kind": "git_object",
+      "commit": "5f9204d66253604edf9101c2f888fc7e75aa0be7",
+      "path": "benchmark/p01/scenario.json",
+      "sha256": "51cf6631b5024c564dd72faea7517833287c4af1c0c6cc8df39890d7ac2143a5",
+      "bytes": 3688
+    },
+    {
+      "ref": "E03",
+      "kind": "git_object",
+      "commit": "5f9204d66253604edf9101c2f888fc7e75aa0be7",
+      "path": "benchmark/p01/raw/historical/mutation.patch",
+      "sha256": "42394ca361d07db58ba6a73cfc1ddb8bd1d9aeddb59292873552573adfa5cc21",
+      "bytes": 2034
+    },
+    {
+      "ref": "E09",
+      "kind": "git_object",
+      "commit": "e95613795133088621117179c9fb9592dab62b16",
+      "path": "src/chroma_baseline.py",
+      "sha256": "b124d9516ec3b15d6cf70deed7933a077a19562486ae664c019e6253f9fb02d5",
+      "bytes": 15483
+    }
+  ],
+  "paper_results": null,
+  "ground_truth_accepted": false,
+  "evaluation_design_adopted": false,
+  "official_scoring_authorized": false,
+  "new_model_calls": 0
+}

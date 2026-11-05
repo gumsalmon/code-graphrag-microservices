@@ -1,0 +1,9 @@
+{
+  "authority_id": "D20",
+  "authority_sha256": "bced4426f7e9ce6c7f26c31668faaf36d3ed770acd60a6a93147d7aebc06671f",
+  "input_decision_sha256": "dd59272a190ce17f0aff9fee9d1008bd3969945a57152d60a68579e6bc72830c",
+  "checked_receipt_sha256": "b73e4dd44a1cbd9ffe05d148d2c0742f4ab685cb4c7a4cac7b949ed4d429ce20",
+  "context_only_not_prediction_or_schema_adoption": true,
+  "reviewed_native_manifest_sha256": "baf4cccca80ca14586cc13141feabb6bd24bdde72a13cd3a9905e87f25c5b636",
+  "parser_sha256": "75e5d0fa0b2e958fb8a6604516e95dd24e65905bb6617b3820112d0270438005"
+}

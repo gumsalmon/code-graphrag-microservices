@@ -1,0 +1,34 @@
+{
+  "id": "direct_invalid",
+  "timestamp_utc": "2026-10-24T10:44:02.297083+00:00",
+  "method": "GET",
+  "host": "visits-service",
+  "port": 8082,
+  "path": "/pets/visits?petId=7,8&includeDetails=not-a-boolean",
+  "request_headers": {
+    "Accept": "application/json",
+    "Accept-Encoding": "identity"
+  },
+  "request_body_file": null,
+  "status": 200,
+  "error": null,
+  "response_headers": [
+    [
+      "Content-Type",
+      "application/json"
+    ],
+    [
+      "Transfer-Encoding",
+      "chunked"
+    ],
+    [
+      "Date",
+      "Sat, 24 Oct 2026 10:44:02 GMT"
+    ]
+  ],
+  "body_file": "direct_invalid.body",
+  "redirects_followed": false,
+  "body_sha256": "8e0a343551d92ce841e0f20cb8708859a7bf07ae5d2a1bd6ca6c0ef6ac04144c",
+  "body_bytes": 271,
+  "elapsed_ms": 9
+}

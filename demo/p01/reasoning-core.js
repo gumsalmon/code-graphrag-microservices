@@ -36,6 +36,29 @@ Return the requested JSON structure, with concise Vietnamese explanations and un
       evidence_id: { type: 'string' }, quote: { type: 'string' },
     }, required: ['evidence_id', 'quote'] } },
   };
+  // Legacy constants and request/1,/2 semantics stay frozen for historical runs.
+  const ABSTENTION_PROMPT_VERSION = 'p01-static-impact/2';
+  const ABSTENTION_SYSTEM_PROMPT = SYSTEM_PROMPT + `
+Contract v2: citations are required for the summary and for every non-abstaining method record.
+Only a pure abstention may have citations=[]: dependency_status, behavioral_impact and requires_code_change must ALL be "unknown", dependency_path=[], logical_hops=null and service_boundary_crossings=null.
+A pure abstention rationale must explain insufficient supplied evidence without making positive or negative impact, dependency or repair claims. Never fabricate a quote to justify missing evidence.
+"not_established", "unlikely", "likely", "reachable", "required" and "optional" are not pure abstention. Such records require at least one exact supplied citation. Unknown is not a negative label or an empty impacted set.`;
+  const ABSTENTION_SCHEMA = structuredClone(SCHEMA);
+  ABSTENTION_SCHEMA.properties.summary.properties.citations.minItems = 1;
+  ABSTENTION_SCHEMA.properties.summary.properties.citations.maxItems = 30;
+  const abstentionItem = ABSTENTION_SCHEMA.properties.method_predictions.items;
+  abstentionItem.properties.citations.maxItems = 30;
+  abstentionItem.anyOf = [
+    { properties: { citations: { type: 'array', minItems: 1, maxItems: 30 } } },
+    { properties: {
+      dependency_status: { type: 'string', enum: ['unknown'] },
+      behavioral_impact: { type: 'string', enum: ['unknown'] },
+      requires_code_change: { type: 'string', enum: ['unknown'] },
+      dependency_path: { type: 'array', maxItems: 0 },
+      logical_hops: { type: 'null' }, service_boundary_crossings: { type: 'null' },
+      citations: { type: 'array', maxItems: 0 },
+    } },
+  ];
   const utf8 = text => new TextEncoder().encode(text);
   async function hash(bytes) {
     const digest = await globalThis.crypto.subtle.digest('SHA-256', typeof bytes === 'string' ? utf8(bytes) : bytes);
@@ -168,17 +191,20 @@ Return the requested JSON structure, with concise Vietnamese explanations and un
 
   async function verifyRequest(request) {
     exactKeys(request, ['schema', 'context_sha256', 'context_bytes', 'prompt_version', 'system_prompt', 'context', 'output_schema', 'output_scope', 'model', 'provider', 'request_sha256'], 'request');
-    check(['p01-reasoning-request/1', 'p01-reasoning-request/2'].includes(request.schema) && request.prompt_version === PROMPT_VERSION, 'Unsupported request version');
+    const abstentionContract = request.schema === 'p01-reasoning-request/3';
+    const promptVersion = abstentionContract ? ABSTENTION_PROMPT_VERSION : PROMPT_VERSION;
+    check(['p01-reasoning-request/1', 'p01-reasoning-request/2', 'p01-reasoning-request/3'].includes(request.schema) && request.prompt_version === promptVersion, 'Unsupported request version');
     const { request_sha256, ...payload } = request;
     check(await hash(canonical(payload)) === request_sha256, 'Request checksum mismatch');
     check(await hash(canonical(request.context)) === request.context_sha256, 'Context checksum mismatch');
     check(request.context_bytes === utf8(canonical(request.context)).length, 'Context length mismatch');
-    check(request.system_prompt === SYSTEM_PROMPT && canonical(request.output_schema) === canonical(SCHEMA), 'Prompt/schema differs from implemented version');
+    check(request.system_prompt === (abstentionContract ? ABSTENTION_SYSTEM_PROMPT : SYSTEM_PROMPT) &&
+      canonical(request.output_schema) === canonical(abstentionContract ? ABSTENTION_SCHEMA : SCHEMA), 'Prompt/schema differs from implemented version');
     check(request.model === null && request.provider === null, 'Prepared request must not silently select a model/provider');
     check(request.output_scope === 'method_predictions_only', 'Unsupported output scope');
     const ctx = request.context;
-    if (request.schema === 'p01-reasoning-request/2') {
-      await verifyRetrievalContext(ctx, request.context_bytes);
+    if (['p01-reasoning-request/2', 'p01-reasoning-request/3'].includes(request.schema)) {
+      await verifyRetrievalContext(ctx, request.context_bytes, promptVersion);
       return;
     }
     check(['graph_assisted', 'source_only'].includes(ctx.mode), 'Unsupported context mode');
@@ -228,12 +254,12 @@ Return the requested JSON structure, with concise Vietnamese explanations and un
     }
   }
 
-  async function verifyRetrievalContext(ctx, contextBytes) {
+  async function verifyRetrievalContext(ctx, contextBytes, promptVersion) {
     const hasGraph = ctx.mode === 'graph_vector';
     check(['vector_retrieved', 'graph_vector'].includes(ctx.mode), 'Unsupported retrieval mode');
     exactKeys(ctx, ['schema', 'prompt_version', 'purpose', 'mode', 'semantic_retrieval', 'source_commit', 'implementation_commit',
       'change', 'limits', 'method_universe', 'source_registry', 'retrieval', 'evidence', ...(hasGraph ? ['graph'] : [])], 'retrieval context');
-    check(ctx.schema === 'p01-reasoning-context/2' && ctx.prompt_version === PROMPT_VERSION &&
+    check(ctx.schema === 'p01-reasoning-context/2' && ctx.prompt_version === promptVersion &&
       ctx.purpose === 'pilot_prediction_not_ground_truth' && ctx.semantic_retrieval === 'chromadb_cached_onnx', 'Invalid retrieval policy');
     check(ctx.source_commit === '3858f9c630cf989bb6809a86edf47c2be78dc9f1' &&
       ctx.implementation_commit === 'e95613795133088621117179c9fb9592dab62b16', 'Unreviewed retrieval revision');
@@ -312,14 +338,30 @@ Return the requested JSON structure, with concise Vietnamese explanations and un
     }
   }
 
+  async function withAbstentionContract(request) {
+    await verifyRequest(request);
+    check(['p01-reasoning-request/2', 'p01-reasoning-request/3'].includes(request.schema), 'Abstention contract requires a retrieval request');
+    const next = structuredClone(request);
+    next.schema = 'p01-reasoning-request/3'; next.prompt_version = ABSTENTION_PROMPT_VERSION;
+    next.context.prompt_version = ABSTENTION_PROMPT_VERSION;
+    next.system_prompt = ABSTENTION_SYSTEM_PROMPT; next.output_schema = structuredClone(ABSTENTION_SCHEMA);
+    next.context_bytes = utf8(canonical(next.context)).length;
+    next.context_sha256 = await hash(canonical(next.context));
+    const { request_sha256, ...payload } = next;
+    next.request_sha256 = await hash(canonical(payload));
+    await verifyRequest(next);
+    return next;
+  }
+
   async function validateResponse(response, request) {
     await verifyRequest(request);
     exactKeys(response, ['summary', 'method_predictions', 'uncertainties'], 'response');
     const ctx = request.context;
     const nodes = new Map(ctx.method_universe.map(node => [node.method_id, node]));
     const byEvidence = new Map(ctx.evidence.map(item => [item.id, item]));
-    const citations = (items, at) => {
-      check(Array.isArray(items) && items.length >= 1 && items.length <= 30, 'Citations required: ' + at);
+    const abstentionContract = request.schema === 'p01-reasoning-request/3';
+    const citations = (items, at, allowEmpty = false) => {
+      check(Array.isArray(items) && items.length >= (allowEmpty ? 0 : 1) && items.length <= 30, 'Citations required: ' + at);
       const resolved = [];
       const used = new Set();
       for (const item of items) {
@@ -352,7 +394,10 @@ Return the requested JSON structure, with concise Vietnamese explanations and un
       check(['likely', 'unlikely', 'unknown'].includes(item.behavioral_impact), 'Invalid behavioral impact');
       check(['required', 'optional', 'not_established', 'unknown'].includes(item.requires_code_change), 'Invalid repair status');
       nonempty(item.rationale, 'rationale');
-      const resolvedCitations = citations(item.citations, 'method_prediction');
+      const pureAbstention = item.dependency_status === 'unknown' && item.behavioral_impact === 'unknown' &&
+        item.requires_code_change === 'unknown' && Array.isArray(item.dependency_path) && item.dependency_path.length === 0 &&
+        item.logical_hops === null && item.service_boundary_crossings === null;
+      const resolvedCitations = citations(item.citations, 'method_prediction', abstentionContract && pureAbstention);
       if (item.dependency_status === 'reachable' && ['graph_assisted', 'graph_vector'].includes(ctx.mode)) {
         verifyPath(item.dependency_path, item.method_id, ctx.change.seed_id, ctx.limits.max_logical_hops,
           ctx.graph.edges, nodes, item.logical_hops, item.service_boundary_crossings);
@@ -369,18 +414,22 @@ Return the requested JSON structure, with concise Vietnamese explanations and un
         check(Array.isArray(item.dependency_path) && item.dependency_path.length === 0 && item.logical_hops === null && item.service_boundary_crossings === null,
           'Unestablished paths must be empty with null counts');
       }
-      return { ...item, citations: resolvedCitations, path_validation: item.dependency_status !== 'reachable' ? 'not_claimed' :
+      return { ...item, ...(abstentionContract ? { assessment_kind: pureAbstention ? 'abstention' : 'evidence_backed_assessment' } : {}),
+        citations: resolvedCitations, path_validation: item.dependency_status !== 'reachable' ? 'not_claimed' :
         ['graph_assisted', 'graph_vector'].includes(ctx.mode) ? 'matches_supplied_static_graph' : 'source_inference_not_graph_verified' };
     });
     check(Array.isArray(response.uncertainties) && response.uncertainties.length <= 30, 'Invalid uncertainties');
     response.uncertainties.forEach(item => nonempty(item, 'uncertainty', 2400));
-    return { schema: 'p01-validated-prediction/1', request_sha256: request.request_sha256, context_sha256: request.context_sha256,
+    return { schema: abstentionContract ? 'p01-validated-prediction/2' : 'p01-validated-prediction/1',
+      ...(abstentionContract ? { prompt_version: ABSTENTION_PROMPT_VERSION, abstention_is_negative_label: false } : {}),
+      request_sha256: request.request_sha256, context_sha256: request.context_sha256,
       status: 'structurally_valid_prediction_not_ground_truth', mode: ctx.mode,
       validation_scope: ['registered_ids', 'seed_exclusion', 'exact_quotes', 'path_consistency', 'schema'],
       semantic_correctness_verified: false, runtime_verified: false, human_reviewed: false,
       summary: { text: response.summary.text, citations: summaryCitations }, method_predictions: predictions, uncertainties: response.uncertainties };
   }
-  const api = { PROMPT_VERSION, SYSTEM_PROMPT, SCHEMA, hash, canonical, retrievalQuery, buildContext, verifyRequest, validateResponse };
+  const api = { PROMPT_VERSION, SYSTEM_PROMPT, SCHEMA, ABSTENTION_PROMPT_VERSION, ABSTENTION_SYSTEM_PROMPT, ABSTENTION_SCHEMA,
+    hash, canonical, retrievalQuery, buildContext, verifyRequest, validateResponse, withAbstentionContract };
   globalThis.P01Reasoning = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })();

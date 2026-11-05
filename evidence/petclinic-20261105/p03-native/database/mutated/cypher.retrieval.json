@@ -1,0 +1,176 @@
+{
+  "snapshot": "mutated",
+  "plans": [
+    {
+      "depth_limit": 1,
+      "query": "MATCH p=(caller:Method)-[:CALLS|INVOKES_API*1..1]->(seed:Method {id:$seed})\n WHERE caller.id<>$seed AND all(r IN relationships(p) WHERE r.resolution_status='RESOLVED')\n RETURN caller.id AS id, length(p) AS logical_hop, [n IN nodes(p)|n.id] AS witness_ids, [r IN relationships(p)|type(r)] AS relation_types\n ORDER BY id, logical_hop, witness_ids",
+      "parameters": {
+        "seed": "customers-service::org.springframework.samples.petclinic.customers.web.OwnerResource#findOwner(int)"
+      },
+      "paths": [
+        {
+          "id": "api-gateway::org.springframework.samples.petclinic.api.application.CustomersServiceClient#getOwner(int)",
+          "logical_hop": 1,
+          "witness_ids": [
+            "api-gateway::org.springframework.samples.petclinic.api.application.CustomersServiceClient#getOwner(int)",
+            "customers-service::org.springframework.samples.petclinic.customers.web.OwnerResource#findOwner(int)"
+          ],
+          "relation_types": [
+            "INVOKES_API"
+          ]
+        }
+      ],
+      "chunks": [
+        {
+          "id": "api-gateway::org.springframework.samples.petclinic.api.application.CustomersServiceClient#getOwner(int)",
+          "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/CustomersServiceClient.java",
+          "line_start": 35,
+          "line_end": 40,
+          "source_sha256": "e143b78217975d0a6c2d0da704e483cd931180c7bb95cc76cad3807cc852e4f5",
+          "excerpt_sha256": "b49d7c2986d1f34134b71bd00c160d4baed88ba586b0a2ed74b75a2b4301e70c",
+          "excerpt": "    public Mono<OwnerDetails> getOwner(final int ownerId) {\n        return webClientBuilder.build().get()\n            .uri(\"http://customers-service/owners/{ownerId}\", ownerId)\n            .retrieve()\n            .bodyToMono(OwnerDetails.class);\n    }\n"
+        },
+        {
+          "id": "customers-service::org.springframework.samples.petclinic.customers.web.OwnerResource#findOwner(int)",
+          "file": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java",
+          "line_start": 69,
+          "line_end": 82,
+          "source_sha256": "fb9e1635b423b0cf2b6ae2067a95a66070f8583814fc28ad7ddd29223c88d864",
+          "excerpt_sha256": "c4f5f82005fd122d149ffd97ea03c914f7c25550d1a51749dde765b34357a8b1",
+          "excerpt": "    @GetMapping(value = \"/{ownerId}\")\n    public Optional<Map<String, Object>> findOwner(@PathVariable(\"ownerId\") @Min(1) int ownerId) {\n        return ownerRepository.findById(ownerId).map(owner -> {\n            Map<String, Object> response = new LinkedHashMap<>();\n            response.put(\"id\", owner.getId());\n            response.put(\"firstName\", owner.getFirstName());\n            response.put(\"lastName\", owner.getLastName());\n            response.put(\"address\", owner.getAddress());\n            response.put(\"city\", owner.getCity());\n            response.put(\"telephone\", owner.getTelephone());\n            response.put(\"animals\", owner.getPets());\n            return response;\n        });\n    }\n"
+        }
+      ],
+      "not_an_impact_label": true
+    },
+    {
+      "depth_limit": 2,
+      "query": "MATCH p=(caller:Method)-[:CALLS|INVOKES_API*1..2]->(seed:Method {id:$seed})\n WHERE caller.id<>$seed AND all(r IN relationships(p) WHERE r.resolution_status='RESOLVED')\n RETURN caller.id AS id, length(p) AS logical_hop, [n IN nodes(p)|n.id] AS witness_ids, [r IN relationships(p)|type(r)] AS relation_types\n ORDER BY id, logical_hop, witness_ids",
+      "parameters": {
+        "seed": "customers-service::org.springframework.samples.petclinic.customers.web.OwnerResource#findOwner(int)"
+      },
+      "paths": [
+        {
+          "id": "api-gateway::org.springframework.samples.petclinic.api.application.CustomersServiceClient#getOwner(int)",
+          "logical_hop": 1,
+          "witness_ids": [
+            "api-gateway::org.springframework.samples.petclinic.api.application.CustomersServiceClient#getOwner(int)",
+            "customers-service::org.springframework.samples.petclinic.customers.web.OwnerResource#findOwner(int)"
+          ],
+          "relation_types": [
+            "INVOKES_API"
+          ]
+        },
+        {
+          "id": "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)",
+          "logical_hop": 2,
+          "witness_ids": [
+            "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)",
+            "api-gateway::org.springframework.samples.petclinic.api.application.CustomersServiceClient#getOwner(int)",
+            "customers-service::org.springframework.samples.petclinic.customers.web.OwnerResource#findOwner(int)"
+          ],
+          "relation_types": [
+            "CALLS",
+            "INVOKES_API"
+          ]
+        }
+      ],
+      "chunks": [
+        {
+          "id": "api-gateway::org.springframework.samples.petclinic.api.application.CustomersServiceClient#getOwner(int)",
+          "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/CustomersServiceClient.java",
+          "line_start": 35,
+          "line_end": 40,
+          "source_sha256": "e143b78217975d0a6c2d0da704e483cd931180c7bb95cc76cad3807cc852e4f5",
+          "excerpt_sha256": "b49d7c2986d1f34134b71bd00c160d4baed88ba586b0a2ed74b75a2b4301e70c",
+          "excerpt": "    public Mono<OwnerDetails> getOwner(final int ownerId) {\n        return webClientBuilder.build().get()\n            .uri(\"http://customers-service/owners/{ownerId}\", ownerId)\n            .retrieve()\n            .bodyToMono(OwnerDetails.class);\n    }\n"
+        },
+        {
+          "id": "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)",
+          "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+          "line_start": 54,
+          "line_end": 66,
+          "source_sha256": "bb815e3727be7e56330072d54774944ef5029d66d2d7e56976d7c60dbeafbb21",
+          "excerpt_sha256": "c9136769db042a8d551308df266b2c6a0c0f0427a209a85741559b0ae011620d",
+          "excerpt": "    @GetMapping(value = \"owners/{ownerId}\")\n    public Mono<OwnerDetails> getOwnerDetails(final @PathVariable int ownerId) {\n        return customersServiceClient.getOwner(ownerId)\n            .flatMap(owner ->\n                visitsServiceClient.getVisitsForPets(owner.getPetIds())\n                    .transform(it -> {\n                        ReactiveCircuitBreaker cb = cbFactory.create(\"getOwnerDetails\");\n                        return cb.run(it, throwable -> emptyVisitsForPets());\n                    })\n                    .map(addVisitsToOwner(owner))\n            );\n\n    }\n"
+        },
+        {
+          "id": "customers-service::org.springframework.samples.petclinic.customers.web.OwnerResource#findOwner(int)",
+          "file": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java",
+          "line_start": 69,
+          "line_end": 82,
+          "source_sha256": "fb9e1635b423b0cf2b6ae2067a95a66070f8583814fc28ad7ddd29223c88d864",
+          "excerpt_sha256": "c4f5f82005fd122d149ffd97ea03c914f7c25550d1a51749dde765b34357a8b1",
+          "excerpt": "    @GetMapping(value = \"/{ownerId}\")\n    public Optional<Map<String, Object>> findOwner(@PathVariable(\"ownerId\") @Min(1) int ownerId) {\n        return ownerRepository.findById(ownerId).map(owner -> {\n            Map<String, Object> response = new LinkedHashMap<>();\n            response.put(\"id\", owner.getId());\n            response.put(\"firstName\", owner.getFirstName());\n            response.put(\"lastName\", owner.getLastName());\n            response.put(\"address\", owner.getAddress());\n            response.put(\"city\", owner.getCity());\n            response.put(\"telephone\", owner.getTelephone());\n            response.put(\"animals\", owner.getPets());\n            return response;\n        });\n    }\n"
+        }
+      ],
+      "not_an_impact_label": true
+    },
+    {
+      "depth_limit": 3,
+      "query": "MATCH p=(caller:Method)-[:CALLS|INVOKES_API*1..3]->(seed:Method {id:$seed})\n WHERE caller.id<>$seed AND all(r IN relationships(p) WHERE r.resolution_status='RESOLVED')\n RETURN caller.id AS id, length(p) AS logical_hop, [n IN nodes(p)|n.id] AS witness_ids, [r IN relationships(p)|type(r)] AS relation_types\n ORDER BY id, logical_hop, witness_ids",
+      "parameters": {
+        "seed": "customers-service::org.springframework.samples.petclinic.customers.web.OwnerResource#findOwner(int)"
+      },
+      "paths": [
+        {
+          "id": "api-gateway::org.springframework.samples.petclinic.api.application.CustomersServiceClient#getOwner(int)",
+          "logical_hop": 1,
+          "witness_ids": [
+            "api-gateway::org.springframework.samples.petclinic.api.application.CustomersServiceClient#getOwner(int)",
+            "customers-service::org.springframework.samples.petclinic.customers.web.OwnerResource#findOwner(int)"
+          ],
+          "relation_types": [
+            "INVOKES_API"
+          ]
+        },
+        {
+          "id": "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)",
+          "logical_hop": 2,
+          "witness_ids": [
+            "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)",
+            "api-gateway::org.springframework.samples.petclinic.api.application.CustomersServiceClient#getOwner(int)",
+            "customers-service::org.springframework.samples.petclinic.customers.web.OwnerResource#findOwner(int)"
+          ],
+          "relation_types": [
+            "CALLS",
+            "INVOKES_API"
+          ]
+        }
+      ],
+      "chunks": [
+        {
+          "id": "api-gateway::org.springframework.samples.petclinic.api.application.CustomersServiceClient#getOwner(int)",
+          "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/CustomersServiceClient.java",
+          "line_start": 35,
+          "line_end": 40,
+          "source_sha256": "e143b78217975d0a6c2d0da704e483cd931180c7bb95cc76cad3807cc852e4f5",
+          "excerpt_sha256": "b49d7c2986d1f34134b71bd00c160d4baed88ba586b0a2ed74b75a2b4301e70c",
+          "excerpt": "    public Mono<OwnerDetails> getOwner(final int ownerId) {\n        return webClientBuilder.build().get()\n            .uri(\"http://customers-service/owners/{ownerId}\", ownerId)\n            .retrieve()\n            .bodyToMono(OwnerDetails.class);\n    }\n"
+        },
+        {
+          "id": "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)",
+          "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+          "line_start": 54,
+          "line_end": 66,
+          "source_sha256": "bb815e3727be7e56330072d54774944ef5029d66d2d7e56976d7c60dbeafbb21",
+          "excerpt_sha256": "c9136769db042a8d551308df266b2c6a0c0f0427a209a85741559b0ae011620d",
+          "excerpt": "    @GetMapping(value = \"owners/{ownerId}\")\n    public Mono<OwnerDetails> getOwnerDetails(final @PathVariable int ownerId) {\n        return customersServiceClient.getOwner(ownerId)\n            .flatMap(owner ->\n                visitsServiceClient.getVisitsForPets(owner.getPetIds())\n                    .transform(it -> {\n                        ReactiveCircuitBreaker cb = cbFactory.create(\"getOwnerDetails\");\n                        return cb.run(it, throwable -> emptyVisitsForPets());\n                    })\n                    .map(addVisitsToOwner(owner))\n            );\n\n    }\n"
+        },
+        {
+          "id": "customers-service::org.springframework.samples.petclinic.customers.web.OwnerResource#findOwner(int)",
+          "file": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java",
+          "line_start": 69,
+          "line_end": 82,
+          "source_sha256": "fb9e1635b423b0cf2b6ae2067a95a66070f8583814fc28ad7ddd29223c88d864",
+          "excerpt_sha256": "c4f5f82005fd122d149ffd97ea03c914f7c25550d1a51749dde765b34357a8b1",
+          "excerpt": "    @GetMapping(value = \"/{ownerId}\")\n    public Optional<Map<String, Object>> findOwner(@PathVariable(\"ownerId\") @Min(1) int ownerId) {\n        return ownerRepository.findById(ownerId).map(owner -> {\n            Map<String, Object> response = new LinkedHashMap<>();\n            response.put(\"id\", owner.getId());\n            response.put(\"firstName\", owner.getFirstName());\n            response.put(\"lastName\", owner.getLastName());\n            response.put(\"address\", owner.getAddress());\n            response.put(\"city\", owner.getCity());\n            response.put(\"telephone\", owner.getTelephone());\n            response.put(\"animals\", owner.getPets());\n            return response;\n        });\n    }\n"
+        }
+      ],
+      "not_an_impact_label": true
+    }
+  ],
+  "seed_excluded_from_candidate_paths": true,
+  "graph_reachability_only": true,
+  "embedding_or_model_inference": false,
+  "score_computed": false
+}

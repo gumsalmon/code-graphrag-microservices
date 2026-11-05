@@ -1,0 +1,13 @@
+{
+  "program": "docker",
+  "args": [
+    "--config",
+    "E:\\NCKH\\code-graphrag-microservices\\pipeline\\p02\\docker-client",
+    "version",
+    "--format",
+    "{{.Server.Version}}"
+  ],
+  "cwd": "E:\\NCKH\\code-graphrag-microservices",
+  "started_utc": "2026-11-05T08:31:03.715Z",
+  "credentials_passed": false
+}

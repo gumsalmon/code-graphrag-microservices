@@ -1,0 +1,24 @@
+{
+  "document_kind": "unfilled_measurement_design_template_not_run_or_score",
+  "design_id": "microservice-cia-experiment/0.1.0-draft.1",
+  "status": "template_only_not_measured",
+  "usable_for_scoring": false,
+  "run_identity": {"run_id": null, "attempt_id": null, "scenario_id": null, "scenario_version": null, "duplicate_group_id": null, "repository_id": null, "method_config_id": null, "repetition": null},
+  "bindings": {"source_revision": null, "config_revision": null, "patch_sha256": null, "fixture_sha256": null, "scope_sha256": null, "universe_sha256": null, "aliases_sha256": null, "request_sha256": null, "context_sha256": null, "evidence_registry_sha256": null, "implementation_identity": null, "method_config_sha256": null, "packing_policy_sha256": null, "tokenizer_identity": null, "output_contract_version": null, "projection_policy": null},
+  "execution": {"status": "not_run", "validation_status": "not_checked", "error_stage": null, "error_code": null, "safe_error_detail": null, "provider_receipt_known": null, "started_at_utc": null, "finished_at_utc": null, "duration_clock": "monotonic_for_durations_utc_for_artifact_join"},
+  "configuration": {"provider": null, "requested_model": null, "returned_model": null, "model_revision": null, "thinking_configuration": null, "seed_mode": null, "logical_depth": null, "supported_levels": null, "source_chunking_policy": null, "retrieval_top_k": null, "context_token_ceiling": null, "output_token_ceiling": null, "cache_regime": null, "hardware_identity": null, "dependency_lock_identity": null},
+  "measurements": {
+    "offline_ms": {"source_preparation": null, "parse_resolve": null, "graph_import_index": null, "embedding_index_build": null, "cache_preparation": null, "offline_total_wall": null},
+    "online_ms": {"query_construction": null, "retrieval": null, "traversal": null, "metadata_and_packing": null, "provider_wall": null, "validation_and_normalization": null, "online_total_wall": null},
+    "resources": {"peak_rss_bytes": null, "cpu_time_ms": null, "graph_index_bytes": null, "vector_index_bytes": null},
+    "context": {"input_bytes": null, "estimated_input_tokens": null, "selected_chunk_count": null, "dropped_chunk_count": null, "selected_evidence_ids": null, "dropped_evidence_ids_and_reasons": null},
+    "provider_usage": {"native_usage_payload": null, "usage_mapping_version": null, "input_tokens": null, "output_tokens": null, "thinking_tokens": null, "cached_input_tokens": null, "reported_total_tokens": null},
+    "cost": {"estimated_amount": null, "billed_amount": null, "currency": null, "pricing_url": null, "pricing_accessed_at": null, "pricing_revision_or_sha256": null, "rates_and_units": null, "billing_tier_evidence": null, "amortization_queries_Q": null},
+    "attempt_counts": {"remote_calls": null, "retry_count": null, "sub_calls_or_judge_calls": null},
+    "coverage_by_level": {"method": null, "api": null, "service": null}
+  },
+  "artifacts": {"raw_request": null, "raw_response": null, "safe_transport_log": null, "normalized_output": null, "validation_ledger": null, "selected_and_dropped_evidence_manifest": null, "checksum_manifest": null},
+  "evaluation_bindings_separate_from_model_input": {"label_version": null, "label_sha256": null, "review_decision_sha256": null, "review_checksums_sha256": null, "split_manifest_sha256": null, "scorer_revision": null, "score_adapter_version": null, "failure_policy_version": null, "score_report_artifact": null},
+  "impact_metrics": null,
+  "notes": ["No run performed. Every unmeasured value remains null, not zero or a fabricated example.", "Retain native usage; do not sum potentially overlapping token categories.", "Do not log credentials or credential paths; sanitize provider echoes.", "Failure/unknown/omission records stay visible; this template is not the scorer input or adopted output contract."]
+}

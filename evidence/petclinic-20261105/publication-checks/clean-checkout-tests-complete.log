@@ -1,0 +1,38 @@
+✔ checked source-only identity and both audited snapshots are accepted without mutating data (1.4232ms)
+✔ a previous run manifest cannot be promoted to the reviewed identity (0.522ms)
+✔ reference code or widened input provenance is refused despite a valid native manifest (0.4559ms)
+✔ incomplete properties, inventory or model-enabled audit cannot be displayed as reviewed (0.6093ms)
+✔ BM25 handles camelCase/Unicode, omits zero matches and breaks ties by stable file identity (4.3745ms)
+✔ lexical route never touches a supplied graph and uses the entire common source corpus (2.6801ms)
+✔ graph depth uses saved native witnesses, preserves boundary counts and never returns seed as a candidate (1.5945ms)
+✔ graph context retains the edge assumptions and evidence, rather than presenting resolution as an unconditional fact (0.6051ms)
+✔ mandatory seed/patch overflow produces a failure record instead of silently dropping either (0.328ms)
+✔ packing accounts for all serialized preview metadata and omits paths with dropped witness source (0.4869ms)
+✔ source and patch changes without matching identities are refused (0.6751ms)
+✔ mutated graph, wrong seed and invented native edge cannot enter baseline context (0.8342ms)
+✔ retrieved source is checked by byte span/hash and unresolved metadata remains visible only with selected source (0.8208ms)
+✔ source Unicode/CRLF round trips as data, while token counts and provider requests remain explicitly unmeasured (0.5518ms)
+✔ repeat preparation is deterministic and does not mutate source, patch or native artifacts (1.6553ms)
+✔ unexpected label fields, duplicate source paths and invalid depth fail closed (0.8241ms)
+✔ BM25 handles camelCase/Unicode, omits zero matches and breaks ties by stable file identity (4.7104ms)
+✔ lexical route never touches a supplied graph and uses the entire common source corpus (1.9414ms)
+✔ graph depth uses saved native witnesses, preserves boundary counts and never returns seed as a candidate (2.2282ms)
+✔ graph context retains the edge assumptions and evidence, rather than presenting resolution as an unconditional fact (0.4688ms)
+✔ mandatory seed/patch overflow produces a failure record instead of silently dropping either (0.3265ms)
+✔ packing accounts for all serialized preview metadata and omits paths with dropped witness source (0.669ms)
+✔ source and patch changes without matching identities are refused (0.5749ms)
+✔ mutated graph, wrong seed and invented native edge cannot enter baseline context (0.5749ms)
+✔ retrieved source is checked by byte span/hash and unresolved metadata remains visible only with selected source (0.5927ms)
+✔ source Unicode/CRLF round trips as data, while token counts and provider requests remain explicitly unmeasured (0.667ms)
+✔ repeat preparation is deterministic and does not mutate source, patch or native artifacts (2.5915ms)
+✔ unexpected label fields, duplicate source paths and invalid depth fail closed (0.4576ms)
+✔ nested-class filename aliases bind to actual source without changing native IDs (0.5485ms)
+✔ P02 case identity is refused by the distinct P03 component (0.1393ms)
+ℹ tests 30
+ℹ suites 0
+ℹ pass 30
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 124.6624

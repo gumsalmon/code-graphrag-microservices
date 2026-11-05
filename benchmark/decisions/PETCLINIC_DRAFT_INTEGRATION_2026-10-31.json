@@ -1,0 +1,41 @@
+{
+  "schema": "petclinic-draft-offline-integration-decision/1",
+  "decision_id": "D20",
+  "decision_date": "2026-10-31",
+  "decision_maker": "Huy",
+  "decision_exact_time": null,
+  "decision_source": "explicit user confirmation in project conversation",
+  "user_confirmation": "Tôi cho phép chuẩn bị gói giao Phát lập nhãn nháp P03 từ source/raw, lưu notes và exposure thật; đồng thời hoàn thiện checkpoint P02. Sau khi từng ca có checkpoint nhãn nháp version/hash được kiểm, cho phép triển khai và kiểm thử extraction–Neo4j–retrieval offline trong sandbox riêng. Giữ output tách khỏi annotator và bảo toàn bằng chứng cũ. Chưa gọi model, chấm điểm, duyệt nhãn, áp hợp đồng nháp hoặc push GitHub.",
+  "source_commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+  "config_commit": "323993ce2519c6d02df63e08bf4458d123d3b611",
+  "case_inputs": {
+    "P02": {"input_decision": "benchmark/p02/decisions/INPUT_LOCK_2026-10-24.json", "scenario_version": "0.1.1", "universe_version": "draft.v2", "fixture_version": "v1"},
+    "P03": {"input_decision": "benchmark/p03/decisions/INPUT_LOCK_2026-10-31.json", "input_decision_sha256": "dd59272a190ce17f0aff9fee9d1008bd3969945a57152d60a68579e6bc72830c", "scenario_version": "0.1.0", "universe_version": "draft.v1", "fixture_version": "v1", "candidate_manifest_sha256": "c52f085be74406e542de93db7f6d70b2fc3fe60f215ae47bd45df5b1cc5cec92", "paired_runtime_manifest_sha256": "65057ce36b3c4235943090079a1fe7384660bafa1f31b5ec3e8d113a764dce56"}
+  },
+  "phat_p03_draft_annotation_authorized": true,
+  "phat_p02_checkpoint_completion_authorized": true,
+  "human_notes_and_actual_exposure_required": true,
+  "ai_may_impersonate_annotator_or_reviewer": false,
+  "integration_authority": {
+    "mode": "conditional_per_case",
+    "allowed": ["extraction", "Neo4j import/query", "offline retrieval", "implementation and technical tests"],
+    "condition": "That case has a versioned, hashed independent human draft checkpoint checked by the coordinator, with notes/exposure and evidence bindings; unresolved is allowed with reasons. No need to wait for the other case or external label acceptance.",
+    "sandbox_required": true,
+    "annotator_must_not_receive_method_outputs": true,
+    "read_labels_to_tune_outputs": false,
+    "checkpoint_already_satisfied_by_this_decision": false,
+    "permission_must_be_requested_again_after_valid_checkpoint": false
+  },
+  "model_calls_authorized": false,
+  "official_scoring_authorized": false,
+  "ground_truth_accepted": false,
+  "final_test_locked": false,
+  "draft_shared_contract_adoption_authorized": false,
+  "github_push_authorized": false,
+  "new_downloads_authorized": false,
+  "frozen_artifacts_may_be_overwritten": false,
+  "packet_sent_to_phat": false,
+  "packet_sent_to_hien": false,
+  "phat_acknowledged_new_task": false,
+  "hien_acknowledged_new_task": false
+}

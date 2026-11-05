@@ -69,6 +69,14 @@ test('publication allowlist excludes private evidence, credentials and unrelated
   const files = await candidateFiles();
   assert.ok(files.includes('.gitattributes'));
   assert.ok(files.includes('pipeline/p01/graph-probe.py'));
+  for (const file of ['scripts/audit_p01_closeout.mjs', 'pipeline/p01/closeout.test.mjs', 'tasks/README.md',
+    'tasks/P01_CLOSEOUT.md', 'tasks/P02_P04_EXECUTION_PLAN.md', 'tasks/P02_P04_TASK_PACKETS.md', 'tasks/P02_P04_RESEARCH_REGISTER.json',
+    'scripts/prepare_p02_inputs.mjs', 'benchmark/p02/README.md', 'benchmark/p02/preparation.v1/scenario.json',
+    'benchmark/p02/preparation.v1/optional-query.patch', 'benchmark/p02/preparation.v1/fixture.json', 'benchmark/p02/preparation.v1/scope.json', 'pipeline/p02/preparation.test.mjs',
+    'scripts/run_p02_baseline.mjs', 'scripts/check_p02_baseline.mjs', 'pipeline/p02/README.md', 'pipeline/p02/maven-settings.xml',
+    'pipeline/p02/runtime.test.mjs', 'pipeline/p02/baseline-check.test.mjs', 'pipeline/p02/http-probe.py', 'pipeline/p02/http_probe_test.py']) {
+    assert.ok(files.includes(file), 'Missing closeout/coordination dependency: ' + file);
+  }
   assert.ok(files.every(path => !/handoff-out|credentials|tasks\/p01-reviewer|literature|prepare_phat/.test(path)));
 });
 test('Git attributes preserve LF for the frozen data asset on Windows checkout', async () => {

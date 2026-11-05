@@ -1,0 +1,20 @@
+﻿config-server-1  | 2026-09-23T14:27:41.406202932Z 
+config-server-1  | 2026-09-23T14:27:41.406271015Z   .   ____          _            __ _ _
+config-server-1  | 2026-09-23T14:27:41.406277758Z  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+config-server-1  | 2026-09-23T14:27:41.406281876Z ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+config-server-1  | 2026-09-23T14:27:41.406285954Z  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+config-server-1  | 2026-09-23T14:27:41.406289511Z   '  |____| .__|_| |_|_| |_\__, | / / / /
+config-server-1  | 2026-09-23T14:27:41.406293038Z  =========|_|==============|___/=/_/_/_/
+config-server-1  | 2026-09-23T14:27:41.406296535Z 
+config-server-1  | 2026-09-23T14:27:41.406471618Z  :: Spring Boot ::                (v4.0.1)
+config-server-1  | 2026-09-23T14:27:41.406480566Z 
+config-server-1  | 2026-09-23T14:27:41.498601648Z 2026-09-23T14:27:41.496Z  INFO 1 --- [           main] o.s.s.p.config.ConfigServerApplication   : Starting ConfigServerApplication v4.0.1 using Java 17.0.20 with PID 1 (/application/BOOT-INF/classes started by root in /application)
+config-server-1  | 2026-09-23T14:27:41.500354727Z 2026-09-23T14:27:41.499Z  INFO 1 --- [           main] o.s.s.p.config.ConfigServerApplication   : The following 1 profile is active: "docker"
+config-server-1  | 2026-09-23T14:27:42.470212986Z 2026-09-23T14:27:42.469Z  INFO 1 --- [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=6d1c9e9d-ef40-32be-9e63-ab5fef88f9b6
+config-server-1  | 2026-09-23T14:27:42.819423654Z 2026-09-23T14:27:42.818Z  INFO 1 --- [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8888 (http)
+config-server-1  | 2026-09-23T14:27:42.834155955Z 2026-09-23T14:27:42.833Z  INFO 1 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+config-server-1  | 2026-09-23T14:27:42.834377414Z 2026-09-23T14:27:42.834Z  INFO 1 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.15]
+config-server-1  | 2026-09-23T14:27:42.887899431Z 2026-09-23T14:27:42.887Z  INFO 1 --- [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1322 ms
+config-server-1  | 2026-09-23T14:27:43.035807959Z 2026-09-23T14:27:43.035Z  INFO 1 --- [           main] o.s.b.w.a.WelcomePageHandlerMapping      : Adding welcome page: class path resource [static/index.html]
+config-server-1  | 2026-09-23T14:27:43.852462519Z 2026-09-23T14:27:43.851Z  INFO 1 --- [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8888 (http) with context path '/'
+config-server-1  | 2026-09-23T14:27:43.871773866Z 2026-09-23T14:27:43.871Z  INFO 1 --- [           main] o.s.s.p.config.ConfigServerApplication   : Started ConfigServerApplication in 2.999 seconds (process running for 3.664)

@@ -1,0 +1,32 @@
+{
+  "schema": "petclinic-review-package-readiness/1",
+  "record_date": "2026-11-05",
+  "state": "R1_ready_for_manual_sharing_R2_retained",
+  "scope": "Current package assembly/readiness state; does not appoint a reviewer, receive human notes or approve labels",
+  "package_status": "tasks/PETCLINIC_REVIEW_PACKAGE_STATUS_2026-11-05.json",
+  "previous_data_preparation_snapshot": "tasks/petclinic-review-draft/readiness.2026-11-05.json",
+  "earlier_derived_snapshot": "tasks/petclinic-review-release/readiness.assembled.2026-11-05.json",
+  "r1": {
+    "assembled": true,
+    "integrity_and_portability_checks_passed": true,
+    "ready_to_share": true,
+    "sent": false,
+    "actual_notes_received": false
+  },
+  "r2": {
+    "assembled": true,
+    "integrity_and_portability_checks_passed": true,
+    "sent": false,
+    "delivery_condition_met": false,
+    "condition": "Actual R1 notes/exposure/checkpoint retained and declared exposure reviewed before sharing"
+  },
+  "reviewer_identity": null,
+  "reviewer_appointment": null,
+  "review_decision": null,
+  "ground_truth_accepted": false,
+  "official_scoring": false,
+  "model_calls": 0,
+  "final_test_locked": false,
+  "github_push": false,
+  "note": "The older derived snapshot retains planning scope text; this explicit package-readiness record and package status describe the completed assembly."
+}

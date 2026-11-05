@@ -1,0 +1,145 @@
+{
+  "purpose": "static_context_preparation_only_no_inference_or_impact_assessment",
+  "repository": "spring-petclinic-microservices",
+  "source_commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+  "config_commit": "323993ce2519c6d02df63e08bf4458d123d3b611",
+  "known_seed": {
+    "method_id": "customers-service::org.springframework.samples.petclinic.customers.web.OwnerResource#findOwner(int)",
+    "file": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java"
+  },
+  "proposed_patch": {
+    "evidence_id": "PROPOSED-PATCH",
+    "sha256": "87b0083ca0b1c9a01badb94f3cf8ecdf1918a24517d91e7b2690810c8080fbc0",
+    "text": "diff --git a/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java b/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java\n--- a/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java\n+++ b/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java\n@@ -26,7 +26,9 @@\n import org.springframework.samples.petclinic.customers.model.OwnerRepository;\n import org.springframework.web.bind.annotation.*;\n \n-import java.util.List;\n+import java.util.LinkedHashMap;\n+import java.util.List;\n+import java.util.Map;\n import java.util.Optional;\n \n /**\n@@ -65,9 +67,19 @@\n      * Read single Owner\n      */\n     @GetMapping(value = \"/{ownerId}\")\n-    public Optional<Owner> findOwner(@PathVariable(\"ownerId\") @Min(1) int ownerId) {\n-        return ownerRepository.findById(ownerId);\n-    }\n+    public Optional<Map<String, Object>> findOwner(@PathVariable(\"ownerId\") @Min(1) int ownerId) {\n+        return ownerRepository.findById(ownerId).map(owner -> {\n+            Map<String, Object> response = new LinkedHashMap<>();\n+            response.put(\"id\", owner.getId());\n+            response.put(\"firstName\", owner.getFirstName());\n+            response.put(\"lastName\", owner.getLastName());\n+            response.put(\"address\", owner.getAddress());\n+            response.put(\"city\", owner.getCity());\n+            response.put(\"telephone\", owner.getTelephone());\n+            response.put(\"animals\", owner.getPets());\n+            return response;\n+        });\n+    }\n \n     /**\n      * Read List of Owners\n"
+  },
+  "source_evidence": [
+    {
+      "evidence_id": "SOURCE-6",
+      "snapshot": "baseline",
+      "file": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java",
+      "line_start": 1,
+      "line_end": 92,
+      "source_sha256": "c72a9c611a46ab96db76421646fdde93ff8b1530bfb57ff29b847ed9e7b8d2fe",
+      "text": "/*\n * Copyright 2002-2021 the original author or authors.\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n *      http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n */\npackage org.springframework.samples.petclinic.customers.web;\n\nimport io.micrometer.core.annotation.Timed;\nimport jakarta.validation.Valid;\nimport jakarta.validation.constraints.Min;\nimport org.slf4j.Logger;\nimport org.slf4j.LoggerFactory;\nimport org.springframework.http.HttpStatus;\nimport org.springframework.samples.petclinic.customers.web.mapper.OwnerEntityMapper;\nimport org.springframework.samples.petclinic.customers.model.Owner;\nimport org.springframework.samples.petclinic.customers.model.OwnerRepository;\nimport org.springframework.web.bind.annotation.*;\n\nimport java.util.List;\nimport java.util.Optional;\n\n/**\n * @author Juergen Hoeller\n * @author Ken Krebs\n * @author Arjen Poutsma\n * @author Michael Isvy\n * @author Maciej Szarlinski\n */\n@RequestMapping(\"/owners\")\n@RestController\n@Timed(\"petclinic.owner\")\nclass OwnerResource {\n\n    private static final Logger log = LoggerFactory.getLogger(OwnerResource.class);\n\n    private final OwnerRepository ownerRepository;\n    private final OwnerEntityMapper ownerEntityMapper;\n\n    OwnerResource(OwnerRepository ownerRepository, OwnerEntityMapper ownerEntityMapper) {\n        this.ownerRepository = ownerRepository;\n        this.ownerEntityMapper = ownerEntityMapper;\n    }\n\n    /**\n     * Create Owner\n     */\n    @PostMapping\n    @ResponseStatus(HttpStatus.CREATED)\n    public Owner createOwner(@Valid @RequestBody OwnerRequest ownerRequest) {\n        Owner owner = ownerEntityMapper.map(new Owner(), ownerRequest);\n        return ownerRepository.save(owner);\n    }\n\n    /**\n     * Read single Owner\n     */\n    @GetMapping(value = \"/{ownerId}\")\n    public Optional<Owner> findOwner(@PathVariable(\"ownerId\") @Min(1) int ownerId) {\n        return ownerRepository.findById(ownerId);\n    }\n\n    /**\n     * Read List of Owners\n     */\n    @GetMapping\n    public List<Owner> findAll() {\n        return ownerRepository.findAll();\n    }\n\n    /**\n     * Update Owner\n     */\n    @PutMapping(value = \"/{ownerId}\")\n    @ResponseStatus(HttpStatus.NO_CONTENT)\n    public void updateOwner(@PathVariable(\"ownerId\") @Min(1) int ownerId, @Valid @RequestBody OwnerRequest ownerRequest) {\n        final Owner ownerModel = ownerRepository.findById(ownerId).orElseThrow(() -> new ResourceNotFoundException(\"Owner \" + ownerId + \" not found\"));\n\n        ownerEntityMapper.map(ownerModel, ownerRequest);\n        log.info(\"Saving owner {}\", ownerModel);\n        ownerRepository.save(ownerModel);\n    }\n}\n"
+    },
+    {
+      "evidence_id": "SOURCE-1",
+      "snapshot": "baseline",
+      "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/CustomersServiceClient.java",
+      "line_start": 1,
+      "line_end": 41,
+      "source_sha256": "e143b78217975d0a6c2d0da704e483cd931180c7bb95cc76cad3807cc852e4f5",
+      "text": "/*\n * Copyright 2002-2021 the original author or authors.\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n *      http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n */\npackage org.springframework.samples.petclinic.api.application;\n\nimport org.springframework.samples.petclinic.api.dto.OwnerDetails;\nimport org.springframework.stereotype.Component;\nimport org.springframework.web.reactive.function.client.WebClient;\nimport reactor.core.publisher.Mono;\n\n/**\n * @author Maciej Szarlinski\n */\n@Component\npublic class CustomersServiceClient {\n\n    private final WebClient.Builder webClientBuilder;\n\n    public CustomersServiceClient(WebClient.Builder webClientBuilder) {\n        this.webClientBuilder = webClientBuilder;\n    }\n\n    public Mono<OwnerDetails> getOwner(final int ownerId) {\n        return webClientBuilder.build().get()\n            .uri(\"http://customers-service/owners/{ownerId}\", ownerId)\n            .retrieve()\n            .bodyToMono(OwnerDetails.class);\n    }\n}\n"
+    },
+    {
+      "evidence_id": "SOURCE-5",
+      "snapshot": "baseline",
+      "file": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java",
+      "line_start": 1,
+      "line_end": 142,
+      "source_sha256": "a449018f09c712828d6540d2aef7d7095bf3f0d45d3034ef8e112530c606ed5a",
+      "text": "/*\n * Copyright 2002-2021 the original author or authors.\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n *      http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n */\npackage org.springframework.samples.petclinic.customers.model;\n\nimport jakarta.persistence.*;\nimport jakarta.validation.constraints.Digits;\nimport jakarta.validation.constraints.NotBlank;\nimport org.springframework.beans.support.MutableSortDefinition;\nimport org.springframework.beans.support.PropertyComparator;\nimport org.springframework.core.style.ToStringCreator;\n\nimport java.util.*;\n\n/**\n * Simple JavaBean domain object representing an owner.\n *\n * @author Ken Krebs\n * @author Juergen Hoeller\n * @author Sam Brannen\n * @author Michael Isvy\n * @author Maciej Szarlinski\n * @author Ramazan Sakin\n */\n@Entity\n@Table(name = \"owners\")\npublic class Owner {\n\n    @Id\n    @GeneratedValue(strategy = GenerationType.IDENTITY)\n    private Integer id;\n\n    @Column(name = \"first_name\")\n    @NotBlank\n    private String firstName;\n\n    @Column(name = \"last_name\")\n    @NotBlank\n    private String lastName;\n\n    @Column(name = \"address\")\n    @NotBlank\n    private String address;\n\n    @Column(name = \"city\")\n    @NotBlank\n    private String city;\n\n    @Column(name = \"telephone\")\n    @NotBlank\n    @Digits(fraction = 0, integer = 12)\n    private String telephone;\n\n    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = \"owner\")\n    private Set<Pet> pets;\n\n    protected Set<Pet> getPetsInternal() {\n        if (this.pets == null) {\n            this.pets = new HashSet<>();\n        }\n        return this.pets;\n    }\n\n    public List<Pet> getPets() {\n        final List<Pet> sortedPets = new ArrayList<>(getPetsInternal());\n        PropertyComparator.sort(sortedPets, new MutableSortDefinition(\"name\", true, true));\n        return Collections.unmodifiableList(sortedPets);\n    }\n\n    public void addPet(Pet pet) {\n        getPetsInternal().add(pet);\n        pet.setOwner(this);\n    }\n\n    @Override\n    public String toString() {\n        return new ToStringCreator(this)\n            .append(\"id\", this.getId())\n            .append(\"lastName\", this.getLastName())\n            .append(\"firstName\", this.getFirstName())\n            .append(\"address\", this.address)\n            .append(\"city\", this.city)\n            .append(\"telephone\", this.telephone)\n            .toString();\n    }\n\n    public Integer getId() {\n        return this.id;\n    }\n\n    public String getFirstName() {\n        return this.firstName;\n    }\n\n    public String getLastName() {\n        return this.lastName;\n    }\n\n    public String getAddress() {\n        return this.address;\n    }\n\n    public String getCity() {\n        return this.city;\n    }\n\n    public String getTelephone() {\n        return this.telephone;\n    }\n\n    public void setFirstName(String firstName) {\n        this.firstName = firstName;\n    }\n\n    public void setLastName(String lastName) {\n        this.lastName = lastName;\n    }\n\n    public void setAddress(String address) {\n        this.address = address;\n    }\n\n    public void setCity(String city) {\n        this.city = city;\n    }\n\n    public void setTelephone(String telephone) {\n        this.telephone = telephone;\n    }\n}\n"
+    },
+    {
+      "evidence_id": "SOURCE-4",
+      "snapshot": "baseline",
+      "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/dto/OwnerDetails.java",
+      "line_start": 1,
+      "line_end": 97,
+      "source_sha256": "99ee6937040e1c09dd969f7911e829f3435ebe0b553f5d960579b152e6a28823",
+      "text": "/*\n * Copyright 2002-2021 the original author or authors.\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n *      http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n */\npackage org.springframework.samples.petclinic.api.dto;\n\nimport com.fasterxml.jackson.annotation.JsonIgnore;\n\nimport java.util.List;\n\n/**\n * @author Maciej Szarlinski\n */\npublic record OwnerDetails(\n    int id,\n    String firstName,\n    String lastName,\n    String address,\n    String city,\n    String telephone,\n    List<PetDetails> pets) {\n\n    @JsonIgnore\n    public List<Integer> getPetIds() {\n        return pets.stream()\n            .map(PetDetails::id)\n            .toList();\n    }\n\n\n    public static final class OwnerDetailsBuilder {\n        private int id;\n        private String firstName;\n        private String lastName;\n        private String address;\n        private String city;\n        private String telephone;\n        private List<PetDetails> pets;\n\n        private OwnerDetailsBuilder() {\n        }\n\n        public static OwnerDetailsBuilder anOwnerDetails() {\n            return new OwnerDetailsBuilder();\n        }\n\n        public OwnerDetailsBuilder id(int id) {\n            this.id = id;\n            return this;\n        }\n\n        public OwnerDetailsBuilder firstName(String firstName) {\n            this.firstName = firstName;\n            return this;\n        }\n\n        public OwnerDetailsBuilder lastName(String lastName) {\n            this.lastName = lastName;\n            return this;\n        }\n\n        public OwnerDetailsBuilder address(String address) {\n            this.address = address;\n            return this;\n        }\n\n        public OwnerDetailsBuilder city(String city) {\n            this.city = city;\n            return this;\n        }\n\n        public OwnerDetailsBuilder telephone(String telephone) {\n            this.telephone = telephone;\n            return this;\n        }\n\n        public OwnerDetailsBuilder pets(List<PetDetails> pets) {\n            this.pets = pets;\n            return this;\n        }\n\n        public OwnerDetails build() {\n            return new OwnerDetails(id, firstName, lastName, address, city, telephone, pets);\n        }\n    }\n}\n"
+    }
+  ],
+  "static_graph": {
+    "meaning": "saved_native_reachability_and_metadata_not_behavioral_impact",
+    "snapshot": "baseline",
+    "depth_limit": 1,
+    "paths": [
+      {
+        "id": "api-gateway::org.springframework.samples.petclinic.api.application.CustomersServiceClient#getOwner(int)",
+        "logical_hop": 1,
+        "witness_ids": [
+          "api-gateway::org.springframework.samples.petclinic.api.application.CustomersServiceClient#getOwner(int)",
+          "customers-service::org.springframework.samples.petclinic.customers.web.OwnerResource#findOwner(int)"
+        ],
+        "relation_types": [
+          "INVOKES_API"
+        ],
+        "service_boundary_crossings": 1
+      }
+    ],
+    "source_bindings": [
+      {
+        "node_id": "api-gateway::org.springframework.samples.petclinic.api.application.CustomersServiceClient#getOwner(int)",
+        "native_file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/CustomersServiceClient.java",
+        "source_file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/CustomersServiceClient.java",
+        "line_start": 35,
+        "line_end": 40
+      },
+      {
+        "node_id": "customers-service::org.springframework.samples.petclinic.customers.web.OwnerResource#findOwner(int)",
+        "native_file": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java",
+        "source_file": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java",
+        "line_start": 67,
+        "line_end": 70
+      }
+    ],
+    "edges": [
+      {
+        "source_id": "api-gateway::org.springframework.samples.petclinic.api.application.CustomersServiceClient#getOwner(int)",
+        "target_id": "customers-service::org.springframework.samples.petclinic.customers.web.OwnerResource#findOwner(int)",
+        "type": "INVOKES_API",
+        "target_service": "customers-service",
+        "http_method": "GET",
+        "normalized_path": "/owners/{ownerId}",
+        "sent_query_parameters": [],
+        "resolution_status": "RESOLVED",
+        "contract_status": "VALID",
+        "missing_required_parameters": [],
+        "cross_service": true,
+        "assumptions": [
+          "Target service derived from URL host 'customers-service' with default configuration",
+          "Matched by exact service name, HTTP method, and normalized endpoint path",
+          "Target handler overload: customers-service::org.springframework.samples.petclinic.customers.web.OwnerResource#findOwner(int)"
+        ],
+        "evidence": [
+          {
+            "commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+            "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/CustomersServiceClient.java",
+            "line_start": 36,
+            "line_end": 37,
+            "evidence_type": "WEBCLIENT_CALL",
+            "expression": "webClientBuilder.build().get()\n            .uri(\"http://customers-service/owners/{ownerId}\", ownerId)"
+          },
+          {
+            "commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+            "file": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java",
+            "line_start": 67,
+            "line_end": 70,
+            "evidence_type": "ENDPOINT_HANDLER",
+            "expression": "@GetMapping(value = \"/{ownerId}\")\n    public Optional<Owner> findOwner(@PathVariable(\"ownerId\") @Min(1) int ownerId)"
+          }
+        ]
+      }
+    ],
+    "endpoints": [
+      {
+        "handler_id": "customers-service::org.springframework.samples.petclinic.customers.web.OwnerResource#findOwner(int)",
+        "service": "customers-service",
+        "http_method": "GET",
+        "normalized_path": "/owners/{ownerId}",
+        "query_parameters": [],
+        "evidence": {
+          "commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+          "file": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java",
+          "line_start": 67,
+          "line_end": 70,
+          "evidence_type": "ANNOTATION_MAPPING",
+          "expression": "@GetMapping(value = \"/{ownerId}\")\n    public Optional<Owner> findOwner(@PathVariable(\"ownerId\") @Min(1) int ownerId)"
+        }
+      }
+    ],
+    "unresolved": [],
+    "resolver_assumptions_retained": true
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "id": "config-gateway",
+  "timestamp_utc": "2026-10-25T12:25:22.713478+00:00",
+  "method": "GET",
+  "host": "config-server",
+  "port": 8888,
+  "path": "/api-gateway/docker",
+  "request_headers": {
+    "Accept": "application/json",
+    "Accept-Encoding": "identity"
+  },
+  "request_body_file": null,
+  "status": 200,
+  "error": null,
+  "response_headers": [
+    [
+      "Content-Type",
+      "application/json"
+    ],
+    [
+      "Transfer-Encoding",
+      "chunked"
+    ],
+    [
+      "Date",
+      "Sun, 25 Oct 2026 12:25:22 GMT"
+    ]
+  ],
+  "body_file": "config-gateway.body",
+  "redirects_followed": false,
+  "body_sha256": "f6817f4d62272b8eb0610fdcd143e3a8925747fd9d15c2997e4ce060cc3b4a5a",
+  "body_bytes": 1853,
+  "elapsed_ms": 25
+}

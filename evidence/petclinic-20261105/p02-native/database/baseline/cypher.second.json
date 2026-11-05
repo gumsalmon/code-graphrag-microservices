@@ -1,0 +1,687 @@
+{
+  "nodes": [
+    {
+      "labels": [
+        "Class"
+      ],
+      "properties": {
+        "fqn": "org.springframework.samples.petclinic.api.application.VisitsServiceClient",
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+        "name": "VisitsServiceClient"
+      }
+    },
+    {
+      "labels": [
+        "Class"
+      ],
+      "properties": {
+        "fqn": "org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController",
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+        "name": "ApiGatewayController"
+      }
+    },
+    {
+      "labels": [
+        "Class"
+      ],
+      "properties": {
+        "fqn": "org.springframework.samples.petclinic.visits.web.VisitResource",
+        "file": "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java",
+        "name": "VisitResource"
+      }
+    },
+    {
+      "labels": [
+        "Endpoint"
+      ],
+      "properties": {
+        "http_method": "GET",
+        "normalized_path": "/api/gateway/owners/{ownerId}",
+        "query_parameters": "[]",
+        "handler_id": "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)"
+      }
+    },
+    {
+      "labels": [
+        "Endpoint"
+      ],
+      "properties": {
+        "http_method": "POST",
+        "normalized_path": "/owners/*/pets/{petId}/visits",
+        "query_parameters": "[]",
+        "handler_id": "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#create(Visit,int)"
+      }
+    },
+    {
+      "labels": [
+        "Endpoint"
+      ],
+      "properties": {
+        "http_method": "GET",
+        "normalized_path": "/pets/visits",
+        "query_parameters": "[{\"name\": \"petId\", \"type\": \"List<Integer>\", \"declared_required\": null, \"effective_required\": true, \"default_value\": null}]",
+        "handler_id": "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(List<Integer>)"
+      }
+    },
+    {
+      "labels": [
+        "Endpoint"
+      ],
+      "properties": {
+        "http_method": "GET",
+        "normalized_path": "/owners/*/pets/{petId}/visits",
+        "query_parameters": "[]",
+        "handler_id": "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(int)"
+      }
+    },
+    {
+      "labels": [
+        "Method"
+      ],
+      "properties": {
+        "id": "api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)",
+        "parameter_types": [
+          "List<Integer>"
+        ],
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+        "name": "getVisitsForPets",
+        "line_start": 42,
+        "line_end": 48
+      }
+    },
+    {
+      "labels": [
+        "Method"
+      ],
+      "properties": {
+        "id": "api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#joinIds(List<Integer>)",
+        "parameter_types": [
+          "List<Integer>"
+        ],
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+        "name": "joinIds",
+        "line_start": 50,
+        "line_end": 52
+      }
+    },
+    {
+      "labels": [
+        "Method"
+      ],
+      "properties": {
+        "id": "api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#setHostname(String)",
+        "parameter_types": [
+          "String"
+        ],
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+        "name": "setHostname",
+        "line_start": 54,
+        "line_end": 56
+      }
+    },
+    {
+      "labels": [
+        "Method"
+      ],
+      "properties": {
+        "id": "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#addVisitsToOwner(OwnerDetails)",
+        "parameter_types": [
+          "OwnerDetails"
+        ],
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+        "name": "addVisitsToOwner",
+        "line_start": 68,
+        "line_end": 78
+      }
+    },
+    {
+      "labels": [
+        "Method"
+      ],
+      "properties": {
+        "id": "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#emptyVisitsForPets()",
+        "parameter_types": [],
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+        "name": "emptyVisitsForPets",
+        "line_start": 80,
+        "line_end": 82
+      }
+    },
+    {
+      "labels": [
+        "Method"
+      ],
+      "properties": {
+        "id": "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)",
+        "parameter_types": [
+          "int"
+        ],
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+        "name": "getOwnerDetails",
+        "line_start": 54,
+        "line_end": 66
+      }
+    },
+    {
+      "labels": [
+        "Method"
+      ],
+      "properties": {
+        "id": "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#create(Visit,int)",
+        "parameter_types": [
+          "Visit",
+          "int"
+        ],
+        "file": "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java",
+        "name": "create",
+        "line_start": 56,
+        "line_end": 65
+      }
+    },
+    {
+      "labels": [
+        "Method"
+      ],
+      "properties": {
+        "id": "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(List<Integer>)",
+        "parameter_types": [
+          "List<Integer>"
+        ],
+        "file": "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java",
+        "name": "read",
+        "line_start": 72,
+        "line_end": 76
+      }
+    },
+    {
+      "labels": [
+        "Method"
+      ],
+      "properties": {
+        "id": "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(int)",
+        "parameter_types": [
+          "int"
+        ],
+        "file": "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java",
+        "name": "read",
+        "line_start": 67,
+        "line_end": 70
+      }
+    },
+    {
+      "labels": [
+        "Service"
+      ],
+      "properties": {
+        "name": "api-gateway"
+      }
+    },
+    {
+      "labels": [
+        "Service"
+      ],
+      "properties": {
+        "name": "visits-service"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source_labels": [
+        "Method"
+      ],
+      "source": {
+        "id": "api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)",
+        "parameter_types": [
+          "List<Integer>"
+        ],
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+        "name": "getVisitsForPets",
+        "line_start": 42,
+        "line_end": 48
+      },
+      "type": "INVOKES_API",
+      "properties": {
+        "http_method": "GET",
+        "missing_required_parameters": [],
+        "contract_status": "VALID",
+        "target_service": "visits-service",
+        "resolution_status": "RESOLVED",
+        "normalized_path": "/pets/visits",
+        "sent_query_parameters": [
+          "petId"
+        ]
+      },
+      "target_labels": [
+        "Method"
+      ],
+      "target": {
+        "id": "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(List<Integer>)",
+        "parameter_types": [
+          "List<Integer>"
+        ],
+        "file": "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java",
+        "name": "read",
+        "line_start": 72,
+        "line_end": 76
+      }
+    },
+    {
+      "source_labels": [
+        "Method"
+      ],
+      "source": {
+        "id": "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)",
+        "parameter_types": [
+          "int"
+        ],
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+        "name": "getOwnerDetails",
+        "line_start": 54,
+        "line_end": 66
+      },
+      "type": "CALLS",
+      "properties": {
+        "resolution_status": "RESOLVED",
+        "fallback_method": "emptyVisitsForPets",
+        "has_circuit_breaker": true
+      },
+      "target_labels": [
+        "Method"
+      ],
+      "target": {
+        "id": "api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)",
+        "parameter_types": [
+          "List<Integer>"
+        ],
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+        "name": "getVisitsForPets",
+        "line_start": 42,
+        "line_end": 48
+      }
+    },
+    {
+      "source_labels": [
+        "Class"
+      ],
+      "source": {
+        "fqn": "org.springframework.samples.petclinic.api.application.VisitsServiceClient",
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+        "name": "VisitsServiceClient"
+      },
+      "type": "CONTAINS",
+      "properties": {},
+      "target_labels": [
+        "Method"
+      ],
+      "target": {
+        "id": "api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)",
+        "parameter_types": [
+          "List<Integer>"
+        ],
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+        "name": "getVisitsForPets",
+        "line_start": 42,
+        "line_end": 48
+      }
+    },
+    {
+      "source_labels": [
+        "Class"
+      ],
+      "source": {
+        "fqn": "org.springframework.samples.petclinic.api.application.VisitsServiceClient",
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+        "name": "VisitsServiceClient"
+      },
+      "type": "CONTAINS",
+      "properties": {},
+      "target_labels": [
+        "Method"
+      ],
+      "target": {
+        "id": "api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#joinIds(List<Integer>)",
+        "parameter_types": [
+          "List<Integer>"
+        ],
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+        "name": "joinIds",
+        "line_start": 50,
+        "line_end": 52
+      }
+    },
+    {
+      "source_labels": [
+        "Class"
+      ],
+      "source": {
+        "fqn": "org.springframework.samples.petclinic.api.application.VisitsServiceClient",
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+        "name": "VisitsServiceClient"
+      },
+      "type": "CONTAINS",
+      "properties": {},
+      "target_labels": [
+        "Method"
+      ],
+      "target": {
+        "id": "api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#setHostname(String)",
+        "parameter_types": [
+          "String"
+        ],
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+        "name": "setHostname",
+        "line_start": 54,
+        "line_end": 56
+      }
+    },
+    {
+      "source_labels": [
+        "Class"
+      ],
+      "source": {
+        "fqn": "org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController",
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+        "name": "ApiGatewayController"
+      },
+      "type": "CONTAINS",
+      "properties": {},
+      "target_labels": [
+        "Method"
+      ],
+      "target": {
+        "id": "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#addVisitsToOwner(OwnerDetails)",
+        "parameter_types": [
+          "OwnerDetails"
+        ],
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+        "name": "addVisitsToOwner",
+        "line_start": 68,
+        "line_end": 78
+      }
+    },
+    {
+      "source_labels": [
+        "Class"
+      ],
+      "source": {
+        "fqn": "org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController",
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+        "name": "ApiGatewayController"
+      },
+      "type": "CONTAINS",
+      "properties": {},
+      "target_labels": [
+        "Method"
+      ],
+      "target": {
+        "id": "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#emptyVisitsForPets()",
+        "parameter_types": [],
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+        "name": "emptyVisitsForPets",
+        "line_start": 80,
+        "line_end": 82
+      }
+    },
+    {
+      "source_labels": [
+        "Class"
+      ],
+      "source": {
+        "fqn": "org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController",
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+        "name": "ApiGatewayController"
+      },
+      "type": "CONTAINS",
+      "properties": {},
+      "target_labels": [
+        "Method"
+      ],
+      "target": {
+        "id": "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)",
+        "parameter_types": [
+          "int"
+        ],
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+        "name": "getOwnerDetails",
+        "line_start": 54,
+        "line_end": 66
+      }
+    },
+    {
+      "source_labels": [
+        "Method"
+      ],
+      "source": {
+        "id": "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)",
+        "parameter_types": [
+          "int"
+        ],
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+        "name": "getOwnerDetails",
+        "line_start": 54,
+        "line_end": 66
+      },
+      "type": "EXPOSES",
+      "properties": {},
+      "target_labels": [
+        "Endpoint"
+      ],
+      "target": {
+        "http_method": "GET",
+        "normalized_path": "/api/gateway/owners/{ownerId}",
+        "query_parameters": "[]",
+        "handler_id": "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)"
+      }
+    },
+    {
+      "source_labels": [
+        "Class"
+      ],
+      "source": {
+        "fqn": "org.springframework.samples.petclinic.visits.web.VisitResource",
+        "file": "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java",
+        "name": "VisitResource"
+      },
+      "type": "CONTAINS",
+      "properties": {},
+      "target_labels": [
+        "Method"
+      ],
+      "target": {
+        "id": "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#create(Visit,int)",
+        "parameter_types": [
+          "Visit",
+          "int"
+        ],
+        "file": "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java",
+        "name": "create",
+        "line_start": 56,
+        "line_end": 65
+      }
+    },
+    {
+      "source_labels": [
+        "Class"
+      ],
+      "source": {
+        "fqn": "org.springframework.samples.petclinic.visits.web.VisitResource",
+        "file": "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java",
+        "name": "VisitResource"
+      },
+      "type": "CONTAINS",
+      "properties": {},
+      "target_labels": [
+        "Method"
+      ],
+      "target": {
+        "id": "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(List<Integer>)",
+        "parameter_types": [
+          "List<Integer>"
+        ],
+        "file": "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java",
+        "name": "read",
+        "line_start": 72,
+        "line_end": 76
+      }
+    },
+    {
+      "source_labels": [
+        "Class"
+      ],
+      "source": {
+        "fqn": "org.springframework.samples.petclinic.visits.web.VisitResource",
+        "file": "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java",
+        "name": "VisitResource"
+      },
+      "type": "CONTAINS",
+      "properties": {},
+      "target_labels": [
+        "Method"
+      ],
+      "target": {
+        "id": "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(int)",
+        "parameter_types": [
+          "int"
+        ],
+        "file": "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java",
+        "name": "read",
+        "line_start": 67,
+        "line_end": 70
+      }
+    },
+    {
+      "source_labels": [
+        "Method"
+      ],
+      "source": {
+        "id": "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#create(Visit,int)",
+        "parameter_types": [
+          "Visit",
+          "int"
+        ],
+        "file": "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java",
+        "name": "create",
+        "line_start": 56,
+        "line_end": 65
+      },
+      "type": "EXPOSES",
+      "properties": {},
+      "target_labels": [
+        "Endpoint"
+      ],
+      "target": {
+        "http_method": "POST",
+        "normalized_path": "/owners/*/pets/{petId}/visits",
+        "query_parameters": "[]",
+        "handler_id": "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#create(Visit,int)"
+      }
+    },
+    {
+      "source_labels": [
+        "Method"
+      ],
+      "source": {
+        "id": "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(List<Integer>)",
+        "parameter_types": [
+          "List<Integer>"
+        ],
+        "file": "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java",
+        "name": "read",
+        "line_start": 72,
+        "line_end": 76
+      },
+      "type": "EXPOSES",
+      "properties": {},
+      "target_labels": [
+        "Endpoint"
+      ],
+      "target": {
+        "http_method": "GET",
+        "normalized_path": "/pets/visits",
+        "query_parameters": "[{\"name\": \"petId\", \"type\": \"List<Integer>\", \"declared_required\": null, \"effective_required\": true, \"default_value\": null}]",
+        "handler_id": "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(List<Integer>)"
+      }
+    },
+    {
+      "source_labels": [
+        "Method"
+      ],
+      "source": {
+        "id": "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(int)",
+        "parameter_types": [
+          "int"
+        ],
+        "file": "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java",
+        "name": "read",
+        "line_start": 67,
+        "line_end": 70
+      },
+      "type": "EXPOSES",
+      "properties": {},
+      "target_labels": [
+        "Endpoint"
+      ],
+      "target": {
+        "http_method": "GET",
+        "normalized_path": "/owners/*/pets/{petId}/visits",
+        "query_parameters": "[]",
+        "handler_id": "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(int)"
+      }
+    },
+    {
+      "source_labels": [
+        "Service"
+      ],
+      "source": {
+        "name": "api-gateway"
+      },
+      "type": "CONTAINS",
+      "properties": {},
+      "target_labels": [
+        "Class"
+      ],
+      "target": {
+        "fqn": "org.springframework.samples.petclinic.api.application.VisitsServiceClient",
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+        "name": "VisitsServiceClient"
+      }
+    },
+    {
+      "source_labels": [
+        "Service"
+      ],
+      "source": {
+        "name": "api-gateway"
+      },
+      "type": "CONTAINS",
+      "properties": {},
+      "target_labels": [
+        "Class"
+      ],
+      "target": {
+        "fqn": "org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController",
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+        "name": "ApiGatewayController"
+      }
+    },
+    {
+      "source_labels": [
+        "Service"
+      ],
+      "source": {
+        "name": "visits-service"
+      },
+      "type": "CONTAINS",
+      "properties": {},
+      "target_labels": [
+        "Class"
+      ],
+      "target": {
+        "fqn": "org.springframework.samples.petclinic.visits.web.VisitResource",
+        "file": "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java",
+        "name": "VisitResource"
+      }
+    }
+  ]
+}

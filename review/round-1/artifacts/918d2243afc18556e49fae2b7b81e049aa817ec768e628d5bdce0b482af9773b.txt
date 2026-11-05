@@ -1,0 +1,153 @@
+{
+  "scenario_id": "P02",
+  "scenario_version": "0.1.1",
+  "baseline_commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+  "mutated_snapshot_id": "3858f9c630cf989bb6809a86edf47c2be78dc9f1+P02-0.1.0-091b04de4a50",
+  "logical_hop_limit": 3,
+  "fixture_sha256": "2a319f48c2d31894718228539c3743396e3d3e5ad04579985f6d2588bb324191",
+  "inventory_sha256": "9f4a7f1f323a5f11a3902def30f717a16ba3d1b2023ed9982a81f298d9dc74f6",
+  "source_commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+  "config_commit": "323993ce2519c6d02df63e08bf4458d123d3b611",
+  "eligible_entities": [
+    {
+      "level": "method",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#create(Visit,int)"
+    },
+    {
+      "level": "api",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::visits-service::POST /owners/*/pets/{petId}/visits"
+    },
+    {
+      "level": "method",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(int)"
+    },
+    {
+      "level": "api",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::visits-service::GET /owners/*/pets/{petId}/visits"
+    },
+    {
+      "level": "method",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)"
+    },
+    {
+      "level": "method",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#joinIds(List<Integer>)"
+    },
+    {
+      "level": "method",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#setHostname(String)"
+    },
+    {
+      "level": "method",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)"
+    },
+    {
+      "level": "api",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::GET /api/gateway/owners/{ownerId}"
+    },
+    {
+      "level": "method",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#addVisitsToOwner(OwnerDetails)"
+    },
+    {
+      "level": "method",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#emptyVisitsForPets()"
+    },
+    {
+      "level": "service",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway"
+    }
+  ],
+  "excluded_seeds": [
+    {
+      "level": "method",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(List<Integer>)"
+    },
+    {
+      "level": "api",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::visits-service::GET /pets/visits"
+    },
+    {
+      "level": "service",
+      "entity_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::visits-service"
+    }
+  ],
+  "aliases": [
+    {
+      "baseline_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#create(Visit,int)",
+      "canonical_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#create(Visit,int)",
+      "mutated_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+P02-0.1.0-091b04de4a50::visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#create(Visit,int)"
+    },
+    {
+      "baseline_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::visits-service::POST /owners/*/pets/{petId}/visits",
+      "canonical_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::visits-service::POST /owners/*/pets/{petId}/visits",
+      "mutated_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+P02-0.1.0-091b04de4a50::visits-service::POST /owners/*/pets/{petId}/visits"
+    },
+    {
+      "baseline_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(int)",
+      "canonical_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(int)",
+      "mutated_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+P02-0.1.0-091b04de4a50::visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(int)"
+    },
+    {
+      "baseline_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::visits-service::GET /owners/*/pets/{petId}/visits",
+      "canonical_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::visits-service::GET /owners/*/pets/{petId}/visits",
+      "mutated_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+P02-0.1.0-091b04de4a50::visits-service::GET /owners/*/pets/{petId}/visits"
+    },
+    {
+      "baseline_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(List<Integer>)",
+      "canonical_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(List<Integer>)",
+      "mutated_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+P02-0.1.0-091b04de4a50::visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(List<Integer>,boolean)"
+    },
+    {
+      "baseline_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::visits-service::GET /pets/visits",
+      "canonical_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::visits-service::GET /pets/visits",
+      "mutated_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+P02-0.1.0-091b04de4a50::visits-service::GET /pets/visits"
+    },
+    {
+      "baseline_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)",
+      "canonical_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)",
+      "mutated_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+P02-0.1.0-091b04de4a50::api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)"
+    },
+    {
+      "baseline_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#joinIds(List<Integer>)",
+      "canonical_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#joinIds(List<Integer>)",
+      "mutated_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+P02-0.1.0-091b04de4a50::api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#joinIds(List<Integer>)"
+    },
+    {
+      "baseline_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#setHostname(String)",
+      "canonical_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#setHostname(String)",
+      "mutated_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+P02-0.1.0-091b04de4a50::api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#setHostname(String)"
+    },
+    {
+      "baseline_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)",
+      "canonical_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)",
+      "mutated_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+P02-0.1.0-091b04de4a50::api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)"
+    },
+    {
+      "baseline_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::GET /api/gateway/owners/{ownerId}",
+      "canonical_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::GET /api/gateway/owners/{ownerId}",
+      "mutated_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+P02-0.1.0-091b04de4a50::api-gateway::GET /api/gateway/owners/{ownerId}"
+    },
+    {
+      "baseline_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#addVisitsToOwner(OwnerDetails)",
+      "canonical_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#addVisitsToOwner(OwnerDetails)",
+      "mutated_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+P02-0.1.0-091b04de4a50::api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#addVisitsToOwner(OwnerDetails)"
+    },
+    {
+      "baseline_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#emptyVisitsForPets()",
+      "canonical_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#emptyVisitsForPets()",
+      "mutated_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+P02-0.1.0-091b04de4a50::api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#emptyVisitsForPets()"
+    },
+    {
+      "baseline_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::visits-service",
+      "canonical_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::visits-service",
+      "mutated_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+P02-0.1.0-091b04de4a50::visits-service"
+    },
+    {
+      "baseline_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway",
+      "canonical_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::api-gateway",
+      "mutated_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+P02-0.1.0-091b04de4a50::api-gateway"
+    }
+  ],
+  "original_universe_sha256": "d79c07727d6fb5348503f0e4079a0d18c63e26e6d34a1e332825f1cc7680aeb5"
+}

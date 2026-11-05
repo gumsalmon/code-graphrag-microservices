@@ -6,7 +6,7 @@ Demo trực quan cho một mutation trong Spring PetClinic: endpoint `GET /pets/
 
 ## Mở demo
 
-Mở `index.html` bằng Chrome hoặc Edge. Giữ `index.html`, `app.css`, `app.js`, `data.js` và `reasoning-core.js` trong cùng thư mục. Khi chuyển bản demo cho người khác, giữ README và license đi kèm.
+Mở `index.html` bằng Chrome hoặc Edge. Giữ `index.html`, `app.css`, `app.js`, `data.js`, `reasoning-core.js` và `comparison-core.js` trong cùng thư mục. Khi chuyển bản demo cho người khác, giữ README và license đi kèm.
 
 Hoặc chạy từ thư mục gốc repository, nếu đã có Node.js:
 
@@ -14,7 +14,7 @@ Hoặc chạy từ thư mục gốc repository, nếu đã có Node.js:
 node demo/p01/server.mjs
 ```
 
-Sau đó mở [http://127.0.0.1:8787](http://127.0.0.1:8787). Server chỉ lắng nghe loopback và chỉ phục vụ năm asset của viewer; không có API chạy parser, truy vấn database, gọi LLM hoặc sửa dữ liệu. Dừng bằng `Ctrl+C`. Nếu port đang được dùng:
+Sau đó mở [http://127.0.0.1:8787](http://127.0.0.1:8787). Server chỉ lắng nghe loopback và chỉ phục vụ sáu asset của viewer; không có API chạy parser, truy vấn database, gọi LLM hoặc sửa dữ liệu. Dừng bằng `Ctrl+C`. Nếu port đang được dùng:
 
 ```powershell
 node demo/p01/server.mjs --port 8788
@@ -35,7 +35,26 @@ Trang **Context & LLM** bổ sung ở bước 3:
 - Có thể nhập phản hồi JSON để kiểm ID, overload, seed exclusion, quotes và đường đi. Phản hồi nhập thủ công không chứng minh đã chạy model nào hoặc đã dùng đúng prompt; ghi rõ provider/model chưa xác minh.
 - Dẫn chứng source mở baseline đúng dòng. Kiểm tra quote/schema/path đạt không xác nhận dự đoán behavioral impact hoặc cần sửa mã đúng; không chuyển thành ground truth. Đổi cấu hình context sẽ xóa kết quả hiển thị cũ.
 
-Chi tiết CLI, schema, adapter và ranh giới nghiên cứu nằm trong `reasoning/p01/README.md` ở repository. Source-only là cấu hình đối chứng sơ bộ, không phải Vector RAG. Lớp hiện tại dự đoán Method; chưa dự đoán/đánh giá riêng API và Service hoặc tái chạy pipeline live. Chroma semantic retrieval đã được kiểm riêng trong CLI bước 4; viewer này vẫn dùng context v1, không gọi Chroma.
+Chi tiết CLI, schema, adapter và ranh giới nghiên cứu nằm trong `reasoning/p01/README.md` ở repository. Source-only là cấu hình đối chứng sơ bộ, không phải Vector RAG. Lớp hiện tại dự đoán Method; chưa dự đoán/đánh giá riêng API và Service hoặc tái chạy pipeline live. Trang Context & LLM giữ context v1; trang Vector / Graph+Vector đọc hồ sơ retrieval v2 đã chạy ở CLI, không tự gọi Chroma.
+
+## Đối chiếu Vector / Graph+Vector
+
+Trang này nhận một `comparison.json` từ hai run đã lưu, không tự lấy kết quả trên mạng. Tạo gói từ thư mục gốc repo:
+
+```powershell
+node scripts/package_p01_comparison.mjs --vector-run PATH_TO_VECTOR_RUN --graph-run PATH_TO_GRAPH_RUN
+```
+
+Script chỉ đọc run trong `handoff-out/p01-reasoning/`, kiểm toàn bộ manifest, request, payload, cấu hình chung, code provenance và byte source/patch; sau đó tạo thư mục mới trong `handoff-out/p01-comparison/`. Không đọc key, gọi API, sửa run hoặc nhãn. Cặp v1/v2, model/config/code khác nhau, checksum sai hoặc input không đồng nhất sẽ bị từ chối. Gói không chứa key, envelope provider/thought signature, nhãn hoặc score; có request đã lọc, metadata token/thời gian và nội dung JSON trả về, kể cả JSON bị từ chối.
+
+1. Mở **Vector / Graph+Vector**, bấm **Nhập comparison.json** và chọn file script vừa tạo.
+2. Hai cột cho biết context, top-k, model do hồ sơ khai báo, token/thời gian, request hash và trạng thái riêng. Không coi request lỗi là dự đoán rỗng hợp lệ hoặc biến usage thiếu thành 0.
+3. Phản hồi đạt được kiểm lại bằng core; có thể mở citation về baseline. JSON bị từ chối chỉ nằm trong mục riêng, không có thẻ dự đoán hợp lệ. Nhập gói sai sẽ xóa kết quả cũ, không giữ kết quả cũ dưới tên gói mới.
+4. Có thể tải lại request từng cấu hình hoặc mở context thực tế. Hash bundle chỉ kiểm toàn vẹn, không xác thực provider/model hay tính đúng của nhận định. Bằng chứng API gốc vẫn ở thư mục run riêng.
+
+Ngày 15/10/2026: hai attempt mới trên cùng request v2/cấu hình; Graph+Vector qua kiểm cấu trúc, Vector có phản hồi nhưng bị từ chối vì hai bản ghi `unknown` không có citation. Prompt cho phép chưa biết, schema chưa khai báo `minItems`, còn validator yêu cầu citation ở mọi bản ghi. Giữ nguyên output và quy tắc của lượt này; **không suy ra Graph tốt hơn Vector**. Cần chốt contract abstention phiên bản mới trước so sánh chất lượng; không nới validator để đổi kết quả lịch sử thành đạt. Cùng ceiling byte không có nghĩa cùng số token, graph bổ sung cả biểu thức gọi/metadata chứ không chỉ adjacency. Xem báo cáo cục bộ `tasks/research/P01_PAIRED_DEMO_2026-10-15.md`.
+
+Sau lượt chạy trên, Huy đã duyệt [contract abstention phiên bản 2](../../reasoning/p01/ABSTENTION_CONTRACT.md). Request `/3` cho phép record hoàn toàn unknown, path rỗng và hop/boundary null để citation rỗng; viewer ghi **chưa đủ bằng chứng, không phải nhãn âm**. Hai attempt thật tiếp theo cho Vector qua kiểm với hai abstention, còn Graph+Vector trả 503; [báo cáo và gói mới](../../tasks/research/P01_ABSTENTION_LIVE_2026-10-15.md). Legacy request `/2` và cặp kết quả trên giữ nguyên trạng thái. Không trộn hai phiên bản hoặc nhập response cũ dưới request mới để trình bày thành kết quả API mới.
 
 ## Xem phản hồi Gemini thật của smoke bước 3
 
@@ -66,7 +85,7 @@ Runtime PetClinic là log lịch sử, **không chạy lại ứng dụng trong 
 
 Parser nhận diện đích HTTP theo hostname mặc định và ghi rõ `setHostname` có thể thay đổi đích ở runtime. Demo không chứng minh khả năng phân giải tổng quát mọi microservice, config động, gRPC hoặc ngôn ngữ khác.
 
-**Nhãn P01 vẫn `pending_review`; P02–P04 chưa được mở hoặc khóa split.** Demo không chứa `labels.v3.json`, output scorer hoặc hồ sơ phê duyệt.
+**Nhãn P01 vẫn `pending_review`; chưa khóa final test hoặc cho phép chấm chính thức.** Quyết định điều phối 15/10 cho phép chuẩn bị/phát triển P02–P04 trước review gộp, không biến các candidate thành benchmark được duyệt; xem [kế hoạch](../../tasks/P02_P04_EXECUTION_PLAN.md). Demo không chứa `labels.v3.json`, output scorer hoặc hồ sơ phê duyệt.
 
 ## Dùng trong review
 
@@ -97,6 +116,15 @@ Kiểm thêm thao tác import với file phản hồi đã lưu, không gọi l�
 ```powershell
 node scripts/check_p01_demo_browser.mjs --response-file handoff-out/p01-reasoning/20261012T154435050Z-live-c20d99cf/response.json
 ```
+
+Kiểm thêm trang đối chiếu bằng gói cục bộ, không gọi lại API:
+
+```powershell
+node --test reasoning/p01/comparison.test.mjs reasoning/p01/comparison-files.test.mjs
+node scripts/check_p01_demo_browser.mjs --comparison-file PATH_TO_COMPARISON_JSON
+```
+
+Mặc định test browser dùng fixture tổng hợp riêng cho tương tác trang đối chiếu; không lưu fixture đó làm bằng chứng API hoặc kết quả nghiên cứu.
 
 Tùy chọn này kiểm ID/summary hiển thị, tải validation khớp core và mở citation baseline; report ghi hash file nhập nhưng không tự xác minh provider hoặc semantic correctness. Không thay fixture tổng hợp bằng kết quả model để biến UI test thành điểm benchmark.
 

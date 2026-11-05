@@ -1,5 +1,7 @@
 # P01: chuẩn bị bằng một lệnh, không cần Gemini key
 
+Từ 15/10/2026, cặp request mới mặc định dùng [contract unknown/abstention phiên bản 2](../../reasoning/p01/ABSTENTION_CONTRACT.md): request `/3`, prompt `p01-static-impact/2`. Chỉ bản ghi hoàn toàn unknown mới được bỏ citation; hai cấu hình cùng quy tắc. Checker vẫn tái dựng được run legacy theo version đã lưu, không đổi trạng thái kết quả cũ. Chuẩn bị không gọi LLM hoặc đọc response lịch sử.
+
 Luồng này chạy mới **source → parser → Cypher → Neo4j**, cho baseline và mutated, rồi **Chroma → hai request Vector / Graph+Vector**. Không dùng graph lịch sử thay graph vừa chạy, không gọi AI, đọc nhãn hoặc chấm điểm. Đây là pilot ba file Java, không phải nghiệm thu toàn bộ GraphRAG hoặc kết quả bài báo.
 
 [Báo cáo kiểm chứng 13/10/2026](VERIFICATION_2026-10-13.md) ghi kết quả đã chạy, môi trường, ca lỗi và giới hạn; phân biệt candidate chưa commit với checkout sạch của một SHA đã công bố.
@@ -81,13 +83,13 @@ Graph request có run ID và checksum của **lượt Neo4j mới** nên có th�
 
 Sau khi được xác nhận, dùng [hướng dẫn Gemini](../../reasoning/p01/GEMINI_SETUP.md) và runner reasoning với `--provider gemini --model gemini-3.8-flash --thinking-level medium --max-output-tokens 8192 --confirm-send --confirm-free-tier`, chỉ rõ từng request. Một attempt mỗi cấu hình, không retry/fallback. Nếu provider trả 503, lưu lỗi và giữ usage null; không thay bằng output smoke v1.
 
-Viewer hiện chỉ nhập request/response v1, chưa có menu context v2. Prepare mới không tự đổi viewer hoặc đóng gói prediction vào demo. Hai context v2 bàn giao qua CLI/JSON.
+Trang Context & LLM của viewer giữ luồng v1. Trang Vector / Graph+Vector có thể nhập gói comparison được tạo từ artifact các run bằng `scripts/package_p01_comparison.mjs`, gồm contract legacy hoặc abstention mới nhưng không ghép chéo version. Prepare không tự chạy model, nạp prediction vào demo hoặc upload dữ liệu; hai request mới bàn giao qua CLI/JSON, xem [hướng dẫn viewer](../../demo/p01/README.md).
 
 ## Giới hạn nghiên cứu
 
 Vector và Graph+Vector dùng cùng source excerpts/patch/query/top-k/registry/prompt/schema/ceiling; Graph+Vector thêm graph **kèm metadata/bằng chứng cạnh**, không chỉ adjacency trần. Graph dài hơn, chưa chứng minh ngang token/cost. Top-5 hiện chỉ ở provider; không đổi selection để ép có caller. Registry 5 method chưa phải evaluation universe được thẩm định độc lập.
 
-Luồng này kiểm phụ thuộc kỹ thuật, không tái chạy hành vi HTTP của ứng dụng PetClinic, suy ra phần mã bắt buộc sửa hoặc tạo nhãn negative. Chưa có full-repo retrieval, lexical baseline, traversal từ semantic seed, general 3-hop, API/Service prediction, full transitive lock hoặc điểm F1/Ragas chính thức. P01 vẫn `pending_review`; không mở P02–P04/khóa split hoặc thay reviewer/gói source-first.
+Luồng này kiểm phụ thuộc kỹ thuật, không tái chạy hành vi HTTP của ứng dụng PetClinic, suy ra phần mã bắt buộc sửa hoặc tạo nhãn negative. Chưa có full-repo retrieval, lexical baseline, traversal từ semantic seed, general 3-hop, API/Service prediction, full transitive lock hoặc điểm F1/Ragas chính thức. P01 vẫn `pending_review`; không thay reviewer/gói source-first. Quyết định điều phối 15/10 cho phép chuẩn bị/phát triển P02–P04 trước review gộp, chưa cho phép accepted/test lock/scoring; xem [hồ sơ P01](../../tasks/P01_CLOSEOUT.md) và [kế hoạch tiếp theo](../../tasks/P02_P04_EXECUTION_PLAN.md).
 
 ## Kiểm thử code và chuẩn bị phạm vi công bố
 

@@ -15,7 +15,7 @@
     if (text !== undefined) node.textContent = text;
     return node;
   };
-  const names = { graph: 'Đồ thị phụ thuộc', change: 'Patch & contract', reasoning: 'Context & LLM', runtime: 'Quan sát HTTP', provenance: 'Nguồn & giới hạn' };
+  const names = { graph: 'Đồ thị phụ thuộc', change: 'Patch & contract', reasoning: 'Context & LLM', comparison: 'Vector / Graph+Vector', runtime: 'Quan sát HTTP', provenance: 'Nguồn & giới hạn' };
   const requestNames = {
     baseline_direct: 'Provider · request ban đầu', baseline_gateway: 'Gateway · request ban đầu',
     baseline_negative_overload: 'Overload read(int)', mutated_direct_missing_parameter: 'Provider · thiếu includeDetails',
@@ -373,8 +373,8 @@
       }
     }, 'evidence-button');
   }
-  function reasoningResult(validated) {
-    const view = $('reasoning-result'); view.replaceChildren();
+  function reasoningResult(validated, view = $('reasoning-result'), allowDownload = true) {
+    view.replaceChildren();
     view.append(el('div', 'PHẢN HỒI NHẬP THỦ CÔNG · KHÔNG XÁC MINH PROVIDER/MODEL', 'tag tag-neutral'),
       el('p', 'ID, schema, quote và đường phụ thuộc đã qua kiểm tra cấu trúc. Chưa xác minh đúng/sai của dự đoán; không phải nhãn hoặc quyết định reviewer.'),
       el('p', validated.summary.text));
@@ -384,6 +384,7 @@
     for (const item of validated.method_predictions) {
       const card = el('section', undefined, 'prediction-card');
       card.append(el('h3', item.method_id.split('::').at(-1)), el('p', item.method_id, 'mono'));
+      if (item.assessment_kind === 'abstention') card.append(el('div', 'CHƯA ĐỦ BẰNG CHỨNG · KHÔNG PHẢI NHÃN ÂM', 'tag tag-amber'));
       details(card, [['Phụ thuộc cấu trúc', states[item.dependency_status]], ['Tác động hành vi (dự đoán)', states[item.behavioral_impact]],
         ['Cần sửa mã (dự đoán)', states[item.requires_code_change]], ['Hop / ranh giới service', item.logical_hops === null ? 'Chưa thiết lập' : item.logical_hops + ' / ' + item.service_boundary_crossings],
         ['Kiểm đường đi', item.path_validation === 'matches_supplied_static_graph' ? 'Khớp graph được cung cấp' : item.path_validation === 'source_inference_not_graph_verified' ? 'Suy luận từ source, chưa đối chiếu graph' : 'Không tuyên bố đường đi']]);
@@ -396,8 +397,65 @@
       view.append(el('h3', 'Điểm chưa chắc chắn')); const list = el('ul');
       validated.uncertainties.forEach(text => list.append(el('li', text))); view.append(list);
     }
-    $('download-reasoning-validation').hidden = false;
-    $('download-reasoning-validation').onclick = () => downloadBytes(JSON.stringify(validated, null, 2), 'p01-imported-structural-validation.json', 'application/json');
+    if (allowDownload) {
+      $('download-reasoning-validation').hidden = false;
+      $('download-reasoning-validation').onclick = () => downloadBytes(JSON.stringify(validated, null, 2), 'p01-imported-structural-validation.json', 'application/json');
+    }
+  }
+  function initComparison() {
+    let generation = 0;
+    $('import-comparison').addEventListener('click', () => $('comparison-file').click());
+    $('comparison-file').addEventListener('change', async event => {
+      const file = event.target.files[0]; event.target.value = '';
+      if (!file) return;
+      const currentGeneration = ++generation;
+      $('comparison-result').replaceChildren();
+      $('comparison-status').textContent = 'Đang kiểm tra cặp hồ sơ…';
+      try {
+        if (file.size > 2 * 1024 * 1024) throw new Error('Gói vượt giới hạn 2 MB.');
+        const bundle = JSON.parse(await file.text());
+        const inspection = await window.P01Comparison.inspectPair(bundle);
+        await window.P01Comparison.verifyViewerSources(bundle, data);
+        if (currentGeneration !== generation) return;
+        const count = Object.values(inspection.outcomes).filter(item => item.accepted).length;
+        $('comparison-status').textContent = count + '/2 phản hồi qua kiểm tra cấu trúc. Không xác minh provider/model trong trình duyệt; chưa thẩm định ngữ nghĩa, chưa tính F1 hoặc kết luận chất lượng. Graph bổ sung cả biểu thức gọi và metadata, không chỉ cạnh thuần túy.';
+        for (const [key, entry] of Object.entries(bundle.entries)) {
+          const result = inspection.outcomes[key]; const ctx = entry.request.context; const run = entry.run;
+          const panel = el('section', undefined, 'panel comparison-card'); panel.dataset.configuration = key;
+          const heading = el('div', undefined, 'panel-heading');
+          heading.append(el('h2', key === 'vector' ? 'Vector' : 'Graph+Vector'),
+            el('span', result.accepted ? 'QUA KIỂM CẤU TRÚC' : 'KHÔNG NHẬN DỰ ĐOÁN', 'tag ' + (result.accepted ? 'tag-green' : 'tag-amber')));
+          const body = el('div', undefined, 'reasoning-meta');
+          details(body, [['Run', run.run_id], ['Contract prompt', entry.request.prompt_version], ['Model được hồ sơ khai báo', run.returned_model ?? run.requested_model + ' · chưa có returned model'],
+            ['Kết quả', result.status], ['Context / ceiling', entry.request.context_bytes + ' / ' + ctx.limits.byte_budget + ' byte UTF-8'],
+            ['Thời gian đến phản hồi hoặc lỗi', run.elapsed_ms === null ? 'Không có' : run.elapsed_ms + ' ms'],
+            ['Token · input / output / thoughts / tổng', run.usage === null ? 'Không có; không quy thành 0' :
+              ['prompt', 'output', 'thoughts', 'total'].map(name => run.usage[name] ?? '—').join(' / ')],
+            ['Attempt / retry', run.remote_calls + ' / ' + run.retry_count], ['Code HEAD', run.git_head], ['Request SHA-256', entry.request.request_sha256]]);
+          body.append(button('↓ Request của cấu hình này', () => downloadBytes(JSON.stringify(entry.request, null, 2), key + '-request.json', 'application/json')));
+          const ranked = el('details'); ranked.append(el('summary', 'Các đoạn mã được truy xuất · top-' + ctx.retrieval.top_k));
+          const list = el('ol'); ctx.retrieval.ranked.forEach(item => list.append(el('li', item.chunk_id + ' · L2² ' + item.distance)));
+          ranked.append(list); body.append(ranked);
+          const context = el('details'); context.append(el('summary', 'Context thực tế · không có nhãn hoặc runtime'), el('pre', JSON.stringify(ctx, null, 2), 'json-body')); body.append(context);
+          panel.append(heading, body);
+          if (result.accepted) {
+            const prediction = el('div', undefined, 'reasoning-result'); reasoningResult(result.validated, prediction, false); panel.append(prediction);
+          } else {
+            const notice = el('div', 'Không nhận làm dự đoán hợp lệ: ' + result.diagnostic, 'error-banner');
+            panel.append(notice);
+            if (entry.response !== null) {
+              const raw = el('details', undefined, 'reasoning-preview');
+              raw.append(el('summary', 'JSON bị từ chối · giữ nguyên, không dùng chấm điểm'), el('pre', JSON.stringify(entry.response, null, 2), 'json-body')); panel.append(raw);
+            }
+          }
+          $('comparison-result').append(panel);
+        }
+      } catch (error) {
+        if (currentGeneration !== generation) return;
+        $('comparison-result').replaceChildren();
+        $('comparison-status').textContent = 'Gói bị từ chối: ' + error.message;
+      }
+    });
   }
   async function prepareReasoning() {
     const generation = ++reasoningGeneration;
@@ -460,7 +518,7 @@
   }
   try {
     if (!data || data.schema !== 'p01-evidence-demo/1' || data.mode !== 'recorded-evidence') throw new Error('Thiếu bundle dữ liệu hợp lệ. Giữ data.js cùng thư mục index.html.');
-    graphView(); changeView(); runtimeView(); provenanceView(); initReasoning();
+    graphView(); changeView(); runtimeView(); provenanceView(); initReasoning(); initComparison();
     document.querySelectorAll('[data-page]').forEach(node => node.addEventListener('click', () => page(node.dataset.page)));
     document.querySelectorAll('[data-snapshot]').forEach(node => node.addEventListener('click', () => {
       setSnapshot(node.dataset.snapshot);

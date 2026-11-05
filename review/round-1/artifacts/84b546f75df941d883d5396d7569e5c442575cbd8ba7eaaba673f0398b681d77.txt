@@ -1,0 +1,55 @@
+{
+  "requests": [
+    {
+      "order": 1,
+      "id": "seed_owner_list",
+      "kind": "reset_check",
+      "method": "GET",
+      "path": "/owners",
+      "status": 200
+    },
+    {
+      "order": 2,
+      "id": "setup_empty_owner",
+      "kind": "fixture_setup",
+      "method": "POST",
+      "path": "/owners",
+      "status": 201
+    },
+    {
+      "order": 3,
+      "id": "setup_empty_readback",
+      "kind": "fixture_setup_readback",
+      "method": "GET",
+      "path": "/owners/11",
+      "status": 200
+    },
+    {
+      "order": 4,
+      "id": "direct_populated",
+      "kind": "fixture_slot",
+      "method": "GET",
+      "path": "/owners/6",
+      "status": 200
+    },
+    {
+      "order": 5,
+      "id": "gateway_populated",
+      "kind": "fixture_slot",
+      "method": "GET",
+      "path": "/api/gateway/owners/6",
+      "status": 500
+    },
+    {
+      "order": 6,
+      "id": "direct_no_visits",
+      "kind": "fixture_slot",
+      "method": "GET",
+      "path": "/owners/1",
+      "status": 200
+    }
+  ],
+  "bindings": {
+    "empty_owner_id": 11
+  }
+}

@@ -9,14 +9,20 @@ import { once } from 'node:events';
 import reasoningCore from '../demo/p01/reasoning-core.js';
 import { randomUUID } from 'node:crypto';
 import { parseDataAsset } from './run_p01_reasoning.mjs';
+import comparisonCore from '../demo/p01/comparison-core.js';
+import { syntheticComparison } from '../reasoning/p01/comparison-fixture.mjs';
 
 const repo = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
-if (args.length && (args.length !== 2 || args[0] !== '--response-file')) {
-  throw new Error('Usage: node scripts/check_p01_demo_browser.mjs [--response-file PATH_TO_RESPONSE_JSON]');
+const options = {};
+for (let i = 0; i < args.length; i += 2) {
+  if (!['--response-file', '--comparison-file'].includes(args[i]) || !args[i + 1] || options[args[i]])
+    throw new Error('Usage: node scripts/check_p01_demo_browser.mjs [--response-file FILE] [--comparison-file FILE]');
+  options[args[i]] = resolve(args[i + 1]);
 }
 // Optional local import test, never an API call or proof of provider identity.
-const responseFile = args.length ? resolve(args[1]) : null;
+const responseFile = options['--response-file'] ?? null;
+const comparisonFile = options['--comparison-file'] ?? null;
 const require = createRequire(import.meta.url);
 const modulePath = process.env.P01_PLAYWRIGHT_MODULE || resolve(process.env.USERPROFILE || '', '.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
 let playwright;
@@ -192,13 +198,70 @@ try {
       semantic_correctness_verified: false, remote_calls: 0 };
     report.checks.push('optional local response import: exact method IDs, summary, validation download and baseline source citation; provider remains unverified in viewer');
   }
-  for (const name of ['graph', 'change', 'reasoning', 'runtime', 'provenance']) {
+  await page.locator('[data-page="comparison"]').click();
+  assert.ok((await page.locator('#comparison-status').innerText()).includes('Chưa nhập'));
+  await page.locator('#comparison-file').setInputFiles({ name: 'invalid-test.json', mimeType: 'application/json', buffer: Buffer.from('{}') });
+  await page.waitForFunction(() => document.getElementById('comparison-status').textContent.includes('bị từ chối'));
+  assert.equal(await page.locator('.comparison-card').count(), 0);
+  const comparisonFixture = await syntheticComparison();
+  comparisonFixture.entries.graph_vector.response.summary.text = '<img src="https://example.invalid/leak"> SYNTHETIC UI TEST ONLY.';
+  const { bundle_sha256: ignoredFixtureDigest, ...fixtureBody } = comparisonFixture;
+  const sealedFixture = await comparisonCore.seal(fixtureBody);
+  await page.locator('#comparison-file').setInputFiles({ name: 'synthetic-comparison.json', mimeType: 'application/json', buffer: Buffer.from(JSON.stringify(sealedFixture)) });
+  await page.waitForFunction(() => document.getElementById('comparison-status').textContent.startsWith('1/2'));
+  assert.equal(await page.locator('.comparison-card').count(), 2);
+  assert.equal(await page.locator('#comparison-result img').count(), 0);
+  assert.equal(await page.locator('[data-configuration="vector"] .prediction-card').count(), 0);
+  assert.ok((await page.locator('[data-configuration="vector"]').innerText()).includes('Citations required'));
+  assert.ok((await page.locator('#comparison-status').innerText()).includes('Không xác minh provider/model'));
+  report.checks.push('comparison: invalid import rejected, synthetic abstention stays rejected, markup escaped and provider remains unverified');
+  // New contract fixtures are new synthetic runs, not revalidation of a historical provider response.
+  const unknownFixture = await syntheticComparison({ abstentionContract: true });
+  await page.locator('#comparison-file').setInputFiles({ name: 'synthetic-unknown-contract-v2.json', mimeType: 'application/json', buffer: Buffer.from(JSON.stringify(unknownFixture)) });
+  await page.waitForFunction(() => document.getElementById('comparison-status').textContent.startsWith('2/2'));
+  assert.ok((await page.locator('[data-configuration="vector"]').innerText()).includes('CHƯA ĐỦ BẰNG CHỨNG · KHÔNG PHẢI NHÃN ÂM'));
+  assert.ok((await page.locator('[data-configuration="graph_vector"]').innerText()).includes('p01-static-impact/2'));
+  assert.equal(await page.locator('[data-configuration="vector"] .prediction-card').count(), 1);
+  report.checks.push('new contract synthetic abstention is explicitly marked unknown, not negative; legacy rejected run remains separate');
+  const comparisonBytes = comparisonFile ? await readFile(comparisonFile) : Buffer.from(JSON.stringify(sealedFixture));
+  const importedPair = JSON.parse(comparisonBytes.toString('utf8'));
+  const expectedPair = await comparisonCore.inspectPair(importedPair);
+  await page.locator('#comparison-file').setInputFiles({ name: 'local-comparison.json', mimeType: 'application/json', buffer: comparisonBytes });
+  await page.waitForFunction(() => document.querySelectorAll('.comparison-card').length === 2);
+  for (const [key, result] of Object.entries(expectedPair.outcomes)) {
+    const panel = page.locator('[data-configuration="' + key + '"]');
+    assert.equal(await panel.locator('.prediction-card').count(), result.validated?.method_predictions.length ?? 0);
+    assert.ok((await panel.innerText()).includes(result.status));
+    const pairDownloadPromise = page.waitForEvent('download'); await panel.locator('.button').first().click();
+    assert.deepEqual(JSON.parse(await readFile(await (await pairDownloadPromise).path(), 'utf8')), importedPair.entries[key].request);
+  }
+  await screenshot(page, 'comparison-desktop.png');
+  const sourceCitation = expectedPair.outcomes.graph_vector.validated?.method_predictions.flatMap(item => item.citations).find(c => c.kind === 'source');
+  if (sourceCitation) {
+    await page.locator('#comparison-result .evidence-button').filter({ hasText: sourceCitation.evidence_id + ' ·' }).first().click();
+    assert.equal(await page.locator('[data-snapshot="baseline"]').getAttribute('aria-pressed'), 'true');
+    assert.ok((await page.locator('#source-caption').innerText()).includes(sourceCitation.line_start + '–' + sourceCitation.line_end));
+    await page.locator('[data-page="comparison"]').click();
+  }
+  report.imported_comparison = { file: comparisonFile, sha256: createHash('sha256').update(comparisonBytes).digest('hex'),
+    fixture_only: !comparisonFile, both_structurally_valid: expectedPair.both_structurally_valid, remote_calls: 0, scoring_enabled: false };
+  report.checks.push('paired local import: original request downloads, exact statuses and accepted records; no quality score');
+  const tamperedPair = structuredClone(importedPair); tamperedPair.entries.vector.run.usage = null;
+  tamperedPair.created_utc = '2000-01-01T00:00:00Z';
+  await page.locator('#comparison-file').setInputFiles({ name: 'tampered-comparison.json', mimeType: 'application/json', buffer: Buffer.from(JSON.stringify(tamperedPair)) });
+  await page.waitForFunction(() => document.getElementById('comparison-status').textContent.includes('bị từ chối'));
+  assert.equal(await page.locator('.comparison-card').count(), 0);
+  report.checks.push('failed replacement comparison clears all previously displayed predictions');
+  for (const name of ['graph', 'change', 'reasoning', 'comparison', 'runtime', 'provenance']) {
     await page.locator('[data-page="' + name + '"]').click();
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, 'Desktop overflow: ' + name);
   }
   const mobileContext = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, deviceScaleFactor: 1 });
   const mobile = await mobileContext.newPage(); listen(mobile); await mobile.goto(url);
-  for (const name of ['graph', 'change', 'reasoning', 'runtime', 'provenance']) {
+  await mobile.locator('[data-page="comparison"]').click();
+  await mobile.locator('#comparison-file').setInputFiles({ name: 'local-comparison.json', mimeType: 'application/json', buffer: comparisonBytes });
+  await mobile.waitForFunction(() => document.querySelectorAll('.comparison-card').length === 2);
+  for (const name of ['graph', 'change', 'reasoning', 'comparison', 'runtime', 'provenance']) {
     await mobile.locator('[data-page="' + name + '"]').click();
     assert.equal(await mobile.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, 'Mobile overflow: ' + name);
     await screenshot(mobile, name + '-mobile.png');
@@ -209,7 +272,7 @@ try {
   await mobile.evaluate(() => { document.querySelector('.graph-canvas').scrollLeft = 1000; });
   await mobile.locator('[data-node]').filter({ hasText: 'VisitResource' }).click();
   assert.equal(await mobile.locator('#inspector-title').innerText(), 'VisitResource');
-  report.checks.push('390px mobile: 5 pages without page overflow, snapshot and graph taps');
+  report.checks.push('390px mobile: 6 pages including imported comparison without page overflow, snapshot and graph taps');
   const offline = await context.newPage(); listen(offline);
   await offline.goto(pathToFileURL(resolve(repo, 'demo/p01/index.html')).href);
   assert.equal(await offline.locator('#fatal-error').isVisible(), false);
@@ -219,6 +282,9 @@ try {
   await offline.locator('[data-page="reasoning"]').click();
   await offline.waitForFunction(() => document.getElementById('reasoning-status').textContent.includes('SẴN SÀNG'));
   assert.equal(await offline.locator('#download-reasoning-request').isDisabled(), false);
+  await offline.locator('[data-page="comparison"]').click();
+  await offline.locator('#comparison-file').setInputFiles({ name: 'local-comparison.json', mimeType: 'application/json', buffer: comparisonBytes });
+  await offline.waitForFunction(() => document.querySelectorAll('.comparison-card').length === 2);
   report.checks.push('file:// opens original demo and prepares reasoning context without a server or Docker');
   const missing = await context.newPage();
   await missing.route('**/data.js', route => route.fulfill({ status: 200, contentType: 'text/javascript', body: '// intentionally missing test fixture' }));

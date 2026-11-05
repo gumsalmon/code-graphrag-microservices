@@ -1,0 +1,663 @@
+{
+  "schema": "petclinic-workboard/1",
+  "record_date": "2026-11-05",
+  "scope": "Current coordination overlay; historical packets remain immutable. Known tasks only, not proof of exhaustive scientific completeness.",
+  "milestone": "P01-P03 technical evidence plus independent human drafts ready for batch external review; revisions before P04",
+  "roles": {
+    "huy": "Chủ trì, quyết định scope/input/triển khai/ngân sách; không tự duyệt ground truth của hệ thống mình xây",
+    "coordinator_ai": "Chuẩn bị, triển khai tích hợp riêng, kiểm cơ học, điều phối và ghi giới hạn; không thay quyết định người thật",
+    "hien": "Parser/resolver/importer và bàn giao kỹ thuật; không lập hoặc tự duyệt nhãn benchmark",
+    "phat": "Kiểm scope/source/raw và quyết định nhãn nháp độc lập có khai exposure; không tự làm reviewer nhãn của mình",
+    "external_reviewer": "Người thật khác annotator; đọc source-first, đối chiếu và ghi quyết định từng ca; chưa ghi nhận danh tính/lịch review gộp mới"
+  },
+  "deliveries": [
+    {
+      "task_id": "HIEN-SOFTWARE",
+      "reported_by": "Huy in conversation on 2026-10-28",
+      "forwarded": true,
+      "recipient_acknowledged": true,
+      "acknowledgement_record": "tasks/hien-next/RETURN_RECEIVED_2026-10-28.md",
+      "exact_sent_time": null,
+      "eta": null,
+      "packet": "handoff-out/hien-synthetic-preparation/20261028T131851Z-9d11fc97/HIEN_SYNTHETIC_PREPARATION_2026-10-28.zip",
+      "sha256": "bb69c40464f037c450932cf154aeb3170dac6e69fd139a5cea52dda97d7ebffe"
+    },
+    {
+      "task_id": "P03-SCOPE",
+      "reported_by": "Huy forwarded Phat final scope return on 2026-10-31",
+      "forwarded": true,
+      "recipient_acknowledged": true,
+      "acknowledgement_record": "tasks/PHAT_RETURNS_STATUS_2026-10-31.json",
+      "exact_sent_time": null,
+      "eta": null,
+      "packet": "handoff-out/p03-scope-packet/20261028T100341Z-65ce05cd/P03_INPUT_SCOPE_CHECK_2026-10-28.zip",
+      "sha256": "24bacf8e0313d05a02186f66c150cd7ccc0d4470c6f5017e8e0af4cbabb2987d"
+    },
+    {
+      "task_id": "P03-DRAFT",
+      "reported_by": "Huy reports sending both role packets in conversation on 2026-10-31",
+      "forwarded": true,
+      "recipient_acknowledged": true,
+      "exact_sent_time": null,
+      "eta": null,
+      "packet": "handoff-out/petclinic-role-packets/20261031T071551Z-64bff5b9/phat/PETCLINIC_PHAT_2026-10-31.zip",
+      "sha256": "f3d6fc5baf3e9688e839860de7aa45c5c6198c1965028da2b78582c59e40b5b9",
+      "delivery_record": "tasks/DELIVERY_REPORTED_2026-10-31.md",
+      "acknowledgement_record": "tasks/TEAM_RETURN_STATUS_2026-11-01.json",
+      "acknowledgement_scope": "Return received via Huy: P02 checkpoint for Phat, milestone A for Hien; not a claim of P03 completion or human final code review"
+    },
+    {
+      "task_id": "P02-METHOD",
+      "reported_by": "Huy reports sending both role packets in conversation on 2026-10-31",
+      "forwarded": true,
+      "recipient_acknowledged": true,
+      "exact_sent_time": null,
+      "eta": null,
+      "packet": "handoff-out/petclinic-role-packets/20261031T071706Z-7bfb5292/hien/PETCLINIC_HIEN_2026-10-31.zip",
+      "sha256": "ad6fc03e774a67aea9797e81e92b8ec72298aa25af64edfe66ab25b89c4f6106",
+      "delivery_record": "tasks/DELIVERY_REPORTED_2026-10-31.md",
+      "acknowledgement_record": "tasks/TEAM_RETURN_STATUS_2026-11-01.json",
+      "acknowledgement_scope": "Return received via Huy: P02 checkpoint for Phat, milestone A for Hien; not a claim of P03 completion or human final code review"
+    },
+    {
+      "task_id": "P02-METHOD",
+      "reported_by": "Huy forwarded earlier P02 return on 2026-11-02; receipt/input packet identity matches. Not a P03 ACK or human code sign-off.",
+      "forwarded": true,
+      "recipient_acknowledged": true,
+      "exact_sent_time": null,
+      "eta": null,
+      "packet": "handoff-out/hien-p02-next/20261101T062259Z-fbac2a60/P02_HIEN_TECHNICAL_2026-11-01.zip",
+      "sha256": "fc18942d9b7610a47c23ccc72f386785d831c24ad01ee40e83a1e1f55df4db3f",
+      "delivery_record": "tasks/DELIVERY_REPORTED_2026-11-01.md",
+      "scope": "New 2026-11-01 packet only; prior ACK does not establish ACK of this packet",
+      "acknowledgement_record": "tasks/P02_TECHNICAL_RETURN_STATUS_2026-11-02.json"
+    },
+    {
+      "task_id": "P03-METHOD",
+      "packet": "handoff-out/hien-p03-receipt/20261102T132541Z-1420aaa4/P03_HIEN_TECHNICAL_2026-11-02.zip",
+      "sha256": "86c1652aa6ded9eac7223b040c5e93b36d375567cf9c3699cd80a93af1f21d91",
+      "forwarded": true,
+      "recipient_acknowledged": true,
+      "reported_by": "Huy forwarded P03 breaker-fix return ZIP/sidecar on 2026-11-05. Response addresses P03-T01 and matches receipt/input; no human final diff review, exact sent time/channel or new assignment inferred.",
+      "acknowledgement_record": "tasks/P03_BREAKER_FIX_STATUS_2026-11-05.json",
+      "forwarding_record": "tasks/DELIVERY_REPORTED_2026-11-02.md"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "P01-TECH",
+      "owner": "hien",
+      "status": "verified_scoped",
+      "depends_on": [],
+      "input": "Implementation e956137; source/config pins và fixtures P01",
+      "output": "Parser/Neo4j/retrieval technical evidence",
+      "done_when": "Kiểm độc lập đúng revision, raw/hash/command và giới hạn; không suy thành chất lượng CIA",
+      "evidence": [
+        "tasks/P01_CLOSEOUT.md",
+        "tasks/research/P01_TECHNICAL_VERIFICATION_2026-10-12.md"
+      ],
+      "next_action": "Giữ hồ sơ đã kiểm; chỉ rerun khi thay implementation hoặc có lỗi mới"
+    },
+    {
+      "id": "P01-MODEL",
+      "owner": "huy",
+      "status": "blocked_decision",
+      "depends_on": [
+        "P01-TECH"
+      ],
+      "input": "Request /3, prompt /2 và các attempt gốc",
+      "output": "Cặp Vector/Graph+Vector hợp lệ cùng cấu hình hoặc blocker ghi rõ",
+      "done_when": "Không ghép legacy response sang request mới; mọi attempt/error/usage giữ nguyên, retry có quyền/ngân sách cụ thể",
+      "evidence": [
+        "tasks/P01_CLOSEOUT.md",
+        "tasks/research/P01_ABSTENTION_LIVE_2026-10-15.md"
+      ],
+      "next_action": "Chốt model/retry/budget riêng; hiện Vector pure abstention, Graph+Vector 503, chưa gọi lại"
+    },
+    {
+      "id": "HIEN-SOFTWARE",
+      "owner": "hien",
+      "status": "verified_scoped",
+      "depends_on": [],
+      "input": "ZIP synthetic đã gửi theo lời Huy; pin e956, 10 case trước sửa 7 đạt/3 fail",
+      "output": "Diff/identity, native output trước/sau, regression và importer metadata parity unit/mock",
+      "done_when": "S05/S06 diagnostic và S08 ambiguity xử lý có căn cứ; các case đúng giữ nguyên; không hardcode, không skip; parity hoặc blocker cụ thể",
+      "evidence": [
+        "tasks/hien-next/TASK_HIEN.md",
+        "tasks/HIEN_SYNTHETIC_RETURN_STATUS_2026-10-28.json",
+        "tasks/research/HIEN_SYNTHETIC_RETURN_AUDIT_2026-10-28.md",
+        "tasks/PETCLINIC_D20_STATUS_2026-10-31.json",
+        "tasks/TEAM_RETURN_STATUS_2026-11-01.json",
+        "tasks/research/TEAM_RETURNS_REVIEW_2026-11-01.md"
+      ],
+      "next_action": "Mốc A đã nhận qua Huy, 85 files/9 code identities khớp, độc lập 13/13 +3 CLI kết quả đúng. Candidate parser/importer cũ giữ hash; Hiển bổ sung phần diff tự xem, không lặp lại baseline. Nối task P02-METHOD đã có receipt, P03 vẫn cần checkpoint riêng."
+    },
+    {
+      "id": "P02-RUNTIME",
+      "owner": "coordinator_ai",
+      "status": "verified_scoped",
+      "depends_on": [],
+      "input": "D15 scenario 0.1.1/universe draft.v2/fixture v1",
+      "output": "F03 paired runtime/POST/reset và helper supplement có raw/hash",
+      "done_when": "Matrix và helper checker đạt, identity/source/reset/cleanup có evidence; direct subscription không gọi production trace",
+      "evidence": [
+        "tasks/research/P02_F03_RUNTIME_2026-10-24.md",
+        "tasks/research/P02_HELPER_RUNTIME_2026-10-25.md"
+      ],
+      "next_action": "Giữ evidence cũ; chỉ bổ sung phép đo nếu người kiểm chỉ ra yêu cầu ngoài phạm vi hiện có"
+    },
+    {
+      "id": "P02-HUMAN",
+      "owner": "phat",
+      "status": "verified_scoped",
+      "depends_on": [
+        "P02-RUNTIME"
+      ],
+      "input": "12 ID draft.v3 và source/raw/helper, exposure thực tế",
+      "output": "Phụ lục quyết định/notes người thật; version/hash mới nếu đổi nhãn",
+      "done_when": "Phát trực tiếp xem và nhận/không nhận từng đề nghị, khai điều đã đọc và exposure; repair/confidence/unresolved có lý do; pending_review",
+      "evidence": [
+        "tasks/P02_HELPER_RETURN_STATUS_2026-10-26.json",
+        "tasks/PHAT_RETURNS_STATUS_2026-10-31.json",
+        "tasks/p02-handoff/SEND_PHAT_FINALIZE_DRAFT_2026-10-31.md",
+        "tasks/PETCLINIC_D20_STATUS_2026-10-31.json",
+        "tasks/p03-handoff/P02_CHECKPOINT_2026-10-31.md",
+        "tasks/TEAM_RETURN_STATUS_2026-11-01.json",
+        "tasks/research/TEAM_RETURNS_REVIEW_2026-11-01.md",
+        "benchmark/p02/checkpoints/COORDINATOR_CHECKPOINT_2026-11-01.json"
+      ],
+      "next_action": "Draft.v4/12 ID/notes/exposure được kiểm; nhận grouped human reading self-report và bốn helper decisions, ghi ngoại lệ blank-template copy. Checkpoint kỹ thuật P02 đủ theo D20, vẫn pending_review; Phát tiếp P03, không nhận method outputs hoặc sửa labels cho khớp parser.",
+      "human_decision_record": "handoff-out/team-returns-20261101/20261101T054957Z-a801d6ca/phat/received/P02_CHECKPOINT_2026-10-31/notes/HUMAN_CONFIRMATION.v1.json"
+    },
+    {
+      "id": "P03-BASELINE",
+      "owner": "coordinator_ai",
+      "status": "verified_scoped",
+      "depends_on": [],
+      "input": "D18 C03-A, candidate 0.1.0 và local images/cache",
+      "output": "Build năm service, hai baseline stack/24 slot và source/reset/cleanup audit",
+      "done_when": "Raw/checker/hash đạt; missing-owner/POST/empty-owner khai đúng; không có mutated hoặc nhãn P03",
+      "evidence": [
+        "tasks/P03_BASELINE_STATUS_2026-10-28.json",
+        "tasks/research/P03_BASELINE_2026-10-28.md"
+      ],
+      "next_action": "Giữ baseline và build identity. Scope đã kiểm và Huy đã cho paired D19; mutated runtime mới nằm ở task P03-PAIRED, không sửa evidence baseline cũ"
+    },
+    {
+      "id": "P03-SCOPE",
+      "owner": "phat",
+      "status": "verified_scoped",
+      "depends_on": [
+        "P03-BASELINE"
+      ],
+      "input": "ZIP source/patch/universe/fixture/baseline đã gửi; 31 eligible ID và 3 seed/34 alias",
+      "output": "Phiếu người thật kiểm census/scope/alias/fixture và kết luận có căn cứ",
+      "done_when": "Không chỉ ký danh sách AI; kiểm completeness/exclusion/source, nêu disagreement/limit và hash bộ đề nghị",
+      "evidence": [
+        "tasks/P03_SCOPE_PACKET_STATUS_2026-10-28.json",
+        "tasks/PHAT_RETURNS_STATUS_2026-10-31.json",
+        "tasks/research/PHAT_RETURNS_AUDIT_2026-10-31.md"
+      ],
+      "human_decision_record": "handoff-out/phat-returns-20261031/20261031T045938Z-2610a833/p03-received/data/REVIEWER_APPROVAL.json",
+      "next_action": "Đã nhận đề nghị chốt theo source comparison/raw overview đã khai, 34 IDs/aliases khớp và ngoại lệ template ngoài input được giữ. Huy đã quyết định D19 riêng; scope check không là duyệt nhãn"
+    },
+    {
+      "id": "P03-INPUT",
+      "owner": "huy",
+      "status": "verified_scoped",
+      "depends_on": [
+        "P03-SCOPE"
+      ],
+      "input": "Kết luận scope thật và bộ hash đề nghị",
+      "output": "Quyết định version/hash input và quyền mutated riêng",
+      "done_when": "Huy ghi đúng bộ file/quyền sau xử lý bất đồng, không hồi tố D18 thành mutation authorization",
+      "evidence": [
+        "benchmark/p03/decisions/INPUT_LOCK_2026-10-31.json",
+        "benchmark/p03/decisions/INPUT_LOCK_PROPOSAL_2026-10-31.json"
+      ],
+      "next_action": "Huy đã xác nhận trực tiếp D19 đúng sáu hashes; input locked, paired sandbox được phép, nhãn/model/scoring/push vẫn đóng. Giữ candidate/proposal frozen, không sửa flags cũ"
+    },
+    {
+      "id": "P03-PAIRED",
+      "owner": "coordinator_ai",
+      "status": "verified_scoped",
+      "depends_on": [
+        "P03-INPUT"
+      ],
+      "input": "Input đã khóa và quyền mutated cụ thể",
+      "output": "Runner paired được kiểm offline rồi baseline/mutated/control/reset mới",
+      "done_when": "Source/config/consumer bất biến đúng scope, raw/repetitions/reset/build identity/cleanup và mọi lỗi lưu; không đặt trước HTTP result",
+      "evidence": [
+        "pipeline/p03/PAIRED_RUNTIME.md",
+        "tasks/P03_PAIRED_STATUS_2026-10-31.json",
+        "tasks/research/P03_PAIRED_RUNTIME_2026-10-31.md"
+      ],
+      "next_action": "Runtime D19 đã kiểm đủ bốn nhóm/48 slots/68 collector +24 support GET và cleanup; không rerun nếu không có yêu cầu bằng chứng mới. Gói Phát D20 chứa raw đã kiểm, không chứa output phương pháp hoặc kết luận coordinator."
+    },
+    {
+      "id": "P03-DRAFT",
+      "owner": "phat",
+      "status": "verified_scoped",
+      "depends_on": [
+        "P03-PAIRED"
+      ],
+      "input": "Input locked và paired raw, không evaluated-system outputs",
+      "output": "Notes/exposure/nhãn nháp người thật và evidence manifest",
+      "done_when": "Phân biệt behavior/repair và unresolved; lưu version/hash trước method output; reviewer chưa ký",
+      "evidence": [
+        "tasks/PETCLINIC_PRE_REVIEW_PLAN_2026-10-24.md",
+        "tasks/PETCLINIC_D20_STATUS_2026-10-31.json",
+        "tasks/p03-handoff/TASK_PHAT_ANNOTATION.md",
+        "tasks/DELIVERY_REPORTED_2026-10-31.md",
+        "tasks/DELIVERY_REPORTED_2026-11-01.md",
+        "tasks/P03_ANNOTATION_STATUS_2026-11-02.json",
+        "tasks/research/P03_ANNOTATION_INTAKE_2026-11-02.md",
+        "benchmark/p03/checkpoints/COORDINATOR_CHECKPOINT_2026-11-02.json",
+        "tasks/hien-next/P03_TECHNICAL_RECEIPT_2026-11-02.json"
+      ],
+      "next_action": "P03 draft.v2 checked 02/11 under D20: 31 IDs/3 seeds, notes/exposure and grouped human confirmation; pending_review with 20 unresolved and R22 inference limit. No need to relabel or resolve every uncertainty to open offline technical work. Independent ground-truth review remains separate; do not send method outputs to annotation.",
+      "human_decision_record": "handoff-out/p03-annotation-return/20261102T131035Z-4475b75e/received/P03_ANNOTATION_2026-11-01_v2/history/v1/notes/HUMAN_DECISION.v1.json"
+    },
+    {
+      "id": "OUTPUT-CONTRACT",
+      "owner": "huy",
+      "status": "draft_open",
+      "depends_on": [],
+      "input": "D01-D08 và phản hồi Hiển/Phát",
+      "output": "Version hợp đồng Method/API/Service được thống nhất hoặc các điểm còn mở",
+      "done_when": "ID/hop/evidence/unknown/repair/projection thống nhất có decision; không áp draft bằng việc test pass",
+      "evidence": [
+        "docs/contracts/REVIEW_CHECKLIST.v0.1.DRAFT.md",
+        "docs/contracts/impact-output.v0.1.draft.json",
+        "tasks/research/PETCLINIC_NEXT_DECISIONS_2026-11-01.md"
+      ],
+      "next_action": "Coordinator consolidated OUT.D01-D08 recommendations and three principle groups for Huy to consider. No adoption/feedback inferred; review with Hien/Phat after their current milestone. Existing contract/parser/scorer remain unchanged."
+    },
+    {
+      "id": "EXPERIMENT-DESIGN",
+      "owner": "huy",
+      "status": "draft_open",
+      "depends_on": [
+        "OUTPUT-CONTRACT"
+      ],
+      "input": "E01-E10: baseline/ablation/input policy/budget/coverage/split/metrics",
+      "output": "Thiết kế version hóa được quyết định trước campaign/scoring",
+      "done_when": "Không dùng runtime/gold/reviewer notes trong primary static model input; failed/unknown/omitted và duplicate group xử lý rõ",
+      "evidence": [
+        "docs/experiments/REVIEW_CHECKLIST.v0.1.DRAFT.md",
+        "docs/experiments/experiment-design.v0.1.draft.json",
+        "tasks/research/PETCLINIC_NEXT_DECISIONS_2026-11-01.md"
+      ],
+      "next_action": "EXP.E01-E10 recommendations prepared against current P02/P03 state. Huy considers target/comparison/fairness principles; numeric budgets, failure/scoring/statistics and final campaign decisions remain open. No model or actual experiment launched."
+    },
+    {
+      "id": "OFFLINE-INTEGRATION",
+      "owner": "coordinator_ai",
+      "status": "verified_scoped",
+      "depends_on": [],
+      "input": "Source/graph toy và validator/telemetry nháp đã tách khỏi runtime",
+      "output": "Lexical/reverse-graph selection, packing, fixed response integration và tests/logs",
+      "done_when": "Route/citation/hop/overflow/failure/unknown/omitted checks đạt; actual model calls 0, không dùng nhãn thật; report chỉ synthetic",
+      "evidence": [
+        "prototypes/context-selection/README.md",
+        "tasks/research/OFFLINE_INTEGRATION_2026-10-28.md"
+      ],
+      "next_action": "Đã nối thêm native synthetic parser JSON vào selector, giữ source/hash/ID bindings và unresolved; xem audit Hiển 28/10. Giữ adapter tách biệt, chờ shared contract/checkpoint từng ca trước real wiring"
+    },
+    {
+      "id": "P02-METHOD",
+      "owner": "hien",
+      "status": "verified_scoped",
+      "depends_on": [
+        "HIEN-SOFTWARE",
+        "P02-HUMAN"
+      ],
+      "input": "Checkpoint draft/human thực, implementation đã kiểm và quyền integration phù hợp; giữ contract kỹ thuật hiện hành, đầu ra ba cấp mới cần quyết định riêng",
+      "output": "Actual extraction/import/query/retrieval/output development mới có provenance",
+      "done_when": "Giữ optional/default contract delta, parity/idempotence/failure/seed exclusion; không dùng nhãn đặt trước output; model nếu có cần quyền riêng",
+      "evidence": [
+        "tasks/hien-next/TASK_HIEN.md",
+        "tasks/P02_P04_TASK_PACKETS.md",
+        "tasks/PETCLINIC_D20_STATUS_2026-10-31.json",
+        "tasks/CHECKPOINT_INTAKE_2026-10-31.md",
+        "tasks/hien-next/TASK_INTEGRATION_2026-10-31.md",
+        "tasks/DELIVERY_REPORTED_2026-10-31.md",
+        "tasks/TEAM_RETURN_STATUS_2026-11-01.json",
+        "tasks/hien-next/P02_TECHNICAL_RECEIPT_2026-11-01.json",
+        "pipeline/p02/OFFLINE_METHOD.md",
+        "tasks/hien-next/TASK_P02_METADATA_INVENTORY_2026-11-01.md",
+        "handoff-out/team-returns-final-audit/20261101T063123708Z-6ce6a252/RESULT.json",
+        "handoff-out/team-returns-final-audit/20261101T063123708Z-6ce6a252/SHA256SUMS.txt",
+        "tasks/DELIVERY_REPORTED_2026-11-01.md",
+        "tasks/P02_TECHNICAL_RETURN_STATUS_2026-11-02.json",
+        "tasks/research/HIEN_P02_TECHNICAL_RETURN_2026-11-02.md",
+        "tasks/hien-next/P02_REVIEWED_IMPLEMENTATION_2026-11-02.json",
+        "scripts/run_p02_reviewed_method_20261102.mjs",
+        "scripts/check_p02_reviewed_method_20261102.mjs",
+        "handoff-out/p02-offline-method-reviewed/20261102t140320547z-03c452f7/SHA256SUMS.txt",
+        "tasks/hien-next/SEND_AFTER_P02_TECHNICAL_RETURN_2026-11-02.md"
+      ],
+      "next_action": "02/11 return independently re-executed: 24 units and two fresh Neo4j DBs pass, full-property parity and 8/8 explicit eligible inventory verified. Only scoped native extraction/DB/retrieval complete, not full GraphRAG/output contract/model scoring. Preserve raw, record two LF-string versus CRLF-file report hash caveats and pending Hien own-diff self-report. New candidate remains isolated, not applied to root branch. Continue P03 with its receipt; no HTTP rerun."
+    },
+    {
+      "id": "P03-METHOD",
+      "owner": "hien",
+      "status": "verified_scoped",
+      "depends_on": [
+        "HIEN-SOFTWARE",
+        "P03-DRAFT"
+      ],
+      "input": "Input và human draft checkpoint P03, response-field design/implementation đủ scope",
+      "output": "Extraction/graph/retrieval/output development, ghi DTO/record/usage unsupported",
+      "done_when": "Không gọi mapping field rename là DB migration; không tự suy API/Service impact từ reachable Method; raw/hash/tests rõ",
+      "evidence": [
+        "tasks/hien-next/TASK_HIEN.md",
+        "tasks/PETCLINIC_PRE_REVIEW_PLAN_2026-10-24.md",
+        "tasks/PETCLINIC_D20_STATUS_2026-10-31.json",
+        "tasks/CHECKPOINT_INTAKE_2026-10-31.md",
+        "tasks/hien-next/TASK_INTEGRATION_2026-10-31.md",
+        "tasks/P03_ANNOTATION_STATUS_2026-11-02.json",
+        "tasks/hien-next/P03_TECHNICAL_RECEIPT_2026-11-02.json",
+        "tasks/hien-next/TASK_P03_RECEIPT_2026-11-02.md",
+        "tasks/hien-next/SEND_P03_RECEIPT_2026-11-02.md",
+        "handoff-out/hien-p03-receipt/20261102T132541Z-1420aaa4/DELIVERY_REPORT.json",
+        "tasks/P02_TECHNICAL_RETURN_STATUS_2026-11-02.json",
+        "tasks/DELIVERY_REPORTED_2026-11-02.md",
+        "tasks/P03_TECHNICAL_RETURN_STATUS_2026-11-03.json",
+        "tasks/research/HIEN_P03_TECHNICAL_RETURN_2026-11-03.md",
+        "tasks/hien-next/SEND_AFTER_P03_TECHNICAL_RETURN_2026-11-03.md",
+        "tasks/P03_BREAKER_FIX_STATUS_2026-11-05.json",
+        "tasks/research/HIEN_P03_BREAKER_FIX_2026-11-05.md",
+        "tasks/hien-next/ACK_P03_BREAKER_FIX_2026-11-05.md"
+      ],
+      "next_action": "Scoped native milestone verified; no ACK to Hien is required to continue. Coordinator P03 static context and actual review data previews now complete; preserve declared record/dataflow/ID limits. No new parser or relabel task assigned.",
+      "current_stage": "native_milestone_C_verified_P03_T01_closed_with_declared_limits",
+      "verified_components": [
+        "receipt/source/code binding",
+        "explicit AST inventory with unsupported ledger",
+        "fresh DB full-property parity and idempotence",
+        "reverse source/path retrieval 1/2/3"
+      ],
+      "open_findings": [],
+      "verified_scope": "Receipt/source/code binding, native extraction/inventory with unsupported ledger, corrected per-call breaker metadata, two fresh DB full-property parity/idempotence and source/path retrieval. Not full reactive/record/dataflow support or CIA prediction/label approval."
+    },
+    {
+      "id": "VIEWER-E2E",
+      "owner": "coordinator_ai",
+      "status": "waiting_dependency",
+      "depends_on": [
+        "P02-METHOD",
+        "P03-METHOD",
+        "OUTPUT-CONTRACT"
+      ],
+      "input": "Real development outputs và adopted contract, không phải label oracle",
+      "output": "Minh họa PetClinic nhiều ca/cấp với failure/unknown/provenance hiển thị đúng",
+      "done_when": "Viewer dùng output thật đã kiểm; không dựng result hoặc gọi toy demo là E2E PetClinic; privacy/model calls có phạm vi riêng",
+      "evidence": [
+        "demo/p01/README.md",
+        "tasks/research/P01_VISUAL_DEMO_2026-10-12.md",
+        "tasks/P02_NATIVE_INSPECTOR_STATUS_2026-11-01.json",
+        "tasks/P02_TECHNICAL_RETURN_STATUS_2026-11-02.json",
+        "tasks/P02_REVIEWED_DERIVATIVES_STATUS_2026-11-02.json",
+        "tasks/P03_TECHNICAL_RETURN_STATUS_2026-11-03.json",
+        "tasks/P03_BREAKER_FIX_STATUS_2026-11-05.json"
+      ],
+      "next_action": "P03 native artifacts now replayed on corrected parser; integrate saved native evidence/context with limitations visible. Prediction viewer still needs adopted shared output contract and valid prediction outputs; current graph reachability does not complete that part."
+    },
+    {
+      "id": "REVIEW-PACKET",
+      "owner": "coordinator_ai",
+      "status": "verified_scoped",
+      "depends_on": [
+        "P02-HUMAN",
+        "P03-DRAFT",
+        "P02-METHOD",
+        "P03-METHOD"
+      ],
+      "input": "P01-P03 source/raw và draft người thật có version/hash; method artifacts giữ riêng",
+      "output": "Hai lượt source-first rồi draft comparison, checklist/decisions trống và checksum",
+      "done_when": "Không gửi prediction/score cho reviewer trước ghi independent notes; Huy xác nhận blockers kỹ thuật còn tồn và readiness từng ca",
+      "evidence": [
+        "tasks/PETCLINIC_PRE_REVIEW_PLAN_2026-10-24.md",
+        "tasks/p01-reviewer/COORDINATOR.md",
+        "tasks/petclinic-review-draft/COORDINATOR.md",
+        "tasks/petclinic-review-draft/readiness.snapshot.json",
+        "tasks/REVIEW_METHODS_PREPARATION_STATUS_2026-11-01.json",
+        "tasks/P03_ANNOTATION_STATUS_2026-11-02.json",
+        "tasks/P03_TECHNICAL_RETURN_STATUS_2026-11-03.json",
+        "tasks/P03_BREAKER_FIX_STATUS_2026-11-05.json",
+        "tasks/P03_CONTEXT_REVIEW_PREPARATION_STATUS_2026-11-05.json",
+        "tasks/research/P03_CONTEXT_REVIEW_PREPARATION_2026-11-05.md",
+        "tasks/petclinic-review-draft/readiness.2026-11-05.json",
+        "tasks/PETCLINIC_REVIEW_PACKAGE_STATUS_2026-11-05.json",
+        "tasks/research/PETCLINIC_REVIEW_PACKAGES_2026-11-05.md",
+        "tasks/petclinic-review-release/COORDINATION_2026-11-05.md"
+      ],
+      "next_action": "User may forward only R1 ZIP plus sidecar with the neutral message; retain actual reviewer notes/exposure/checkpoint before sharing R2. No new Hien/Phat task or human approval fabricated. Other permitted technical preparation can continue separately.",
+      "current_stage": "versioned_R1_R2_assembled_and_portably_verified_not_sent",
+      "verified_scope": "Package assembly/byte integrity/source-first data separation/portable verification/navigation only; no real reviewer appointment, notes, accepted labels or official scoring."
+    },
+    {
+      "id": "REVIEW-APPOINTMENT",
+      "owner": "huy",
+      "status": "awaiting_human",
+      "depends_on": [],
+      "input": "Thầy/anh cựu SV đã góp ý tổng quan; mốc review gộp hiện hành",
+      "output": "Reviewer khác annotator xác nhận phạm vi, khả năng độc lập và lịch thực tế",
+      "done_when": "Ghi danh tính/quan hệ/exposure/consent phù hợp, không suy nhận xét chung thành label acceptance",
+      "evidence": [
+        "tasks/PETCLINIC_PRE_REVIEW_PLAN_2026-10-24.md",
+        "PROJECT_CONTEXT.md",
+        "tasks/PETCLINIC_REVIEW_PACKAGE_STATUS_2026-11-05.json"
+      ],
+      "next_action": "R1 package now ready to forward manually. Confirm the actual independent reviewer and schedule when supplied; do not infer a new appointment or identity from package creation. No automated messages sent."
+    },
+    {
+      "id": "BATCH-REVIEW",
+      "owner": "external_reviewer",
+      "status": "waiting_dependency",
+      "depends_on": [
+        "REVIEW-PACKET",
+        "REVIEW-APPOINTMENT"
+      ],
+      "input": "Hai lượt packet source-first/comparison P01-P03",
+      "output": "Nhận định độc lập và quyết định per-case/per-disagreement thật",
+      "done_when": "Reviewer khác annotator; accepted/request_changes/unable có căn cứ và lưu bằng chứng; AI không ký thay",
+      "evidence": [
+        "tasks/PETCLINIC_PRE_REVIEW_PLAN_2026-10-24.md",
+        "tasks/PETCLINIC_REVIEW_PACKAGE_STATUS_2026-11-05.json"
+      ],
+      "next_action": "Receive actual R1 notes/exposure/checkpoint for the versioned R1 package, preserve bytes and stated scope; only then provide R2 for independent comparison/decision. Synthetic audit checkpoints are not reviewer evidence. Keep accepted/test/scoring decisions separate."
+    },
+    {
+      "id": "REVISIONS",
+      "owner": "huy",
+      "status": "waiting_dependency",
+      "depends_on": [
+        "BATCH-REVIEW"
+      ],
+      "input": "Phản hồi thật và evidence gốc",
+      "output": "Version sửa của thành viên đúng vai trò và quyết định nghiệm thu tiếp",
+      "done_when": "Không overwrite labels/raw; disagreement/exposure/recheck lưu; blocker không được ẩn",
+      "evidence": [
+        "tasks/PETCLINIC_PRE_REVIEW_PLAN_2026-10-24.md"
+      ],
+      "next_action": "Phân việc sửa theo lỗi code/evidence/label khi review trả, không coi một lượt review chắc chắn kết thúc"
+    },
+    {
+      "id": "CODE-RELEASE",
+      "owner": "huy",
+      "status": "in_progress",
+      "depends_on": [],
+      "input": "Huy authorized publication on 05/11; fetched main and current branch match origin",
+      "output": "Bản thay đổi được rà/test/scan rồi commit/push đúng phạm vi được duyệt",
+      "done_when": "Không chứa secrets hoặc gửi nhầm label/model artifacts; GitHub chỉ được báo cập nhật khi thực sự push có quyền",
+      "evidence": [
+        "tasks/P01_CLOSEOUT.md",
+        "tasks/project-transfer/START_HERE.md",
+        "tasks/GITHUB_PUBLICATION_2026-11-05.md"
+      ],
+      "next_action": "Publish R1 front door and reviewed development branch/PR after integrity/security/staged checks; keep R2 private and do not self-merge code"
+    },
+    {
+      "id": "P04-OPEN",
+      "owner": "huy",
+      "status": "deferred",
+      "depends_on": [
+        "REVISIONS"
+      ],
+      "input": "Mốc PetClinic đã review/xử lý và feasibility Online Boutique",
+      "output": "Quyết định mở P04/phạm vi/operator riêng",
+      "done_when": "Không suy đã hỗ trợ gRPC từ Java HTTP parser; kiểm source/build/runtime độc lập theo kế hoạch version mới",
+      "evidence": [
+        "tasks/PETCLINIC_PRE_REVIEW_PLAN_2026-10-24.md",
+        "tasks/P02_P04_EXECUTION_PLAN.md"
+      ],
+      "next_action": "Giữ hoãn, không lấy tổng số scenario pilot làm unseen test"
+    },
+    {
+      "id": "JOURNAL-CAMPAIGN",
+      "owner": "huy",
+      "status": "deferred",
+      "depends_on": [
+        "EXPERIMENT-DESIGN",
+        "P04-OPEN"
+      ],
+      "input": "Related work, hệ thống/ca đủ rộng, thiết kế/split/protocol được chốt",
+      "output": "Campaign held-out có baseline/ablation/uncertainty/cost/error và manuscript có limitations",
+      "done_when": "Có reviewer/labels và test/scoring decisions riêng trước đo chính thức; không khẳng định GraphRAG hơn baseline từ smoke hoặc ba ca development",
+      "evidence": [
+        "docs/experiments/EXPERIMENT_DESIGN.v0.1.DRAFT.md",
+        "PROJECT_CONTEXT.md",
+        "docs/manuscript/README.md"
+      ],
+      "next_action": "Methods working draft and 46 source identities are prepared with implemented/proposed/unknown separation. Campaign stays deferred: no independent accepted labels, adopted final design/holdout/model budget or official results. Venue and final scale remain open."
+    },
+    {
+      "id": "CHECKPOINT-INTAKE",
+      "owner": "coordinator_ai",
+      "status": "verified_scoped",
+      "depends_on": [],
+      "input": "Synthetic benchmark-draft-shaped objects and artifact bytes only; no Phat actual labels or evaluated-system outputs",
+      "output": "In-memory intake prototype for hashes/input/ID coverage, plus synthetic tests and limitations",
+      "done_when": "Required findings on missing/duplicate/seed/corrupt inputs; human claim is not certification and no execution receipt/gate can be auto-created",
+      "evidence": [
+        "prototypes/checkpoint-intake/README.md",
+        "prototypes/checkpoint-intake/checkpoint-intake.mjs",
+        "prototypes/checkpoint-intake/checkpoint-intake.test.mjs"
+      ],
+      "next_action": "Prototype synthetic đạt 10/10 tests; giữ tách khỏi actual labels/scorer và receipt. Khi return thật tới, chọn adapter theo format thực, kiểm evidence/human notes và quyết định checkpoint theo D20; test pass không tự mở ca."
+    },
+    {
+      "id": "P02-TECH-INSPECTOR",
+      "owner": "coordinator_ai",
+      "status": "verified_scoped",
+      "depends_on": [
+        "P02-HUMAN"
+      ],
+      "input": "Previously checked P02 receipt/run, native graph, saved Neo4j retrieval/parity/dumps and source only; no labels/notes/raw benchmark outcomes",
+      "output": "Standalone offline technical evidence inspector with original-byte downloads and source/run/code identities",
+      "done_when": "Bindings and saved paths checked; source/unknown/seed/overload/limits preserved; browser offline/relocation/mobile/download verified; no prediction, GT acceptance or shared contract adoption",
+      "evidence": [
+        "demo/p02-native/README.md",
+        "demo/p02-native/view-model.mjs",
+        "scripts/build_p02_native_inspector.mjs",
+        "scripts/check_p02_native_inspector_browser.mjs",
+        "tasks/P02_NATIVE_INSPECTOR_STATUS_2026-11-01.json",
+        "tasks/research/P02_NATIVE_INSPECTOR_2026-11-01.md",
+        "handoff-out/p02-native-inspector/20261101T094931661Z-6028104b/SHA256SUMS.txt",
+        "handoff-out/p02-native-inspector-qa/20261101T094938682Z-cafb3f09/BROWSER_QA.json",
+        "tasks/P02_REVIEWED_DERIVATIVES_STATUS_2026-11-02.json",
+        "tasks/research/P02_REVIEWED_DERIVATIVES_2026-11-02.md",
+        "demo/p02-native/REVIEWED_VIEW.md",
+        "demo/p02-native/reviewed-app.js",
+        "demo/p02-native/reviewed-app.css",
+        "scripts/build_p02_reviewed_native_inspector.mjs",
+        "scripts/check_p02_reviewed_native_inspector_browser.mjs",
+        "handoff-out/p02-native-inspector-reviewed/20261102T155422536Z-619e6cc6/SHA256SUMS.txt",
+        "handoff-out/p02-native-inspector-reviewed-qa/20261102T155439471Z-8d9678ea/BROWSER_QA.json"
+      ],
+      "next_action": "Current reviewed inspector shows 9 native Methods/8 eligible, full fresh-DB parity and raw artifacts. 11 browser checks, offline downloads/relocation and compact desktop/vertical mobile visuals verified. Old inspector/app/CSS kept unchanged. This is a saved technical viewer, not VIEWER-E2E prediction or ground-truth review; keep away from annotation/source-first reviewer."
+    },
+    {
+      "id": "REVIEW-FRAMEWORK",
+      "owner": "coordinator_ai",
+      "status": "verified_scoped",
+      "depends_on": [],
+      "input": "Protocol v0.2 and existing P01-P03 scope/runtime/checkpoint status; no new human review inferred",
+      "output": "Coordinator-only readiness snapshot, two-round instructions and blank notes/checkpoint/comparison/decision templates",
+      "done_when": "R1/R2 role boundary and immutable notes/version/hash workflow clear; human fields blank, source-first links stay in own round; no actual packet release, label changes or fake acceptance",
+      "evidence": [
+        "tasks/petclinic-review-draft/COORDINATOR.md",
+        "tasks/petclinic-review-draft/readiness.snapshot.json",
+        "tasks/petclinic-review-draft/round-1/START_HERE.md",
+        "tasks/petclinic-review-draft/round-2/START_HERE.md",
+        "tasks/REVIEW_METHODS_PREPARATION_STATUS_2026-11-01.json"
+      ],
+      "next_action": "Preparation complete only. REVIEW-PACKET remains waiting on real checkpoints/readiness and content-screened release; reviewer/lifecycle decisions remain separate."
+    },
+    {
+      "id": "METHODS-DRAFT",
+      "owner": "coordinator_ai",
+      "status": "verified_scoped",
+      "depends_on": [],
+      "input": "Pinned protocol/input/runtime/implementation audits and still-draft evaluation design",
+      "output": "English Methods working draft, Vietnamese guide, scope-qualified evidence map and 46 byte-bound local/Git sources",
+      "done_when": "Implemented versus proposed/pending claims distinguished, P01 prior exposure not retrospectively preregistered, no invented score/reviewer/published implementation or generalization; source identities/links checked",
+      "evidence": [
+        "docs/manuscript/README.md",
+        "docs/manuscript/METHODS_WORKING_DRAFT_2026-11-01.md",
+        "docs/manuscript/EVIDENCE_MAP_2026-11-01.md",
+        "docs/manuscript/sources.snapshot.json",
+        "tasks/REVIEW_METHODS_PREPARATION_STATUS_2026-11-01.json"
+      ],
+      "next_action": "Human authors review wording and revise with future versioned evidence. Not submission-ready or a completed Methods validation; keep separate from annotation/source-first review. No results chapter claims or campaign opened."
+    },
+    {
+      "id": "P02-STATIC-CONTEXT",
+      "owner": "coordinator_ai",
+      "status": "verified_scoped",
+      "depends_on": [
+        "P02-HUMAN"
+      ],
+      "input": "Checked P02 receipt/D20, pinned baseline source/patch and saved native Neo4j graph/retrieval; common three-file corpus, no label/notes/runtime outcomes",
+      "output": "Executable lexical BM25/graph/combined context preparation, mandatory-aware packing, source/selection/drop ledgers and independent pinned-source checker",
+      "done_when": "Mandatory seed source/patch retained or explicit failure; lexical does not read graph; path/edge metadata and byte hashes preserved; unit/actual-artifact/overflow/resealed-tamper checks pass; no model/scoring/shared contract adoption",
+      "evidence": [
+        "pipeline/p02/STATIC_CONTEXT.md",
+        "pipeline/p02/static-context.mjs",
+        "pipeline/p02/static-context.test.mjs",
+        "scripts/prepare_p02_static_context.mjs",
+        "scripts/check_p02_static_context.mjs",
+        "tasks/P02_STATIC_CONTEXT_STATUS_2026-11-01.json",
+        "tasks/research/P02_STATIC_CONTEXT_2026-11-01.md",
+        "handoff-out/p02-static-context/20261101T163443406Z-ec587653/SHA256SUMS.txt",
+        "tasks/P02_REVIEWED_DERIVATIVES_STATUS_2026-11-02.json",
+        "tasks/research/P02_REVIEWED_DERIVATIVES_2026-11-02.md",
+        "pipeline/p02/reviewed-native.mjs",
+        "pipeline/p02/reviewed-native.test.mjs",
+        "scripts/prepare_p02_reviewed_static_context.mjs",
+        "scripts/check_p02_reviewed_static_context.mjs",
+        "handoff-out/p02-static-context-reviewed/20261102T154557244Z-67f6d9ea/SHA256SUMS.txt"
+      ],
+      "next_action": "Reviewed 02/11 native profile now wired into new P02 contexts; 4 guard tests and independent source checker passed. Seven previews of one case retain exactly the previous context text because new inventory helpers are disconnected. Old core/pins/data preserved, no inference. P03 checkpoint is already ready; actual P03 native output, shared output/model/token policy and scoring remain separate."
+    },
+    {
+      "id": "P03-STATIC-CONTEXT",
+      "owner": "coordinator_ai",
+      "status": "verified_scoped",
+      "depends_on": [
+        "P03-METHOD"
+      ],
+      "input": "Pinned corrected P03 native baseline run/receipt, six source files and proposed patch; no annotation content used by packer",
+      "output": "Seven lexical/graph/combined context previews with source aliases, edge evidence, packing/drop/hash logs",
+      "done_when": "Scope/source/code pins checked, baseline-only input, mandatory seed/patch retained, alias binding explicit, guards tested; no inference/scoring",
+      "evidence": [
+        "tasks/P03_CONTEXT_REVIEW_PREPARATION_STATUS_2026-11-05.json",
+        "tasks/research/P03_CONTEXT_REVIEW_PREPARATION_2026-11-05.md",
+        "pipeline/p03/STATIC_CONTEXT.md"
+      ],
+      "next_action": "Context preparation verified with 14 tests/checker and overflow/tamper guards. No model/token fairness or CIA effectiveness inference; retain record/nested ID/dataflow limits and coordinator prior exposure disclosure."
+    }
+  ]
+}

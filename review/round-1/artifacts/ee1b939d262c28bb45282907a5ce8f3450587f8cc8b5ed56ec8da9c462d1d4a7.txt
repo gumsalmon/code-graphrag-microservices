@@ -1,0 +1,34 @@
+{
+  "id": "post-readback",
+  "timestamp_utc": "2026-10-24T10:47:39.620950+00:00",
+  "method": "GET",
+  "host": "visits-service",
+  "port": 8082,
+  "path": "/pets/visits?petId=7,8",
+  "request_headers": {
+    "Accept": "application/json",
+    "Accept-Encoding": "identity"
+  },
+  "request_body_file": null,
+  "status": 200,
+  "error": null,
+  "response_headers": [
+    [
+      "Content-Type",
+      "application/json"
+    ],
+    [
+      "Transfer-Encoding",
+      "chunked"
+    ],
+    [
+      "Date",
+      "Sat, 24 Oct 2026 10:47:39 GMT"
+    ]
+  ],
+  "body_file": "post-readback.body",
+  "redirects_followed": false,
+  "body_sha256": "04e53772d08066c122c00705b5e71dd5930d82a8bad29964d080119e1cc1d7ff",
+  "body_bytes": 353,
+  "elapsed_ms": 11
+}

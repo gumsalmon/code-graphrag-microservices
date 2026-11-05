@@ -1,0 +1,53 @@
+[
+  {
+    "attempt": 1,
+    "ready": false,
+    "error_type": "ServiceUnavailable"
+  },
+  {
+    "attempt": 2,
+    "ready": false,
+    "error_type": "ServiceUnavailable"
+  },
+  {
+    "attempt": 3,
+    "ready": false,
+    "error_type": "ServiceUnavailable"
+  },
+  {
+    "attempt": 4,
+    "ready": false,
+    "error_type": "ServiceUnavailable"
+  },
+  {
+    "attempt": 5,
+    "ready": false,
+    "error_type": "ServiceUnavailable"
+  },
+  {
+    "attempt": 6,
+    "ready": false,
+    "error_type": "ServiceUnavailable"
+  },
+  {
+    "attempt": 7,
+    "ready": false,
+    "error_type": "ServiceUnavailable"
+  },
+  {
+    "attempt": 8,
+    "ready": false,
+    "error_type": "ServiceUnavailable"
+  },
+  {
+    "attempt": 9,
+    "ready": false,
+    "error_type": "ServiceUnavailable"
+  },
+  {
+    "attempt": 10,
+    "ready": true,
+    "database": "neo4j",
+    "actual_query_verified": true
+  }
+]

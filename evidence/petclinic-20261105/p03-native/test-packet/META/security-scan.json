@@ -1,0 +1,18 @@
+{
+  "schema": "transfer-security-scan/1",
+  "scope": "selected_bytes_and_recursive_supported_archives",
+  "top_level_files": 70,
+  "inspected_members": 70,
+  "expanded_bytes": 454146,
+  "archives": 0,
+  "text_files": 70,
+  "failures": {},
+  "budgets": {
+    "max_depth": 6,
+    "max_member_bytes": 536870912,
+    "max_expanded_bytes": 33554432,
+    "max_entries": 100000,
+    "max_compression_ratio": 2000
+  },
+  "limitations": "Pattern checks cannot prove absence of arbitrary private data. No credential decryption, extraction or execution."
+}

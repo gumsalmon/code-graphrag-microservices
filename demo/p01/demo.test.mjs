@@ -143,7 +143,8 @@ test('read-only server serves allowlisted assets, blocks other files and mutatio
     assert.ok((await home.text()).includes('dependency-graph'));
     assert.ok(home.headers.get('content-security-policy').includes("connect-src 'none'"));
     assert.equal((await fetch(url + '/data.js', { method: 'HEAD' })).status, 200);
-    for (const path of ['/PROJECT_CONTEXT.md', '/.git/config', '/%2e%2e/%2e%2e/PROJECT_CONTEXT.md', '/%2e%2e%2fPROJECT_CONTEXT.md']) assert.equal((await fetch(url + path)).status, 404);
+    assert.equal((await fetch(url + '/comparison-core.js')).status, 200);
+    for (const path of ['/PROJECT_CONTEXT.md', '/.git/config', '/handoff-out/credentials/gemini-api-key.clixml', '/handoff-out/p01-comparison/comparison.json', '/%2e%2e/%2e%2e/PROJECT_CONTEXT.md', '/%2e%2e%2fPROJECT_CONTEXT.md']) assert.equal((await fetch(url + path)).status, 404);
     assert.equal((await fetch(url, { method: 'POST' })).status, 405);
   } finally { await new Promise(done => server.close(done)); }
 });

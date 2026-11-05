@@ -1,0 +1,44 @@
+{
+  "case": "P02",
+  "receipt_sha256": "a62b36183102023fd9d6f51228e782c5e41375493cfba5acba69bcb44cda7e58",
+  "source_commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+  "source_snapshot_files": {
+    "baseline": [
+      {
+        "file": "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java",
+        "sha256": "0bf7d4638add57363cde29b964d9fcc44ac55da9df320ff1ebfebc5c9f0786cd"
+      },
+      {
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+        "sha256": "d7d1437c4dce96d4de5f636511d3bcf5549df4a11b7826fde0375bce358f1e13"
+      },
+      {
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+        "sha256": "bb815e3727be7e56330072d54774944ef5029d66d2d7e56976d7c60dbeafbb21"
+      }
+    ],
+    "mutated": [
+      {
+        "file": "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java",
+        "sha256": "c2253806644e38b298988693b44188ecab23c7fd9b2210e809fa12e728292fd0"
+      },
+      {
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+        "sha256": "d7d1437c4dce96d4de5f636511d3bcf5549df4a11b7826fde0375bce358f1e13"
+      },
+      {
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+        "sha256": "bb815e3727be7e56330072d54774944ef5029d66d2d7e56976d7c60dbeafbb21"
+      }
+    ]
+  },
+  "implementation": {
+    "parser": "f46fdf123ab156b7d3f3a03ced679dd581e10fbbb6ca28d64140147a1d6eeeb0",
+    "importer": "93c20bd93e6dd5997043b4e4806aa5df7523426b4a82e6607b694934e5d4d7d3"
+  },
+  "reviewed_implementation_profile_sha256": "c1f8aed32565e50512f4cdea32742892b0ae2ea3db4a2177846c69fef88051a0",
+  "reference_receipt_implementation_unchanged": true,
+  "copied_source_only": true,
+  "benchmark_raw_or_labels_mounted": false,
+  "shared_draft_contract_adopted": false
+}

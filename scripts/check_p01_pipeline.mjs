@@ -70,7 +70,10 @@ export async function verifyPipeline(path) {
   const queryText = await readFile(resolve(directory, 'baseline/query-result.json'), 'utf8');
   const environmentText = await readFile(resolve(directory, 'baseline/environment.json'), 'utf8');
   const fresh = await contextFromFreshGraph({ input, patch, sources, graph: JSON.parse(graphText), query: JSON.parse(queryText), environment: JSON.parse(environmentText), graphText, queryText, environmentText }, { depth: prepared.depth, byteBudget: prepared.byte_budget });
-  const pair = await preparePair(fresh, await json('retrieval/corpus.json'), await json('retrieval/retrieval.json'), { depth: prepared.depth, byteBudget: prepared.byte_budget });
+  const savedVector = await json('vector-request.json');
+  await core.verifyRequest(savedVector);
+  const pair = await preparePair(fresh, await json('retrieval/corpus.json'), await json('retrieval/retrieval.json'),
+    { depth: prepared.depth, byteBudget: prepared.byte_budget, promptVersion: savedVector.prompt_version });
   for (const [prefix, request, payload] of [['vector', pair.vector, pair.providerPlans.vector], ['graph-vector', pair.graph, pair.providerPlans.graph]]) {
     check(core.canonical(request) === core.canonical(await json(prefix + '-request.json')), 'Request cannot be reconstructed');
     check(core.canonical(payload) === core.canonical(await json(prefix + '-provider-request.json')), 'Payload differs');

@@ -1,0 +1,56 @@
+{
+  "schema": "p03-input-lock-proposal/1",
+  "proposal_date": "2026-10-31",
+  "status": "proposed_pending_huy_confirmation_not_an_authorization",
+  "proposer": "coordinator AI after mechanical/source audit of Phat return",
+  "decision_maker": "Huy",
+  "decision_record": null,
+  "source_pin": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+  "config_pin": "323993ce2519c6d02df63e08bf4458d123d3b611",
+  "scenario": "P03/C03-A",
+  "scenario_version": "0.1.0",
+  "universe_version": "draft.v1",
+  "fixture_version": "v1",
+  "scope_version": "v1",
+  "artifacts": [
+    {"path": "spec/scenario.candidate.v0.1.0.json", "sha256": "36fc64997ed04a5fb9782231471bbd2dec5a0177c0ae0e428f2ff48457a1bed8"},
+    {"path": "spec/owner-response-rename.patch", "sha256": "87b0083ca0b1c9a01badb94f3cf8ecdf1918a24517d91e7b2690810c8080fbc0"},
+    {"path": "spec/fixture.candidate.v1.json", "sha256": "52172f64187d29461a754a7535bb5ec14f7a9ac0141e9e35e89f99848df1cc21"},
+    {"path": "spec/scope.candidate.v1.json", "sha256": "8db699e76e1d6c2d340e26f5d82080c4bea08ef574c7b500146da5cc9d3c4c53"},
+    {"path": "draft/inventory.v1.json", "sha256": "5ab81b134c0d9bed32ab4943c1b35ffc860f34d0204dbfcd825e008cb8c067a4"},
+    {"path": "draft/evaluation_universe.draft.v1.json", "sha256": "79a3def8a58e62f376d2ff594a71831163bbbf472fa54c29fbf0defd1b7d43d7"}
+  ],
+  "candidate_directory": "handoff-out/p03-preparation/20261024T190227112Z-a8e852db",
+  "candidate_manifest_sha256": "c52f085be74406e542de93db7f6d70b2fc3fe60f215ae47bd45df5b1cc5cec92",
+  "scope_confirmation": {
+    "record_owner": "Phạm Nguyên Phát",
+    "conclusion": "du_dieu_kien_de_nghi_chot",
+    "approval_record_date": "2026-10-31",
+    "review_level": "declared source comparison and raw overview; automated comparisons separate; not blinded",
+    "return_zip_sha256": "6b3528d649c792744c63d8cd891ddcc13485dc1669636964a44ca17abf241a7d",
+    "approved_notes_sha256": "e9138486ea6c754f773c6650e8217da31b3d2a0f43932f440bf010be2a1d54a8",
+    "notes": "One declared edited transfer template outside candidate/raw; original sealed coordinator packet and technical input hashes verified"
+  },
+  "proposed_actions_after_confirmation": [
+    "Record an explicit version/hash input-lock decision without editing frozen candidate flags",
+    "Implement and test paired runner/adapter offline",
+    "Build exactly the P03 Customers mutation from local pinned source/cache in isolated sandbox",
+    "Collect baseline/mutated, GET and POST/PUT controls, repetitions/reset/readback and cleanup evidence in new run-owned sandbox"
+  ],
+  "retained_constraints": [
+    "Preserve old source/raw/labels and all failures; no P01/P02 patch stacking",
+    "Use observed IDs from setup response/readback; do not assume IDs 11/12 for a new run",
+    "No predeclared mutated HTTP behavior or impact labels",
+    "No P03 annotation or evaluated parser/Neo4j/retrieval output before separate checkpoint",
+    "No model, image/package downloads, cloud/billing, official scoring, test lock or GitHub push in this proposed runtime scope"
+  ],
+  "input_locked": false,
+  "mutated_runtime_authorized": false,
+  "labels_created": false,
+  "ground_truth_accepted": false,
+  "final_test_locked": false,
+  "official_scoring_authorized": false,
+  "model_calls_authorized": 0,
+  "github_push_authorized": false,
+  "audit": "tasks/research/PHAT_RETURNS_AUDIT_2026-10-31.md"
+}

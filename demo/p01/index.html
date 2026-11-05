@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="app.css">
   <script src="data.js" defer></script>
   <script src="reasoning-core.js" defer></script>
+  <script src="comparison-core.js" defer></script>
   <script src="app.js" defer></script>
 </head>
 <body>
@@ -20,6 +21,7 @@
         <button class="nav-item active" data-page="graph"><span aria-hidden="true">◎</span> Đồ thị phụ thuộc <span class="nav-arrow">↗</span></button>
         <button class="nav-item" data-page="change"><span aria-hidden="true">±</span> Patch & contract</button>
         <button class="nav-item" data-page="reasoning"><span aria-hidden="true">◇</span> Context & LLM</button>
+        <button class="nav-item" data-page="comparison"><span aria-hidden="true">⇄</span> Vector / Graph+Vector</button>
         <button class="nav-item" data-page="runtime"><span aria-hidden="true">≋</span> Quan sát HTTP</button>
         <button class="nav-item" data-page="provenance"><span aria-hidden="true">▤</span> Nguồn & giới hạn</button>
       </nav>
@@ -49,11 +51,19 @@
           <div id="reasoning-error" class="error-banner reasoning-error" role="alert" hidden></div>
           <div id="reasoning-meta" class="reasoning-meta"></div>
           <div class="reasoning-actions"><button id="download-reasoning-request" class="button button-subtle" disabled>↓ Gói request</button><button id="download-reasoning-context" class="button button-subtle" disabled>↓ Context JSON</button><button id="import-reasoning-response" class="button button-subtle" disabled>↑ Nhập phản hồi JSON</button><input id="reasoning-response-file" type="file" accept=".json,application/json" hidden></div>
-          <div class="inline-notice">Request context giữ provider-independent để tái sử dụng. Không có API key hay nút gọi API trong trình duyệt. Source-only không phải Vector RAG. Chroma retrieval đã có ở CLI bước 4, chưa nối vào viewer này hoặc chạy cùng Gemini. Ngân sách context tính byte; token thật của lượt CLI được lưu trong hồ sơ API.</div>
+          <div class="inline-notice">Request context giữ provider-independent để tái sử dụng. Không có API key hay nút gọi API trong trình duyệt. Source-only không phải Vector RAG. Trang này giữ context v1; dùng trang Vector / Graph+Vector để nhập cặp hồ sơ retrieval v2 từ CLI. Ngân sách context tính byte; token thật được lưu trong hồ sơ API.</div>
           <details class="reasoning-preview"><summary>Xem context thực tế</summary><pre id="reasoning-context-json" class="json-body"></pre></details>
           <details class="reasoning-preview"><summary>Xem prompt và cấu trúc phản hồi</summary><pre id="reasoning-prompt-json" class="json-body"></pre></details>
         </section>
         <section class="panel artifact-panel"><div class="panel-heading"><div><h2>Phản hồi & dẫn chứng</h2><p>Kiểm tra cấu trúc không thay kiểm chứng ý nghĩa hoặc thẩm định độc lập.</p></div><button id="download-reasoning-validation" class="button button-subtle" hidden>↓ Hồ sơ kiểm tra</button></div><div id="reasoning-result" class="reasoning-result"><div class="reasoning-empty">Chưa có phản hồi. Chế độ offline không tự sinh dự đoán mẫu để thay kết quả LLM thật.</div></div></section>
+      </section>
+      <section id="page-comparison" class="page" hidden>
+        <section class="runtime-intro"><span class="tag tag-neutral">CẶP HỒ SƠ CỤC BỘ · KHÔNG CHẤM ĐIỂM</span><h2>Cùng thay đổi. Hai ngữ cảnh.</h2><p>Vector dùng các đoạn mã do Chroma truy xuất. Graph+Vector dùng cùng các đoạn mã và thêm cạnh, đường đi cùng metadata tĩnh. Không tự gọi API hoặc nạp dự đoán mẫu. Trang này tiết lộ output hệ thống: không dùng trước lượt review source-first.</p></section>
+        <section class="panel"><div class="panel-heading"><div><h2>Nhập gói đối chiếu</h2><p>Tạo comparison.json từ hai thư mục run bằng scripts/package_p01_comparison.mjs; xem README.</p></div><button id="import-comparison" class="button button-subtle">↑ Nhập comparison.json</button><input id="comparison-file" type="file" accept=".json,application/json" hidden></div>
+          <div class="inline-notice">Checksum kiểm tính toàn vẹn, không xác thực provider/model. Kết quả qua schema/quote/path chưa chứng minh đúng về hành vi. Registry kỹ thuật không phải evaluation universe đã duyệt; cùng ceiling byte không có nghĩa cùng số token. Không ghép lượt v1 với v2 hoặc bỏ qua lượt lỗi để kết luận phương pháp tốt hơn.</div>
+          <div id="comparison-status" class="reasoning-meta" role="status">Chưa nhập cặp hồ sơ. Không có kết quả so sánh chất lượng.</div>
+        </section>
+        <div id="comparison-result" class="comparison-grid"></div>
       </section>
       <section id="page-provenance" class="page" hidden><section class="panel"><div class="panel-heading"><div><h2>Nguồn dữ liệu & phạm vi kết luận</h2><p>Hai lớp bằng chứng, hai lượt chạy. Không nhãn nháp hoặc score được đưa vào bundle.</p></div><button id="download-bundle" class="button button-subtle">↓ Bundle demo</button></div><div id="provenance-body" class="provenance-body"></div></section><section class="panel artifact-panel"><div class="panel-heading"><div><h2>Artifact gốc được sử dụng</h2><p>Byte nguồn được kiểm SHA-256 trước khi đóng gói; bản tải giữ nguyên byte.</p></div></div><div id="artifact-list" class="artifact-list"></div></section></section>
       <footer class="footer"><span>Code GraphRAG / Evidence Lab</span><span>Dependency ≠ behavioral impact ≠ repair</span></footer>

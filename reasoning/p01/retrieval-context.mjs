@@ -40,6 +40,8 @@ export async function buildRetrievalRequest(sourceRequest, corpus, report, optio
   const mode = options.mode ?? 'vector_retrieved';
   const depth = options.depth ?? 2;
   const byteBudget = options.byteBudget ?? 32768;
+  const promptVersion = options.promptVersion ?? core.PROMPT_VERSION;
+  check([core.PROMPT_VERSION, core.ABSTENTION_PROMPT_VERSION].includes(promptVersion), 'Unsupported retrieval prompt version');
   check(['vector_retrieved', 'graph_vector'].includes(mode), 'Unsupported retrieval mode');
   check(Number.isInteger(depth) && depth >= 1 && depth <= 3, 'Invalid retrieval depth');
   exact(report, ['schema', 'status', 'source_commit', 'implementation_commit', 'implementation_code_sha256', 'corpus_sha256',
@@ -127,15 +129,18 @@ export async function buildRetrievalRequest(sourceRequest, corpus, report, optio
     output_scope: 'method_predictions_only', model: null, provider: null };
   request.request_sha256 = await core.hash(core.canonical(request));
   await core.verifyRequest(request);
-  return request;
+  return promptVersion === core.ABSTENTION_PROMPT_VERSION ? core.withAbstentionContract(request) : request;
 }
 
 export function pairedPlan(vectorRequest, graphRequest) {
   const vector = vectorRequest.context; const graph = graphRequest.context;
+  check(vectorRequest.schema === graphRequest.schema && vectorRequest.prompt_version === graphRequest.prompt_version &&
+    vector.mode === 'vector_retrieved' && graph.mode === 'graph_vector', 'Unpaired request version/mode');
   for (const key of ['change', 'limits', 'method_universe', 'source_registry', 'retrieval']) check(core.canonical(vector[key]) === core.canonical(graph[key]), 'Unpaired input: ' + key);
   check(core.canonical(vector.evidence) === core.canonical(graph.evidence.filter(item => ['source', 'proposed_patch'].includes(item.kind))), 'Unpaired source/patch evidence');
   check(vectorRequest.system_prompt === graphRequest.system_prompt && core.canonical(vectorRequest.output_schema) === core.canonical(graphRequest.output_schema), 'Unpaired prompt/schema');
   return { schema: 'p01-offline-experiment-plan/1', status: 'prepared_not_scored_not_locked',
+    ...(vectorRequest.schema === 'p01-reasoning-request/3' ? { prompt_version: core.ABSTENTION_PROMPT_VERSION, response_contract: 'pure_unknown_abstention/2' } : {}),
     configurations: ['vector_retrieved', 'graph_vector'], request_sha256: { vector: vectorRequest.request_sha256, graph: graphRequest.request_sha256 },
     shared_source_evidence: true, shared_query_and_top_k: true, shared_prompt_and_output_schema: true, shared_byte_ceiling: true,
     llm: { provider: 'gemini_generate_content', requested_model: 'gemini-3.8-flash', thinking_level: 'MEDIUM', max_output_tokens: 8192,

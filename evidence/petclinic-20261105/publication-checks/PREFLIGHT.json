@@ -1,0 +1,25 @@
+{
+  "schema": "github-publication-preflight/1",
+  "record_date": "2026-11-05",
+  "node_tests": {
+    "passed": 537,
+    "failed": 0,
+    "skipped": 0,
+    "scope": "offline selected top-level source tests, no model call",
+    "sandbox_DPAPI_failure_retained": true,
+    "user_profile_rerun_passed": true
+  },
+  "publication_bindings_verified": 1093,
+  "run_manifests": {
+    "p02-native": 150,
+    "p03-native": 267,
+    "p02-context": 26,
+    "p03-context": 29
+  },
+  "r1_zip_sha256": "f0e1876e34a4f56cbf012403276569802396d1ee1956da2dc4fcd584084b3b2d",
+  "round2_published": false,
+  "labels_accepted": false,
+  "new_Docker_runtime": false,
+  "model_calls": 0,
+  "git_push_not_yet_performed_at_record_creation": true
+}

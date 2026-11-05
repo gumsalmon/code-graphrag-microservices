@@ -1,0 +1,14 @@
+{
+  "record_date": "2026-11-05",
+  "snapshot": "index checkout into deeper Windows directory, not a second physical machine",
+  "exact_bound_payloads_verified": 1094,
+  "r1_zip_and_verifier_passed": true,
+  "saved_runs_restored": 477,
+  "context_and_guard_tests": {
+    "passed": 30,
+    "failed": 0,
+    "skipped": 0
+  },
+  "initial_long_path_and_missing_audit_errors_fixed": true,
+  "no_new_parser_or_Neo4j_or_model_run": true
+}

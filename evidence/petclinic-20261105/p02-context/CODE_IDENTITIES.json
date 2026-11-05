@@ -1,0 +1,6 @@
+{
+  "pipeline/p02/static-context.mjs": "763a171146a4b2ef34cad7b9d56561debdec09573a83217ca84f81db6c7e44d1",
+  "scripts/prepare_p02_reviewed_static_context.mjs": "ba10ac3a1115382ba4a7c63aeef1533b3783b3b7c7dfae637d14aee5660d700e",
+  "pipeline/p02/reviewed-native.mjs": "893bab126b928876698a45493852763fe5e09bbfe24aaf53747bcce6d1328bb7",
+  "pipeline/p02/offline-method.mjs": "c67055ccea74dedca59f0161121b4466aede87052c51615d7286a6a189d3c312"
+}

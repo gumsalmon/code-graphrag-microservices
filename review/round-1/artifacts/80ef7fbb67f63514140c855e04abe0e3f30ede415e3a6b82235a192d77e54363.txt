@@ -1,0 +1,37 @@
+{
+  "id": "setup_empty_owner",
+  "method": "POST",
+  "host": "customers-service",
+  "port": 8081,
+  "path": "/owners",
+  "timestamp_utc": "2026-10-31T05:33:15.456607+00:00",
+  "request_headers": {
+    "Accept": "application/json",
+    "Accept-Encoding": "identity",
+    "Content-Type": "application/json"
+  },
+  "request_body_file": "setup_empty_owner.request.body",
+  "status": 201,
+  "error": null,
+  "body_file": "setup_empty_owner.body",
+  "response_headers": [
+    [
+      "Content-Type",
+      "application/json"
+    ],
+    [
+      "Transfer-Encoding",
+      "chunked"
+    ],
+    [
+      "Date",
+      "Sat, 31 Oct 2026 05:33:15 GMT"
+    ]
+  ],
+  "redirects_followed": false,
+  "request_body_sha256": "f56cb19cf7f060c5f4c9011e3b559dfffc2a232904e55070fc1151a97cf0c596",
+  "request_body_bytes": 114,
+  "body_sha256": "7cdb141cb3301754eb9f3465fb20efe99f9cecc69c37d15434da870f02899f54",
+  "body_bytes": 132,
+  "elapsed_ms": 206
+}

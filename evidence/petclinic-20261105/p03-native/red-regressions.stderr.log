@@ -1,0 +1,68 @@
+test_branching_transform_is_unresolved (test_breaker_initial_7_cases.BreakerAssociationTests.test_branching_transform_is_unresolved) ... FAIL
+test_complex_fallback_has_no_invented_name (test_breaker_initial_7_cases.BreakerAssociationTests.test_complex_fallback_has_no_invented_name) ... FAIL
+test_outer_call_does_not_inherit_inner_transform_fallback (test_breaker_initial_7_cases.BreakerAssociationTests.test_outer_call_does_not_inherit_inner_transform_fallback) ... FAIL
+test_supplier_and_fallback_are_different_arguments (test_breaker_initial_7_cases.BreakerAssociationTests.test_supplier_and_fallback_are_different_arguments) ... FAIL
+test_two_transforms_keep_distinct_fallbacks (test_breaker_initial_7_cases.BreakerAssociationTests.test_two_transforms_keep_distinct_fallbacks) ... FAIL
+test_unknown_alias_flow_is_unresolved_without_protected_assertion (test_breaker_initial_7_cases.BreakerAssociationTests.test_unknown_alias_flow_is_unresolved_without_protected_assertion) ... FAIL
+test_unrelated_run_or_comment_does_not_assert_protection (test_breaker_initial_7_cases.BreakerAssociationTests.test_unrelated_run_or_comment_does_not_assert_protection) ... FAIL
+
+======================================================================
+FAIL: test_branching_transform_is_unresolved (test_breaker_initial_7_cases.BreakerAssociationTests.test_branching_transform_is_unresolved)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/before/tests/test_breaker_initial_7_cases.py", line 56, in test_branching_transform_is_unresolved
+    self.assertTrue(any('association' in u.reason for u in unresolved))
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_complex_fallback_has_no_invented_name (test_breaker_initial_7_cases.BreakerAssociationTests.test_complex_fallback_has_no_invented_name)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/before/tests/test_breaker_initial_7_cases.py", line 62, in test_complex_fallback_has_no_invented_name
+    self.assertTrue(any('association' in u.reason for u in unresolved))
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_outer_call_does_not_inherit_inner_transform_fallback (test_breaker_initial_7_cases.BreakerAssociationTests.test_outer_call_does_not_inherit_inner_transform_fallback)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/before/tests/test_breaker_initial_7_cases.py", line 25, in test_outer_call_does_not_inherit_inner_transform_fallback
+    self.assertTrue(calls['fetch'].has_circuit_breaker)
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_supplier_and_fallback_are_different_arguments (test_breaker_initial_7_cases.BreakerAssociationTests.test_supplier_and_fallback_are_different_arguments)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/before/tests/test_breaker_initial_7_cases.py", line 32, in test_supplier_and_fallback_are_different_arguments
+    self.assertTrue(calls['inside'].has_circuit_breaker)
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_two_transforms_keep_distinct_fallbacks (test_breaker_initial_7_cases.BreakerAssociationTests.test_two_transforms_keep_distinct_fallbacks)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/before/tests/test_breaker_initial_7_cases.py", line 38, in test_two_transforms_keep_distinct_fallbacks
+    self.assertEqual(calls['first'].fallback_method,'firstRecovery')
+AssertionError: None != 'firstRecovery'
+
+======================================================================
+FAIL: test_unknown_alias_flow_is_unresolved_without_protected_assertion (test_breaker_initial_7_cases.BreakerAssociationTests.test_unknown_alias_flow_is_unresolved_without_protected_assertion)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/before/tests/test_breaker_initial_7_cases.py", line 45, in test_unknown_alias_flow_is_unresolved_without_protected_assertion
+    self.assertTrue(any('association' in u.reason for u in unresolved))
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_unrelated_run_or_comment_does_not_assert_protection (test_breaker_initial_7_cases.BreakerAssociationTests.test_unrelated_run_or_comment_does_not_assert_protection)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/before/tests/test_breaker_initial_7_cases.py", line 50, in test_unrelated_run_or_comment_does_not_assert_protection
+    self.assertFalse(calls['fetch'].has_circuit_breaker)
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.011s
+
+FAILED (failures=7)

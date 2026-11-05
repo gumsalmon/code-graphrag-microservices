@@ -1,0 +1,244 @@
+[
+    {
+        "Id": "d72076e87cfadb7ef20f245df17d33eb59e40ea288eda84405bcbf495457c814",
+        "Created": "2026-11-02T14:03:24.375349421Z",
+        "Path": "tini",
+        "Args": [
+            "-g",
+            "--",
+            "/startup/docker-entrypoint.sh",
+            "neo4j"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 680,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-11-02T14:03:24.458128032Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:5a015e53de1895e7eee1574ae0325cf8c4b89587222778108c594bdd45a474b5",
+        "ResolvConfPath": "/var/lib/docker/containers/d72076e87cfadb7ef20f245df17d33eb59e40ea288eda84405bcbf495457c814/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/d72076e87cfadb7ef20f245df17d33eb59e40ea288eda84405bcbf495457c814/hostname",
+        "HostsPath": "/var/lib/docker/containers/d72076e87cfadb7ef20f245df17d33eb59e40ea288eda84405bcbf495457c814/hosts",
+        "LogPath": "/var/lib/docker/containers/d72076e87cfadb7ef20f245df17d33eb59e40ea288eda84405bcbf495457c814/d72076e87cfadb7ef20f245df17d33eb59e40ea288eda84405bcbf495457c814-json.log",
+        "Name": "/p02m-20261102t140320547z-03c452f7-baseline-db",
+        "RestartCount": 0,
+        "Driver": "overlayfs",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "p02m-20261102t140320547z-03c452f7-network",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "Tmpfs": {
+                "/data": "rw,nosuid,nodev,size=2g",
+                "/logs": "rw,nosuid,nodev,size=64m"
+            },
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": [],
+            "BlkioDeviceWriteBps": [],
+            "BlkioDeviceReadIOps": [],
+            "BlkioDeviceWriteIOps": [],
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "Storage": {
+            "RootFS": {
+                "Snapshot": {
+                    "Name": "overlayfs"
+                }
+            }
+        },
+        "Mounts": [],
+        "Config": {
+            "Hostname": "d72076e87cfa",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "7473/tcp": {},
+                "7474/tcp": {},
+                "7687/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "NEO4J_AUTH=none",
+                "NEO4J_server_memory_heap_initial__size=128m",
+                "NEO4J_server_memory_heap_max__size=512m",
+                "NEO4J_server_memory_pagecache_size=64m",
+                "PATH=/var/lib/neo4j/bin:/opt/java/openjdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "JAVA_HOME=/opt/java/openjdk",
+                "NEO4J_SHA256=ad8ac3398606145502b8f489530bbd39333707ae4668156af16b6086b5b037d7",
+                "NEO4J_TARBALL=neo4j-community-5.26.0-unix.tar.gz",
+                "NEO4J_EDITION=community",
+                "NEO4J_HOME=/var/lib/neo4j",
+                "LANG=C.UTF-8"
+            ],
+            "Cmd": [
+                "neo4j"
+            ],
+            "Image": "sha256:5a015e53de1895e7eee1574ae0325cf8c4b89587222778108c594bdd45a474b5",
+            "Volumes": {
+                "/data": {},
+                "/logs": {}
+            },
+            "WorkingDir": "/var/lib/neo4j",
+            "Entrypoint": [
+                "tini",
+                "-g",
+                "--",
+                "/startup/docker-entrypoint.sh"
+            ],
+            "Labels": {
+                "code-graphrag.p02-method": "20261102t140320547z-03c452f7"
+            }
+        },
+        "NetworkSettings": {
+            "SandboxID": "5cff7149ad680a560b2e2e50f4c1095c36db6e66e0e12b61f0ac5a96e9a7f13d",
+            "SandboxKey": "/var/run/docker/netns/5cff7149ad68",
+            "Ports": {
+                "7473/tcp": null,
+                "7474/tcp": null,
+                "7687/tcp": null
+            },
+            "Networks": {
+                "p02m-20261102t140320547z-03c452f7-network": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "database"
+                    ],
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "caeb0fbd029187f20c37e261136d15595e18d13fee2886a7fdc1bc9b751824be",
+                    "EndpointID": "e64984957b19fd446cc03069400d7d3c41641eb122e1d35a53e2d6c6d4e7be79",
+                    "Gateway": "",
+                    "IPAddress": "172.18.0.2",
+                    "MacAddress": "6e:0b:70:e5:04:5f",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "p02m-20261102t140320547z-03c452f7-baseline-db",
+                        "database",
+                        "d72076e87cfa"
+                    ]
+                }
+            }
+        },
+        "ImageManifestDescriptor": {
+            "mediaType": "application/vnd.oci.image.manifest.v1+json",
+            "digest": "sha256:d5e6396795ab2b813d5c6ac820ba36f129c412ea4ad982ffccab7b8f69e9e6a5",
+            "size": 2148,
+            "annotations": {
+                "com.docker.official-images.bashbrew.arch": "amd64",
+                "org.opencontainers.image.base.digest": "sha256:5833c509a11eed92d3193e83c455a6126d495ef7a11d15ea8840a6b2b68ea01c",
+                "org.opencontainers.image.base.name": "debian:bullseye-slim",
+                "org.opencontainers.image.created": "2025-01-14T02:33:56Z",
+                "org.opencontainers.image.revision": "f82529102b6fcdd531cd088947f374ac7467958a",
+                "org.opencontainers.image.source": "https://github.com/neo4j/docker-neo4j-publish.git#f82529102b6fcdd531cd088947f374ac7467958a:5.26.0/bullseye/community",
+                "org.opencontainers.image.url": "https://hub.docker.com/_/neo4j",
+                "org.opencontainers.image.version": "5.26.0-community-bullseye"
+            },
+            "platform": {
+                "architecture": "amd64",
+                "os": "linux"
+            }
+        }
+    }
+]

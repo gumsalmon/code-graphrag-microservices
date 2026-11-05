@@ -1,0 +1,64 @@
+{
+  "case": "P03",
+  "snapshot": "baseline",
+  "receipt_sha256": "b73e4dd44a1cbd9ffe05d148d2c0742f4ab685cb4c7a4cac7b949ed4d429ce20",
+  "source_commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+  "patch_id": null,
+  "source_files": [
+    {
+      "file": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java",
+      "class_fqn": "org.springframework.samples.petclinic.customers.web.OwnerResource",
+      "sha256": "c72a9c611a46ab96db76421646fdde93ff8b1530bfb57ff29b847ed9e7b8d2fe"
+    },
+    {
+      "file": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java",
+      "class_fqn": "org.springframework.samples.petclinic.customers.model.Owner",
+      "sha256": "a449018f09c712828d6540d2aef7d7095bf3f0d45d3034ef8e112530c606ed5a"
+    },
+    {
+      "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/CustomersServiceClient.java",
+      "class_fqn": "org.springframework.samples.petclinic.api.application.CustomersServiceClient",
+      "sha256": "e143b78217975d0a6c2d0da704e483cd931180c7bb95cc76cad3807cc852e4f5"
+    },
+    {
+      "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/dto/OwnerDetails.java",
+      "class_fqn": "org.springframework.samples.petclinic.api.dto.OwnerDetails",
+      "sha256": "99ee6937040e1c09dd969f7911e829f3435ebe0b553f5d960579b152e6a28823"
+    },
+    {
+      "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+      "class_fqn": "org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController",
+      "sha256": "bb815e3727be7e56330072d54774944ef5029d66d2d7e56976d7c60dbeafbb21"
+    },
+    {
+      "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+      "class_fqn": "org.springframework.samples.petclinic.api.application.VisitsServiceClient",
+      "sha256": "d7d1437c4dce96d4de5f636511d3bcf5549df4a11b7826fde0375bce358f1e13"
+    }
+  ],
+  "native_source_map": {
+    "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java",
+    "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java",
+    "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/CustomersServiceClient.java": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/CustomersServiceClient.java",
+    "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/dto/OwnerDetailsBuilder.java": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/dto/OwnerDetails.java",
+    "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+    "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java"
+  },
+  "seed_id": "customers-service::org.springframework.samples.petclinic.customers.web.OwnerResource#findOwner(int)",
+  "nodes": 35,
+  "endpoints": 5,
+  "edges": 3,
+  "unresolved": 2,
+  "dependencies": {
+    "tree-sitter": "0.25.2",
+    "tree-sitter-java": "0.23.5",
+    "neo4j": "5.28.1"
+  },
+  "code": {
+    "parser.py": "75e5d0fa0b2e958fb8a6604516e95dd24e65905bb6617b3820112d0270438005",
+    "neo4j_importer.py": "93c20bd93e6dd5997043b4e4806aa5df7523426b4a82e6607b694934e5d4d7d3"
+  },
+  "annotation_inputs_read": false,
+  "model_calls": 0,
+  "score_computed": false
+}

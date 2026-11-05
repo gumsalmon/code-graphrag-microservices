@@ -1,0 +1,72 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.0.1)
+
+2026-10-25T12:20:52.208Z  INFO 1 --- [discovery-server] [           main] o.s.s.p.d.DiscoveryServerApplication     : Starting DiscoveryServerApplication v4.0.1 using Java 17.0.20 with PID 1 (/p02.jar started by root in /application)
+2026-10-25T12:20:52.212Z  INFO 1 --- [discovery-server] [           main] o.s.s.p.d.DiscoveryServerApplication     : The following 1 profile is active: "docker"
+2026-10-25T12:20:52.310Z  INFO 1 --- [discovery-server] [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://config-server:8888
+2026-10-25T12:20:52.310Z  INFO 1 --- [discovery-server] [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=application, profiles=[default], label=null, version=null, state=null
+2026-10-25T12:20:52.312Z  INFO 1 --- [discovery-server] [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888/
+2026-10-25T12:20:52.312Z  INFO 1 --- [discovery-server] [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Exception on Url - http://localhost:8888/:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/discovery-server/default": Connection refused. Will be trying the next url if available
+2026-10-25T12:20:52.313Z  WARN 1 --- [discovery-server] [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Could not locate PropertySource ([ConfigServerConfigDataResource@4bafe935 uris = array<String>['http://localhost:8888/'], optional = true, profiles = 'default']): I/O error on GET request for "http://localhost:8888/discovery-server/default": Connection refused
+2026-10-25T12:20:52.313Z  INFO 1 --- [discovery-server] [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://config-server:8888
+2026-10-25T12:20:52.313Z  INFO 1 --- [discovery-server] [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=discovery-server, profiles=[docker], label=null, version=null, state=null
+2026-10-25T12:20:52.313Z  INFO 1 --- [discovery-server] [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://config-server:8888
+2026-10-25T12:20:52.313Z  INFO 1 --- [discovery-server] [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=discovery-server, profiles=[default], label=null, version=null, state=null
+2026-10-25T12:20:52.313Z  INFO 1 --- [discovery-server] [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888/
+2026-10-25T12:20:52.314Z  INFO 1 --- [discovery-server] [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Exception on Url - http://localhost:8888/:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/discovery-server/docker": Connection refused. Will be trying the next url if available
+2026-10-25T12:20:52.314Z  WARN 1 --- [discovery-server] [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Could not locate PropertySource ([ConfigServerConfigDataResource@32f0c7f8 uris = array<String>['http://localhost:8888/'], optional = true, profiles = 'docker']): I/O error on GET request for "http://localhost:8888/discovery-server/docker": Connection refused
+2026-10-25T12:20:52.314Z  INFO 1 --- [discovery-server] [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888/
+2026-10-25T12:20:52.314Z  INFO 1 --- [discovery-server] [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Exception on Url - http://localhost:8888/:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/discovery-server/default": Connection refused. Will be trying the next url if available
+2026-10-25T12:20:52.314Z  WARN 1 --- [discovery-server] [           main] o.s.c.c.c.ConfigServerConfigDataLoader   : Could not locate PropertySource ([ConfigServerConfigDataResource@504e1599 uris = array<String>['http://localhost:8888/'], optional = true, profiles = 'default']): I/O error on GET request for "http://localhost:8888/discovery-server/default": Connection refused
+2026-10-25T12:20:54.528Z  INFO 1 --- [discovery-server] [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=f97d9879-27be-3e66-8abf-e9fc3a64fae8
+2026-10-25T12:20:55.242Z  INFO 1 --- [discovery-server] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8761 (http)
+2026-10-25T12:20:55.255Z  INFO 1 --- [discovery-server] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-10-25T12:20:55.255Z  INFO 1 --- [discovery-server] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-10-25T12:20:55.408Z  INFO 1 --- [discovery-server] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 3089 ms
+2026-10-25T12:20:57.526Z  INFO 1 --- [discovery-server] [           main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
+2026-10-25T12:20:57.527Z  INFO 1 --- [discovery-server] [           main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
+2026-10-25T12:20:58.014Z  INFO 1 --- [discovery-server] [           main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
+2026-10-25T12:20:58.014Z  INFO 1 --- [discovery-server] [           main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
+2026-10-25T12:20:58.406Z  INFO 1 --- [discovery-server] [           main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2026-10-25T12:20:59.912Z  WARN 1 --- [discovery-server] [           main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-10-25T12:20:59.940Z  INFO 1 --- [discovery-server] [           main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2026-10-25T12:21:00.023Z  INFO 1 --- [discovery-server] [           main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2026-10-25T12:21:00.023Z  INFO 1 --- [discovery-server] [           main] com.netflix.discovery.DiscoveryClient    : Client configured to neither register nor query for data.
+2026-10-25T12:21:00.025Z  INFO 1 --- [discovery-server] [           main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1792930860024 with initial instances count: 0
+2026-10-25T12:21:00.127Z  INFO 1 --- [discovery-server] [           main] c.n.eureka.DefaultEurekaServerContext    : Initializing ...
+2026-10-25T12:21:00.129Z  INFO 1 --- [discovery-server] [           main] c.n.eureka.cluster.PeerEurekaNodes       : Adding new peer nodes [http://discovery-server:8761/eureka/]
+2026-10-25T12:21:00.347Z  INFO 1 --- [discovery-server] [           main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
+2026-10-25T12:21:00.347Z  INFO 1 --- [discovery-server] [           main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
+2026-10-25T12:21:00.348Z  INFO 1 --- [discovery-server] [           main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
+2026-10-25T12:21:00.348Z  INFO 1 --- [discovery-server] [           main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
+2026-10-25T12:21:00.441Z  INFO 1 --- [discovery-server] [           main] c.n.eureka.cluster.PeerEurekaNodes       : Replica node URL:  http://discovery-server:8761/eureka/
+2026-10-25T12:21:00.554Z  INFO 1 --- [discovery-server] [           main] c.n.e.registry.AbstractInstanceRegistry  : Finished initializing remote region registries. All known remote regions: []
+2026-10-25T12:21:00.554Z  INFO 1 --- [discovery-server] [           main] c.n.eureka.DefaultEurekaServerContext    : Initialized
+2026-10-25T12:21:00.560Z  INFO 1 --- [discovery-server] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoints beneath base path '/actuator'
+2026-10-25T12:21:00.631Z  INFO 1 --- [discovery-server] [           main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application DISCOVERY-SERVER with eureka with status UP
+2026-10-25T12:21:00.705Z  INFO 1 --- [discovery-server] [       Thread-8] o.s.c.n.e.server.EurekaServerBootstrap   : isAws returned false
+2026-10-25T12:21:00.708Z  INFO 1 --- [discovery-server] [       Thread-8] o.s.c.n.e.server.EurekaServerBootstrap   : Initialized server context
+2026-10-25T12:21:00.708Z  INFO 1 --- [discovery-server] [       Thread-8] c.n.e.r.PeerAwareInstanceRegistryImpl    : Got 1 instances from neighboring DS node
+2026-10-25T12:21:00.708Z  INFO 1 --- [discovery-server] [       Thread-8] c.n.e.r.PeerAwareInstanceRegistryImpl    : Renew threshold is: 1
+2026-10-25T12:21:00.708Z  INFO 1 --- [discovery-server] [       Thread-8] c.n.e.r.PeerAwareInstanceRegistryImpl    : Changing status to UP
+2026-10-25T12:21:00.712Z  INFO 1 --- [discovery-server] [       Thread-8] e.s.EurekaServerInitializerConfiguration : Started Eureka Server
+2026-10-25T12:21:00.716Z  INFO 1 --- [discovery-server] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8761 (http) with context path '/'
+2026-10-25T12:21:00.717Z  INFO 1 --- [discovery-server] [           main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8761
+2026-10-25T12:21:00.724Z  INFO 1 --- [discovery-server] [           main] o.s.s.p.d.DiscoveryServerApplication     : Started DiscoveryServerApplication in 11.809 seconds (process running for 12.984)
+2026-10-25T12:21:00.969Z  INFO 1 --- [discovery-server] [nio-8761-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-10-25T12:21:00.969Z  INFO 1 --- [discovery-server] [nio-8761-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-10-25T12:21:00.970Z  INFO 1 --- [discovery-server] [nio-8761-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-10-25T12:21:21.979Z  INFO 1 --- [discovery-server] [nio-8761-exec-3] c.n.e.registry.AbstractInstanceRegistry  : Registered instance CUSTOMERS-SERVICE/68bf8696b5ec:customers-service:8081 with status UP (replication=false)
+2026-10-25T12:21:22.799Z  INFO 1 --- [discovery-server] [nio-8761-exec-4] c.n.e.registry.AbstractInstanceRegistry  : Registered instance CUSTOMERS-SERVICE/68bf8696b5ec:customers-service:8081 with status UP (replication=true)
+2026-10-25T12:21:43.015Z  INFO 1 --- [discovery-server] [nio-8761-exec-9] c.n.e.registry.AbstractInstanceRegistry  : Registered instance VISITS-SERVICE/5f769ab80ed8:visits-service:8082 with status UP (replication=false)
+2026-10-25T12:21:43.420Z  INFO 1 --- [discovery-server] [nio-8761-exec-8] c.n.e.registry.AbstractInstanceRegistry  : Registered instance VISITS-SERVICE/5f769ab80ed8:visits-service:8082 with status UP (replication=true)
+2026-10-25T12:21:58.795Z  INFO 1 --- [discovery-server] [nio-8761-exec-6] c.n.e.registry.AbstractInstanceRegistry  : Registered instance API-GATEWAY/e93bf6237d97:api-gateway:8080 with status UP (replication=false)
+2026-10-25T12:21:59.304Z  INFO 1 --- [discovery-server] [io-8761-exec-10] c.n.e.registry.AbstractInstanceRegistry  : Registered instance API-GATEWAY/e93bf6237d97:api-gateway:8080 with status UP (replication=true)
+2026-10-25T12:22:00.709Z  INFO 1 --- [discovery-server] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms

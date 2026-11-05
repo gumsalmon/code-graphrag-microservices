@@ -1,0 +1,175 @@
+{
+  "schema": "p03-breaker-fix-status/1",
+  "record_date": "2026-11-05",
+  "case": "P03",
+  "status": "P03_T01_closed_scoped_native_milestone_verified",
+  "archive": "E:/Zalo/HIEN_P03_BREAKER_FIX_RETURN_2026-11-05.zip",
+  "archive_sha256": "5746714b5a4d65f1bb4365074abb1df1d1b599967c44a4195194c6872fe67731",
+  "archive_bytes": 352325,
+  "archive_and_external_sidecar_verified": true,
+  "intake_directory": "handoff-out/hien-p03-breaker-return/20261105T082719Z-86eac2cb",
+  "manifest_listed_files": 163,
+  "canonical_input_packet_files_byte_equal": 73,
+  "receipt_sha256": "b73e4dd44a1cbd9ffe05d148d2c0742f4ab685cb4c7a4cac7b949ed4d429ce20",
+  "static_audit": "handoff-out/hien-p03-breaker-return/20261105T082719Z-86eac2cb/STATIC_AUDIT.json",
+  "report": "tasks/research/HIEN_P03_BREAKER_FIX_2026-11-05.md",
+  "parser_sha256_before": "f46fdf123ab156b7d3f3a03ced679dd581e10fbbb6ca28d64140147a1d6eeeb0",
+  "parser_sha256_after": "75e5d0fa0b2e958fb8a6604516e95dd24e65905bb6617b3820112d0270438005",
+  "importer_unchanged": true,
+  "input_decisions_receipt_preserved": true,
+  "finding": {
+    "id": "P03-T01",
+    "status": "closed_verified_scoped",
+    "changed_fields_one_edge_each_snapshot": [
+      "has_circuit_breaker",
+      "fallback_method",
+      "assumptions"
+    ],
+    "customers_false_null_protected_removed": true,
+    "visits_breaker_association_preserved": true,
+    "coverage": "Bounded typed-run/identity-transform syntax patterns; no general reactive/Java dataflow certification"
+  },
+  "independent_replay": {
+    "directory": "handoff-out/p03-breaker-offline/20261105t083103189z-c2daafaf",
+    "manifest_sha256": "baf4cccca80ca14586cc13141feabb6bd24bdde72a13cd3a9905e87f25c5b636",
+    "manifest_listed_files": 267,
+    "checker": "handoff-out/hien-p03-breaker-return/20261105T082719Z-86eac2cb/independent-audit/INDEPENDENT_REPLAY_AUDIT.json",
+    "old_parser_regression_failures_expected": 7,
+    "unit_tests_passed": 39,
+    "tests_failed_on_final": 0,
+    "tests_skipped": 0,
+    "fresh_neo4j_instances": 2,
+    "full_property_parity_and_idempotence": true,
+    "source_path_retrieval_verified": true,
+    "private_internal_networks": 1,
+    "host_ports_published": false,
+    "project_volumes_mounted": false,
+    "cleanup_complete": true,
+    "groups": [
+      {
+        "snapshot": "baseline",
+        "native_methods": 35,
+        "top_level_methods": 27,
+        "represented_top_level": 26,
+        "unsupported_explicit": [
+          "OwnerDetails.getPetIds()"
+        ],
+        "native_nested_extras": 9,
+        "endpoints": 5,
+        "dependency_edges": 3,
+        "unresolved": 2,
+        "db_nodes": 48,
+        "db_relationships": 49,
+        "full_property_parity": true,
+        "source_path_retrieval_verified": true,
+        "sender_semantic_graph_and_db_comparison": true,
+        "retrieval": [
+          {
+            "depth": 1,
+            "candidate_methods": 1,
+            "not_behavioral_labels": true
+          },
+          {
+            "depth": 2,
+            "candidate_methods": 2,
+            "not_behavioral_labels": true
+          },
+          {
+            "depth": 3,
+            "candidate_methods": 2,
+            "not_behavioral_labels": true
+          }
+        ],
+        "dependencies": {
+          "tree-sitter": "0.25.2",
+          "tree-sitter-java": "0.23.5",
+          "neo4j": "5.28.1"
+        }
+      },
+      {
+        "snapshot": "mutated",
+        "native_methods": 35,
+        "top_level_methods": 27,
+        "represented_top_level": 26,
+        "unsupported_explicit": [
+          "OwnerDetails.getPetIds()"
+        ],
+        "native_nested_extras": 9,
+        "endpoints": 5,
+        "dependency_edges": 3,
+        "unresolved": 2,
+        "db_nodes": 48,
+        "db_relationships": 49,
+        "full_property_parity": true,
+        "source_path_retrieval_verified": true,
+        "sender_semantic_graph_and_db_comparison": true,
+        "retrieval": [
+          {
+            "depth": 1,
+            "candidate_methods": 1,
+            "not_behavioral_labels": true
+          },
+          {
+            "depth": 2,
+            "candidate_methods": 2,
+            "not_behavioral_labels": true
+          },
+          {
+            "depth": 3,
+            "candidate_methods": 2,
+            "not_behavioral_labels": true
+          }
+        ],
+        "dependencies": {
+          "tree-sitter": "0.25.2",
+          "tree-sitter-java": "0.23.5",
+          "neo4j": "5.28.1"
+        }
+      }
+    ]
+  },
+  "p02_compatibility": {
+    "result": "handoff-out/hien-p03-breaker-return/20261105T082719Z-86eac2cb/independent-audit/p02-compatibility-v2/RESULT.json",
+    "baseline_mutated_graphs_unchanged": true,
+    "scope": "source-only extraction compatibility; not new P02 DB run or replacement of historical implementation/context profiles",
+    "coordinator_first_cleanup_case_sensitive_check_failure_preserved": true
+  },
+  "declared_limits": [
+    "26/27 top-level explicit including seed; 25/26 eligible after seed",
+    "OwnerDetails.getPetIds record method missing",
+    "nine builder extras outside census",
+    "nested IDs lack enclosing record identity",
+    "native snapshot identity sidecar/DB-only",
+    "serialization/dataflow and producer-consumer field binding unsupported",
+    "false breaker flag can mean not established, not proof of absence"
+  ],
+  "hien_human_final_diff_review_confirmed": false,
+  "ack_message": "tasks/hien-next/ACK_P03_BREAKER_FIX_2026-11-05.md",
+  "ack_message_sent": false,
+  "raw_command_scan_classification": "handoff-out/hien-p03-breaker-return/20261105T082719Z-86eac2cb/COMMANDS_SECURITY_CLASSIFICATION.json",
+  "raw_command_scanner_false_positive_verified_environment_references": true,
+  "publication_authorized": false,
+  "labels_or_old_evidence_modified": false,
+  "ground_truth_accepted": false,
+  "final_test_locked": false,
+  "model_calls": 0,
+  "embedding_inference": false,
+  "official_scoring": false,
+  "shared_draft_contract_adopted": false,
+  "git_stage_commit_push": false,
+  "next_action": "Coordinator prepares P03 baseline source/context integration and actual source/raw allowlist for two-round PetClinic review. No new Hien parser task from this return; human code provenance may be supplemented without blocking allowed technical work. Phat checkpoints remain valid; no relabeling from outputs.",
+  "intake_seal": {
+    "manifest_sha256": "d552203e272e668918ac67e926a94e88b5103ea773ce1a49aacea35bb0f34221",
+    "listed_files_verified": 254
+  },
+  "final_checks": {
+    "protected_prior_files_unchanged": 50,
+    "prior_authoring_unchanged": 12,
+    "sealed_manifest_entries_verified": 3108,
+    "workboard_tasks": 28,
+    "workboard_check_passed": true,
+    "git_index_empty": true,
+    "working_tree_clean": false,
+    "git_head": "d1f95eb21c71dd6bfb49d2e450142d1290ceda5f"
+  }
+}
