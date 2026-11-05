@@ -1,0 +1,18 @@
+{
+  "case": "P03",
+  "status": "breaker_fix_technical_replay_completed_with_declared_unsupported",
+  "receipt_sha256": "b73e4dd44a1cbd9ffe05d148d2c0742f4ab685cb4c7a4cac7b949ed4d429ce20",
+  "snapshots_completed": [
+    "baseline",
+    "mutated"
+  ],
+  "unit_tests_passed": 39,
+  "unit_tests_skipped": 0,
+  "old_parser_regressions_failed_as_expected": 7,
+  "model_calls": 0,
+  "embedding_inference": false,
+  "scoring_performed": false,
+  "labels_read": false,
+  "shared_contract_adopted": false,
+  "received_execution_scope": "Reviewed src/tests only; received extraction/DB tools not executed; coordinator probe/DB core used"
+}

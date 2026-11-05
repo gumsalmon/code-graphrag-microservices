@@ -1,0 +1,83 @@
+{
+  "files": [
+    {
+      "path": "tasks/hien-next/P03_TECHNICAL_RECEIPT_2026-11-02.json",
+      "sha256": "b73e4dd44a1cbd9ffe05d148d2c0742f4ab685cb4c7a4cac7b949ed4d429ce20"
+    },
+    {
+      "path": "benchmark/decisions/PETCLINIC_DRAFT_INTEGRATION_2026-10-31.json",
+      "sha256": "bced4426f7e9ce6c7f26c31668faaf36d3ed770acd60a6a93147d7aebc06671f"
+    },
+    {
+      "path": "benchmark/p03/decisions/INPUT_LOCK_2026-10-31.json",
+      "sha256": "dd59272a190ce17f0aff9fee9d1008bd3969945a57152d60a68579e6bc72830c"
+    },
+    {
+      "path": "handoff-out/p03-breaker-offline/20261105t083103189z-c2daafaf/SHA256SUMS.txt",
+      "sha256": "baf4cccca80ca14586cc13141feabb6bd24bdde72a13cd3a9905e87f25c5b636"
+    },
+    {
+      "path": "handoff-out/p03-breaker-offline/20261105t083103189z-c2daafaf/input/INPUT.json",
+      "sha256": "1dee8fd995d971c59e1bb6ed351e25730328d62a03a6e7322490aa2f3f282520"
+    },
+    {
+      "path": "handoff-out/p03-breaker-offline/20261105t083103189z-c2daafaf/input/baseline/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java",
+      "sha256": "c72a9c611a46ab96db76421646fdde93ff8b1530bfb57ff29b847ed9e7b8d2fe"
+    },
+    {
+      "path": "handoff-out/p03-breaker-offline/20261105t083103189z-c2daafaf/input/baseline/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java",
+      "sha256": "a449018f09c712828d6540d2aef7d7095bf3f0d45d3034ef8e112530c606ed5a"
+    },
+    {
+      "path": "handoff-out/p03-breaker-offline/20261105t083103189z-c2daafaf/input/baseline/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/CustomersServiceClient.java",
+      "sha256": "e143b78217975d0a6c2d0da704e483cd931180c7bb95cc76cad3807cc852e4f5"
+    },
+    {
+      "path": "handoff-out/p03-breaker-offline/20261105t083103189z-c2daafaf/input/baseline/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/dto/OwnerDetails.java",
+      "sha256": "99ee6937040e1c09dd969f7911e829f3435ebe0b553f5d960579b152e6a28823"
+    },
+    {
+      "path": "handoff-out/p03-breaker-offline/20261105t083103189z-c2daafaf/input/baseline/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+      "sha256": "bb815e3727be7e56330072d54774944ef5029d66d2d7e56976d7c60dbeafbb21"
+    },
+    {
+      "path": "handoff-out/p03-breaker-offline/20261105t083103189z-c2daafaf/input/baseline/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+      "sha256": "d7d1437c4dce96d4de5f636511d3bcf5549df4a11b7826fde0375bce358f1e13"
+    },
+    {
+      "path": "handoff-out/p03-breaker-offline/20261105t083103189z-c2daafaf/input/proposed.patch",
+      "sha256": "87b0083ca0b1c9a01badb94f3cf8ecdf1918a24517d91e7b2690810c8080fbc0"
+    },
+    {
+      "path": "pipeline/p03/static-context.mjs",
+      "sha256": "9b739ceee69f2a00745719ae0fcca2d37decd4823f58af840a46e89f1189dbc9"
+    },
+    {
+      "path": "scripts/prepare_p03_static_context.mjs",
+      "sha256": "50b87353aff547cb465c9f79537f463a8c556e30efc7509f21ac1316d849cce6"
+    },
+    {
+      "path": "pipeline/p03/native-context.mjs",
+      "sha256": "096bdf33ab01743deab22ff3954fab7312e15d463378ce2dd7cfefa5301cae8c"
+    },
+    {
+      "path": "handoff-out/hien-p03-breaker-return/20261105T082719Z-86eac2cb/received/packet/candidate/input/app/LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "handoff-out/p03-breaker-offline/20261105t083103189z-c2daafaf/artifacts/baseline/extraction.json",
+      "sha256": "7614cd15c5acb7ba50759786317c5606926fe46bece4868d8d430c029c00851b"
+    },
+    {
+      "path": "handoff-out/p03-breaker-offline/20261105t083103189z-c2daafaf/artifacts/baseline/graph.native.json",
+      "sha256": "951c59d368417d7989d4e252eb273db9d0a41f8a16992c83939de81c2eac5476"
+    },
+    {
+      "path": "handoff-out/p03-breaker-offline/20261105t083103189z-c2daafaf/database/baseline/direct.retrieval.json",
+      "sha256": "2271b7614a868e13b36d51997a04fe5177ebd8cec9c48ccfa965faa749ce0495"
+    }
+  ],
+  "integrity_scope": "Selected baseline files/metadata/patch and pinned manifest identity, not a new full native graph audit",
+  "mutated_source_or_runtime_or_label_content_read": false,
+  "graph_loaded_after_lexical_preparation": true
+}

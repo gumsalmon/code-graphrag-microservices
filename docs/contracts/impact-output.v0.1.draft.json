@@ -1,0 +1,111 @@
+{
+  "document_kind": "design_manifest_not_json_schema_or_production_validator",
+  "contract_id": "microservice-impact-output/0.1.0-draft.1",
+  "status": "draft_for_team_discussion",
+  "applied": false,
+  "official_scoring_authorized": false,
+  "adoption_approvals": {"hien": null, "phat": null, "coordinator": null},
+  "proposed_payload": {
+    "fields": ["summary", "assessments", "uncertainties"],
+    "levels": ["method", "api", "service"],
+    "assessment_fields": ["level", "entity_id", "dependency_status", "dependency_path", "logical_hops", "service_boundary_crossings", "behavioral_impact", "requires_code_change", "repair_strategy_id", "assumptions", "rationale", "citations"],
+    "dependency_status": ["reachable", "not_established", "unknown"],
+    "behavioral_impact": ["likely", "unlikely", "unknown"],
+    "requires_code_change": ["required", "optional", "not_established", "unknown"],
+    "repair_strategy_policy": "Required/optional must reference an explicit request-registered repair strategy. Unknown has null strategy. No default repair obligation is inferred from behavior.",
+    "sparse_assessments_allowed": true,
+    "not_returned_is_negative": false,
+    "unknown_is_negative": false,
+    "numeric_confidence_required": false
+  },
+  "proposed_citation_policy": {
+    "summary_min": 1,
+    "max_per_record": 30,
+    "quote_min_non_whitespace_length": 8,
+    "quote_max_length": 2400,
+    "exact_supplied_quote_required": true,
+    "unknown_citations_still_validated": true,
+    "semantic_correctness_established_by_quote_match": false,
+    "pure_abstention": {
+      "dependency_status": "unknown",
+      "dependency_path": [],
+      "logical_hops": null,
+      "service_boundary_crossings": null,
+      "behavioral_impact": "unknown",
+      "requires_code_change": "unknown",
+      "repair_strategy_id": null,
+      "citations_may_be_empty": true,
+      "rationale_required": true
+    }
+  },
+  "proposed_identity_policy": {
+    "canonical_snapshot": "declared_baseline",
+    "key": ["level", "canonical_id"],
+    "match_order": ["exact_canonical", "evidence_bound_declared_alias", "verified_unchanged_entity_snapshot_substitution"],
+    "fuzzy_matching": false,
+    "query_values_in_api_id": false,
+    "handler_id_is_unique_api_id": false,
+    "seed_method_api_and_owning_service_excluded": true,
+    "raw_ids_retained": true,
+    "grpc_api_id_status": "requires_separate_definition_before_use"
+  },
+  "proposed_path_policy": {
+    "witness_node_level": "method",
+    "direction": "caller_to_callee_to_seed",
+    "logical_edges": ["CALLS", "INVOKES_API"],
+    "max_logical_hops": 3,
+    "containment_adds_hops": false,
+    "api_handler_binding_adds_hops": false,
+    "method_anchor": "target_method",
+    "api_anchor": "registered_handler_method",
+    "service_anchor": "witness_method_owned_by_target_service",
+    "service_witness_is_global_minimum_hop": false,
+    "boundary_crossings_reported_separately": true,
+    "reachable_implies_behavioral_impact": false,
+    "unestablished_path": [],
+    "unestablished_counts": null
+  },
+  "proposed_projection_policy": {
+    "id": "direct_assessments_only-draft.1",
+    "status": "proposal_not_adopted",
+    "automatic_method_to_api": false,
+    "automatic_method_to_service": false,
+    "automatic_api_to_service": false,
+    "future_projection_requires": ["separate_version_and_hash", "evidence_bound_registry", "common_rule_for_all_methods", "direct_projected_tracks_separate", "seed_exclusion", "no_double_credit"]
+  },
+  "proposed_run_envelope": {
+    "writer": "trusted_runner_not_model",
+    "execution_states": ["not_run", "completed", "failed"],
+    "validation_states": ["not_checked", "valid", "partial", "invalid"],
+    "required_bindings_for_real_runs": ["scenario_version", "source_revision", "config_revision", "patch_sha256", "fixture_sha256", "scope_sha256", "universe_sha256", "aliases_sha256", "request_sha256", "context_sha256", "evidence_registry_sha256", "method_config_sha256", "implementation_identity"],
+    "missing_usage": null,
+    "unparsed_or_absent_payload": null,
+    "failed_run_is_successful_empty_prediction": false,
+    "raw_attempts_immutable": true,
+    "validation_is_human_review": false,
+    "credentials_allowed": false
+  },
+  "proposed_score_boundary": {
+    "status": "proposal_not_implemented_or_approved",
+    "current_scorer_accepts_candidate_payload": false,
+    "behavior_to_boolean_candidate": {"likely": true, "unlikely": false, "unknown": null},
+    "preserve_abstention_omission_invalid_oos_failure_ledger": true,
+    "abstained_gold_positive_excluded_from_recall_denominator": false,
+    "seed_excluded_from_tp_fp_fn": true,
+    "invalid_and_out_of_scope_positive_policy": "Retain and count FP at declared level under protocol after applicable gates; no silent discard.",
+    "unjudged_policy": "Block official score; independent adjudication and versioning required.",
+    "conflicting_duplicates_policy": "Retain conflict; normalized export blocked for the conflicted ID pending agreed policy.",
+    "official_score_requires": ["accepted_independent_labels", "complete_reviewed_universe", "valid_review_checksums", "separate_split_test_scoring_approval"],
+    "levels_are_scored_separately": true
+  },
+  "open_decisions": [
+    {"id": "D01", "topic": "Payload vocabulary, sparse output and level support declaration", "status": "open"},
+    {"id": "D02", "topic": "Canonical API identity, alias review and handler/service registry", "status": "open"},
+    {"id": "D03", "topic": "Method witness paths for API/Service and validation scope", "status": "open"},
+    {"id": "D04", "topic": "Repair strategy binding independent of behavioral impact", "status": "open"},
+    {"id": "D05", "topic": "Direct-only proposal versus a separately versioned projection track", "status": "open"},
+    {"id": "D06", "topic": "Unknown/citation rules, not_returned and coverage reporting", "status": "open"},
+    {"id": "D07", "topic": "Boolean score adapter, partial/invalid/failure policy and conflicting duplicates", "status": "open"},
+    {"id": "D08", "topic": "Migration, implementation tests and separate authorization before adoption", "status": "open"}
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "schema": "petclinic-coordinator-checkpoint-review/1",
+  "case": "P02",
+  "review_date": "2026-11-01",
+  "reviewer_role": "AI coordinator technical intake under Huy D20; not independent ground-truth reviewer",
+  "decision": "ready_for_offline_integration_with_recorded_provenance_exception",
+  "authority": "benchmark/decisions/PETCLINIC_DRAFT_INTEGRATION_2026-10-31.json",
+  "authority_sha256": "bced4426f7e9ce6c7f26c31668faaf36d3ed770acd60a6a93147d7aebc06671f",
+  "case_inputs": {
+    "source_commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+    "config_commit": "323993ce2519c6d02df63e08bf4458d123d3b611",
+    "scenario_version": "0.1.1",
+    "scenario_sha256": "762d993901f1388584adf066f396acd2ad46a7550f1f6b0b12dd6a8c61663ce9",
+    "universe_version": "draft.v2",
+    "universe_sha256": "d79c07727d6fb5348503f0e4079a0d18c63e26e6d34a1e332825f1cc7680aeb5",
+    "fixture_version": "v1",
+    "fixture_sha256": "2a319f48c2d31894718228539c3743396e3d3e5ad04579985f6d2588bb324191",
+    "patch_sha256": "091b04de4a504512cbda4e0c5c0759b747b056b4c7028923d8b7808b43303c4f",
+    "candidate_manifest_sha256": "0358bf86bee591254483e50018f8d601932a8821a323176eaa10a80b86229539"
+  },
+  "input_decision_sha256": "680fadfe22bc27f54b6471ea8d760482d3b0b5ad2b0fe92daf920600fc7335cc",
+  "label_version": "draft.v4",
+  "label_sha256": "c22e97a5a3a6994cb0c7961c5a42ed098301b106d36ab57536a486077c456f08",
+  "checkpoint_sha256": "de951041b200074f43171b2b5c9211b9b8a492fce6baf711d414402996f7a024",
+  "intake_audit": "handoff-out/team-returns-20261101/20261101T054957Z-a801d6ca/P02_INDEPENDENT_AUDIT.json",
+  "intake_audit_sha256": "720f865917788db4ccc1d55f357cde749f25fd8ca20e65ad5918390b9fa5c29d",
+  "human_confirmation": "Grouped self-report of source/raw reading received in Phat return; prior helper decisions preserved. Not physically authenticated or blinded.",
+  "limitations": [
+    "Draft labels remain pending_review, repair/confidence and some hop/boundary unresolved",
+    "No production setter or fallback callback trace claimed",
+    "One four-byte typo in copied blank historical template; exact exception recorded; canonical original retained, no input/source/raw/label differences"
+  ],
+  "provenance_exception": [
+    {
+      "path": "provenance/prior_helper_return/templates/HUMAN_CHECK_SUPPLEMENT_TEMPLATE.md",
+      "canonical_sha256": "72bd9feb4b771895a0531789c5ef950314284d1d7deb739478550dec447a25c0",
+      "received_sha256": "ac79587207eab0af4937283aeaddba750aba8acfd04f5baf590627f7f20e0bd6",
+      "difference": "Four UTF-8 bytes removed from an unfilled R01 placeholder; not source/raw/labels or a human decision",
+      "historical_checksum_matches_received_copy": false,
+      "canonical_original_retained": true,
+      "received_bytes_modified_by_coordinator": false
+    }
+  ],
+  "ground_truth_accepted": false,
+  "review_decision": null,
+  "official_scoring_authorized": false,
+  "final_test_locked": false
+}

@@ -1,0 +1,10 @@
+{
+  "status": "prepared_no_inference",
+  "error": null,
+  "preview_configurations": 7,
+  "model_calls": 0,
+  "embedding_inference": false,
+  "impact_assessments_created": false,
+  "official_scoring": false,
+  "shared_contract_adopted": false
+}

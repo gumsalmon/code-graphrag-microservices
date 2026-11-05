@@ -1,0 +1,29 @@
+[
+  {
+    "program": "git",
+    "args": [
+      "apply",
+      "--no-index",
+      "--check",
+      "--whitespace=error-all",
+      "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p03-preparation\\20261024T190227112Z-a8e852db\\spec\\owner-response-rename.patch"
+    ],
+    "cwd": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p03-preparation\\20261024T190227112Z-a8e852db\\mutated\\app",
+    "exit_code": 0,
+    "stdout": "",
+    "timestamp": "2026-10-24T19:02:27.248Z"
+  },
+  {
+    "program": "git",
+    "args": [
+      "apply",
+      "--no-index",
+      "--whitespace=error-all",
+      "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p03-preparation\\20261024T190227112Z-a8e852db\\spec\\owner-response-rename.patch"
+    ],
+    "cwd": "E:\\NCKH\\code-graphrag-microservices\\handoff-out\\p03-preparation\\20261024T190227112Z-a8e852db\\mutated\\app",
+    "exit_code": 0,
+    "stdout": "",
+    "timestamp": "2026-10-24T19:02:27.326Z"
+  }
+]

@@ -1,0 +1,56 @@
+node:internal/fs/promises:1345
+  return new FileHandle(await PromisePrototypeThen(
+                        ^
+
+Error: ENOENT: no such file or directory, open 'E:\NCKH\code-graphrag-microservices\handoff-out\github-publication-20261105\clean-checkout\handoff-out\hien-p02-return\20261102T135352Z-54131bc0\independent-reviewed-run-check.stdout.log'
+    at async open (node:internal/fs/promises:1345:25)
+    at async readFile (node:internal/fs/promises:2003:14)
+    at async file:///E:/NCKH/code-graphrag-microservices/handoff-out/github-publication-20261105/clean-checkout/pipeline/p02/reviewed-native.test.mjs:8:25 {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'E:\\NCKH\\code-graphrag-microservices\\handoff-out\\github-publication-20261105\\clean-checkout\\handoff-out\\hien-p02-return\\20261102T135352Z-54131bc0\\independent-reviewed-run-check.stdout.log'
+}
+
+Node.js v24.22.1
+✖ pipeline\p02\reviewed-native.test.mjs (110.828ms)
+✔ BM25 handles camelCase/Unicode, omits zero matches and breaks ties by stable file identity (4.5102ms)
+✔ lexical route never touches a supplied graph and uses the entire common source corpus (4.1794ms)
+✔ graph depth uses saved native witnesses, preserves boundary counts and never returns seed as a candidate (1.5418ms)
+✔ graph context retains the edge assumptions and evidence, rather than presenting resolution as an unconditional fact (0.6295ms)
+✔ mandatory seed/patch overflow produces a failure record instead of silently dropping either (0.4925ms)
+✔ packing accounts for all serialized preview metadata and omits paths with dropped witness source (0.998ms)
+✔ source and patch changes without matching identities are refused (0.8646ms)
+✔ mutated graph, wrong seed and invented native edge cannot enter baseline context (0.7097ms)
+✔ retrieved source is checked by byte span/hash and unresolved metadata remains visible only with selected source (0.5741ms)
+✔ source Unicode/CRLF round trips as data, while token counts and provider requests remain explicitly unmeasured (0.6577ms)
+✔ repeat preparation is deterministic and does not mutate source, patch or native artifacts (2.4504ms)
+✔ unexpected label fields, duplicate source paths and invalid depth fail closed (1.4552ms)
+✔ BM25 handles camelCase/Unicode, omits zero matches and breaks ties by stable file identity (4.9761ms)
+✔ lexical route never touches a supplied graph and uses the entire common source corpus (3.9461ms)
+✔ graph depth uses saved native witnesses, preserves boundary counts and never returns seed as a candidate (1.659ms)
+✔ graph context retains the edge assumptions and evidence, rather than presenting resolution as an unconditional fact (0.9817ms)
+✔ mandatory seed/patch overflow produces a failure record instead of silently dropping either (0.7775ms)
+✔ packing accounts for all serialized preview metadata and omits paths with dropped witness source (0.8246ms)
+✔ source and patch changes without matching identities are refused (0.8366ms)
+✔ mutated graph, wrong seed and invented native edge cannot enter baseline context (0.7168ms)
+✔ retrieved source is checked by byte span/hash and unresolved metadata remains visible only with selected source (0.642ms)
+✔ source Unicode/CRLF round trips as data, while token counts and provider requests remain explicitly unmeasured (0.9467ms)
+✔ repeat preparation is deterministic and does not mutate source, patch or native artifacts (4.5069ms)
+✔ unexpected label fields, duplicate source paths and invalid depth fail closed (0.7152ms)
+✔ nested-class filename aliases bind to actual source without changing native IDs (0.8771ms)
+✔ P02 case identity is refused by the distinct P03 component (0.2703ms)
+ℹ tests 27
+ℹ suites 0
+ℹ pass 26
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 173.4466
+
+✖ failing tests:
+
+test at pipeline\p02\reviewed-native.test.mjs:1:1
+✖ pipeline\p02\reviewed-native.test.mjs (110.828ms)
+  'test failed'

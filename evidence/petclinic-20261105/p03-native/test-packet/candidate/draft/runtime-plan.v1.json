@@ -1,0 +1,532 @@
+{
+  "schema": "p03-runtime-plan-candidate/1",
+  "status": "not_executed_not_authorized",
+  "groups": [
+    {
+      "group_id": "baseline-r1",
+      "snapshot": "baseline",
+      "repetition": 1,
+      "fresh_database": true,
+      "setup": {
+        "method": "POST",
+        "target": "customers",
+        "path": "/owners",
+        "run_owned_disposable_database_only": true,
+        "body": {
+          "firstName": "P03Empty",
+          "lastName": "Control",
+          "address": "1 Fixture Lane",
+          "city": "Sandbox",
+          "telephone": "0000000000"
+        },
+        "resolved_id": null,
+        "binding": "empty_owner_id",
+        "expected_id_must_not_be_assumed": true,
+        "setup_post_and_direct_readback_must_prove_empty_pets": true,
+        "runtime_authorized": false
+      },
+      "requests": [
+        {
+          "id": "direct_populated",
+          "target": "customers",
+          "method": "GET",
+          "path": "/owners/6",
+          "role": "Primary changed boundary"
+        },
+        {
+          "id": "gateway_populated",
+          "target": "gateway",
+          "method": "GET",
+          "path": "/api/gateway/owners/6",
+          "role": "Unchanged real consumer; status and full body observed, no expected outcome"
+        },
+        {
+          "id": "direct_no_visits",
+          "target": "customers",
+          "method": "GET",
+          "path": "/owners/1",
+          "role": "Has a pet but no visits; not an empty-pet fixture"
+        },
+        {
+          "id": "gateway_no_visits",
+          "target": "gateway",
+          "method": "GET",
+          "path": "/api/gateway/owners/1",
+          "role": "Same unchanged consumer with a pet without visits"
+        },
+        {
+          "id": "direct_empty_pets",
+          "target": "customers",
+          "method": "GET",
+          "path": "/owners/{empty_owner_id}",
+          "role": "Empty-pet owner created separately during setup"
+        },
+        {
+          "id": "gateway_empty_pets",
+          "target": "gateway",
+          "method": "GET",
+          "path": "/api/gateway/owners/{empty_owner_id}",
+          "role": "Observe decoder/null behavior even with empty collection"
+        },
+        {
+          "id": "owner_list_control",
+          "target": "customers",
+          "method": "GET",
+          "path": "/owners",
+          "role": "Shared Owner representation control, every owner and field retained"
+        },
+        {
+          "id": "missing_direct",
+          "target": "customers",
+          "method": "GET",
+          "path": "/owners/2147483647",
+          "role": "Optional.empty diagnostic; status/body not predetermined"
+        },
+        {
+          "id": "missing_gateway",
+          "target": "gateway",
+          "method": "GET",
+          "path": "/api/gateway/owners/2147483647",
+          "role": "Missing-owner consumer diagnostic, no predetermined status"
+        },
+        {
+          "id": "visits_control",
+          "target": "visits",
+          "method": "GET",
+          "path": "/pets/visits?petId=7,8",
+          "role": "Unchanged Visits provider control"
+        },
+        {
+          "id": "create_control",
+          "target": "customers",
+          "method": "POST",
+          "path": "/owners",
+          "role": "Unchanged POST boundary, after primary GET slots",
+          "body": {
+            "firstName": "P03Write",
+            "lastName": "Control",
+            "address": "2 Fixture Lane",
+            "city": "Sandbox",
+            "telephone": "0000000001"
+          },
+          "binds": "write_owner_id",
+          "readback_required": true
+        },
+        {
+          "id": "update_control",
+          "target": "customers",
+          "method": "PUT",
+          "path": "/owners/{write_owner_id}",
+          "role": "Unchanged PUT boundary on newly created owner, after POST",
+          "body": {
+            "firstName": "P03Updated",
+            "lastName": "Control",
+            "address": "2 Fixture Lane",
+            "city": "Sandbox",
+            "telephone": "0000000001"
+          },
+          "readback_required": true
+        }
+      ]
+    },
+    {
+      "group_id": "baseline-r2",
+      "snapshot": "baseline",
+      "repetition": 2,
+      "fresh_database": true,
+      "setup": {
+        "method": "POST",
+        "target": "customers",
+        "path": "/owners",
+        "run_owned_disposable_database_only": true,
+        "body": {
+          "firstName": "P03Empty",
+          "lastName": "Control",
+          "address": "1 Fixture Lane",
+          "city": "Sandbox",
+          "telephone": "0000000000"
+        },
+        "resolved_id": null,
+        "binding": "empty_owner_id",
+        "expected_id_must_not_be_assumed": true,
+        "setup_post_and_direct_readback_must_prove_empty_pets": true,
+        "runtime_authorized": false
+      },
+      "requests": [
+        {
+          "id": "direct_populated",
+          "target": "customers",
+          "method": "GET",
+          "path": "/owners/6",
+          "role": "Primary changed boundary"
+        },
+        {
+          "id": "gateway_populated",
+          "target": "gateway",
+          "method": "GET",
+          "path": "/api/gateway/owners/6",
+          "role": "Unchanged real consumer; status and full body observed, no expected outcome"
+        },
+        {
+          "id": "direct_no_visits",
+          "target": "customers",
+          "method": "GET",
+          "path": "/owners/1",
+          "role": "Has a pet but no visits; not an empty-pet fixture"
+        },
+        {
+          "id": "gateway_no_visits",
+          "target": "gateway",
+          "method": "GET",
+          "path": "/api/gateway/owners/1",
+          "role": "Same unchanged consumer with a pet without visits"
+        },
+        {
+          "id": "direct_empty_pets",
+          "target": "customers",
+          "method": "GET",
+          "path": "/owners/{empty_owner_id}",
+          "role": "Empty-pet owner created separately during setup"
+        },
+        {
+          "id": "gateway_empty_pets",
+          "target": "gateway",
+          "method": "GET",
+          "path": "/api/gateway/owners/{empty_owner_id}",
+          "role": "Observe decoder/null behavior even with empty collection"
+        },
+        {
+          "id": "owner_list_control",
+          "target": "customers",
+          "method": "GET",
+          "path": "/owners",
+          "role": "Shared Owner representation control, every owner and field retained"
+        },
+        {
+          "id": "missing_direct",
+          "target": "customers",
+          "method": "GET",
+          "path": "/owners/2147483647",
+          "role": "Optional.empty diagnostic; status/body not predetermined"
+        },
+        {
+          "id": "missing_gateway",
+          "target": "gateway",
+          "method": "GET",
+          "path": "/api/gateway/owners/2147483647",
+          "role": "Missing-owner consumer diagnostic, no predetermined status"
+        },
+        {
+          "id": "visits_control",
+          "target": "visits",
+          "method": "GET",
+          "path": "/pets/visits?petId=7,8",
+          "role": "Unchanged Visits provider control"
+        },
+        {
+          "id": "create_control",
+          "target": "customers",
+          "method": "POST",
+          "path": "/owners",
+          "role": "Unchanged POST boundary, after primary GET slots",
+          "body": {
+            "firstName": "P03Write",
+            "lastName": "Control",
+            "address": "2 Fixture Lane",
+            "city": "Sandbox",
+            "telephone": "0000000001"
+          },
+          "binds": "write_owner_id",
+          "readback_required": true
+        },
+        {
+          "id": "update_control",
+          "target": "customers",
+          "method": "PUT",
+          "path": "/owners/{write_owner_id}",
+          "role": "Unchanged PUT boundary on newly created owner, after POST",
+          "body": {
+            "firstName": "P03Updated",
+            "lastName": "Control",
+            "address": "2 Fixture Lane",
+            "city": "Sandbox",
+            "telephone": "0000000001"
+          },
+          "readback_required": true
+        }
+      ]
+    },
+    {
+      "group_id": "mutated-r1",
+      "snapshot": "mutated",
+      "repetition": 1,
+      "fresh_database": true,
+      "setup": {
+        "method": "POST",
+        "target": "customers",
+        "path": "/owners",
+        "run_owned_disposable_database_only": true,
+        "body": {
+          "firstName": "P03Empty",
+          "lastName": "Control",
+          "address": "1 Fixture Lane",
+          "city": "Sandbox",
+          "telephone": "0000000000"
+        },
+        "resolved_id": null,
+        "binding": "empty_owner_id",
+        "expected_id_must_not_be_assumed": true,
+        "setup_post_and_direct_readback_must_prove_empty_pets": true,
+        "runtime_authorized": false
+      },
+      "requests": [
+        {
+          "id": "direct_populated",
+          "target": "customers",
+          "method": "GET",
+          "path": "/owners/6",
+          "role": "Primary changed boundary"
+        },
+        {
+          "id": "gateway_populated",
+          "target": "gateway",
+          "method": "GET",
+          "path": "/api/gateway/owners/6",
+          "role": "Unchanged real consumer; status and full body observed, no expected outcome"
+        },
+        {
+          "id": "direct_no_visits",
+          "target": "customers",
+          "method": "GET",
+          "path": "/owners/1",
+          "role": "Has a pet but no visits; not an empty-pet fixture"
+        },
+        {
+          "id": "gateway_no_visits",
+          "target": "gateway",
+          "method": "GET",
+          "path": "/api/gateway/owners/1",
+          "role": "Same unchanged consumer with a pet without visits"
+        },
+        {
+          "id": "direct_empty_pets",
+          "target": "customers",
+          "method": "GET",
+          "path": "/owners/{empty_owner_id}",
+          "role": "Empty-pet owner created separately during setup"
+        },
+        {
+          "id": "gateway_empty_pets",
+          "target": "gateway",
+          "method": "GET",
+          "path": "/api/gateway/owners/{empty_owner_id}",
+          "role": "Observe decoder/null behavior even with empty collection"
+        },
+        {
+          "id": "owner_list_control",
+          "target": "customers",
+          "method": "GET",
+          "path": "/owners",
+          "role": "Shared Owner representation control, every owner and field retained"
+        },
+        {
+          "id": "missing_direct",
+          "target": "customers",
+          "method": "GET",
+          "path": "/owners/2147483647",
+          "role": "Optional.empty diagnostic; status/body not predetermined"
+        },
+        {
+          "id": "missing_gateway",
+          "target": "gateway",
+          "method": "GET",
+          "path": "/api/gateway/owners/2147483647",
+          "role": "Missing-owner consumer diagnostic, no predetermined status"
+        },
+        {
+          "id": "visits_control",
+          "target": "visits",
+          "method": "GET",
+          "path": "/pets/visits?petId=7,8",
+          "role": "Unchanged Visits provider control"
+        },
+        {
+          "id": "create_control",
+          "target": "customers",
+          "method": "POST",
+          "path": "/owners",
+          "role": "Unchanged POST boundary, after primary GET slots",
+          "body": {
+            "firstName": "P03Write",
+            "lastName": "Control",
+            "address": "2 Fixture Lane",
+            "city": "Sandbox",
+            "telephone": "0000000001"
+          },
+          "binds": "write_owner_id",
+          "readback_required": true
+        },
+        {
+          "id": "update_control",
+          "target": "customers",
+          "method": "PUT",
+          "path": "/owners/{write_owner_id}",
+          "role": "Unchanged PUT boundary on newly created owner, after POST",
+          "body": {
+            "firstName": "P03Updated",
+            "lastName": "Control",
+            "address": "2 Fixture Lane",
+            "city": "Sandbox",
+            "telephone": "0000000001"
+          },
+          "readback_required": true
+        }
+      ]
+    },
+    {
+      "group_id": "mutated-r2",
+      "snapshot": "mutated",
+      "repetition": 2,
+      "fresh_database": true,
+      "setup": {
+        "method": "POST",
+        "target": "customers",
+        "path": "/owners",
+        "run_owned_disposable_database_only": true,
+        "body": {
+          "firstName": "P03Empty",
+          "lastName": "Control",
+          "address": "1 Fixture Lane",
+          "city": "Sandbox",
+          "telephone": "0000000000"
+        },
+        "resolved_id": null,
+        "binding": "empty_owner_id",
+        "expected_id_must_not_be_assumed": true,
+        "setup_post_and_direct_readback_must_prove_empty_pets": true,
+        "runtime_authorized": false
+      },
+      "requests": [
+        {
+          "id": "direct_populated",
+          "target": "customers",
+          "method": "GET",
+          "path": "/owners/6",
+          "role": "Primary changed boundary"
+        },
+        {
+          "id": "gateway_populated",
+          "target": "gateway",
+          "method": "GET",
+          "path": "/api/gateway/owners/6",
+          "role": "Unchanged real consumer; status and full body observed, no expected outcome"
+        },
+        {
+          "id": "direct_no_visits",
+          "target": "customers",
+          "method": "GET",
+          "path": "/owners/1",
+          "role": "Has a pet but no visits; not an empty-pet fixture"
+        },
+        {
+          "id": "gateway_no_visits",
+          "target": "gateway",
+          "method": "GET",
+          "path": "/api/gateway/owners/1",
+          "role": "Same unchanged consumer with a pet without visits"
+        },
+        {
+          "id": "direct_empty_pets",
+          "target": "customers",
+          "method": "GET",
+          "path": "/owners/{empty_owner_id}",
+          "role": "Empty-pet owner created separately during setup"
+        },
+        {
+          "id": "gateway_empty_pets",
+          "target": "gateway",
+          "method": "GET",
+          "path": "/api/gateway/owners/{empty_owner_id}",
+          "role": "Observe decoder/null behavior even with empty collection"
+        },
+        {
+          "id": "owner_list_control",
+          "target": "customers",
+          "method": "GET",
+          "path": "/owners",
+          "role": "Shared Owner representation control, every owner and field retained"
+        },
+        {
+          "id": "missing_direct",
+          "target": "customers",
+          "method": "GET",
+          "path": "/owners/2147483647",
+          "role": "Optional.empty diagnostic; status/body not predetermined"
+        },
+        {
+          "id": "missing_gateway",
+          "target": "gateway",
+          "method": "GET",
+          "path": "/api/gateway/owners/2147483647",
+          "role": "Missing-owner consumer diagnostic, no predetermined status"
+        },
+        {
+          "id": "visits_control",
+          "target": "visits",
+          "method": "GET",
+          "path": "/pets/visits?petId=7,8",
+          "role": "Unchanged Visits provider control"
+        },
+        {
+          "id": "create_control",
+          "target": "customers",
+          "method": "POST",
+          "path": "/owners",
+          "role": "Unchanged POST boundary, after primary GET slots",
+          "body": {
+            "firstName": "P03Write",
+            "lastName": "Control",
+            "address": "2 Fixture Lane",
+            "city": "Sandbox",
+            "telephone": "0000000001"
+          },
+          "binds": "write_owner_id",
+          "readback_required": true
+        },
+        {
+          "id": "update_control",
+          "target": "customers",
+          "method": "PUT",
+          "path": "/owners/{write_owner_id}",
+          "role": "Unchanged PUT boundary on newly created owner, after POST",
+          "body": {
+            "firstName": "P03Updated",
+            "lastName": "Control",
+            "address": "2 Fixture Lane",
+            "city": "Sandbox",
+            "telephone": "0000000001"
+          },
+          "readback_required": true
+        }
+      ]
+    }
+  ],
+  "planned_counts": {
+    "groups": 4,
+    "fixture_request_slots": 48,
+    "get_slots": 40,
+    "post_slots": 4,
+    "put_slots": 4,
+    "extra_setup_post": 4,
+    "required_write_control_readbacks": 8,
+    "readiness_config_registry_seed_checks": "Additional, not counted as fixture slots; retain every attempt"
+  },
+  "prerequisites": [
+    "Huy selects exact candidate and receives independent scope confirmation",
+    "Baseline feasibility with exact fixture and no hidden repair",
+    "Separate input lock and explicit sandbox runtime/write authorization",
+    "Runner/checker offline tests and immutable build/config provenance"
+  ],
+  "actual_remote_calls": 0,
+  "runtime_authorized": false
+}

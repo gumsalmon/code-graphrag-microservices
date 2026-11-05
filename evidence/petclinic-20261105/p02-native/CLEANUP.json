@@ -1,0 +1,33 @@
+{
+  "complete": true,
+  "resources": [
+    {
+      "name": "p02m-20261102t140320547z-03c452f7-baseline-db",
+      "removed": true
+    },
+    {
+      "name": "p02m-20261102t140320547z-03c452f7-mutated-db",
+      "removed": true
+    },
+    {
+      "name": "p02m-20261102t140320547z-03c452f7-graph-mutated",
+      "already_absent": true
+    },
+    {
+      "name": "p02m-20261102t140320547z-03c452f7-graph-baseline",
+      "already_absent": true
+    },
+    {
+      "name": "p02m-20261102t140320547z-03c452f7-network",
+      "removed": true
+    },
+    {
+      "name": "p02m-20261102t140320547z-03c452f7-extract-mutated",
+      "already_absent": true
+    },
+    {
+      "name": "p02m-20261102t140320547z-03c452f7-extract-baseline",
+      "already_absent": true
+    }
+  ]
+}

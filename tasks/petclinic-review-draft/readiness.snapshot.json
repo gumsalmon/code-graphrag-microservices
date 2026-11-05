@@ -1,0 +1,162 @@
+{
+  "schema": "petclinic-review-preparation-snapshot/1",
+  "created_utc": "2026-11-01T13:43:14.817040+00:00",
+  "record_date": "2026-11-01",
+  "scope": "Coordinator-only planning; not an executable release gate, reviewer decision or scored dataset",
+  "status": "framework_prepared_not_released",
+  "official_packet_created": false,
+  "official_packet_sent": false,
+  "reviewer_identity": null,
+  "reviewer_appointment": null,
+  "huy_release_decision": null,
+  "round_1": {
+    "templates": [
+      "round-1/START_HERE.md",
+      "round-1/NOTES_TEMPLATE.md",
+      "round-1/CHECKPOINT_TEMPLATE.md"
+    ],
+    "actual_dataset_copied": false,
+    "file_by_file_allowlist_complete": false,
+    "raw_content_exposure_screening_complete": false,
+    "independent_notes_received": false,
+    "checkpoint": null
+  },
+  "round_2": {
+    "templates": [
+      "round-2/START_HERE.md",
+      "round-2/COMPARISON_TEMPLATE.md",
+      "round-2/DECISION_TEMPLATE.md"
+    ],
+    "actual_labels_copied": false,
+    "decision": null,
+    "evaluation_outputs_included": false
+  },
+  "source_commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+  "config_commit": "323993ce2519c6d02df63e08bf4458d123d3b611",
+  "cases": [
+    {
+      "id": "P01",
+      "development": true,
+      "benchmark_snapshot": "5f9204d66253604edf9101c2f888fc7e75aa0be7",
+      "label_file_version": "v3",
+      "label_sha256": "3cc4784c9827f2ac8a034cfe44bbdb838b21ebb7f8a7f9ac49864c70162e2bce",
+      "label_status": "pending_review",
+      "review_decision": null,
+      "input_identity_basis": "Historical pinned scenario/raw/source, no new lock created here",
+      "runtime_evidence_previously_checked": true,
+      "method_status": "Scoped pilot verification; revised Graph+Vector model attempt still failed, no completed new pair",
+      "blockers": [
+        "Independent label acceptance not received",
+        "Model-pair/provider failure and local code release must remain declared"
+      ],
+      "artifact_content_reaudit_this_turn": false
+    },
+    {
+      "id": "P02",
+      "development": true,
+      "scenario_version": "0.1.1",
+      "universe_version": "draft.v2",
+      "fixture_version": "v1",
+      "input_bindings": {
+        "source_commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+        "config_commit": "323993ce2519c6d02df63e08bf4458d123d3b611",
+        "scenario_version": "0.1.1",
+        "scenario_sha256": "762d993901f1388584adf066f396acd2ad46a7550f1f6b0b12dd6a8c61663ce9",
+        "universe_version": "draft.v2",
+        "universe_sha256": "d79c07727d6fb5348503f0e4079a0d18c63e26e6d34a1e332825f1cc7680aeb5",
+        "fixture_version": "v1",
+        "fixture_sha256": "2a319f48c2d31894718228539c3743396e3d3e5ad04579985f6d2588bb324191",
+        "patch_sha256": "091b04de4a504512cbda4e0c5c0759b747b056b4c7028923d8b7808b43303c4f",
+        "candidate_manifest_sha256": "0358bf86bee591254483e50018f8d601932a8821a323176eaa10a80b86229539"
+      },
+      "eligible_counts": {
+        "method": 8,
+        "api": 3,
+        "service": 1
+      },
+      "label_version": "draft.v4",
+      "label_sha256": "c22e97a5a3a6994cb0c7961c5a42ed098301b106d36ab57536a486077c456f08",
+      "draft_checkpoint_sha256": "de951041b200074f43171b2b5c9211b9b8a492fce6baf711d414402996f7a024",
+      "label_status": "pending_review",
+      "technical_receipt_checked": true,
+      "review_decision": null,
+      "runtime_evidence_previously_checked": true,
+      "method_status": "Source-only extraction/Neo4j/retrieval checked within limitations",
+      "blockers": [
+        "Hien Class.name parity fix return",
+        "Hien general explicit-method inventory return",
+        "Independent scope/evidence/label acceptance"
+      ],
+      "provenance_exception": "A copied blank historical template differs by four bytes; original retained, primary source/raw/labels preserved",
+      "artifact_content_reaudit_this_turn": false
+    },
+    {
+      "id": "P03",
+      "development": true,
+      "scenario_version": "0.1.0",
+      "universe_version": "draft.v1",
+      "fixture_version": "v1",
+      "input_locked": true,
+      "candidate_manifest_sha256": "c52f085be74406e542de93db7f6d70b2fc3fe60f215ae47bd45df5b1cc5cec92",
+      "input_artifacts": [
+        {
+          "path": "spec/scenario.candidate.v0.1.0.json",
+          "sha256": "36fc64997ed04a5fb9782231471bbd2dec5a0177c0ae0e428f2ff48457a1bed8"
+        },
+        {
+          "path": "spec/owner-response-rename.patch",
+          "sha256": "87b0083ca0b1c9a01badb94f3cf8ecdf1918a24517d91e7b2690810c8080fbc0"
+        },
+        {
+          "path": "spec/fixture.candidate.v1.json",
+          "sha256": "52172f64187d29461a754a7535bb5ec14f7a9ac0141e9e35e89f99848df1cc21"
+        },
+        {
+          "path": "spec/scope.candidate.v1.json",
+          "sha256": "8db699e76e1d6c2d340e26f5d82080c4bea08ef574c7b500146da5cc9d3c4c53"
+        },
+        {
+          "path": "draft/inventory.v1.json",
+          "sha256": "5ab81b134c0d9bed32ab4943c1b35ffc860f34d0204dbfcd825e008cb8c067a4"
+        },
+        {
+          "path": "draft/evaluation_universe.draft.v1.json",
+          "sha256": "79a3def8a58e62f376d2ff594a71831163bbbf472fa54c29fbf0defd1b7d43d7"
+        }
+      ],
+      "eligible_counts": {
+        "method": 26,
+        "api": 4,
+        "service": 1
+      },
+      "label_version": null,
+      "label_sha256": null,
+      "draft_checkpoint_sha256": null,
+      "label_status": "checkpoint_not_received",
+      "review_decision": null,
+      "technical_receipt_checked": false,
+      "runtime_evidence_previously_checked": true,
+      "method_status": "No actual P03 extraction/graph/retrieval; syntax survey only",
+      "blockers": [
+        "Phat draft/notes/exposure/version/hash checkpoint",
+        "Per-case receipt after independent coordinator intake",
+        "Offline actual method integration and limits",
+        "Independent label acceptance"
+      ],
+      "artifact_content_reaudit_this_turn": false
+    }
+  ],
+  "release_scope_notes": [
+    "Input/raw materials can be prepared before final draft labels arrive; current Huy milestone remains readiness before batch release",
+    "Technical predictor failures do not automatically invalidate label evidence or require LLM approval before label review",
+    "No current or historical technical outputs/scores, Methods draft or inspector included in R1/R2 by default",
+    "Existing P01 full-repository R2 must be content-screened before reuse; old packages remain unchanged"
+  ],
+  "ground_truth_accepted": false,
+  "final_test_locked": false,
+  "official_scoring_authorized": false,
+  "model_calls": 0,
+  "new_runtime_authorized_by_this_file": false,
+  "shared_draft_contract_adopted": false,
+  "github_push_authorized": false
+}

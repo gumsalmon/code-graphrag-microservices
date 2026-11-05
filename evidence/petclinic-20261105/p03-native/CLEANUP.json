@@ -1,0 +1,41 @@
+{
+  "complete": true,
+  "resources": [
+    {
+      "name": "p03n-20261105t083103189z-c2daafaf-baseline-db",
+      "removed": true
+    },
+    {
+      "name": "p03n-20261105t083103189z-c2daafaf-mutated-db",
+      "removed": true
+    },
+    {
+      "name": "p03n-20261105t083103189z-c2daafaf-graph-mutated",
+      "already_absent": true
+    },
+    {
+      "name": "p03n-20261105t083103189z-c2daafaf-graph-baseline",
+      "already_absent": true
+    },
+    {
+      "name": "p03n-20261105t083103189z-c2daafaf-network",
+      "removed": true
+    },
+    {
+      "name": "p03n-20261105t083103189z-c2daafaf-extract-mutated",
+      "already_absent": true
+    },
+    {
+      "name": "p03n-20261105t083103189z-c2daafaf-extract-baseline",
+      "already_absent": true
+    },
+    {
+      "name": "p03n-20261105t083103189z-c2daafaf-units",
+      "already_absent": true
+    },
+    {
+      "name": "p03n-20261105t083103189z-c2daafaf-red-regressions",
+      "already_absent": true
+    }
+  ]
+}

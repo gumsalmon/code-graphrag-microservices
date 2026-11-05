@@ -1,0 +1,84 @@
+{
+  "schema": "p03-scenario-candidate/1",
+  "scenario_id": "P03",
+  "scenario_version": "0.1.0",
+  "candidate_id": "C03-A",
+  "scenario_kind": "synthetic_mutation",
+  "repository": "https://github.com/spring-petclinic/spring-petclinic-microservices",
+  "baseline_commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+  "config_commit": "323993ce2519c6d02df63e08bf4458d123d3b611",
+  "split_intent": "development",
+  "duplicate_group_id": "petclinic:customers-owner-get:response-field-rename:gateway-owner-details:spring-java",
+  "leakage_group": "petclinic-owner-details-development-family",
+  "related_scenarios": [
+    "P01",
+    "P02"
+  ],
+  "cross_scenario_dependence": "Same repository, owner-details gateway and fixture family. Keep P01/P02/P03 in development; these are not three independent systems or unseen tests.",
+  "preparer_exposure": {
+    "coordinator_has_prior_p01_p02_context": true,
+    "blinded_preparation_claimed": false,
+    "inputs_for_this_preparation": "Allowlisted pinned Git source/config and protocol only; no evaluated-system outputs or labels read as preparation inputs",
+    "independent_annotator_exposure": "Not asserted; the human must declare actual exposure at their own checkpoint"
+  },
+  "selection_status": "candidate_prepared_for_huy_and_independent_scope_confirmation",
+  "selected_by": null,
+  "selected_at": null,
+  "mutation": {
+    "file": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java",
+    "operator": "boundary_map_response_pets_to_animals",
+    "old_method": "    public Optional<Owner> findOwner(@PathVariable(\"ownerId\") @Min(1) int ownerId) {\n        return ownerRepository.findById(ownerId);\n    }",
+    "new_method": "    public Optional<Map<String, Object>> findOwner(@PathVariable(\"ownerId\") @Min(1) int ownerId) {\n        return ownerRepository.findById(ownerId).map(owner -> {\n            Map<String, Object> response = new LinkedHashMap<>();\n            response.put(\"id\", owner.getId());\n            response.put(\"firstName\", owner.getFirstName());\n            response.put(\"lastName\", owner.getLastName());\n            response.put(\"address\", owner.getAddress());\n            response.put(\"city\", owner.getCity());\n            response.put(\"telephone\", owner.getTelephone());\n            response.put(\"animals\", owner.getPets());\n            return response;\n        });\n    }",
+    "changed_files": [
+      "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java"
+    ],
+    "shared_owner_entity_changed": false,
+    "database_schema_changed": false,
+    "consumer_changed": false,
+    "config_changed": false,
+    "semantic_limit": "Explicit seven-field map is a proposed boundary representation. Runtime must verify all non-key fields, nested serialization, Optional.empty and endpoint controls; source isolation alone does not prove JSON equivalence."
+  },
+  "build_constraints": {
+    "parent_snapshot": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+    "mutation_stacked_on_p01_or_p02": false,
+    "rebuild_target": "customers-service",
+    "baseline_services_kept_byte_identical": [
+      "config-server",
+      "discovery-server",
+      "visits-service",
+      "api-gateway"
+    ],
+    "reject_p02_mutated_visits_artifact": true,
+    "isolated_source_build_directory": true,
+    "offline_dependencies_and_pinned_local_images_only": true,
+    "java_application_tests_not_yet_run": true
+  },
+  "protocol": {
+    "version": "0.2",
+    "path": "protocol/benchmark_protocol_v0.2.md",
+    "sha256": "92258d2a19599f202c39ab5067191248c17631565391ffab9f96d9cc0608d6cb",
+    "status": "preparation_and_pilot_review_framework_not_official_test_or_scoring_approval"
+  },
+  "bindings": {
+    "patch_sha256": "87b0083ca0b1c9a01badb94f3cf8ecdf1918a24517d91e7b2690810c8080fbc0",
+    "fixture_sha256": "52172f64187d29461a754a7535bb5ec14f7a9ac0141e9e35e89f99848df1cc21",
+    "scope_sha256": "8db699e76e1d6c2d340e26f5d82080c4bea08ef574c7b500146da5cc9d3c4c53",
+    "inventory_sha256": "5ab81b134c0d9bed32ab4943c1b35ffc860f34d0204dbfcd825e008cb8c067a4",
+    "universe_sha256": "79a3def8a58e62f376d2ff594a71831163bbbf472fa54c29fbf0defd1b7d43d7"
+  },
+  "implementation_output_contract": "existing draft remains unadopted",
+  "labels_status": "not_created",
+  "reviewer": null,
+  "candidate_selected_by_huy": false,
+  "independently_confirmed": false,
+  "input_locked": false,
+  "application_build_performed": false,
+  "runtime_executed": false,
+  "labels_created": false,
+  "draft_annotation_authorized": false,
+  "evaluated_system_outputs_read": false,
+  "final_test_locked": false,
+  "official_scoring_authorized": false,
+  "model_calls_authorized": false,
+  "github_push_authorized": false
+}

@@ -1,0 +1,264 @@
+{
+  "schema": "p03-fixture-candidate/1",
+  "fixture_version": "1",
+  "status": "candidate_not_executed",
+  "sql_files": {
+    "customers_data": "spring-petclinic-customers-service/src/main/resources/db/hsqldb/data.sql",
+    "customers_schema": "spring-petclinic-customers-service/src/main/resources/db/hsqldb/schema.sql",
+    "visits_data": "spring-petclinic-visits-service/src/main/resources/db/hsqldb/data.sql",
+    "visits_schema": "spring-petclinic-visits-service/src/main/resources/db/hsqldb/schema.sql"
+  },
+  "primary": {
+    "owner_id": 6,
+    "pet_ids": [
+      7,
+      8
+    ]
+  },
+  "no_visits_control": {
+    "owner_id": 1,
+    "pet_ids": [
+      1
+    ],
+    "is_owner_without_pets": false
+  },
+  "seed_owner_ids": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "seed_pets": [
+    {
+      "id": 1,
+      "owner_id": 1
+    },
+    {
+      "id": 2,
+      "owner_id": 2
+    },
+    {
+      "id": 3,
+      "owner_id": 3
+    },
+    {
+      "id": 4,
+      "owner_id": 3
+    },
+    {
+      "id": 5,
+      "owner_id": 4
+    },
+    {
+      "id": 6,
+      "owner_id": 5
+    },
+    {
+      "id": 7,
+      "owner_id": 6
+    },
+    {
+      "id": 8,
+      "owner_id": 6
+    },
+    {
+      "id": 9,
+      "owner_id": 7
+    },
+    {
+      "id": 10,
+      "owner_id": 8
+    },
+    {
+      "id": 11,
+      "owner_id": 9
+    },
+    {
+      "id": 12,
+      "owner_id": 10
+    },
+    {
+      "id": 13,
+      "owner_id": 10
+    }
+  ],
+  "seed_visits": [
+    {
+      "id": 1,
+      "pet_id": 7,
+      "date": "2013-01-01",
+      "description": "rabies shot"
+    },
+    {
+      "id": 2,
+      "pet_id": 8,
+      "date": "2013-01-02",
+      "description": "rabies shot"
+    },
+    {
+      "id": 3,
+      "pet_id": 8,
+      "date": "2013-01-03",
+      "description": "neutered"
+    },
+    {
+      "id": 4,
+      "pet_id": 7,
+      "date": "2013-01-04",
+      "description": "spayed"
+    }
+  ],
+  "empty_pets_setup": {
+    "method": "POST",
+    "target": "customers",
+    "path": "/owners",
+    "run_owned_disposable_database_only": true,
+    "body": {
+      "firstName": "P03Empty",
+      "lastName": "Control",
+      "address": "1 Fixture Lane",
+      "city": "Sandbox",
+      "telephone": "0000000000"
+    },
+    "resolved_id": null,
+    "binding": "empty_owner_id",
+    "expected_id_must_not_be_assumed": true,
+    "setup_post_and_direct_readback_must_prove_empty_pets": true,
+    "runtime_authorized": false
+  },
+  "requests": [
+    {
+      "id": "direct_populated",
+      "target": "customers",
+      "method": "GET",
+      "path": "/owners/6",
+      "role": "Primary changed boundary"
+    },
+    {
+      "id": "gateway_populated",
+      "target": "gateway",
+      "method": "GET",
+      "path": "/api/gateway/owners/6",
+      "role": "Unchanged real consumer; status and full body observed, no expected outcome"
+    },
+    {
+      "id": "direct_no_visits",
+      "target": "customers",
+      "method": "GET",
+      "path": "/owners/1",
+      "role": "Has a pet but no visits; not an empty-pet fixture"
+    },
+    {
+      "id": "gateway_no_visits",
+      "target": "gateway",
+      "method": "GET",
+      "path": "/api/gateway/owners/1",
+      "role": "Same unchanged consumer with a pet without visits"
+    },
+    {
+      "id": "direct_empty_pets",
+      "target": "customers",
+      "method": "GET",
+      "path": "/owners/{empty_owner_id}",
+      "role": "Empty-pet owner created separately during setup"
+    },
+    {
+      "id": "gateway_empty_pets",
+      "target": "gateway",
+      "method": "GET",
+      "path": "/api/gateway/owners/{empty_owner_id}",
+      "role": "Observe decoder/null behavior even with empty collection"
+    },
+    {
+      "id": "owner_list_control",
+      "target": "customers",
+      "method": "GET",
+      "path": "/owners",
+      "role": "Shared Owner representation control, every owner and field retained"
+    },
+    {
+      "id": "missing_direct",
+      "target": "customers",
+      "method": "GET",
+      "path": "/owners/2147483647",
+      "role": "Optional.empty diagnostic; status/body not predetermined"
+    },
+    {
+      "id": "missing_gateway",
+      "target": "gateway",
+      "method": "GET",
+      "path": "/api/gateway/owners/2147483647",
+      "role": "Missing-owner consumer diagnostic, no predetermined status"
+    },
+    {
+      "id": "visits_control",
+      "target": "visits",
+      "method": "GET",
+      "path": "/pets/visits?petId=7,8",
+      "role": "Unchanged Visits provider control"
+    },
+    {
+      "id": "create_control",
+      "target": "customers",
+      "method": "POST",
+      "path": "/owners",
+      "role": "Unchanged POST boundary, after primary GET slots",
+      "body": {
+        "firstName": "P03Write",
+        "lastName": "Control",
+        "address": "2 Fixture Lane",
+        "city": "Sandbox",
+        "telephone": "0000000001"
+      },
+      "binds": "write_owner_id",
+      "readback_required": true
+    },
+    {
+      "id": "update_control",
+      "target": "customers",
+      "method": "PUT",
+      "path": "/owners/{write_owner_id}",
+      "role": "Unchanged PUT boundary on newly created owner, after POST",
+      "body": {
+        "firstName": "P03Updated",
+        "lastName": "Control",
+        "address": "2 Fixture Lane",
+        "city": "Sandbox",
+        "telephone": "0000000001"
+      },
+      "readback_required": true
+    }
+  ],
+  "snapshots": [
+    "baseline",
+    "mutated"
+  ],
+  "repetitions": 2,
+  "execution_policy": {
+    "automatic_execution": false,
+    "fresh_five_service_stack_and_database_per_group": true,
+    "reset_before_each_group": true,
+    "retain_all_setup_readiness_errors_and_raw": true,
+    "no_consumer_repair": true,
+    "collect_configuration_registry_build_identity_and_cleanup": true,
+    "writes_only_to_run_owned_disposable_database": true,
+    "record_request_order": true,
+    "no_prediction_or_label_oracle": true
+  },
+  "comparison_policy": {
+    "raw_bodies_immutable": true,
+    "duplicate_json_keys_are_errors": true,
+    "object_key_order_only_may_be_ignored": true,
+    "array_order_retained": true,
+    "no_field_dropped": true,
+    "primary_provider_expected_delta_to_be_checked_not_assumed": "Only top-level pets -> animals; all other fields and collection values must match",
+    "gateway_result": "Observe and record; errors, missing data and unknown are not pre-assigned label polarity",
+    "error_body_equality_not_assumed": true
+  }
+}

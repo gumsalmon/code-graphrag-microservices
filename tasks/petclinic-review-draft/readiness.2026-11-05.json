@@ -1,0 +1,168 @@
+{
+  "schema": "petclinic-review-preparation-snapshot/1",
+  "created_utc": null,
+  "record_date": "2026-11-05",
+  "scope": "Current coordinator preparation overlay; previous snapshot immutable. Actual selected data exists, official instruction/metadata/portable ZIP release assembly remains.",
+  "status": "actual_data_previews_screened_not_released",
+  "official_packet_created": false,
+  "official_packet_sent": false,
+  "reviewer_identity": null,
+  "reviewer_appointment": null,
+  "huy_release_decision": null,
+  "round_1": {
+    "templates": [
+      "round-1/START_HERE.md",
+      "round-1/NOTES_TEMPLATE.md",
+      "round-1/CHECKPOINT_TEMPLATE.md"
+    ],
+    "actual_dataset_copied": true,
+    "file_by_file_allowlist_complete": true,
+    "raw_content_exposure_screening_complete": true,
+    "independent_notes_received": false,
+    "checkpoint": null,
+    "screening_scope": "Coordinator AI/rule/category/schema screening with preserved attempts and exact-byte exceptions; not independent human or blinding certification",
+    "selected_files": 915,
+    "official_assembly_complete": false
+  },
+  "round_2": {
+    "templates": [
+      "round-2/START_HERE.md",
+      "round-2/COMPARISON_TEMPLATE.md",
+      "round-2/DECISION_TEMPLATE.md"
+    ],
+    "actual_labels_copied": true,
+    "decision": null,
+    "evaluation_outputs_included": false,
+    "selected_files": 6396,
+    "label_versions_byte_preserved": true,
+    "official_assembly_complete": false
+  },
+  "source_commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+  "config_commit": "323993ce2519c6d02df63e08bf4458d123d3b611",
+  "cases": [
+    {
+      "id": "P01",
+      "development": true,
+      "benchmark_snapshot": "5f9204d66253604edf9101c2f888fc7e75aa0be7",
+      "label_file_version": "v3",
+      "label_sha256": "3cc4784c9827f2ac8a034cfe44bbdb838b21ebb7f8a7f9ac49864c70162e2bce",
+      "label_status": "pending_review",
+      "review_decision": null,
+      "input_identity_basis": "Historical pinned scenario/raw/source, no new lock created here",
+      "runtime_evidence_previously_checked": true,
+      "method_status": "Scoped pilot verification; revised Graph+Vector model attempt still failed, no completed new pair",
+      "blockers": [
+        "Independent label acceptance not received",
+        "Model-pair/provider failure and local code release must remain declared"
+      ],
+      "artifact_content_reaudit_this_turn": true
+    },
+    {
+      "id": "P02",
+      "development": true,
+      "scenario_version": "0.1.1",
+      "universe_version": "draft.v2",
+      "fixture_version": "v1",
+      "input_bindings": {
+        "source_commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+        "config_commit": "323993ce2519c6d02df63e08bf4458d123d3b611",
+        "scenario_version": "0.1.1",
+        "scenario_sha256": "762d993901f1388584adf066f396acd2ad46a7550f1f6b0b12dd6a8c61663ce9",
+        "universe_version": "draft.v2",
+        "universe_sha256": "d79c07727d6fb5348503f0e4079a0d18c63e26e6d34a1e332825f1cc7680aeb5",
+        "fixture_version": "v1",
+        "fixture_sha256": "2a319f48c2d31894718228539c3743396e3d3e5ad04579985f6d2588bb324191",
+        "patch_sha256": "091b04de4a504512cbda4e0c5c0759b747b056b4c7028923d8b7808b43303c4f",
+        "candidate_manifest_sha256": "0358bf86bee591254483e50018f8d601932a8821a323176eaa10a80b86229539"
+      },
+      "eligible_counts": {
+        "method": 8,
+        "api": 3,
+        "service": 1
+      },
+      "label_version": "draft.v4",
+      "label_sha256": "c22e97a5a3a6994cb0c7961c5a42ed098301b106d36ab57536a486077c456f08",
+      "draft_checkpoint_sha256": "de951041b200074f43171b2b5c9211b9b8a492fce6baf711d414402996f7a024",
+      "label_status": "pending_review",
+      "technical_receipt_checked": true,
+      "review_decision": null,
+      "runtime_evidence_previously_checked": true,
+      "method_status": "Reviewed native full-property parity and explicit inventory verified; separate static source context component prepared",
+      "blockers": [
+        "Independent evidence/label acceptance; final contract/model/scoring/release decisions remain separate"
+      ],
+      "provenance_exception": "A copied blank historical template differs by four bytes; original retained, primary source/raw/labels preserved",
+      "artifact_content_reaudit_this_turn": true
+    },
+    {
+      "id": "P03",
+      "development": true,
+      "scenario_version": "0.1.0",
+      "universe_version": "draft.v1",
+      "fixture_version": "v1",
+      "input_locked": true,
+      "candidate_manifest_sha256": "c52f085be74406e542de93db7f6d70b2fc3fe60f215ae47bd45df5b1cc5cec92",
+      "input_artifacts": [
+        {
+          "path": "spec/scenario.candidate.v0.1.0.json",
+          "sha256": "36fc64997ed04a5fb9782231471bbd2dec5a0177c0ae0e428f2ff48457a1bed8"
+        },
+        {
+          "path": "spec/owner-response-rename.patch",
+          "sha256": "87b0083ca0b1c9a01badb94f3cf8ecdf1918a24517d91e7b2690810c8080fbc0"
+        },
+        {
+          "path": "spec/fixture.candidate.v1.json",
+          "sha256": "52172f64187d29461a754a7535bb5ec14f7a9ac0141e9e35e89f99848df1cc21"
+        },
+        {
+          "path": "spec/scope.candidate.v1.json",
+          "sha256": "8db699e76e1d6c2d340e26f5d82080c4bea08ef574c7b500146da5cc9d3c4c53"
+        },
+        {
+          "path": "draft/inventory.v1.json",
+          "sha256": "5ab81b134c0d9bed32ab4943c1b35ffc860f34d0204dbfcd825e008cb8c067a4"
+        },
+        {
+          "path": "draft/evaluation_universe.draft.v1.json",
+          "sha256": "79a3def8a58e62f376d2ff594a71831163bbbf472fa54c29fbf0defd1b7d43d7"
+        }
+      ],
+      "eligible_counts": {
+        "method": 26,
+        "api": 4,
+        "service": 1
+      },
+      "label_version": "draft.v2",
+      "label_sha256": "61edca6397a52a5076d3531cecf775d0052e0e7053163165e99110de14222732",
+      "draft_checkpoint_sha256": "af5225b5a4cdf90b203e18e9271db759b7592a6e1587d9bf9aa3a2b58f1ad571",
+      "label_status": "pending_review",
+      "review_decision": null,
+      "technical_receipt_checked": true,
+      "runtime_evidence_previously_checked": true,
+      "method_status": "Native milestone C verified after breaker fix; static baseline context prepared. Record/nested IDs/dataflow limits remain.",
+      "blockers": [
+        "Independent evidence/label acceptance; 20 unresolved and R22 inference scope require review, not automatic negatives",
+        "Record getPetIds/serialization-dataflow limits declared; full prediction contract/model/scoring remain separate"
+      ],
+      "artifact_content_reaudit_this_turn": true
+    }
+  ],
+  "release_scope_notes": [
+    "Input/raw materials can be prepared before final draft labels arrive; current Huy milestone remains readiness before batch release",
+    "Technical predictor failures do not automatically invalidate label evidence or require LLM approval before label review",
+    "No current or historical technical outputs/scores, Methods draft or inspector included in R1/R2 by default",
+    "Existing P01 full-repository R2 must be content-screened before reuse; old packages remain unchanged"
+  ],
+  "ground_truth_accepted": false,
+  "final_test_locked": false,
+  "official_scoring_authorized": false,
+  "model_calls": 0,
+  "new_runtime_authorized_by_this_file": false,
+  "shared_draft_contract_adopted": false,
+  "github_push_authorized": false,
+  "source_snapshot": "tasks/petclinic-review-draft/readiness.snapshot.json",
+  "data_previews": "handoff-out/petclinic-review-data-preparation/20261105T090449Z-73003c34",
+  "data_manifest_sha256": "0fa1584d42f89dd2a5b6cc39bb3d1df1d1f5fa942cf0cd8433348dd3fb2bfc97",
+  "artifact_content_reaudit_scope": "Selected actual preview data/labels and bounded schema/source/raw integrity checked; not every scientific assertion or human reading certified"
+}

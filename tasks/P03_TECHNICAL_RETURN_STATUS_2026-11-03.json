@@ -1,0 +1,164 @@
+{
+  "schema": "p03-technical-return-status/1",
+  "record_date": "2026-11-03",
+  "case": "P03",
+  "status": "independent_native_replay_verified_scoped_callsite_metadata_fix_required",
+  "archive": "E:/Zalo/HIEN_P03_TECHNICAL_RETURN_2026-11-03.zip",
+  "archive_sha256": "75123b5ac595fc9408647566c0e19363af85336b5a30cc29b9bce0b81a76ca2d",
+  "archive_bytes": 280508,
+  "archive_and_external_sidecar_verified": true,
+  "intake_directory": "handoff-out/hien-p03-return/20261103T135105Z-8dcc02a3",
+  "manifest_listed_files": 135,
+  "canonical_input_packet_files_byte_equal": 73,
+  "receipt": "tasks/hien-next/P03_TECHNICAL_RECEIPT_2026-11-02.json",
+  "receipt_sha256": "b73e4dd44a1cbd9ffe05d148d2c0742f4ab685cb4c7a4cac7b949ed4d429ce20",
+  "report": "tasks/research/HIEN_P03_TECHNICAL_RETURN_2026-11-03.md",
+  "static_audit": "handoff-out/hien-p03-return/20261103T135105Z-8dcc02a3/STATIC_AUDIT.json",
+  "independent_replay": {
+    "directory": "handoff-out/p03-native-offline/20261103t135753753z-890ce85b",
+    "manifest_sha256": "0c59e9aa99d131d93bdc79c3c6bda1a17d518916fed704df1af04dc6b1ffd402",
+    "manifest_listed_files": 253,
+    "checker": "handoff-out/hien-p03-return/20261103T135105Z-8dcc02a3/independent-audit/INDEPENDENT_REPLAY_AUDIT.json",
+    "unit_tests_passed": 30,
+    "failed": 0,
+    "skipped": 0,
+    "fresh_neo4j_instances": 2,
+    "private_internal_networks": 1,
+    "host_ports_published": false,
+    "project_volumes_mounted": false,
+    "full_property_parity_and_idempotence": true,
+    "source_path_retrieval_verified": true,
+    "cleanup_complete": true,
+    "groups": [
+      {
+        "snapshot": "baseline",
+        "native_methods": 35,
+        "top_level_methods": 27,
+        "represented_top_level": 26,
+        "unsupported_explicit": [
+          "OwnerDetails.getPetIds()"
+        ],
+        "native_nested_extras": 9,
+        "endpoints": 5,
+        "dependency_edges": 3,
+        "unresolved": 2,
+        "db_nodes": 48,
+        "db_relationships": 49,
+        "full_property_parity": true,
+        "source_path_retrieval_verified": true,
+        "sender_semantic_graph_and_db_comparison": true,
+        "retrieval": [
+          {
+            "depth": 1,
+            "candidate_methods": 1,
+            "not_behavioral_labels": true
+          },
+          {
+            "depth": 2,
+            "candidate_methods": 2,
+            "not_behavioral_labels": true
+          },
+          {
+            "depth": 3,
+            "candidate_methods": 2,
+            "not_behavioral_labels": true
+          }
+        ],
+        "dependencies": {
+          "tree-sitter": "0.25.2",
+          "tree-sitter-java": "0.23.5",
+          "neo4j": "5.28.1"
+        }
+      },
+      {
+        "snapshot": "mutated",
+        "native_methods": 35,
+        "top_level_methods": 27,
+        "represented_top_level": 26,
+        "unsupported_explicit": [
+          "OwnerDetails.getPetIds()"
+        ],
+        "native_nested_extras": 9,
+        "endpoints": 5,
+        "dependency_edges": 3,
+        "unresolved": 2,
+        "db_nodes": 48,
+        "db_relationships": 49,
+        "full_property_parity": true,
+        "source_path_retrieval_verified": true,
+        "sender_semantic_graph_and_db_comparison": true,
+        "retrieval": [
+          {
+            "depth": 1,
+            "candidate_methods": 1,
+            "not_behavioral_labels": true
+          },
+          {
+            "depth": 2,
+            "candidate_methods": 2,
+            "not_behavioral_labels": true
+          },
+          {
+            "depth": 3,
+            "candidate_methods": 2,
+            "not_behavioral_labels": true
+          }
+        ],
+        "dependencies": {
+          "tree-sitter": "0.25.2",
+          "tree-sitter-java": "0.23.5",
+          "neo4j": "5.28.1"
+        }
+      }
+    ]
+  },
+  "findings": [
+    {
+      "id": "P03-T01",
+      "status": "requires_code_fix",
+      "scope": "CALLS circuit-breaker/fallback metadata is method-wide and wrongly claims protection for Customers GET",
+      "proof": "handoff-out/hien-p03-return/20261103T135105Z-8dcc02a3/independent-audit/P03_T01_CIRCUIT_BREAKER_FINDING.json"
+    }
+  ],
+  "declared_limits": [
+    "record explicit getPetIds missing: 26/27 top-level including seed; 25/26 eligible Method nodes represented",
+    "nine nested builder extras do not compensate for missing top-level method",
+    "nested IDs lack enclosing record identity",
+    "syntax-only response evidence; no serialization/dataflow or field binding",
+    "repository/snapshot isolation sidecar plus fresh DB, not intrinsic keys",
+    "HTTP contract VALID does not establish response compatibility"
+  ],
+  "p02_raw_lf_hash_clarification_verified": true,
+  "hien_human_final_diff_review_confirmed": false,
+  "reviewed_src_and_tests_executed": true,
+  "received_extraction_db_helpers_executed": false,
+  "annotation_checkpoint_unchanged": "tasks/P03_ANNOTATION_STATUS_2026-11-02.json",
+  "new_labels_or_accepted_created": false,
+  "model_calls": 0,
+  "embedding_inference": false,
+  "official_scoring": false,
+  "ground_truth_accepted": false,
+  "final_test_locked": false,
+  "shared_draft_contract_adopted": false,
+  "git_stage_commit_push": false,
+  "raw_package_cleared_for_publication": false,
+  "publication_screening_finding": "COMMANDS.md includes a disposable local DB password; preserve raw privately and prepare a separate publishable derivative if requested",
+  "feedback": "tasks/hien-next/SEND_AFTER_P03_TECHNICAL_RETURN_2026-11-03.md",
+  "feedback_sent": false,
+  "recipient_ack_scope": "P03 return supplied via Huy, not human diff sign-off or commitment to follow-up work",
+  "next_action": "Huy can forward targeted P03-T01 feedback to Hien. Retain declared record/dataflow limits; no need for Phat to redo checked drafts. Coordinator can prepare separate source/raw review data, but no model/scoring/accepted/test-lock/shared-contract adoption/push.",
+  "intake_seal": {
+    "manifest_sha256": "23ba92812acc4bf0f58be04becb5c6d57fc36c8ae368c839d3a403286ad7133b",
+    "manifest_listed_files_verified": 192
+  },
+  "final_checks": {
+    "workboard_tasks": 28,
+    "workboard_passed": true,
+    "prior_protected_files_unchanged": 43,
+    "prior_authoring_files_unchanged": 12,
+    "preserved_sealed_manifest_entries_verified": 2649,
+    "git_index_empty": true,
+    "working_tree_clean": false,
+    "head": "d1f95eb21c71dd6bfb49d2e450142d1290ceda5f"
+  }
+}

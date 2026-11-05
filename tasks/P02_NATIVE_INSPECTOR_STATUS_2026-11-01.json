@@ -1,0 +1,69 @@
+{
+  "schema": "p02-native-inspector-status/1",
+  "record_date": "2026-11-01",
+  "scope": "Read-only presentation of previously checked technical evidence; not an impact output schema or evaluated predictor",
+  "source_run": "handoff-out/p02-offline-method/20261101t061314799z-a263deac",
+  "source_run_manifest_sha256": "ad7fe3ac6536a54315219a44533f73a36a016a1c1f362e4c7026134971c126d4",
+  "build_directory": "handoff-out/p02-native-inspector/20261101T094931661Z-6028104b",
+  "entry": "handoff-out/p02-native-inspector/20261101T094931661Z-6028104b/index.html",
+  "build_manifest_sha256": "e16e7b0ad351980a669f848a0f67c88d8eeff2863d45d2463570d549f0c0ffbe",
+  "sealed_display_files": 6,
+  "embedded_artifacts": 20,
+  "browser_qa_directory": "handoff-out/p02-native-inspector-qa/20261101T094938682Z-cafb3f09",
+  "browser_qa_manifest_sha256": "74ca6329137999a882eda76378024aa73aa0b05b5e20a8beb893077b84c1827e",
+  "browser_checks_passed": 10,
+  "unit_tests_passed": 8,
+  "browser_errors": 0,
+  "external_page_requests": 0,
+  "browser_offline": true,
+  "relocated_html_verified": true,
+  "desktop_and_mobile_screenshots_inspected": true,
+  "audit_directory": "handoff-out/p02-native-inspector-audit/20261101T095322785Z-4a4828e9",
+  "source_span_snapshot_hash_and_saved_witness_checks": true,
+  "retained_failed_qa": [
+    "handoff-out/p02-native-inspector-qa/20261101T094708953Z-ffec5c80",
+    "handoff-out/p02-native-inspector-qa/20261101T094817865Z-3d19bead"
+  ],
+  "retained_superseded_builds": [
+    "20261101T094517577Z-3b92d2a2",
+    "20261101T094655835Z-9b5006e4",
+    "20261101T094809774Z-72d264bb"
+  ],
+  "scan": {
+    "decoded_artifacts_checked": 20,
+    "display_files_integrity_checked": 6,
+    "failures": {},
+    "encoded_payload_verified_then_decoded_for_scanning": true,
+    "plaintext_scan_views_recorded": true,
+    "direct_encoded_scan_aborted_and_recorded": true,
+    "shared_scanner_modified": false,
+    "raw_files_modified": false
+  },
+  "limitations": [
+    "Pinned to the reviewed current P02 run, not a new-code acceptance checker",
+    "Class.name full-property parity and four missing explicit Method nodes remain open in the candidate",
+    "Native storage keys still need separate snapshot databases",
+    "No behavioral prediction, vector/LLM inference, official scoring or final label decision",
+    "VIEWER-E2E and shared output/experiment design remain open"
+  ],
+  "labels_or_annotation_notes_used": false,
+  "raw_benchmark_outcomes_used": false,
+  "parser_importer_or_native_schema_modified": false,
+  "p03_actual_integration_executed": false,
+  "model_calls": 0,
+  "impact_scoring": false,
+  "shared_contract_adopted": false,
+  "ground_truth_accepted": false,
+  "git_stage_commit_push": false,
+  "new_container_or_network_created": false,
+  "next_action": "Huy can inspect the local artifact; no extra member delivery is needed. Receive Hien fixes and Phat P03 checkpoint through current tasks, audit each separately, then continue D20 per case.",
+  "audit_manifest_sha256": "c95b38a4d860cc891384aa5dc5e4daee9db0b5c6aa9fcd09a1d2e5864d43011e",
+  "audit_files": 31,
+  "preservation": {
+    "source_run_files_unchanged": 148,
+    "protected_code_decision_zip_label_identities_unchanged": 16,
+    "git_head": "d1f95eb21c71dd6bfb49d2e450142d1290ceda5f",
+    "git_index_empty": true,
+    "working_tree_clean": false
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "files": [
+    {
+      "path": "tasks/hien-next/P02_TECHNICAL_RECEIPT_2026-11-01.json",
+      "sha256": "a62b36183102023fd9d6f51228e782c5e41375493cfba5acba69bcb44cda7e58"
+    },
+    {
+      "path": "benchmark/decisions/PETCLINIC_DRAFT_INTEGRATION_2026-10-31.json",
+      "sha256": "bced4426f7e9ce6c7f26c31668faaf36d3ed770acd60a6a93147d7aebc06671f"
+    },
+    {
+      "path": "benchmark/p02/decisions/INPUT_LOCK_2026-10-24.json",
+      "sha256": "680fadfe22bc27f54b6471ea8d760482d3b0b5ad2b0fe92daf920600fc7335cc"
+    },
+    {
+      "path": "handoff-out/p02-offline-method-reviewed/20261102t140320547z-03c452f7/SHA256SUMS.txt",
+      "sha256": "42e48fbf04beb48bf79ff84812d4476c05f5286056a19621fdf86b9d0945b978"
+    },
+    {
+      "path": "handoff-out/p02-offline-method-reviewed/20261102t140320547z-03c452f7/input/INPUT.json",
+      "sha256": "3e8c1cfcc958c40a969bfd3a8f8d403b25f186656a5ea7f3c5a75b0bfe6caa2c"
+    },
+    {
+      "path": "handoff-out/p02-offline-method-reviewed/20261102t140320547z-03c452f7/INPUT_PROVENANCE.json",
+      "sha256": "01fbf96234d184b2f94877d9ea1e4c7ed3b9604258e4ee02726786e6deac199a"
+    },
+    {
+      "path": "handoff-out/p02-offline-method-reviewed/20261102t140320547z-03c452f7/input/baseline/spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java",
+      "sha256": "0bf7d4638add57363cde29b964d9fcc44ac55da9df320ff1ebfebc5c9f0786cd"
+    },
+    {
+      "path": "handoff-out/p02-offline-method-reviewed/20261102t140320547z-03c452f7/input/baseline/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+      "sha256": "d7d1437c4dce96d4de5f636511d3bcf5549df4a11b7826fde0375bce358f1e13"
+    },
+    {
+      "path": "handoff-out/p02-offline-method-reviewed/20261102t140320547z-03c452f7/input/baseline/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+      "sha256": "bb815e3727be7e56330072d54774944ef5029d66d2d7e56976d7c60dbeafbb21"
+    },
+    {
+      "path": "handoff-out/p02-input-revision/20261018T065307839Z-719da955/benchmark/p02/preparation.v1/optional-query.patch",
+      "sha256": "091b04de4a504512cbda4e0c5c0759b747b056b4c7028923d8b7808b43303c4f"
+    },
+    {
+      "path": "pipeline/p02/static-context.mjs",
+      "sha256": "763a171146a4b2ef34cad7b9d56561debdec09573a83217ca84f81db6c7e44d1"
+    },
+    {
+      "path": "scripts/prepare_p02_reviewed_static_context.mjs",
+      "sha256": "ba10ac3a1115382ba4a7c63aeef1533b3783b3b7c7dfae637d14aee5660d700e"
+    },
+    {
+      "path": "pipeline/p02/reviewed-native.mjs",
+      "sha256": "893bab126b928876698a45493852763fe5e09bbfe24aaf53747bcce6d1328bb7"
+    },
+    {
+      "path": "pipeline/p02/offline-method.mjs",
+      "sha256": "c67055ccea74dedca59f0161121b4466aede87052c51615d7286a6a189d3c312"
+    },
+    {
+      "path": "handoff-out/hien-p02-next/20261101T062259Z-fbac2a60/ZIP_VERIFIED/source/LICENSE.petclinic",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "handoff-out/p02-offline-method-reviewed/20261102t140320547z-03c452f7/artifacts/baseline/graph.native.json",
+      "sha256": "b106f25385373b2b30b86878c0425b080a96f6787b35ba9ce51e594e29ede7ca"
+    },
+    {
+      "path": "handoff-out/p02-offline-method-reviewed/20261102t140320547z-03c452f7/database/baseline/direct.retrieval.json",
+      "sha256": "9deb760c7be806a9739006756ea378ca16a6a5133d867406a478acc36ef33cef"
+    }
+  ],
+  "integrity_scope": "Selected baseline files/metadata/patch and pinned manifest identity, not a new full native graph audit",
+  "mutated_source_or_runtime_or_label_content_read": false,
+  "graph_loaded_after_lexical_preparation": true
+}

@@ -1,0 +1,108 @@
+{
+  "document_kind": "synthetic_contract_examples_not_model_output_or_ground_truth",
+  "contract_id": "microservice-impact-output/0.1.0-draft.1",
+  "synthetic_only": true,
+  "usable_for_runtime_or_scoring": false,
+  "scenario_id": "TOY-FORMAT-ONLY",
+  "scenario_version": "0.0.0",
+  "repository_id": "toy-repository",
+  "snapshot_id": "toy-baseline",
+  "note": "All identifiers, source text, assessments and the failure are fabricated solely to discuss format. No P01/P02 outputs, labels, model response, real commit or real hash are supplied. Null bindings make this unsuitable as a real run.",
+  "bindings": {"source_revision": null, "config_revision": null, "patch_sha256": null, "fixture_sha256": null, "scope_sha256": null, "universe_sha256": null, "aliases_sha256": null, "request_sha256": null, "context_sha256": null, "evidence_registry_sha256": null, "method_config_sha256": null, "implementation_identity": null},
+  "registry": [
+    {"level": "method", "entity_id": "toy-repository@toy-baseline::consumer::toy.Client#load(int)", "service": "consumer", "seed": false},
+    {"level": "method", "entity_id": "toy-repository@toy-baseline::consumer::toy.Client#format(int)", "service": "consumer", "seed": false},
+    {"level": "method", "entity_id": "toy-repository@toy-baseline::consumer::toy.Web#get(int)", "service": "consumer", "seed": false},
+    {"level": "api", "entity_id": "toy-repository@toy-baseline::consumer::GET /items/{id}", "service": "consumer", "handler_id": "toy-repository@toy-baseline::consumer::toy.Web#get(int)", "seed": false},
+    {"level": "service", "entity_id": "toy-repository@toy-baseline::consumer", "service": "consumer", "seed": false},
+    {"level": "method", "entity_id": "toy-repository@toy-baseline::provider::toy.Resource#read(int)", "service": "provider", "seed": true},
+    {"level": "api", "entity_id": "toy-repository@toy-baseline::provider::GET /raw/{id}", "service": "provider", "handler_id": "toy-repository@toy-baseline::provider::toy.Resource#read(int)", "seed": true},
+    {"level": "service", "entity_id": "toy-repository@toy-baseline::provider", "service": "provider", "seed": true}
+  ],
+  "synthetic_call_edges": [
+    {"caller": "toy-repository@toy-baseline::consumer::toy.Web#get(int)", "callee": "toy-repository@toy-baseline::consumer::toy.Client#load(int)", "type": "CALLS"},
+    {"caller": "toy-repository@toy-baseline::consumer::toy.Client#load(int)", "callee": "toy-repository@toy-baseline::provider::toy.Resource#read(int)", "type": "INVOKES_API"}
+  ],
+  "synthetic_evidence": [
+    {"id": "TOY-E01", "kind": "synthetic_source_not_real_repository", "text": "return remote.read(id);", "source_sha256": null},
+    {"id": "TOY-E02", "kind": "synthetic_source_not_real_repository", "text": "return client.load(id);", "source_sha256": null},
+    {"id": "TOY-E03", "kind": "synthetic_source_not_real_repository", "text": "return Integer.toString(id);", "source_sha256": null}
+  ],
+  "examples": [
+    {
+      "id": "toy_completed_mixed_assessments",
+      "synthetic_only": true,
+      "execution": {"status": "completed", "actual_remote_calls": 0, "usage": null, "failure": null},
+      "validation": {"status": "valid", "scope": "synthetic_shape_and_toy_quote_checks_only_not_production_validation", "semantic_correctness_verified": false, "ground_truth_accepted": false, "official_scoring_authorized": false},
+      "payload": {
+        "summary": {"text": "Ví dụ định dạng tổng hợp cho ba cấp, không phải kết quả chạy hệ thống hoặc bằng chứng tác động.", "citations": [{"evidence_id": "TOY-E01", "quote": "return remote.read(id);"}]},
+        "assessments": [
+          {
+            "level": "method",
+            "entity_id": "toy-repository@toy-baseline::consumer::toy.Client#load(int)",
+            "dependency_status": "reachable",
+            "dependency_path": ["toy-repository@toy-baseline::consumer::toy.Client#load(int)", "toy-repository@toy-baseline::provider::toy.Resource#read(int)"],
+            "logical_hops": 1,
+            "service_boundary_crossings": 1,
+            "behavioral_impact": "likely",
+            "requires_code_change": "unknown",
+            "repair_strategy_id": null,
+            "assumptions": ["Giả thiết ví dụ: contract provider đổi còn client gửi request cũ; chưa thực thi hoặc quan sát hành vi."],
+            "rationale": "Minh họa một dự đoán likely có điều kiện. Witness cho phụ thuộc không tự chứng minh impact và không buộc phương án sửa mã.",
+            "citations": [{"evidence_id": "TOY-E01", "quote": "return remote.read(id);"}]
+          },
+          {
+            "level": "method",
+            "entity_id": "toy-repository@toy-baseline::consumer::toy.Client#format(int)",
+            "dependency_status": "not_established",
+            "dependency_path": [],
+            "logical_hops": null,
+            "service_boundary_crossings": null,
+            "behavioral_impact": "unlikely",
+            "requires_code_change": "unknown",
+            "repair_strategy_id": null,
+            "assumptions": ["Giả thiết ví dụ: input id, implementation và môi trường của hàm định dạng không đổi."],
+            "rationale": "Minh họa unlikely dựa trên điều kiện đã nêu, không phải nhãn negative. Việc chưa thiết lập dependency không tự chứng minh hành vi không đổi.",
+            "citations": [{"evidence_id": "TOY-E03", "quote": "return Integer.toString(id);"}]
+          },
+          {
+            "level": "api",
+            "entity_id": "toy-repository@toy-baseline::consumer::GET /items/{id}",
+            "dependency_status": "reachable",
+            "dependency_path": ["toy-repository@toy-baseline::consumer::toy.Web#get(int)", "toy-repository@toy-baseline::consumer::toy.Client#load(int)", "toy-repository@toy-baseline::provider::toy.Resource#read(int)"],
+            "logical_hops": 2,
+            "service_boundary_crossings": 1,
+            "behavioral_impact": "unknown",
+            "requires_code_change": "unknown",
+            "repair_strategy_id": null,
+            "assumptions": [],
+            "rationale": "Minh họa API có witness qua handler nhưng chưa kết luận response behavior; không sao chép likely từ Method thành API impact.",
+            "citations": [{"evidence_id": "TOY-E02", "quote": "return client.load(id);"}, {"evidence_id": "TOY-E01", "quote": "return remote.read(id);"}]
+          },
+          {
+            "level": "service",
+            "entity_id": "toy-repository@toy-baseline::consumer",
+            "dependency_status": "unknown",
+            "dependency_path": [],
+            "logical_hops": null,
+            "service_boundary_crossings": null,
+            "behavioral_impact": "unknown",
+            "requires_code_change": "unknown",
+            "repair_strategy_id": null,
+            "assumptions": [],
+            "rationale": "Minh họa pure abstention vì chưa đủ bằng chứng để kết luận ở cấp Service; không phải kết luận Service không chịu tác động.",
+            "citations": []
+          }
+        ],
+        "uncertainties": ["Method toy.Web#get(int) có trong registry nhưng không có assessment riêng: omitted, không phải unlikely.", "Mọi assessment là fixture thảo luận định dạng, không đưa vào scorer hoặc làm nhãn."]
+      }
+    },
+    {
+      "id": "toy_provider_failure",
+      "synthetic_only": true,
+      "execution": {"status": "failed", "actual_remote_calls": 0, "usage": null, "failure": {"stage": "provider", "code": "SYNTHETIC_UNAVAILABLE", "http_status": 503, "message": "Ví dụ lỗi tổng hợp, không có provider nào được gọi."}},
+      "validation": {"status": "not_checked", "scope": "no_payload", "semantic_correctness_verified": false, "ground_truth_accepted": false, "official_scoring_authorized": false},
+      "payload": null
+    }
+  ]
+}

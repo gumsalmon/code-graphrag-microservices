@@ -1,0 +1,33 @@
+{
+  "schema": "p02-reviewed-implementation/1",
+  "record_date": "2026-11-02",
+  "scope": "Static-reviewed candidate for independent technical re-execution under existing D20/P02 receipt, not release or label acceptance",
+  "case": "P02",
+  "authority_id": "D20",
+  "receipt_sha256": "a62b36183102023fd9d6f51228e782c5e41375493cfba5acba69bcb44cda7e58",
+  "archive_sha256": "f6cb2f86d5d0daf4dba9efaaee0da54606b1d39f02574f0333a1123f6b12c192",
+  "received_root": "handoff-out/hien-p02-return/20261102T135352Z-54131bc0/received",
+  "received_manifest_sha256": "6885e342dbe500e21786eeaf5160239b24d9296a1b9c746e3abf5a98c9c78247",
+  "static_audit": "handoff-out/hien-p02-return/20261102T135352Z-54131bc0/STATIC_AUDIT.json",
+  "static_audit_sha256": "efcee2ef97ddb7f2d18e8ba46b0d979151fa4aa067d8f4610ce559ea7f80265f",
+  "reference_implementation": {
+    "parser": "fb20def957a46c5bf41662326fa5c4e955593cb532cdad476dc9263ae9b6e8d9",
+    "importer": "8e418f34cc4e620cc924b37f23baccd8ad2f150579768cb34fffc97ec55ed08c"
+  },
+  "candidate_implementation": {
+    "parser": "f46fdf123ab156b7d3f3a03ced679dd581e10fbbb6ca28d64140147a1d6eeeb0",
+    "importer": "93c20bd93e6dd5997043b4e4806aa5df7523426b4a82e6607b694934e5d4d7d3"
+  },
+  "candidate_tests_sha256": "d12608cf82d9241231f63d86718234381daa37e992f6c3ee296be614b7d8c319",
+  "old_receipt_and_implementation_bytes_modified": false,
+  "sender_human_final_diff_confirmation_received": false,
+  "model_calls_authorized": false,
+  "official_scoring_authorized": false,
+  "github_push_authorized": false,
+  "shared_draft_contract_adopted": false,
+  "report_limitations": [
+    "Two Cypher report hashes describe LF generated strings instead of CRLF stored-file bytes; root manifest verifies raw bytes, clarification requested",
+    "No external checksum sidecar supplied; archive SHA computed by coordinator",
+    "Sender default repository URL differs from coordinator short-name alias; source pin/IDs agree"
+  ]
+}

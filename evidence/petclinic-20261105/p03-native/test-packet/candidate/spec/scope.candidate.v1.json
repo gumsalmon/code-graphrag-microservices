@@ -1,0 +1,235 @@
+{
+  "schema": "p03-source-scope-candidate/1",
+  "scope_version": "1",
+  "scope_id": "p03-six-top-level-class-census-v1",
+  "rule": "Every explicit non-constructor method of the six named top-level classes/record; all five HTTP mappings in those classes; owning services. Selected before runtime/output, not an affected-entity shortlist.",
+  "files": [
+    {
+      "file": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java",
+      "service": "customers-service",
+      "class_fqn": "org.springframework.samples.petclinic.customers.web.OwnerResource",
+      "methods": [
+        {
+          "signature": "createOwner(OwnerRequest)",
+          "anchor": "    public Owner createOwner(@Valid @RequestBody OwnerRequest ownerRequest) {",
+          "http": "POST /owners",
+          "seed": false
+        },
+        {
+          "signature": "findOwner(int)",
+          "anchor": "    public Optional<Owner> findOwner(@PathVariable(\"ownerId\") @Min(1) int ownerId) {",
+          "http": "GET /owners/{ownerId}",
+          "seed": true
+        },
+        {
+          "signature": "findAll()",
+          "anchor": "    public List<Owner> findAll() {",
+          "http": "GET /owners",
+          "seed": false
+        },
+        {
+          "signature": "updateOwner(int,OwnerRequest)",
+          "anchor": "    public void updateOwner(@PathVariable(\"ownerId\") @Min(1) int ownerId, @Valid @RequestBody OwnerRequest ownerRequest) {",
+          "http": "PUT /owners/{ownerId}",
+          "seed": false
+        }
+      ]
+    },
+    {
+      "file": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java",
+      "service": "customers-service",
+      "class_fqn": "org.springframework.samples.petclinic.customers.model.Owner",
+      "methods": [
+        {
+          "signature": "getPetsInternal()",
+          "anchor": "    protected Set<Pet> getPetsInternal() {",
+          "http": null,
+          "seed": false
+        },
+        {
+          "signature": "getPets()",
+          "anchor": "    public List<Pet> getPets() {",
+          "http": null,
+          "seed": false
+        },
+        {
+          "signature": "addPet(Pet)",
+          "anchor": "    public void addPet(Pet pet) {",
+          "http": null,
+          "seed": false
+        },
+        {
+          "signature": "toString()",
+          "anchor": "    public String toString() {",
+          "http": null,
+          "seed": false
+        },
+        {
+          "signature": "getId()",
+          "anchor": "    public Integer getId() {",
+          "http": null,
+          "seed": false
+        },
+        {
+          "signature": "getFirstName()",
+          "anchor": "    public String getFirstName() {",
+          "http": null,
+          "seed": false
+        },
+        {
+          "signature": "getLastName()",
+          "anchor": "    public String getLastName() {",
+          "http": null,
+          "seed": false
+        },
+        {
+          "signature": "getAddress()",
+          "anchor": "    public String getAddress() {",
+          "http": null,
+          "seed": false
+        },
+        {
+          "signature": "getCity()",
+          "anchor": "    public String getCity() {",
+          "http": null,
+          "seed": false
+        },
+        {
+          "signature": "getTelephone()",
+          "anchor": "    public String getTelephone() {",
+          "http": null,
+          "seed": false
+        },
+        {
+          "signature": "setFirstName(String)",
+          "anchor": "    public void setFirstName(String firstName) {",
+          "http": null,
+          "seed": false
+        },
+        {
+          "signature": "setLastName(String)",
+          "anchor": "    public void setLastName(String lastName) {",
+          "http": null,
+          "seed": false
+        },
+        {
+          "signature": "setAddress(String)",
+          "anchor": "    public void setAddress(String address) {",
+          "http": null,
+          "seed": false
+        },
+        {
+          "signature": "setCity(String)",
+          "anchor": "    public void setCity(String city) {",
+          "http": null,
+          "seed": false
+        },
+        {
+          "signature": "setTelephone(String)",
+          "anchor": "    public void setTelephone(String telephone) {",
+          "http": null,
+          "seed": false
+        }
+      ]
+    },
+    {
+      "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/CustomersServiceClient.java",
+      "service": "api-gateway",
+      "class_fqn": "org.springframework.samples.petclinic.api.application.CustomersServiceClient",
+      "methods": [
+        {
+          "signature": "getOwner(int)",
+          "anchor": "    public Mono<OwnerDetails> getOwner(final int ownerId) {",
+          "http": null,
+          "seed": false
+        }
+      ]
+    },
+    {
+      "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/dto/OwnerDetails.java",
+      "service": "api-gateway",
+      "class_fqn": "org.springframework.samples.petclinic.api.dto.OwnerDetails",
+      "methods": [
+        {
+          "signature": "getPetIds()",
+          "anchor": "    public List<Integer> getPetIds() {",
+          "http": null,
+          "seed": false
+        }
+      ]
+    },
+    {
+      "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+      "service": "api-gateway",
+      "class_fqn": "org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController",
+      "methods": [
+        {
+          "signature": "getOwnerDetails(int)",
+          "anchor": "    public Mono<OwnerDetails> getOwnerDetails(final @PathVariable int ownerId) {",
+          "http": "GET /api/gateway/owners/{ownerId}",
+          "seed": false
+        },
+        {
+          "signature": "addVisitsToOwner(OwnerDetails)",
+          "anchor": "    private Function<Visits, OwnerDetails> addVisitsToOwner(OwnerDetails owner) {",
+          "http": null,
+          "seed": false
+        },
+        {
+          "signature": "emptyVisitsForPets()",
+          "anchor": "    private Mono<Visits> emptyVisitsForPets() {",
+          "http": null,
+          "seed": false
+        }
+      ]
+    },
+    {
+      "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+      "service": "api-gateway",
+      "class_fqn": "org.springframework.samples.petclinic.api.application.VisitsServiceClient",
+      "methods": [
+        {
+          "signature": "getVisitsForPets(List<Integer>)",
+          "anchor": "    public Mono<Visits> getVisitsForPets(final List<Integer> petIds) {",
+          "http": null,
+          "seed": false
+        },
+        {
+          "signature": "joinIds(List<Integer>)",
+          "anchor": "    private String joinIds(List<Integer> petIds) {",
+          "http": null,
+          "seed": false
+        },
+        {
+          "signature": "setHostname(String)",
+          "anchor": "    void setHostname(String hostname) {",
+          "http": null,
+          "seed": false
+        }
+      ]
+    }
+  ],
+  "logical_hop_limit": 3,
+  "exclusions": [
+    {
+      "kind": "constructors_lambdas_synthetic_and_implicit_record_methods",
+      "reason": "No separate canonical Method ID in this bounded development census; source components and enclosing methods remain evidence"
+    },
+    {
+      "kind": "nested_builder_classes",
+      "reason": "Explicitly outside the six top-level evaluation classes; retained in source and recorded for independent scope confirmation, not labeled negative"
+    },
+    {
+      "kind": "other_repository_classes_and_support_files",
+      "reason": "Support source and SQL/config supplied, not silently included as scored entities; no full-repo recall claim"
+    },
+    {
+      "kind": "seed_method_seed_api_and_owning_customers_service",
+      "reason": "Context, excluded from propagated impact credit"
+    }
+  ],
+  "projection_policy": "No automatic Method -> API -> Service credit; no production output-contract or scorer adoption in this preparation",
+  "evidence_policy": "Every eligible entity needs evidence or remains unresolved; an unchanged response does not prove every getter/helper/setter was exercised",
+  "independently_confirmed": false,
+  "locked": false
+}

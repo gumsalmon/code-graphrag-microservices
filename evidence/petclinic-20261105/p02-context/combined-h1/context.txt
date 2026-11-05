@@ -1,0 +1,138 @@
+{
+  "purpose": "static_context_preparation_only_no_inference_or_impact_assessment",
+  "repository": "spring-petclinic-microservices",
+  "source_commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+  "config_commit": "323993ce2519c6d02df63e08bf4458d123d3b611",
+  "known_seed": {
+    "method_id": "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(List<Integer>)",
+    "file": "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java"
+  },
+  "proposed_patch": {
+    "evidence_id": "PROPOSED-PATCH",
+    "sha256": "091b04de4a504512cbda4e0c5c0759b747b056b4c7028923d8b7808b43303c4f",
+    "text": "diff --git a/spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java b/spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java\n--- a/spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java\n+++ b/spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java\n@@ -70,7 +70,8 @@\n     }\n \n     @GetMapping(\"pets/visits\")\n-    public Visits read(@RequestParam(\"petId\") List<Integer> petIds) {\n+    public Visits read(@RequestParam(\"petId\") List<Integer> petIds,\n+                       @RequestParam(value = \"includeDetails\", required = false, defaultValue = \"false\") boolean includeDetails) {\n         final List<Visit> byPetIdIn = visitRepository.findByPetIdIn(petIds);\n         return new Visits(byPetIdIn);\n     }\n"
+  },
+  "source_evidence": [
+    {
+      "evidence_id": "SOURCE-3",
+      "snapshot": "baseline",
+      "file": "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java",
+      "line_start": 1,
+      "line_end": 82,
+      "source_sha256": "0bf7d4638add57363cde29b964d9fcc44ac55da9df320ff1ebfebc5c9f0786cd",
+      "text": "/*\n * Copyright 2002-2021 the original author or authors.\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n *      http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n */\npackage org.springframework.samples.petclinic.visits.web;\n\nimport java.util.List;\nimport jakarta.validation.Valid;\nimport jakarta.validation.constraints.Min;\n\nimport io.micrometer.core.annotation.Timed;\nimport org.slf4j.Logger;\nimport org.slf4j.LoggerFactory;\nimport org.springframework.http.HttpStatus;\nimport org.springframework.samples.petclinic.visits.model.Visit;\nimport org.springframework.samples.petclinic.visits.model.VisitRepository;\nimport org.springframework.web.bind.annotation.GetMapping;\nimport org.springframework.web.bind.annotation.PathVariable;\nimport org.springframework.web.bind.annotation.PostMapping;\nimport org.springframework.web.bind.annotation.RequestBody;\nimport org.springframework.web.bind.annotation.RequestParam;\nimport org.springframework.web.bind.annotation.ResponseStatus;\nimport org.springframework.web.bind.annotation.RestController;\n\n/**\n * @author Juergen Hoeller\n * @author Ken Krebs\n * @author Arjen Poutsma\n * @author Michael Isvy\n * @author Maciej Szarlinski\n * @author Ramazan Sakin\n */\n@RestController\n@Timed(\"petclinic.visit\")\nclass VisitResource {\n\n    private static final Logger log = LoggerFactory.getLogger(VisitResource.class);\n\n    private final VisitRepository visitRepository;\n\n    VisitResource(VisitRepository visitRepository) {\n        this.visitRepository = visitRepository;\n    }\n\n    @PostMapping(\"owners/*/pets/{petId}/visits\")\n    @ResponseStatus(HttpStatus.CREATED)\n    public Visit create(\n        @Valid @RequestBody Visit visit,\n        @PathVariable(\"petId\") @Min(1) int petId) {\n\n        visit.setPetId(petId);\n        log.info(\"Saving visit {}\", visit);\n        return visitRepository.save(visit);\n    }\n\n    @GetMapping(\"owners/*/pets/{petId}/visits\")\n    public List<Visit> read(@PathVariable(\"petId\") @Min(1) int petId) {\n        return visitRepository.findByPetId(petId);\n    }\n\n    @GetMapping(\"pets/visits\")\n    public Visits read(@RequestParam(\"petId\") List<Integer> petIds) {\n        final List<Visit> byPetIdIn = visitRepository.findByPetIdIn(petIds);\n        return new Visits(byPetIdIn);\n    }\n\n    record Visits(\n        List<Visit> items\n    ) {\n    }\n}\n"
+    },
+    {
+      "evidence_id": "SOURCE-1",
+      "snapshot": "baseline",
+      "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+      "line_start": 1,
+      "line_end": 57,
+      "source_sha256": "d7d1437c4dce96d4de5f636511d3bcf5549df4a11b7826fde0375bce358f1e13",
+      "text": "/*\n * Copyright 2002-2021 the original author or authors.\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n *      http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n */\npackage org.springframework.samples.petclinic.api.application;\n\nimport org.springframework.samples.petclinic.api.dto.Visits;\nimport org.springframework.stereotype.Component;\nimport org.springframework.web.reactive.function.client.WebClient;\nimport reactor.core.publisher.Mono;\n\nimport java.util.List;\n\nimport static java.util.stream.Collectors.joining;\n\n/**\n * @author Maciej Szarlinski\n */\n@Component\npublic class VisitsServiceClient {\n\n    // Could be changed for testing purpose\n    private String hostname = \"http://visits-service/\";\n\n    private final WebClient.Builder webClientBuilder;\n\n    public VisitsServiceClient(WebClient.Builder webClientBuilder) {\n        this.webClientBuilder = webClientBuilder;\n    }\n\n    public Mono<Visits> getVisitsForPets(final List<Integer> petIds) {\n        return webClientBuilder.build()\n            .get()\n            .uri(hostname + \"pets/visits?petId={petId}\", joinIds(petIds))\n            .retrieve()\n            .bodyToMono(Visits.class);\n    }\n\n    private String joinIds(List<Integer> petIds) {\n        return petIds.stream().map(Object::toString).collect(joining(\",\"));\n    }\n\n    void setHostname(String hostname) {\n        this.hostname = hostname;\n    }\n}\n"
+    },
+    {
+      "evidence_id": "SOURCE-2",
+      "snapshot": "baseline",
+      "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+      "line_start": 1,
+      "line_end": 83,
+      "source_sha256": "bb815e3727be7e56330072d54774944ef5029d66d2d7e56976d7c60dbeafbb21",
+      "text": "/*\n * Copyright 2002-2021 the original author or authors.\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n *      http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n */\npackage org.springframework.samples.petclinic.api.boundary.web;\n\nimport org.springframework.cloud.client.circuitbreaker.ReactiveCircuitBreaker;\nimport org.springframework.cloud.client.circuitbreaker.ReactiveCircuitBreakerFactory;\nimport org.springframework.samples.petclinic.api.application.CustomersServiceClient;\nimport org.springframework.samples.petclinic.api.application.VisitsServiceClient;\nimport org.springframework.samples.petclinic.api.dto.OwnerDetails;\nimport org.springframework.samples.petclinic.api.dto.Visits;\nimport org.springframework.web.bind.annotation.GetMapping;\nimport org.springframework.web.bind.annotation.PathVariable;\nimport org.springframework.web.bind.annotation.RequestMapping;\nimport org.springframework.web.bind.annotation.RestController;\nimport reactor.core.publisher.Mono;\n\nimport java.util.List;\nimport java.util.function.Function;\n\n/**\n * @author Maciej Szarlinski\n */\n@RestController\n@RequestMapping(\"/api/gateway\")\npublic class ApiGatewayController {\n\n    private final CustomersServiceClient customersServiceClient;\n\n    private final VisitsServiceClient visitsServiceClient;\n\n    private final ReactiveCircuitBreakerFactory cbFactory;\n\n    public ApiGatewayController(CustomersServiceClient customersServiceClient,\n                                VisitsServiceClient visitsServiceClient,\n                                ReactiveCircuitBreakerFactory cbFactory) {\n        this.customersServiceClient = customersServiceClient;\n        this.visitsServiceClient = visitsServiceClient;\n        this.cbFactory = cbFactory;\n    }\n\n    @GetMapping(value = \"owners/{ownerId}\")\n    public Mono<OwnerDetails> getOwnerDetails(final @PathVariable int ownerId) {\n        return customersServiceClient.getOwner(ownerId)\n            .flatMap(owner ->\n                visitsServiceClient.getVisitsForPets(owner.getPetIds())\n                    .transform(it -> {\n                        ReactiveCircuitBreaker cb = cbFactory.create(\"getOwnerDetails\");\n                        return cb.run(it, throwable -> emptyVisitsForPets());\n                    })\n                    .map(addVisitsToOwner(owner))\n            );\n\n    }\n\n    private Function<Visits, OwnerDetails> addVisitsToOwner(OwnerDetails owner) {\n        return visits -> {\n            owner.pets()\n                .forEach(pet -> pet.visits()\n                    .addAll(visits.items().stream()\n                        .filter(v -> v.petId() == pet.id())\n                        .toList())\n                );\n            return owner;\n        };\n    }\n\n    private Mono<Visits> emptyVisitsForPets() {\n        return Mono.just(new Visits(List.of()));\n    }\n}\n"
+    }
+  ],
+  "static_graph": {
+    "meaning": "saved_native_reachability_and_metadata_not_behavioral_impact",
+    "snapshot": "baseline",
+    "depth_limit": 1,
+    "paths": [
+      {
+        "id": "api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)",
+        "logical_hop": 1,
+        "witness_ids": [
+          "api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)",
+          "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(List<Integer>)"
+        ],
+        "relation_types": [
+          "INVOKES_API"
+        ],
+        "service_boundary_crossings": 1
+      }
+    ],
+    "edges": [
+      {
+        "source_id": "api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)",
+        "target_id": "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(List<Integer>)",
+        "type": "INVOKES_API",
+        "target_service": "visits-service",
+        "http_method": "GET",
+        "normalized_path": "/pets/visits",
+        "sent_query_parameters": [
+          "petId"
+        ],
+        "resolution_status": "RESOLVED",
+        "contract_status": "VALID",
+        "missing_required_parameters": [],
+        "cross_service": true,
+        "assumptions": [
+          "Target service derived from URL host 'visits-service' with default configuration",
+          "Matched by exact service name, HTTP method, and normalized endpoint path",
+          "Target handler overload: visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(List<Integer>)"
+        ],
+        "evidence": [
+          {
+            "commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+            "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+            "line_start": 43,
+            "line_end": 45,
+            "evidence_type": "WEBCLIENT_CALL",
+            "expression": "webClientBuilder.build()\n            .get()\n            .uri(hostname + \"pets/visits?petId={petId}\", joinIds(petIds))"
+          },
+          {
+            "commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+            "file": "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java",
+            "line_start": 72,
+            "line_end": 76,
+            "evidence_type": "ENDPOINT_HANDLER",
+            "expression": "@GetMapping(\"pets/visits\")\n    public Visits read(@RequestParam(\"petId\") List<Integer> petIds)"
+          }
+        ]
+      }
+    ],
+    "endpoints": [
+      {
+        "handler_id": "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(List<Integer>)",
+        "service": "visits-service",
+        "http_method": "GET",
+        "normalized_path": "/pets/visits",
+        "query_parameters": [
+          {
+            "name": "petId",
+            "type": "List<Integer>",
+            "declared_required": null,
+            "effective_required": true,
+            "default_value": null
+          }
+        ],
+        "evidence": {
+          "commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+          "file": "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java",
+          "line_start": 72,
+          "line_end": 76,
+          "evidence_type": "ANNOTATION_MAPPING",
+          "expression": "@GetMapping(\"pets/visits\")\n    public Visits read(@RequestParam(\"petId\") List<Integer> petIds)"
+        }
+      }
+    ],
+    "unresolved": [
+      {
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+        "line_start": 54,
+        "line_end": 56,
+        "expression": "void setHostname(String hostname) {",
+        "reason": "Setter 'setHostname' could mutate default field 'hostname' at runtime via configuration or external caller"
+      }
+    ],
+    "resolver_assumptions_retained": true
+  }
+}

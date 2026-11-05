@@ -1,0 +1,124 @@
+{
+  "document_kind": "research_design_not_executable_experiment_or_split_manifest",
+  "design_id": "microservice-cia-experiment/0.1.0-draft.1",
+  "status": "draft_for_team_discussion",
+  "applied": false,
+  "results": null,
+  "adoption_approvals": {"coordinator": null, "implementation": null, "benchmark_protocol": null},
+  "authorization": {"planning_only": true, "new_runtime_enabled": false, "new_model_calls_allowed": 0, "official_inference_enabled": false, "test_locked": false, "official_scoring_authorized": false},
+  "dependencies": {
+    "project_context_version": "0.6",
+    "protocol_base_commit": "5f9204d66253604edf9101c2f888fc7e75aa0be7",
+    "output_contract_id": "microservice-impact-output/0.1.0-draft.1",
+    "output_contract_adopted": false,
+    "scorer_adapter_implemented_for_draft": false
+  },
+  "target": {"task": "fixture_conditioned_behavioral_impact", "primary_input_track_proposed": "static_predeployment", "primary_seed_mode_proposed": "known_seed", "levels": ["method", "api", "service"], "repair_scored_as_behavior": false},
+  "units": {"experimental": "change_scenario", "cluster": "duplicate_group_within_repository", "entities_are_nested": true, "repetitions_are_independent_scenarios": false, "minimum_journal_ready_count_claimed": false},
+  "research_questions": [
+    {"id": "RQ1", "topic": "behavioral_impact_quality", "comparisons": [["B5", "B4"], ["B5", "B3"], ["B5", "B2"], ["B5", "B1"]]},
+    {"id": "RQ2", "topic": "selection_metadata_depth_and_reasoning_components", "ablation_ids": ["A-G", "A-S", "A-C", "A-T", "H", "LLM-C"]},
+    {"id": "RQ3", "topic": "error_abstention_unresolved_and_failure_slices", "slice_policy": "source_protocol_defined_before_test_scores"},
+    {"id": "RQ4", "topic": "latency_tokens_cost_and_operational_reliability", "include_failed_attempts_and_indexing": true}
+  ],
+  "primary_endpoint_proposal": {"status": "not_adopted", "comparison": ["B5", "B4"], "level": "method", "metric": "micro_f1", "direction_of_effect_assumed": false, "secondary_levels_predeclared": ["api", "service"], "api_service_results_may_be_silently_dropped": false},
+  "methods": [
+    {"id": "B0", "name": "diff_contract_rules", "uses_llm": false, "proposed_features": ["contract_diff_rules"], "prediction_target": "contract_violation", "same_task_as_cia": false, "current_readiness": "proposed_not_a_three_level_cia_baseline"},
+    {"id": "B1", "name": "reverse_reachability", "uses_llm": false, "proposed_features": ["dependency_topology"], "prediction_target": "behavioral_impact_heuristic", "same_task_as_cia": true, "current_readiness": "p01_technical_traversal_only_not_full_benchmark"},
+    {"id": "B2", "name": "graph_contract_consumer_rules", "uses_llm": false, "proposed_features": ["dependency_topology", "explicit_contract_metadata", "consumer_usage_rules"], "prediction_target": "behavioral_impact", "same_task_as_cia": true, "current_readiness": "proposed_rule_engine_not_implemented"},
+    {"id": "B3", "name": "lexical_retrieval_llm", "uses_llm": true, "proposed_features": ["lexical_retrieval", "llm"], "prediction_target": "behavioral_impact", "same_task_as_cia": true, "current_readiness": "proposed_not_implemented"},
+    {"id": "B4", "name": "vector_retrieval_llm", "uses_llm": true, "proposed_features": ["semantic_retrieval", "llm"], "prediction_target": "behavioral_impact", "same_task_as_cia": true, "current_readiness": "p01_method_only_prototype_and_smoke_not_official_benchmark"},
+    {"id": "B5", "name": "graph_contract_semantic_llm", "uses_llm": true, "proposed_features": ["semantic_retrieval", "dependency_topology", "explicit_contract_metadata", "consumer_usage_metadata", "llm"], "prediction_target": "behavioral_impact", "same_task_as_cia": true, "current_readiness": "p01_partial_context_prototype_not_all_proposed_features_or_quality_verified"}
+  ],
+  "ablations": [
+    {"id": "A-G", "base": "B5", "intervention": "remove_graph_route_and_graph_derived_context", "contrast_kind": "bundle_comparison", "equivalent_baseline_if_config_identical": "B4", "fixed_candidate_pool": false, "graph_derived_leakage_into_control_allowed": false},
+    {"id": "A-S", "base": "B5", "intervention": "disable_semantic_selection_keep_known_seed_graph_source_route", "contrast_kind": "selection_mechanism", "fixed_candidate_pool": false, "silent_vector_fallback_allowed": false},
+    {"id": "A-C", "base": "B5", "intervention": "remove_explicit_derived_contract_fields_from_context", "contrast_kind": "representation_mechanism", "fixed_candidate_pool": true, "fixed_source_chunk_ids": true, "raw_contract_source_still_available": true, "contract_filter_may_change_pool": false},
+    {"id": "A-T", "base": "B5", "intervention": "topology_representation_without_derived_contract_consumer_rule_annotations", "contrast_kind": "representation_mechanism", "fixed_candidate_pool": true, "fixed_source_chunk_ids": true, "raw_contract_source_still_available": true},
+    {"id": "H", "base": "B5", "intervention": "logical_depth", "contrast_kind": "depth_context_tradeoff", "values_proposed": [1, 2, 3], "gold_universe_changes_with_traversal_depth": false},
+    {"id": "LLM-C", "base": "B5", "intervention": "replace_llm_decision_with_B2_rule_engine", "contrast_kind": "bundle_comparison", "equivalent_baseline_if_config_identical": "B2", "clean_single_factor_ablation_claimed": false}
+  ],
+  "fairness": {
+    "shared_source_config_patch_fixture_domain_universe_aliases": true,
+    "shared_llm_identity_prompt_output_caps_within_family": true,
+    "non_llm_methods_forced_to_call_llm": false,
+    "graph_controls_may_read_graph_selected_hidden_context": false,
+    "same_bytes_proves_same_tokens": false,
+    "count_all_request_sections_against_budget": true,
+    "record_selected_and_dropped_evidence": true,
+    "silent_truncation_allowed": false,
+    "mandatory_input_overflow": "record_input_not_packable_not_silent_drop",
+    "matched_information_track_uses_gold_to_select_chunks": false,
+    "tracks_proposed": ["deployment_style_equal_token_ceiling", "matched_information_representation_diagnostic"],
+    "deduplicate_alias_methods_by_full_config_hash": true
+  },
+  "parameters_pending": {
+    "provider": null, "model": null, "model_revision": null, "embedding_model_revision": null,
+    "prompt_version": null, "output_contract_version_applied": null, "projection_policy_applied": null,
+    "source_chunking_policy": null, "retrieval_top_k": null, "context_token_ceiling": null, "output_token_ceiling": null,
+    "repetitions_per_configuration": null, "max_remote_calls": null, "money_budget": null, "currency": null,
+    "final_repository_count": null, "final_group_count": null, "final_scenario_count": null,
+    "statistical_test": null, "confidence_level": null, "resampling_count": null, "effect_threshold": null, "multiplicity_policy": null
+  },
+  "data_and_split": {
+    "selection_based_on_scores_allowed": false,
+    "same_duplicate_group_may_cross_split": false,
+    "runtime_label_evidence_allowed_in_primary_model_context": false,
+    "future_repair_gold_paths_reviewer_notes_allowed_in_context": false,
+    "developer_graph_allowed_as_label_oracle": false,
+    "held_out_campaign": {"status": "not_selected_not_locked", "scenario_ids": [], "independent_review_complete": false},
+    "current_cases": [
+      {"id": "P01", "role": "development", "unseen_test_eligible_in_this_campaign": false, "label_status": "pending_review"},
+      {"id": "P02", "role": "development_selected_input_confirmation_pending", "same_duplicate_group_as": "P01", "unseen_test_eligible_in_this_campaign": false, "paired_runtime_complete": false},
+      {"id": "P03", "role": "candidate_not_selected", "opened_by_this_design": false},
+      {"id": "P04", "role": "candidate_not_selected", "opened_by_this_design": false}
+    ]
+  },
+  "metric_policy": {
+    "protocol_base_unchanged": true,
+    "levels_scored_separately": true,
+    "zero_division": 0,
+    "zero_positive_support_is_reported": true,
+    "empty_gold_and_prediction_implies_perfect_f1": false,
+    "seed_excluded": true,
+    "unknown_or_omitted_gold_positive_removed_from_recall_denominator": false,
+    "unsupported_level_reported_as": "not_available_with_reason_not_three_level_completion",
+    "unjudged_universe_blocks_official_score": true,
+    "silent_discard_of_invalid_oos_conflict_allowed": false,
+    "failed_run_becomes_successful_empty_prediction": false,
+    "failed_partial_primary_quality_policy": null,
+    "all_planned_attempts_in_operational_denominator": true,
+    "success_only_quality_is_conditional_diagnostic": true,
+    "ragas_is_primary_cia_ground_truth": false,
+    "extraction_and_retrieval_reference_must_be_independent": true
+  },
+  "statistics": {
+    "status": "conditional_design_not_approved_test_procedure",
+    "paired_comparisons_required": true,
+    "micro_f1_recomputed_from_counts_per_resample": true,
+    "mean_scenario_f1_may_replace_micro_f1_silently": false,
+    "cluster_structure_considered": "duplicate_groups_nested_in_repository",
+    "four_pilots_prove_generalization_or_significance": false,
+    "best_of_repetitions_without_separate_method_registration": false,
+    "small_cluster_limitations_required": true
+  },
+  "telemetry": {
+    "template_is_not_collector_or_measured_result": true,
+    "unknown_measurements_are_null": true,
+    "indexing_and_online_timing_separate": true,
+    "total_wall_time_assumed_sum_of_overlapping_stages": false,
+    "provider_usage_fields_may_overlap": true,
+    "free_tier_implies_measured_zero_cost": false,
+    "pricing_snapshot_required_before_cost_estimation": true,
+    "failed_attempts_and_retries_retained": true,
+    "credentials_or_credential_paths_logged": false,
+    "runtime_http_repetitions_are_llm_repetitions": false
+  },
+  "rollout": [
+    {"phase": "T0", "scope": "draft_planning_and_document_tests_only", "enabled_by_this_document": true, "model_calls_allowed": 0},
+    {"phase": "T1", "scope": "offline_component_harness_after_design_agreement", "enabled_by_this_document": false},
+    {"phase": "T2", "scope": "small_paired_smoke_after_input_contract_and_api_budget_gates", "enabled_by_this_document": false},
+    {"phase": "T3", "scope": "registered_experiment_after_separate_review_split_and_scoring_gates", "enabled_by_this_document": false}
+  ],
+  "decision_ids_open": ["E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "E09", "E10"]
+}

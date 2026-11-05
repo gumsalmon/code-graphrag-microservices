@@ -1,0 +1,4 @@
+{
+  "empty_before_first_import": true,
+  "database": "neo4j"
+}

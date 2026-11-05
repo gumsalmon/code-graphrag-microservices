@@ -1,0 +1,51 @@
+{
+  "schema": "petclinic-github-publication-status/1",
+  "record_date": "2026-11-05",
+  "authorization_quote": "vậy hãy push lên github đầy đủ vì thầy và anh chỉ review bằng github thôi",
+  "state": "R1_public_on_main_and_development_code_in_open_PR",
+  "main_commit": "924f07f67b88c75a63d57f7b34cd2a746b658a6b",
+  "development_content_commit": "0f9e65d312e93685c37ab9513a9ec053d60eba7c",
+  "development_sync_commit_verified_before_this_record": "9712352c7dd21c0ed8d455983f2db5f20ccd2254",
+  "this_status_is_added_in_a_following_commit": true,
+  "review_entry": "https://github.com/gumsalmon/code-graphrag-microservices/blob/main/review/README.md",
+  "pull_request": {
+    "baseRefOid": "924f07f67b88c75a63d57f7b34cd2a746b658a6b",
+    "headRefOid": "9712352c7dd21c0ed8d455983f2db5f20ccd2254",
+    "isDraft": false,
+    "mergeStateStatus": "CLEAN",
+    "mergeable": "MERGEABLE",
+    "state": "OPEN",
+    "url": "https://github.com/gumsalmon/code-graphrag-microservices/pull/3"
+  },
+  "verification": {
+    "remote_blobs_matched": 1568,
+    "r1_route_files_same_on_both_branches": 536,
+    "zip_http_status": 200,
+    "zip_sha256": "f0e1876e34a4f56cbf012403276569802396d1ee1956da2dc4fcd584084b3b2d",
+    "payload_bindings_verified": 1094,
+    "entry_local_links_checked": 931,
+    "local_Node_tests_passed": 537,
+    "clean_checkout_context_guard_tests_passed": 30,
+    "security_scan_staged_passed_with_specific_research_path_classification": true
+  },
+  "main_scope": "README, attributes preserving evidence bytes, R1 reading route/catalog/payload/ZIP/checksum/forms/verifiers only",
+  "development_code_merged_to_main": false,
+  "force_push_used": false,
+  "round2_published": false,
+  "actual_reviewer_notes_received": false,
+  "actual_reviewer_checkpoint_received": false,
+  "reviewer_identity": null,
+  "review_decision": null,
+  "ground_truth_accepted": false,
+  "model_calls": 0,
+  "official_scoring": false,
+  "messages_sent": false,
+  "public_repository_does_not_guarantee_blindness": true,
+  "local_omissions": [
+    "R2 archive and raw label/notes returns",
+    "encrypted credentials and provider envelopes",
+    "dependency/model caches and binaries",
+    "unselected historical intakes/runs/archives"
+  ],
+  "historical_status_flags_remain_original": true
+}

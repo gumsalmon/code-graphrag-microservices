@@ -1,0 +1,142 @@
+{
+  "snapshot": "mutated",
+  "checks": {
+    "methods": true,
+    "endpoints_and_query_metadata": true,
+    "dependency_edges_and_contract_metadata": true,
+    "retrieval_paths_and_source_chunks": true
+  },
+  "direct_idempotent": true,
+  "cypher_idempotent": true,
+  "full_node_property_parity": true,
+  "class_properties_direct": [
+    {
+      "labels": [
+        "Class"
+      ],
+      "properties": {
+        "fqn": "org.springframework.samples.petclinic.api.application.CustomersServiceClient",
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/CustomersServiceClient.java",
+        "name": "CustomersServiceClient"
+      }
+    },
+    {
+      "labels": [
+        "Class"
+      ],
+      "properties": {
+        "fqn": "org.springframework.samples.petclinic.api.application.VisitsServiceClient",
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+        "name": "VisitsServiceClient"
+      }
+    },
+    {
+      "labels": [
+        "Class"
+      ],
+      "properties": {
+        "fqn": "org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController",
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+        "name": "ApiGatewayController"
+      }
+    },
+    {
+      "labels": [
+        "Class"
+      ],
+      "properties": {
+        "fqn": "org.springframework.samples.petclinic.api.dto.OwnerDetailsBuilder",
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/dto/OwnerDetailsBuilder.java",
+        "name": "OwnerDetailsBuilder"
+      }
+    },
+    {
+      "labels": [
+        "Class"
+      ],
+      "properties": {
+        "fqn": "org.springframework.samples.petclinic.customers.model.Owner",
+        "file": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java",
+        "name": "Owner"
+      }
+    },
+    {
+      "labels": [
+        "Class"
+      ],
+      "properties": {
+        "fqn": "org.springframework.samples.petclinic.customers.web.OwnerResource",
+        "file": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java",
+        "name": "OwnerResource"
+      }
+    }
+  ],
+  "class_properties_cypher": [
+    {
+      "labels": [
+        "Class"
+      ],
+      "properties": {
+        "fqn": "org.springframework.samples.petclinic.api.application.CustomersServiceClient",
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/CustomersServiceClient.java",
+        "name": "CustomersServiceClient"
+      }
+    },
+    {
+      "labels": [
+        "Class"
+      ],
+      "properties": {
+        "fqn": "org.springframework.samples.petclinic.api.application.VisitsServiceClient",
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+        "name": "VisitsServiceClient"
+      }
+    },
+    {
+      "labels": [
+        "Class"
+      ],
+      "properties": {
+        "fqn": "org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController",
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+        "name": "ApiGatewayController"
+      }
+    },
+    {
+      "labels": [
+        "Class"
+      ],
+      "properties": {
+        "fqn": "org.springframework.samples.petclinic.api.dto.OwnerDetailsBuilder",
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/dto/OwnerDetailsBuilder.java",
+        "name": "OwnerDetailsBuilder"
+      }
+    },
+    {
+      "labels": [
+        "Class"
+      ],
+      "properties": {
+        "fqn": "org.springframework.samples.petclinic.customers.model.Owner",
+        "file": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/model/Owner.java",
+        "name": "Owner"
+      }
+    },
+    {
+      "labels": [
+        "Class"
+      ],
+      "properties": {
+        "fqn": "org.springframework.samples.petclinic.customers.web.OwnerResource",
+        "file": "spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java",
+        "name": "OwnerResource"
+      }
+    }
+  ],
+  "snapshot_isolation": "fresh database container per snapshot; importer keys are not intrinsically snapshot-qualified",
+  "nodes": 48,
+  "relationships": 49,
+  "labels_or_raw_observations_read": false,
+  "model_calls": 0,
+  "score_computed": false
+}

@@ -1,0 +1,82 @@
+{
+  "snapshot": "mutated",
+  "checks": {
+    "methods": true,
+    "endpoints_and_query_metadata": true,
+    "dependency_edges_and_contract_metadata": true,
+    "retrieval_paths_and_source_chunks": true
+  },
+  "direct_idempotent": true,
+  "cypher_idempotent": true,
+  "full_node_property_parity": true,
+  "class_properties_direct": [
+    {
+      "labels": [
+        "Class"
+      ],
+      "properties": {
+        "fqn": "org.springframework.samples.petclinic.api.application.VisitsServiceClient",
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+        "name": "VisitsServiceClient"
+      }
+    },
+    {
+      "labels": [
+        "Class"
+      ],
+      "properties": {
+        "fqn": "org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController",
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+        "name": "ApiGatewayController"
+      }
+    },
+    {
+      "labels": [
+        "Class"
+      ],
+      "properties": {
+        "fqn": "org.springframework.samples.petclinic.visits.web.VisitResource",
+        "file": "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java",
+        "name": "VisitResource"
+      }
+    }
+  ],
+  "class_properties_cypher": [
+    {
+      "labels": [
+        "Class"
+      ],
+      "properties": {
+        "fqn": "org.springframework.samples.petclinic.api.application.VisitsServiceClient",
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+        "name": "VisitsServiceClient"
+      }
+    },
+    {
+      "labels": [
+        "Class"
+      ],
+      "properties": {
+        "fqn": "org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController",
+        "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+        "name": "ApiGatewayController"
+      }
+    },
+    {
+      "labels": [
+        "Class"
+      ],
+      "properties": {
+        "fqn": "org.springframework.samples.petclinic.visits.web.VisitResource",
+        "file": "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java",
+        "name": "VisitResource"
+      }
+    }
+  ],
+  "snapshot_isolation": "fresh database container per snapshot; importer keys are not intrinsically snapshot-qualified",
+  "nodes": 18,
+  "relationships": 18,
+  "labels_or_raw_observations_read": false,
+  "model_calls": 0,
+  "score_computed": false
+}

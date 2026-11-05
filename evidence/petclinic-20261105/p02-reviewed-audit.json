@@ -1,0 +1,86 @@
+{
+  "manifest_sha256": "42e48fbf04beb48bf79ff84812d4476c05f5286056a19621fdf86b9d0945b978",
+  "files": 150,
+  "scope": "technical source/native/database/retrieval checks only; no annotation/scoring",
+  "groups": [
+    {
+      "snapshot": "baseline",
+      "native_methods": 9,
+      "native_endpoints": 4,
+      "native_dependency_edges": 2,
+      "native_unresolved_records": 1,
+      "database_nodes": 18,
+      "database_relationships": 18,
+      "structural_method_inventory": {
+        "eligible": 8,
+        "represented": 8,
+        "unrepresented": [],
+        "not_an_impact_or_accuracy_measure": true
+      },
+      "metadata_parity": {
+        "methods": true,
+        "endpoints_and_query_metadata": true,
+        "dependency_edges_and_contract_metadata": true,
+        "retrieval_paths_and_source_chunks": true
+      },
+      "full_node_property_parity": true,
+      "node_property_difference": null,
+      "retrieval": [
+        {
+          "depth": 1,
+          "distinct_candidate_methods": 1
+        },
+        {
+          "depth": 2,
+          "distinct_candidate_methods": 2
+        },
+        {
+          "depth": 3,
+          "distinct_candidate_methods": 2
+        }
+      ]
+    },
+    {
+      "snapshot": "mutated",
+      "native_methods": 9,
+      "native_endpoints": 4,
+      "native_dependency_edges": 2,
+      "native_unresolved_records": 1,
+      "database_nodes": 18,
+      "database_relationships": 18,
+      "structural_method_inventory": {
+        "eligible": 8,
+        "represented": 8,
+        "unrepresented": [],
+        "not_an_impact_or_accuracy_measure": true
+      },
+      "metadata_parity": {
+        "methods": true,
+        "endpoints_and_query_metadata": true,
+        "dependency_edges_and_contract_metadata": true,
+        "retrieval_paths_and_source_chunks": true
+      },
+      "full_node_property_parity": true,
+      "node_property_difference": null,
+      "retrieval": [
+        {
+          "depth": 1,
+          "distinct_candidate_methods": 1
+        },
+        {
+          "depth": 2,
+          "distinct_candidate_methods": 2
+        },
+        {
+          "depth": 3,
+          "distinct_candidate_methods": 2
+        }
+      ]
+    }
+  ],
+  "fresh_database_instances": 2,
+  "private_internal_networks": 1,
+  "labels_or_annotation_notes_read": false,
+  "model_calls": 0,
+  "score_computed": false
+}

@@ -1,0 +1,176 @@
+{
+  "snapshot": "mutated",
+  "plans": [
+    {
+      "depth_limit": 1,
+      "query": "MATCH p=(caller:Method)-[:CALLS|INVOKES_API*1..1]->(seed:Method {id:$seed})\n WHERE caller.id<>$seed AND all(r IN relationships(p) WHERE r.resolution_status='RESOLVED')\n RETURN caller.id AS id, length(p) AS logical_hop, [n IN nodes(p)|n.id] AS witness_ids, [r IN relationships(p)|type(r)] AS relation_types\n ORDER BY id, logical_hop, witness_ids",
+      "parameters": {
+        "seed": "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(List<Integer>,boolean)"
+      },
+      "paths": [
+        {
+          "id": "api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)",
+          "logical_hop": 1,
+          "witness_ids": [
+            "api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)",
+            "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(List<Integer>,boolean)"
+          ],
+          "relation_types": [
+            "INVOKES_API"
+          ]
+        }
+      ],
+      "chunks": [
+        {
+          "id": "api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)",
+          "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+          "line_start": 42,
+          "line_end": 48,
+          "source_sha256": "d7d1437c4dce96d4de5f636511d3bcf5549df4a11b7826fde0375bce358f1e13",
+          "excerpt_sha256": "45f248394df1d517e9427475060785d6fbfd3e8907af4fd4cddd07113a1ed00c",
+          "excerpt": "    public Mono<Visits> getVisitsForPets(final List<Integer> petIds) {\n        return webClientBuilder.build()\n            .get()\n            .uri(hostname + \"pets/visits?petId={petId}\", joinIds(petIds))\n            .retrieve()\n            .bodyToMono(Visits.class);\n    }\n"
+        },
+        {
+          "id": "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(List<Integer>,boolean)",
+          "file": "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java",
+          "line_start": 72,
+          "line_end": 77,
+          "source_sha256": "c2253806644e38b298988693b44188ecab23c7fd9b2210e809fa12e728292fd0",
+          "excerpt_sha256": "1cd32da9c15a48ec7bffe1710acafbb0e6a9bf2b9bcc1c20f32304bb49f3fc9f",
+          "excerpt": "    @GetMapping(\"pets/visits\")\n    public Visits read(@RequestParam(\"petId\") List<Integer> petIds,\n                       @RequestParam(value = \"includeDetails\", required = false, defaultValue = \"false\") boolean includeDetails) {\n        final List<Visit> byPetIdIn = visitRepository.findByPetIdIn(petIds);\n        return new Visits(byPetIdIn);\n    }\n"
+        }
+      ],
+      "not_an_impact_label": true
+    },
+    {
+      "depth_limit": 2,
+      "query": "MATCH p=(caller:Method)-[:CALLS|INVOKES_API*1..2]->(seed:Method {id:$seed})\n WHERE caller.id<>$seed AND all(r IN relationships(p) WHERE r.resolution_status='RESOLVED')\n RETURN caller.id AS id, length(p) AS logical_hop, [n IN nodes(p)|n.id] AS witness_ids, [r IN relationships(p)|type(r)] AS relation_types\n ORDER BY id, logical_hop, witness_ids",
+      "parameters": {
+        "seed": "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(List<Integer>,boolean)"
+      },
+      "paths": [
+        {
+          "id": "api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)",
+          "logical_hop": 1,
+          "witness_ids": [
+            "api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)",
+            "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(List<Integer>,boolean)"
+          ],
+          "relation_types": [
+            "INVOKES_API"
+          ]
+        },
+        {
+          "id": "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)",
+          "logical_hop": 2,
+          "witness_ids": [
+            "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)",
+            "api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)",
+            "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(List<Integer>,boolean)"
+          ],
+          "relation_types": [
+            "CALLS",
+            "INVOKES_API"
+          ]
+        }
+      ],
+      "chunks": [
+        {
+          "id": "api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)",
+          "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+          "line_start": 42,
+          "line_end": 48,
+          "source_sha256": "d7d1437c4dce96d4de5f636511d3bcf5549df4a11b7826fde0375bce358f1e13",
+          "excerpt_sha256": "45f248394df1d517e9427475060785d6fbfd3e8907af4fd4cddd07113a1ed00c",
+          "excerpt": "    public Mono<Visits> getVisitsForPets(final List<Integer> petIds) {\n        return webClientBuilder.build()\n            .get()\n            .uri(hostname + \"pets/visits?petId={petId}\", joinIds(petIds))\n            .retrieve()\n            .bodyToMono(Visits.class);\n    }\n"
+        },
+        {
+          "id": "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)",
+          "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+          "line_start": 54,
+          "line_end": 66,
+          "source_sha256": "bb815e3727be7e56330072d54774944ef5029d66d2d7e56976d7c60dbeafbb21",
+          "excerpt_sha256": "c9136769db042a8d551308df266b2c6a0c0f0427a209a85741559b0ae011620d",
+          "excerpt": "    @GetMapping(value = \"owners/{ownerId}\")\n    public Mono<OwnerDetails> getOwnerDetails(final @PathVariable int ownerId) {\n        return customersServiceClient.getOwner(ownerId)\n            .flatMap(owner ->\n                visitsServiceClient.getVisitsForPets(owner.getPetIds())\n                    .transform(it -> {\n                        ReactiveCircuitBreaker cb = cbFactory.create(\"getOwnerDetails\");\n                        return cb.run(it, throwable -> emptyVisitsForPets());\n                    })\n                    .map(addVisitsToOwner(owner))\n            );\n\n    }\n"
+        },
+        {
+          "id": "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(List<Integer>,boolean)",
+          "file": "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java",
+          "line_start": 72,
+          "line_end": 77,
+          "source_sha256": "c2253806644e38b298988693b44188ecab23c7fd9b2210e809fa12e728292fd0",
+          "excerpt_sha256": "1cd32da9c15a48ec7bffe1710acafbb0e6a9bf2b9bcc1c20f32304bb49f3fc9f",
+          "excerpt": "    @GetMapping(\"pets/visits\")\n    public Visits read(@RequestParam(\"petId\") List<Integer> petIds,\n                       @RequestParam(value = \"includeDetails\", required = false, defaultValue = \"false\") boolean includeDetails) {\n        final List<Visit> byPetIdIn = visitRepository.findByPetIdIn(petIds);\n        return new Visits(byPetIdIn);\n    }\n"
+        }
+      ],
+      "not_an_impact_label": true
+    },
+    {
+      "depth_limit": 3,
+      "query": "MATCH p=(caller:Method)-[:CALLS|INVOKES_API*1..3]->(seed:Method {id:$seed})\n WHERE caller.id<>$seed AND all(r IN relationships(p) WHERE r.resolution_status='RESOLVED')\n RETURN caller.id AS id, length(p) AS logical_hop, [n IN nodes(p)|n.id] AS witness_ids, [r IN relationships(p)|type(r)] AS relation_types\n ORDER BY id, logical_hop, witness_ids",
+      "parameters": {
+        "seed": "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(List<Integer>,boolean)"
+      },
+      "paths": [
+        {
+          "id": "api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)",
+          "logical_hop": 1,
+          "witness_ids": [
+            "api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)",
+            "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(List<Integer>,boolean)"
+          ],
+          "relation_types": [
+            "INVOKES_API"
+          ]
+        },
+        {
+          "id": "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)",
+          "logical_hop": 2,
+          "witness_ids": [
+            "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)",
+            "api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)",
+            "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(List<Integer>,boolean)"
+          ],
+          "relation_types": [
+            "CALLS",
+            "INVOKES_API"
+          ]
+        }
+      ],
+      "chunks": [
+        {
+          "id": "api-gateway::org.springframework.samples.petclinic.api.application.VisitsServiceClient#getVisitsForPets(List<Integer>)",
+          "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+          "line_start": 42,
+          "line_end": 48,
+          "source_sha256": "d7d1437c4dce96d4de5f636511d3bcf5549df4a11b7826fde0375bce358f1e13",
+          "excerpt_sha256": "45f248394df1d517e9427475060785d6fbfd3e8907af4fd4cddd07113a1ed00c",
+          "excerpt": "    public Mono<Visits> getVisitsForPets(final List<Integer> petIds) {\n        return webClientBuilder.build()\n            .get()\n            .uri(hostname + \"pets/visits?petId={petId}\", joinIds(petIds))\n            .retrieve()\n            .bodyToMono(Visits.class);\n    }\n"
+        },
+        {
+          "id": "api-gateway::org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int)",
+          "file": "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java",
+          "line_start": 54,
+          "line_end": 66,
+          "source_sha256": "bb815e3727be7e56330072d54774944ef5029d66d2d7e56976d7c60dbeafbb21",
+          "excerpt_sha256": "c9136769db042a8d551308df266b2c6a0c0f0427a209a85741559b0ae011620d",
+          "excerpt": "    @GetMapping(value = \"owners/{ownerId}\")\n    public Mono<OwnerDetails> getOwnerDetails(final @PathVariable int ownerId) {\n        return customersServiceClient.getOwner(ownerId)\n            .flatMap(owner ->\n                visitsServiceClient.getVisitsForPets(owner.getPetIds())\n                    .transform(it -> {\n                        ReactiveCircuitBreaker cb = cbFactory.create(\"getOwnerDetails\");\n                        return cb.run(it, throwable -> emptyVisitsForPets());\n                    })\n                    .map(addVisitsToOwner(owner))\n            );\n\n    }\n"
+        },
+        {
+          "id": "visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(List<Integer>,boolean)",
+          "file": "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java",
+          "line_start": 72,
+          "line_end": 77,
+          "source_sha256": "c2253806644e38b298988693b44188ecab23c7fd9b2210e809fa12e728292fd0",
+          "excerpt_sha256": "1cd32da9c15a48ec7bffe1710acafbb0e6a9bf2b9bcc1c20f32304bb49f3fc9f",
+          "excerpt": "    @GetMapping(\"pets/visits\")\n    public Visits read(@RequestParam(\"petId\") List<Integer> petIds,\n                       @RequestParam(value = \"includeDetails\", required = false, defaultValue = \"false\") boolean includeDetails) {\n        final List<Visit> byPetIdIn = visitRepository.findByPetIdIn(petIds);\n        return new Visits(byPetIdIn);\n    }\n"
+        }
+      ],
+      "not_an_impact_label": true
+    }
+  ],
+  "seed_excluded_from_candidate_paths": true,
+  "graph_reachability_only": true,
+  "embedding_or_model_inference": false,
+  "score_computed": false
+}

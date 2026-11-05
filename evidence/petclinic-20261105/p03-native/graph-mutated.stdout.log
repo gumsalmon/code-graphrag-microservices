@@ -1,0 +1,1 @@
+{"snapshot": "mutated", "checks": {"methods": true, "endpoints_and_query_metadata": true, "dependency_edges_and_contract_metadata": true, "retrieval_paths_and_source_chunks": true}, "nodes": 48, "relationships": 49}

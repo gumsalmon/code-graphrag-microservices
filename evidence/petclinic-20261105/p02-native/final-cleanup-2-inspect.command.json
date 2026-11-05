@@ -1,0 +1,12 @@
+{
+  "program": "docker",
+  "args": [
+    "--config",
+    "E:\\NCKH\\code-graphrag-microservices\\pipeline\\p02\\docker-client",
+    "inspect",
+    "p02m-20261102t140320547z-03c452f7-graph-baseline"
+  ],
+  "cwd": "E:\\NCKH\\code-graphrag-microservices",
+  "started_utc": "2026-11-02T14:04:01.862Z",
+  "credentials_passed": false
+}

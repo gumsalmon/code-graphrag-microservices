@@ -1,0 +1,37 @@
+diff --git a/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java b/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java
+--- a/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java
++++ b/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/web/OwnerResource.java
+@@ -26,7 +26,9 @@
+ import org.springframework.samples.petclinic.customers.model.OwnerRepository;
+ import org.springframework.web.bind.annotation.*;
+ 
+-import java.util.List;
++import java.util.LinkedHashMap;
++import java.util.List;
++import java.util.Map;
+ import java.util.Optional;
+ 
+ /**
+@@ -65,9 +67,19 @@
+      * Read single Owner
+      */
+     @GetMapping(value = "/{ownerId}")
+-    public Optional<Owner> findOwner(@PathVariable("ownerId") @Min(1) int ownerId) {
+-        return ownerRepository.findById(ownerId);
+-    }
++    public Optional<Map<String, Object>> findOwner(@PathVariable("ownerId") @Min(1) int ownerId) {
++        return ownerRepository.findById(ownerId).map(owner -> {
++            Map<String, Object> response = new LinkedHashMap<>();
++            response.put("id", owner.getId());
++            response.put("firstName", owner.getFirstName());
++            response.put("lastName", owner.getLastName());
++            response.put("address", owner.getAddress());
++            response.put("city", owner.getCity());
++            response.put("telephone", owner.getTelephone());
++            response.put("animals", owner.getPets());
++            return response;
++        });
++    }
+ 
+     /**
+      * Read List of Owners

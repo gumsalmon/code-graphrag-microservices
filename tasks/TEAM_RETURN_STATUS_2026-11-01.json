@@ -1,0 +1,150 @@
+{
+  "schema": "team-return-intake-status/1",
+  "record_date": "2026-11-01",
+  "intake_directory": "handoff-out/team-returns-20261101/20261101T054957Z-a801d6ca",
+  "report": "tasks/research/TEAM_RETURNS_REVIEW_2026-11-01.md",
+  "p02": {
+    "zip_sha256": "2a01e007b0cf75ca9d2c94d9212a10d66af2d4d29aaf25a67f0ba339ad764f10",
+    "sidecar_verified": true,
+    "root_manifest_files_verified": 4456,
+    "evidence_manifest_entries_verified": 4445,
+    "label_version": "draft.v4",
+    "label_sha256": "c22e97a5a3a6994cb0c7961c5a42ed098301b106d36ab57536a486077c456f08",
+    "checkpoint_sha256": "de951041b200074f43171b2b5c9211b9b8a492fce6baf711d414402996f7a024",
+    "status": "pending_review",
+    "technical_checkpoint_ready": true,
+    "eligible_ids": 12,
+    "excluded_seeds": 3,
+    "human_reading_scope_record_received": "grouped self-report for eight prior IDs, not independently authenticated or blinded",
+    "prior_copy_exception": "Four-byte typo in copied blank template only; canonical original retained, source/raw/labels unchanged",
+    "coordinator_record": "benchmark/p02/checkpoints/COORDINATOR_CHECKPOINT_2026-11-01.json",
+    "technical_receipt": "tasks/hien-next/P02_TECHNICAL_RECEIPT_2026-11-01.json",
+    "ground_truth_accepted": false
+  },
+  "hien_milestone_a": {
+    "zip_sha256": "bf42f8bea5b85c0b86b2bc064141b4b08bf0edf6028f7c9279f79e0898c9d525",
+    "sidecar_verified": true,
+    "manifest_files_verified": 85,
+    "code_identities_verified": 9,
+    "external_return_matches_zip": true,
+    "candidate_parser_and_importer_unchanged": true,
+    "independent_unit_tests_passed": 13,
+    "independent_cli_success": true,
+    "independent_cli_missing_seed_refused": true,
+    "independent_cli_actual_kind_refused": true,
+    "human_final_diff_confirmation_received": false,
+    "scope": "synthetic adapter and syntax-only response survey, not P03 serialization/dataflow support"
+  },
+  "p02_offline_method": {
+    "directory": "handoff-out/p02-offline-method/20261101t061314799z-a263deac",
+    "manifest_sha256": "ad7fe3ac6536a54315219a44533f73a36a016a1c1f362e4c7026134971c126d4",
+    "status": "verified_scoped_with_inventory_and_full_node_property_limits",
+    "source_files_per_snapshot": 3,
+    "native_methods_per_snapshot": 5,
+    "native_endpoints_per_snapshot": 4,
+    "native_dependency_edges_per_snapshot": 2,
+    "native_unresolved_records_per_snapshot": 1,
+    "neo4j_nodes_per_snapshot": 14,
+    "neo4j_relationships_per_snapshot": 14,
+    "fresh_database_containers": 2,
+    "direct_and_cypher_same_snapshot_idempotence_verified": true,
+    "method_endpoint_query_edge_metadata_parity": true,
+    "offline_graph_source_retrieval_depths": [
+      1,
+      2,
+      3
+    ],
+    "candidate_counts_by_depth_each_snapshot": [
+      1,
+      2,
+      2
+    ],
+    "full_node_property_parity": false,
+    "known_property_difference": "Class.name exists in Cypher export only",
+    "eligible_method_inventory_count": 8,
+    "represented_eligible_method_count": 4,
+    "unrepresented_helper_methods": [
+      "joinIds",
+      "setHostname",
+      "addVisitsToOwner",
+      "emptyVisitsForPets"
+    ],
+    "not_an_impact_label_or_accuracy_measure": true,
+    "labels_or_annotation_notes_or_raw_benchmark_outcomes_used_as_method_inputs": false,
+    "cleanup_complete": true,
+    "retained_failed_runs": [
+      "20261101t060622728z-c9e2eef0",
+      "20261101t060738714z-ce8321d7",
+      "20261101t061030892z-8804a366"
+    ],
+    "coordinator_node_guard_tests_passed": 5,
+    "coordinator_python_probe_tests_passed": 5
+  },
+  "hien_next_packet": {
+    "archive": "handoff-out/hien-p02-next/20261101T062259Z-fbac2a60/P02_HIEN_TECHNICAL_2026-11-01.zip",
+    "sha256": "fc18942d9b7610a47c23ccc72f386785d831c24ad01ee40e83a1e1f55df4db3f",
+    "bytes": 80915,
+    "files": 42,
+    "relocated_verifier_passed": true,
+    "labels_or_annotation_notes_included": false,
+    "sent": true,
+    "acknowledged": false,
+    "sent_reported_by": "Huy in conversation on 2026-11-01",
+    "exact_sent_time": null,
+    "delivery_record": "tasks/DELIVERY_REPORTED_2026-11-01.md"
+  },
+  "p03_checkpoint_received": false,
+  "p03_actual_method_execution_authorized_by_this_intake": false,
+  "labels_or_old_raw_modified": false,
+  "human_ground_truth_accepted": false,
+  "final_test_locked": false,
+  "model_calls": 0,
+  "embedding_inference": false,
+  "official_scoring": false,
+  "shared_draft_contract_adopted": false,
+  "git_stage_commit_or_push_performed": false,
+  "final_audit": {
+    "directory": "handoff-out/team-returns-final-audit/20261101T063123708Z-6ce6a252",
+    "manifest_sha256": "3fa22a6975ca7ccd35d345475555491c2bcc16b42c1ea337ff617e92412e6845",
+    "files": 51,
+    "tests_and_workboard_passed": true,
+    "received_and_failed_run_manifest_files_rechecked": 4937,
+    "final_owned_container_and_network_queries_empty": true,
+    "git_head": "d1f95eb21c71dd6bfb49d2e450142d1290ceda5f",
+    "git_index_empty": true,
+    "working_tree_clean": false
+  },
+  "phat_checkpoint_feedback_delivery": {
+    "sent_reported": true,
+    "recipient_acknowledged": false,
+    "reported_by": "Huy in conversation on 2026-11-01",
+    "exact_sent_time": null,
+    "message": "tasks/p02-handoff/SEND_AFTER_CHECKPOINT_2026-11-01.md",
+    "delivery_record": "tasks/DELIVERY_REPORTED_2026-11-01.md",
+    "technical_method_packet_authorized_for_annotation": false
+  },
+  "next_design_proposal": {
+    "path": "tasks/research/PETCLINIC_NEXT_DECISIONS_2026-11-01.md",
+    "status": "recommendations_only_not_adopted",
+    "huy_approval": null,
+    "hien_feedback": null,
+    "phat_feedback": null,
+    "applies_shared_contract": false,
+    "new_model_calls_authorized": 0,
+    "official_scoring_authorized": false
+  },
+  "independent_work_after_forwarding": {
+    "status_record": "tasks/P02_NATIVE_INSPECTOR_STATUS_2026-11-01.json",
+    "kind": "saved_native_evidence_inspector",
+    "no_new_team_return": true,
+    "no_new_recipient_ack": true,
+    "turnaround_reported_by_huy": "typically 6-8 hours, not a recipient-committed ETA"
+  },
+  "review_methods_preparation": "tasks/REVIEW_METHODS_PREPARATION_STATUS_2026-11-01.json",
+  "static_context_preparation": {
+    "status_record": "tasks/P02_STATIC_CONTEXT_STATUS_2026-11-01.json",
+    "scope": "P02 baseline source and patch only, seven previews of one scenario; no new team return or P03 checkpoint",
+    "new_team_ack_or_eta_inferred": false,
+    "labels_or_annotation_notes_used_as_method_inputs": false
+  }
+}

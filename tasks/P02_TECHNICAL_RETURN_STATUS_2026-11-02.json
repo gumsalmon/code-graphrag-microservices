@@ -1,0 +1,196 @@
+{
+  "schema": "hien-p02-technical-return-status/1",
+  "record_date": "2026-11-02",
+  "status": "two_requested_P02_technical_fixes_independently_verified_scoped",
+  "report": "tasks/research/HIEN_P02_TECHNICAL_RETURN_2026-11-02.md",
+  "case": "P02",
+  "p03_return": false,
+  "intake_directory": "handoff-out/hien-p02-return/20261102T135352Z-54131bc0",
+  "archive_sha256": "f6cb2f86d5d0daf4dba9efaaee0da54606b1d39f02574f0333a1123f6b12c192",
+  "archive_bytes": 51811,
+  "manifest_files": 36,
+  "archive_regular_files": 37,
+  "external_checksum_sidecar_supplied": false,
+  "archive_hash_scope": "Coordinator computed, not external sender checksum attestation",
+  "received_manifest_and_crc_verified": true,
+  "permitted_code_edits_only": true,
+  "candidate_implementation": {
+    "parser": "f46fdf123ab156b7d3f3a03ced679dd581e10fbbb6ca28d64140147a1d6eeeb0",
+    "importer": "93c20bd93e6dd5997043b4e4806aa5df7523426b4a82e6607b694934e5d4d7d3"
+  },
+  "reviewed_implementation_profile": "tasks/hien-next/P02_REVIEWED_IMPLEMENTATION_2026-11-02.json",
+  "reviewed_profile_sha256": "c1f8aed32565e50512f4cdea32742892b0ae2ea3db4a2177846c69fef88051a0",
+  "independent_units": {
+    "tests_passed": 24,
+    "failed": 0,
+    "skipped": 0,
+    "scope": "Reviewed 21 previous tests plus 3 new regressions in local cached Python image; not full legacy 59-test/Chroma suite",
+    "image": "sha256:63c6e72e510d658265cf956b0e589ec7b55c6049b766b6b68120253f7ee06281",
+    "network": "none",
+    "implementation_read_only": true,
+    "received_helpers_executed": false,
+    "model_calls": 0
+  },
+  "independent_native_run": {
+    "directory": "handoff-out/p02-offline-method-reviewed/20261102t140320547z-03c452f7",
+    "manifest_sha256": "42e48fbf04beb48bf79ff84812d4476c05f5286056a19621fdf86b9d0945b978",
+    "files": 150,
+    "groups": [
+      {
+        "snapshot": "baseline",
+        "native_methods": 9,
+        "native_endpoints": 4,
+        "native_dependency_edges": 2,
+        "native_unresolved_records": 1,
+        "database_nodes": 18,
+        "database_relationships": 18,
+        "structural_method_inventory": {
+          "eligible": 8,
+          "represented": 8,
+          "unrepresented": [],
+          "not_an_impact_or_accuracy_measure": true
+        },
+        "metadata_parity": {
+          "methods": true,
+          "endpoints_and_query_metadata": true,
+          "dependency_edges_and_contract_metadata": true,
+          "retrieval_paths_and_source_chunks": true
+        },
+        "full_node_property_parity": true,
+        "node_property_difference": null,
+        "retrieval": [
+          {
+            "depth": 1,
+            "distinct_candidate_methods": 1
+          },
+          {
+            "depth": 2,
+            "distinct_candidate_methods": 2
+          },
+          {
+            "depth": 3,
+            "distinct_candidate_methods": 2
+          }
+        ]
+      },
+      {
+        "snapshot": "mutated",
+        "native_methods": 9,
+        "native_endpoints": 4,
+        "native_dependency_edges": 2,
+        "native_unresolved_records": 1,
+        "database_nodes": 18,
+        "database_relationships": 18,
+        "structural_method_inventory": {
+          "eligible": 8,
+          "represented": 8,
+          "unrepresented": [],
+          "not_an_impact_or_accuracy_measure": true
+        },
+        "metadata_parity": {
+          "methods": true,
+          "endpoints_and_query_metadata": true,
+          "dependency_edges_and_contract_metadata": true,
+          "retrieval_paths_and_source_chunks": true
+        },
+        "full_node_property_parity": true,
+        "node_property_difference": null,
+        "retrieval": [
+          {
+            "depth": 1,
+            "distinct_candidate_methods": 1
+          },
+          {
+            "depth": 2,
+            "distinct_candidate_methods": 2
+          },
+          {
+            "depth": 3,
+            "distinct_candidate_methods": 2
+          }
+        ]
+      }
+    ],
+    "fresh_database_instances": 2,
+    "private_internal_networks": 1,
+    "cleanup_complete": true,
+    "source_input_and_implementation_preserved": true,
+    "full_node_and_relationship_property_parity": true,
+    "explicit_method_inventory_eligible": 8,
+    "explicit_method_inventory_represented": 8,
+    "retrieval_counts_by_depth_each_snapshot": [
+      1,
+      2,
+      2
+    ]
+  },
+  "received_and_independent_outputs_match_in_qualified_comparison": true,
+  "comparison_record": "handoff-out/hien-p02-return/20261102T135352Z-54131bc0/COORDINATOR_REPLAY_COMPARISON.json",
+  "sender_human_final_diff_confirmation_received": false,
+  "human_confirmation_scope": "RETURN explicitly awaits Hien own final review; user forwarded return, not an independently authenticated sign-off. This does not block authorized technical testing.",
+  "cypher_report_hash_exceptions": [
+    {
+      "snapshot": "baseline",
+      "path": "artifacts/source-only/baseline/graph.cypher",
+      "raw_file_sha256": "db7d8e8c1a8dbb637372e0d6d3385710e83ca579708bc5799d953d35f018592c",
+      "reported_sha256": "70f28a85a888452fb5eca34ab2c99c0077d77ddf16275f34d6d1d4234c343033",
+      "reported_hash_scope": "UTF-8 generated string with LF, not stored CRLF file bytes",
+      "raw_manifest_hash_verified": true,
+      "received_bytes_modified": false,
+      "sender_report_clarification_needed": true
+    },
+    {
+      "snapshot": "mutated",
+      "path": "artifacts/source-only/mutated/graph.cypher",
+      "raw_file_sha256": "0c3c9d83deb9c43a6ac314709c5d3002e4985a2dedd4fb15f9888f05eaecc40e",
+      "reported_sha256": "b2ad5b08cce238be21ba1ff91667e9af2bb2d60d7697ddc74bb6f406de25014f",
+      "reported_hash_scope": "UTF-8 generated string with LF, not stored CRLF file bytes",
+      "raw_manifest_hash_verified": true,
+      "received_bytes_modified": false,
+      "sender_report_clarification_needed": true
+    }
+  ],
+  "metadata_repository_alias_difference": "Sender builder default URL; coordinator earlier explicit short name. Source commit/IDs match; no graph byte equality claimed.",
+  "feedback": "tasks/hien-next/SEND_AFTER_P02_TECHNICAL_RETURN_2026-11-02.md",
+  "feedback_sent": true,
+  "hien_p02_return_acknowledgement": "Received return forwarded by Huy for the earlier P02 packet; not P03 delivery or human approval",
+  "p03_technical_packet": {
+    "archive": "handoff-out/hien-p03-receipt/20261102T132541Z-1420aaa4/P03_HIEN_TECHNICAL_2026-11-02.zip",
+    "user_intends_to_forward": true,
+    "forwarding_reported_complete": true,
+    "recipient_acknowledged": false,
+    "reference_code_in_packet_is_historical": true,
+    "delivery_record": "tasks/DELIVERY_REPORTED_2026-11-02.md",
+    "exact_sent_time": null
+  },
+  "p03_actual_method_execution": false,
+  "root_implementation_or_old_runner_probe_overwritten": false,
+  "old_native_viewer_and_static_context_snapshots_rebuilt": false,
+  "model_calls": 0,
+  "embedding_inference": false,
+  "official_scoring": false,
+  "ground_truth_accepted": false,
+  "labels_or_raw_modified": false,
+  "shared_draft_contract_adopted": false,
+  "git_stage_commit_push": false,
+  "final_audit": {
+    "directory": "handoff-out/hien-p02-final-audit/20261102T142601869Z-9d097829",
+    "manifest_sha256": "991dd6a3602d5d67607ce5d1a97fd4528da114d3e4b1cb8a2209659ed1d004c4",
+    "files_verified": 55,
+    "protected_prior_files": 35,
+    "prior_authoring_snapshots_unchanged": 12,
+    "old_and_new_manifest_entries_rechecked": 2378,
+    "owned_Docker_resources_absent": true,
+    "workboard_tasks": 28,
+    "workboard_check_passed": true,
+    "git_head": "d1f95eb21c71dd6bfb49d2e450142d1290ceda5f",
+    "git_index_empty": true,
+    "working_tree_clean": false
+  },
+  "next_action": "Feedback and filtered P03 packet forwarded per Huy on 02/11; no new ACK/return. Hien keeps reviewed candidate in fresh copy for P03 under own receipt. Coordinator may prepare updated P02 contexts/viewer without repeating parser/DB tests or changing old snapshots.",
+  "intake_seal": {
+    "manifest_sha256": "f7a073b9e9fe8934b6c7a03c3dd0e6cf030fe1f478c5bd82341ba16ab43208f1",
+    "files_verified": 80
+  },
+  "feedback_delivery_record": "tasks/DELIVERY_REPORTED_2026-11-02.md"
+}
