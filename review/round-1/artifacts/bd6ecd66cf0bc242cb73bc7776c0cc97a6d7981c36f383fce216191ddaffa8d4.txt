@@ -1,0 +1,34 @@
+{
+  "id": "discovery-registry",
+  "timestamp_utc": "2026-10-25T12:20:24.499224+00:00",
+  "method": "GET",
+  "host": "discovery-server",
+  "port": 8761,
+  "path": "/eureka/apps",
+  "request_headers": {
+    "Accept": "application/json",
+    "Accept-Encoding": "identity"
+  },
+  "request_body_file": null,
+  "status": 200,
+  "error": null,
+  "response_headers": [
+    [
+      "Content-Type",
+      "application/json"
+    ],
+    [
+      "Content-Length",
+      "3018"
+    ],
+    [
+      "Date",
+      "Sun, 25 Oct 2026 12:20:24 GMT"
+    ]
+  ],
+  "body_file": "discovery-registry.body",
+  "redirects_followed": false,
+  "body_sha256": "222c582f76049a6cb3b5b3ff259b7a356950e091064dff45807e02fb5b3141aa",
+  "body_bytes": 3018,
+  "elapsed_ms": 6
+}

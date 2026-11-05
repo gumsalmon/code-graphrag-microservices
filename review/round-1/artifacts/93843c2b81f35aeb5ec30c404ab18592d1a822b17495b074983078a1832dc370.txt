@@ -1,0 +1,34 @@
+{
+  "id": "update_readback",
+  "method": "GET",
+  "host": "customers-service",
+  "port": 8081,
+  "path": "/owners/12",
+  "timestamp_utc": "2026-10-31T05:37:16.053674+00:00",
+  "request_headers": {
+    "Accept": "application/json",
+    "Accept-Encoding": "identity"
+  },
+  "request_body_file": null,
+  "status": 200,
+  "error": null,
+  "body_file": "update_readback.body",
+  "response_headers": [
+    [
+      "Content-Type",
+      "application/json"
+    ],
+    [
+      "Transfer-Encoding",
+      "chunked"
+    ],
+    [
+      "Date",
+      "Sat, 31 Oct 2026 05:37:16 GMT"
+    ]
+  ],
+  "redirects_followed": false,
+  "body_sha256": "c40cd74999a3454a8c21d7ef5a7534ef4cddcd43a0c4fabdf19afb20f26a0e45",
+  "body_bytes": 137,
+  "elapsed_ms": 16
+}

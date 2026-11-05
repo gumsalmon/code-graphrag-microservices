@@ -1,0 +1,34 @@
+{
+  "id": "owner_list_control",
+  "method": "GET",
+  "host": "customers-service",
+  "port": 8081,
+  "path": "/owners",
+  "timestamp_utc": "2026-10-31T05:31:30.707404+00:00",
+  "request_headers": {
+    "Accept": "application/json",
+    "Accept-Encoding": "identity"
+  },
+  "request_body_file": null,
+  "status": 200,
+  "error": null,
+  "body_file": "owner_list_control.body",
+  "response_headers": [
+    [
+      "Content-Type",
+      "application/json"
+    ],
+    [
+      "Transfer-Encoding",
+      "chunked"
+    ],
+    [
+      "Date",
+      "Sat, 31 Oct 2026 05:31:30 GMT"
+    ]
+  ],
+  "redirects_followed": false,
+  "body_sha256": "a34389af1b40decb0020e8f6cc256d26309299345962fefa7e97e6fc8e93e891",
+  "body_bytes": 2662,
+  "elapsed_ms": 27
+}

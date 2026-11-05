@@ -1,0 +1,37 @@
+{
+  "id": "create_control",
+  "method": "POST",
+  "host": "customers-service",
+  "port": 8081,
+  "path": "/owners",
+  "timestamp_utc": "2026-10-31T05:33:16.659044+00:00",
+  "request_headers": {
+    "Accept": "application/json",
+    "Accept-Encoding": "identity",
+    "Content-Type": "application/json"
+  },
+  "request_body_file": "create_control.request.body",
+  "status": 201,
+  "error": null,
+  "body_file": "create_control.body",
+  "response_headers": [
+    [
+      "Content-Type",
+      "application/json"
+    ],
+    [
+      "Transfer-Encoding",
+      "chunked"
+    ],
+    [
+      "Date",
+      "Sat, 31 Oct 2026 05:33:16 GMT"
+    ]
+  ],
+  "redirects_followed": false,
+  "request_body_sha256": "9a76a0f3f97a1268122690ca46c4f22c4c76a2ec77bc99378619b3a877f0c52e",
+  "request_body_bytes": 114,
+  "body_sha256": "43de5706907aa1ab0a73de85bae2d71feb6646a8084fadfb464e7ef28a79cbab",
+  "body_bytes": 132,
+  "elapsed_ms": 17
+}

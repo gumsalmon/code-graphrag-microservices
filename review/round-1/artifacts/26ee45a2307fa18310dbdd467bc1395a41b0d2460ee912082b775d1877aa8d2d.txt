@@ -1,0 +1,1 @@
+{"address":"110 W. Liberty St.","city":"Madison","firstName":"George","id":1,"lastName":"Franklin","pets":[{"birthDate":"2010-09-07T00:00:00.000Z","id":1,"name":"Leo","type":{"id":1,"name":"cat"}}],"telephone":"6085551023"}

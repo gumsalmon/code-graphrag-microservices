@@ -1,0 +1,30 @@
+{
+  "id": "gateway-provider-fault",
+  "timestamp_utc": "2026-10-24T10:47:40.602445+00:00",
+  "method": "GET",
+  "host": "api-gateway",
+  "port": 8080,
+  "path": "/api/gateway/owners/6",
+  "request_headers": {
+    "Accept": "application/json",
+    "Accept-Encoding": "identity"
+  },
+  "request_body_file": null,
+  "status": 200,
+  "error": null,
+  "response_headers": [
+    [
+      "Content-Type",
+      "application/json"
+    ],
+    [
+      "Content-Length",
+      "321"
+    ]
+  ],
+  "body_file": "gateway-provider-fault.body",
+  "redirects_followed": false,
+  "body_sha256": "435fdda0dbba7bede63af7a5aa8153c49f68d1cce41b51f1a534fde967ca576c",
+  "body_bytes": 321,
+  "elapsed_ms": 10033
+}

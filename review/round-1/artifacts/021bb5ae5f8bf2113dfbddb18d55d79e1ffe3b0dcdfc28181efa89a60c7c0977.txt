@@ -1,0 +1,30 @@
+{
+  "id": "gateway_empty_pets",
+  "method": "GET",
+  "host": "api-gateway",
+  "port": 8080,
+  "path": "/api/gateway/owners/11",
+  "timestamp_utc": "2026-10-31T05:37:15.757931+00:00",
+  "request_headers": {
+    "Accept": "application/json",
+    "Accept-Encoding": "identity"
+  },
+  "request_body_file": null,
+  "status": 500,
+  "error": null,
+  "body_file": "gateway_empty_pets.body",
+  "response_headers": [
+    [
+      "Content-Type",
+      "application/json"
+    ],
+    [
+      "Content-Length",
+      "142"
+    ]
+  ],
+  "redirects_followed": false,
+  "body_sha256": "36b5102a152d54fba68d951924fd94d4cc27088b589e6a2bc796868be447bfe6",
+  "body_bytes": 142,
+  "elapsed_ms": 29
+}

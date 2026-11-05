@@ -1,0 +1,15 @@
+# Preserve checksummed input bundle bytes across Windows/Linux checkouts.
+/demo/p01/data.js text eol=lf
+*.mjs text eol=lf
+*.js text eol=lf
+*.py text eol=lf
+/benchmark/p02/preparation.v1/* text eol=lf
+/benchmark/p02/preparation.v2/* text eol=lf
+
+# Public review/evidence snapshots are byte-bound copies, including CRLF logs.
+/review/round-1/** -text -whitespace
+/review/downloads/** -text
+/evidence/petclinic-20261105/** -text -whitespace
+/implementation/petclinic-reviewed-20261105/** -text -whitespace
+/benchmark/** -text -whitespace
+/tasks/**/*.json -text

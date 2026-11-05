@@ -1,0 +1,314 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.0.1)
+
+2026-10-31T05:32:55.886Z  INFO 1 --- [api-gateway] [           main] [                                                 ] o.s.s.p.api.ApiGatewayApplication        : Starting ApiGatewayApplication v4.0.1 using Java 17.0.20 with PID 1 (/p02.jar started by root in /application)
+2026-10-31T05:32:55.890Z  INFO 1 --- [api-gateway] [           main] [                                                 ] o.s.s.p.api.ApiGatewayApplication        : The following 1 profile is active: "docker"
+2026-10-31T05:32:55.988Z  INFO 1 --- [api-gateway] [           main] [                                                 ] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://config-server:8888
+2026-10-31T05:32:55.988Z  INFO 1 --- [api-gateway] [           main] [                                                 ] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=application, profiles=[default], label=null, version=null, state=null
+2026-10-31T05:32:55.990Z  INFO 1 --- [api-gateway] [           main] [                                                 ] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888/
+2026-10-31T05:32:55.991Z  INFO 1 --- [api-gateway] [           main] [                                                 ] o.s.c.c.c.ConfigServerConfigDataLoader   : Exception on Url - http://localhost:8888/:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/api-gateway/default": Connection refused. Will be trying the next url if available
+2026-10-31T05:32:55.991Z  WARN 1 --- [api-gateway] [           main] [                                                 ] o.s.c.c.c.ConfigServerConfigDataLoader   : Could not locate PropertySource ([ConfigServerConfigDataResource@466d49f0 uris = array<String>['http://localhost:8888/'], optional = true, profiles = 'default']): I/O error on GET request for "http://localhost:8888/api-gateway/default": Connection refused
+2026-10-31T05:32:55.991Z  INFO 1 --- [api-gateway] [           main] [                                                 ] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://config-server:8888
+2026-10-31T05:32:55.991Z  INFO 1 --- [api-gateway] [           main] [                                                 ] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=api-gateway, profiles=[docker], label=null, version=null, state=null
+2026-10-31T05:32:55.991Z  INFO 1 --- [api-gateway] [           main] [                                                 ] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://config-server:8888
+2026-10-31T05:32:55.992Z  INFO 1 --- [api-gateway] [           main] [                                                 ] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=api-gateway, profiles=[default], label=null, version=null, state=null
+2026-10-31T05:32:55.992Z  INFO 1 --- [api-gateway] [           main] [                                                 ] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888/
+2026-10-31T05:32:55.992Z  INFO 1 --- [api-gateway] [           main] [                                                 ] o.s.c.c.c.ConfigServerConfigDataLoader   : Exception on Url - http://localhost:8888/:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/api-gateway/docker": Connection refused. Will be trying the next url if available
+2026-10-31T05:32:55.992Z  WARN 1 --- [api-gateway] [           main] [                                                 ] o.s.c.c.c.ConfigServerConfigDataLoader   : Could not locate PropertySource ([ConfigServerConfigDataResource@3e9803c2 uris = array<String>['http://localhost:8888/'], optional = true, profiles = 'docker']): I/O error on GET request for "http://localhost:8888/api-gateway/docker": Connection refused
+2026-10-31T05:32:55.993Z  INFO 1 --- [api-gateway] [           main] [                                                 ] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888/
+2026-10-31T05:32:55.993Z  INFO 1 --- [api-gateway] [           main] [                                                 ] o.s.c.c.c.ConfigServerConfigDataLoader   : Exception on Url - http://localhost:8888/:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/api-gateway/default": Connection refused. Will be trying the next url if available
+2026-10-31T05:32:55.993Z  WARN 1 --- [api-gateway] [           main] [                                                 ] o.s.c.c.c.ConfigServerConfigDataLoader   : Could not locate PropertySource ([ConfigServerConfigDataResource@4525d1d3 uris = array<String>['http://localhost:8888/'], optional = true, profiles = 'default']): I/O error on GET request for "http://localhost:8888/api-gateway/default": Connection refused
+2026-10-31T05:33:00.820Z  INFO 1 --- [api-gateway] [           main] [                                                 ] o.s.cloud.context.scope.GenericScope     : BeanFactory id=2b884f99-bd61-3fb1-9bc0-8fa04f6d3c01
+2026-10-31T05:33:05.226Z  INFO 1 --- [api-gateway] [           main] [                                                 ] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [After]
+2026-10-31T05:33:05.226Z  INFO 1 --- [api-gateway] [           main] [                                                 ] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Before]
+2026-10-31T05:33:05.226Z  INFO 1 --- [api-gateway] [           main] [                                                 ] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Between]
+2026-10-31T05:33:05.227Z  INFO 1 --- [api-gateway] [           main] [                                                 ] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Cookie]
+2026-10-31T05:33:05.227Z  INFO 1 --- [api-gateway] [           main] [                                                 ] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Header]
+2026-10-31T05:33:05.227Z  INFO 1 --- [api-gateway] [           main] [                                                 ] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Host]
+2026-10-31T05:33:05.227Z  INFO 1 --- [api-gateway] [           main] [                                                 ] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Method]
+2026-10-31T05:33:05.227Z  INFO 1 --- [api-gateway] [           main] [                                                 ] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Path]
+2026-10-31T05:33:05.227Z  INFO 1 --- [api-gateway] [           main] [                                                 ] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Query]
+2026-10-31T05:33:05.228Z  INFO 1 --- [api-gateway] [           main] [                                                 ] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [ReadBody]
+2026-10-31T05:33:05.228Z  INFO 1 --- [api-gateway] [           main] [                                                 ] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [RemoteAddr]
+2026-10-31T05:33:05.228Z  INFO 1 --- [api-gateway] [           main] [                                                 ] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Version]
+2026-10-31T05:33:05.228Z  INFO 1 --- [api-gateway] [           main] [                                                 ] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [XForwardedRemoteAddr]
+2026-10-31T05:33:05.228Z  INFO 1 --- [api-gateway] [           main] [                                                 ] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Weight]
+2026-10-31T05:33:05.228Z  INFO 1 --- [api-gateway] [           main] [                                                 ] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [CloudFoundryRouteService]
+2026-10-31T05:33:05.924Z  INFO 1 --- [api-gateway] [           main] [                                                 ] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoints beneath base path '/actuator'
+2026-10-31T05:33:07.000Z  INFO 1 --- [api-gateway] [           main] [                                                 ] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestClient.
+2026-10-31T05:33:07.308Z  INFO 1 --- [api-gateway] [           main] [                                                 ] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2026-10-31T05:33:07.404Z  INFO 1 --- [api-gateway] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2026-10-31T05:33:07.411Z  INFO 1 --- [api-gateway] [           main] [                                                 ] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-10-31T05:33:07.426Z  INFO 1 --- [api-gateway] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2026-10-31T05:33:07.427Z  INFO 1 --- [api-gateway] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2026-10-31T05:33:07.427Z  INFO 1 --- [api-gateway] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2026-10-31T05:33:07.427Z  INFO 1 --- [api-gateway] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2026-10-31T05:33:07.427Z  INFO 1 --- [api-gateway] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2026-10-31T05:33:07.427Z  INFO 1 --- [api-gateway] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2026-10-31T05:33:07.427Z  INFO 1 --- [api-gateway] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2026-10-31T05:33:08.400Z  INFO 1 --- [api-gateway] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2026-10-31T05:33:08.404Z  INFO 1 --- [api-gateway] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 1
+2026-10-31T05:33:08.408Z  INFO 1 --- [api-gateway] [           main] [                                                 ] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-10-31T05:33:08.410Z  INFO 1 --- [api-gateway] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1793424788410 with initial instances count: 2
+2026-10-31T05:33:08.414Z  INFO 1 --- [api-gateway] [           main] [                                                 ] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application API-GATEWAY with eureka with status UP
+2026-10-31T05:33:08.415Z  INFO 1 --- [api-gateway] [           main] [                                                 ] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1793424788415, current=UP, previous=STARTING]
+2026-10-31T05:33:08.420Z  INFO 1 --- [api-gateway] [foReplicator-%d] [                                                 ] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_API-GATEWAY/b7ffdc906fd3:api-gateway:8080: registering service...
+2026-10-31T05:33:08.613Z  INFO 1 --- [api-gateway] [foReplicator-%d] [                                                 ] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_API-GATEWAY/b7ffdc906fd3:api-gateway:8080 - registration status: 204
+2026-10-31T05:33:08.822Z  INFO 1 --- [api-gateway] [           main] [                                                 ] i.n.util.internal.NativeLibraryLoader    : /tmp/libnetty_transport_native_epoll_x86_643210059092133457789.so exists but cannot be executed even when execute permissions set; check volume for "noexec" flag; use -Dio.netty.native.workdir=[path] to set native working directory separately.
+2026-10-31T05:33:08.986Z  INFO 1 --- [api-gateway] [           main] [                                                 ] o.s.boot.reactor.netty.NettyWebServer    : Netty started on port 8080 (http)
+2026-10-31T05:33:08.988Z  INFO 1 --- [api-gateway] [           main] [                                                 ] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8080
+2026-10-31T05:33:09.011Z  INFO 1 --- [api-gateway] [           main] [                                                 ] o.s.s.p.api.ApiGatewayApplication        : Started ApiGatewayApplication in 16.606 seconds (process running for 18.541)
+2026-10-31T05:33:11.362Z  WARN 1 --- [api-gateway] [/api/v2/spans}}] [                                                 ] z.r.i.AsyncReporter$BoundedAsyncReporter : Spans were dropped due to exceptions. All subsequent errors will be logged at FINE level.
+2026-10-31T05:33:11.362Z  WARN 1 --- [api-gateway] [/api/v2/spans}}] [                                                 ] z.r.i.AsyncReporter$BoundedAsyncReporter : Dropped 1 spans due to ConnectException()
+
+java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:900)
+	at java.net.http/jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:133)
+	at org.springframework.boot.zipkin.autoconfigure.ZipkinHttpClientSender.postSpans(ZipkinHttpClientSender.java:59)
+	at org.springframework.boot.zipkin.autoconfigure.HttpSender.postSpans(HttpSender.java:69)
+	at org.springframework.boot.zipkin.autoconfigure.HttpSender.postSpans(HttpSender.java:41)
+	at zipkin2.reporter.BaseHttpSender.send(BaseHttpSender.java:123)
+	at zipkin2.reporter.internal.AsyncReporter$BoundedAsyncReporter.flush(AsyncReporter.java:266)
+	at zipkin2.reporter.internal.AsyncReporter$Flusher.run(AsyncReporter.java:352)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.common.Utils.toConnectException(Utils.java:1107)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:203)
+	at java.net.http/jdk.internal.net.http.Http1Exchange.sendHeadersAsync(Http1Exchange.java:308)
+	at java.net.http/jdk.internal.net.http.Exchange.lambda$responseAsyncImpl0$8(Exchange.java:564)
+	at java.net.http/jdk.internal.net.http.Exchange.checkFor407(Exchange.java:435)
+	at java.net.http/jdk.internal.net.http.Exchange.lambda$responseAsyncImpl0$9(Exchange.java:568)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandleStage(CompletableFuture.java:950)
+	at java.base/java.util.concurrent.CompletableFuture.handle(CompletableFuture.java:2340)
+	at java.net.http/jdk.internal.net.http.Exchange.responseAsyncImpl0(Exchange.java:568)
+	at java.net.http/jdk.internal.net.http.Exchange.responseAsyncImpl(Exchange.java:411)
+	at java.net.http/jdk.internal.net.http.Exchange.responseAsync(Exchange.java:403)
+	at java.net.http/jdk.internal.net.http.MultiExchange.responseAsyncImpl(MultiExchange.java:430)
+	at java.net.http/jdk.internal.net.http.MultiExchange.lambda$responseAsyncImpl$7(MultiExchange.java:471)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandleStage(CompletableFuture.java:950)
+	at java.base/java.util.concurrent.CompletableFuture.handle(CompletableFuture.java:2340)
+	at java.net.http/jdk.internal.net.http.MultiExchange.responseAsyncImpl(MultiExchange.java:461)
+	at java.net.http/jdk.internal.net.http.MultiExchange.lambda$responseAsync0$2(MultiExchange.java:350)
+	at java.base/java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1150)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1773)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl$DelegatingExecutor.execute(HttpClientImpl.java:174)
+	at java.base/java.util.concurrent.CompletableFuture.completeAsync(CompletableFuture.java:2673)
+	at java.net.http/jdk.internal.net.http.MultiExchange.responseAsync(MultiExchange.java:303)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.sendAsync(HttpClientImpl.java:991)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:878)
+	... 8 common frames omitted
+Caused by: java.nio.channels.UnresolvedAddressException
+	at java.base/sun.nio.ch.Net.checkAddress(Net.java:159)
+	at java.base/sun.nio.ch.Net.checkAddress(Net.java:167)
+	at java.base/sun.nio.ch.SocketChannelImpl.checkRemote(SocketChannelImpl.java:816)
+	at java.base/sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:839)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$0(PlainHttpConnection.java:187)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:189)
+	... 33 common frames omitted
+
+2026-10-31T05:33:15.910Z  WARN 1 --- [api-gateway] [ctor-http-nio-3] [6ae57d9bd40ad3cc44d4aff649183991-44d4aff649183991] i.m.o.c.ObservationThreadLocalAccessor   : Observation <{name=http.server.requests(null), error=null, context=name='http.server.requests', contextualName='null', error='null', lowCardinalityKeyValues=[exception='none', method='GET', outcome='SUCCESS', status='200', uri='UNKNOWN'], highCardinalityKeyValues=[http.url='/api/gateway/owners/6'], map=[class io.micrometer.core.instrument.LongTaskTimer$Sample='SampleImpl{duration(seconds)=0.070052576, duration(nanos)=7.0052576E7, startTimeNanos=786294044419}', class io.micrometer.tracing.handler.TracingObservationHandler$TracingContext='TracingContext{span=6ae57d9bd40ad3cc44d4aff649183991/44d4aff649183991}', class io.micrometer.core.instrument.Timer$Sample='io.micrometer.core.instrument.Timer$Sample@59c47bf9'], parentObservation=null}> to which we're restoring is not the same as the one set as this scope's parent observation <null>. Most likely a manually created Observation has a scope opened that was never closed. This may lead to thread polluting and memory leaks.
+2026-10-31T05:33:16.294Z  WARN 1 --- [api-gateway] [ctor-http-nio-3] [                                                 ] i.m.o.c.ObservationThreadLocalAccessor   : There is no current scope in thread local. This situation should not happen
+2026-10-31T05:33:16.294Z  WARN 1 --- [api-gateway] [ctor-http-nio-3] [                                                 ] i.m.o.c.ObservationThreadLocalAccessor   : Observation <{name=http.server.requests(null), error=null, context=name='http.server.requests', contextualName='null', error='null', lowCardinalityKeyValues=[exception='none', method='GET', outcome='SUCCESS', status='200', uri='UNKNOWN'], highCardinalityKeyValues=[http.url='/api/gateway/owners/6'], map=[class io.micrometer.core.instrument.LongTaskTimer$Sample='SampleImpl{duration(seconds)=0.453624512, duration(nanos)=4.53624512E8, startTimeNanos=786294044419}', class io.micrometer.tracing.handler.TracingObservationHandler$TracingContext='TracingContext{span=6ae57d9bd40ad3cc44d4aff649183991/44d4aff649183991}', class io.micrometer.core.instrument.Timer$Sample='io.micrometer.core.instrument.Timer$Sample@59c47bf9'], parentObservation=null}> to which we're restoring is not the same as the one set as this scope's parent observation <null>. Most likely a manually created Observation has a scope opened that was never closed. This may lead to thread polluting and memory leaks.
+2026-10-31T05:33:16.359Z  WARN 1 --- [api-gateway] [ctor-http-nio-3] [6ae57d9bd40ad3cc44d4aff649183991-44d4aff649183991] i.m.o.c.ObservationThreadLocalAccessor   : Observation <{name=http.server.requests(null), error=null, context=name='http.server.requests', contextualName='null', error='null', lowCardinalityKeyValues=[exception='none', method='GET', outcome='SUCCESS', status='200', uri='UNKNOWN'], highCardinalityKeyValues=[http.url='/api/gateway/owners/6'], map=[class io.micrometer.core.instrument.LongTaskTimer$Sample='SampleImpl{duration(seconds)=0.518685312, duration(nanos)=5.18685312E8, startTimeNanos=786294044419}', class io.micrometer.tracing.handler.TracingObservationHandler$TracingContext='TracingContext{span=6ae57d9bd40ad3cc44d4aff649183991/44d4aff649183991}', class io.micrometer.core.instrument.Timer$Sample='io.micrometer.core.instrument.Timer$Sample@59c47bf9'], parentObservation=null}> to which we're restoring is not the same as the one set as this scope's parent observation <null>. Most likely a manually created Observation has a scope opened that was never closed. This may lead to thread polluting and memory leaks.
+2026-10-31T05:33:16.394Z ERROR 1 --- [api-gateway] [ctor-http-nio-3] [                                                 ] b.w.a.e.AbstractErrorWebExceptionHandler : [acda557a-2]  500 Server Error for HTTP GET "/api/gateway/owners/6"
+
+java.lang.NullPointerException: Cannot invoke "java.util.List.stream()" because "this.pets" is null
+	at org.springframework.samples.petclinic.api.dto.OwnerDetails.getPetIds(OwnerDetails.java:36)
+	Suppressed: The stacktrace has been enhanced by Reactor, refer to additional information below: 
+Error has been observed at the following site(s):
+	*__checkpoint ⇢ Handler org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int) [DispatcherHandler]
+	*__checkpoint ⇢ org.springframework.cloud.gateway.filter.WeightCalculatorWebFilter@4a094f90
+	*__checkpoint ⇢ HTTP GET "/api/gateway/owners/6" [ExceptionHandlingWebHandler]
+Original Stack Trace:
+		at org.springframework.samples.petclinic.api.dto.OwnerDetails.getPetIds(OwnerDetails.java:36)
+		at org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController.lambda$getOwnerDetails$2(ApiGatewayController.java:58)
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.onNext(MonoFlatMap.java:133)
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.secondComplete(MonoFlatMap.java:246)
+		at reactor.core.publisher.MonoFlatMap$FlatMapInner.onNext(MonoFlatMap.java:307)
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onNext(FluxOnErrorResume.java:80)
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.onNext(MonoFlatMap.java:159)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:109)
+		at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onNext(FluxMapFuseable.java:300)
+		at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onNext(FluxFilterFuseable.java:338)
+		at reactor.core.publisher.Operators$BaseFluxToMonoOperator.completePossiblyEmpty(Operators.java:2093)
+		at reactor.core.publisher.MonoCollect$CollectSubscriber.onComplete(MonoCollect.java:144)
+		at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:263)
+		at reactor.core.publisher.FluxContextWriteRestoringThreadLocals$ContextWriteRestoringThreadLocalsSubscriber.onComplete(FluxContextWriteRestoringThreadLocals.java:150)
+		at reactor.core.publisher.FluxMap$MapConditionalSubscriber.onComplete(FluxMap.java:275)
+		at reactor.core.publisher.FluxContextWriteRestoringThreadLocals$ContextWriteRestoringThreadLocalsSubscriber.onComplete(FluxContextWriteRestoringThreadLocals.java:150)
+		at reactor.netty.channel.FluxReceive.onInboundComplete(FluxReceive.java:419)
+		at reactor.netty.channel.ChannelOperations.onInboundComplete(ChannelOperations.java:465)
+		at reactor.netty.channel.ChannelOperations.terminate(ChannelOperations.java:519)
+		at reactor.netty.http.client.HttpClientOperations.onInboundNext(HttpClientOperations.java:957)
+		at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:115)
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:356)
+		at io.netty.handler.codec.http.HttpContentDecoder.decode(HttpContentDecoder.java:170)
+		at io.netty.handler.codec.http.HttpContentDecoder.decode(HttpContentDecoder.java:48)
+		at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:91)
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:356)
+		at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:434)
+		at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:361)
+		at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:325)
+		at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:249)
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:354)
+		at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1429)
+		at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:918)
+		at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:172)
+		at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.handle(AbstractNioChannel.java:445)
+		at io.netty.channel.nio.NioIoHandler$DefaultNioRegistration.handle(NioIoHandler.java:388)
+		at io.netty.channel.nio.NioIoHandler.processSelectedKey(NioIoHandler.java:596)
+		at io.netty.channel.nio.NioIoHandler.processSelectedKeysOptimized(NioIoHandler.java:571)
+		at io.netty.channel.nio.NioIoHandler.processSelectedKeys(NioIoHandler.java:512)
+		at io.netty.channel.nio.NioIoHandler.run(NioIoHandler.java:484)
+		at io.netty.channel.SingleThreadIoEventLoop.runIo(SingleThreadIoEventLoop.java:225)
+		at io.netty.channel.SingleThreadIoEventLoop.run(SingleThreadIoEventLoop.java:196)
+		at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:1195)
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+		at java.base/java.lang.Thread.run(Thread.java:840)
+
+2026-10-31T05:33:16.410Z  WARN 1 --- [api-gateway] [ctor-http-nio-3] [                                                 ] i.m.o.c.ObservationThreadLocalAccessor   : There is no current scope in thread local. This situation should not happen
+2026-10-31T05:33:16.410Z  WARN 1 --- [api-gateway] [ctor-http-nio-3] [                                                 ] i.m.o.c.ObservationThreadLocalAccessor   : Observation <{name=http.server.requests(http get /api/gateway/owners/{ownerId}), error=java.lang.NullPointerException: Cannot invoke "java.util.List.stream()" because "this.pets" is null, context=name='http.server.requests', contextualName='http get /api/gateway/owners/{ownerId}', error='java.lang.NullPointerException: Cannot invoke "java.util.List.stream()" because "this.pets" is null', lowCardinalityKeyValues=[exception='NullPointerException', method='GET', outcome='SERVER_ERROR', status='500', uri='/api/gateway/owners/{ownerId}'], highCardinalityKeyValues=[http.url='/api/gateway/owners/6'], map=[class io.micrometer.core.instrument.LongTaskTimer$Sample='SampleImpl{duration(seconds)=-1.0E-9, duration(nanos)=-1.0, startTimeNanos=786294044419}', class io.micrometer.tracing.handler.TracingObservationHandler$TracingContext='TracingContext{span=6ae57d9bd40ad3cc44d4aff649183991/44d4aff649183991}', class io.micrometer.core.instrument.Timer$Sample='io.micrometer.core.instrument.Timer$Sample@59c47bf9'], parentObservation=null}> to which we're restoring is not the same as the one set as this scope's parent observation <null>. Most likely a manually created Observation has a scope opened that was never closed. This may lead to thread polluting and memory leaks.
+2026-10-31T05:33:16.440Z  WARN 1 --- [api-gateway] [ctor-http-nio-4] [6ae57d9cbc00204ab66d235b01721e7c-b66d235b01721e7c] i.m.o.c.ObservationThreadLocalAccessor   : Observation <{name=http.server.requests(null), error=null, context=name='http.server.requests', contextualName='null', error='null', lowCardinalityKeyValues=[exception='none', method='GET', outcome='SUCCESS', status='200', uri='UNKNOWN'], highCardinalityKeyValues=[http.url='/api/gateway/owners/1'], map=[class io.micrometer.core.instrument.LongTaskTimer$Sample='SampleImpl{duration(seconds)=0.002822134, duration(nanos)=2822134.0, startTimeNanos=786890460383}', class io.micrometer.tracing.handler.TracingObservationHandler$TracingContext='TracingContext{span=6ae57d9cbc00204ab66d235b01721e7c/b66d235b01721e7c}', class io.micrometer.core.instrument.Timer$Sample='io.micrometer.core.instrument.Timer$Sample@4026aec7'], parentObservation=null}> to which we're restoring is not the same as the one set as this scope's parent observation <null>. Most likely a manually created Observation has a scope opened that was never closed. This may lead to thread polluting and memory leaks.
+2026-10-31T05:33:16.446Z  WARN 1 --- [api-gateway] [ctor-http-nio-4] [                                                 ] i.m.o.c.ObservationThreadLocalAccessor   : There is no current scope in thread local. This situation should not happen
+2026-10-31T05:33:16.480Z  WARN 1 --- [api-gateway] [ctor-http-nio-4] [                                                 ] i.m.o.c.ObservationThreadLocalAccessor   : Observation <{name=http.server.requests(null), error=null, context=name='http.server.requests', contextualName='null', error='null', lowCardinalityKeyValues=[exception='none', method='GET', outcome='SUCCESS', status='200', uri='UNKNOWN'], highCardinalityKeyValues=[http.url='/api/gateway/owners/1'], map=[class io.micrometer.core.instrument.LongTaskTimer$Sample='SampleImpl{duration(seconds)=0.009482287, duration(nanos)=9482287.0, startTimeNanos=786890460383}', class io.micrometer.tracing.handler.TracingObservationHandler$TracingContext='TracingContext{span=6ae57d9cbc00204ab66d235b01721e7c/b66d235b01721e7c}', class io.micrometer.core.instrument.Timer$Sample='io.micrometer.core.instrument.Timer$Sample@4026aec7'], parentObservation=null}> to which we're restoring is not the same as the one set as this scope's parent observation <null>. Most likely a manually created Observation has a scope opened that was never closed. This may lead to thread polluting and memory leaks.
+2026-10-31T05:33:16.482Z  WARN 1 --- [api-gateway] [ctor-http-nio-3] [6ae57d9cbc00204ab66d235b01721e7c-b66d235b01721e7c] i.m.o.c.ObservationThreadLocalAccessor   : Observation <{name=http.server.requests(null), error=null, context=name='http.server.requests', contextualName='null', error='null', lowCardinalityKeyValues=[exception='none', method='GET', outcome='SUCCESS', status='200', uri='UNKNOWN'], highCardinalityKeyValues=[http.url='/api/gateway/owners/1'], map=[class io.micrometer.core.instrument.LongTaskTimer$Sample='SampleImpl{duration(seconds)=0.044863624, duration(nanos)=4.4863624E7, startTimeNanos=786890460383}', class io.micrometer.tracing.handler.TracingObservationHandler$TracingContext='TracingContext{span=6ae57d9cbc00204ab66d235b01721e7c/b66d235b01721e7c}', class io.micrometer.core.instrument.Timer$Sample='io.micrometer.core.instrument.Timer$Sample@4026aec7'], parentObservation=null}> to which we're restoring is not the same as the one set as this scope's parent observation <null>. Most likely a manually created Observation has a scope opened that was never closed. This may lead to thread polluting and memory leaks.
+2026-10-31T05:33:16.483Z ERROR 1 --- [api-gateway] [ctor-http-nio-3] [                                                 ] b.w.a.e.AbstractErrorWebExceptionHandler : [0cbd9793-3]  500 Server Error for HTTP GET "/api/gateway/owners/1"
+
+java.lang.NullPointerException: Cannot invoke "java.util.List.stream()" because "this.pets" is null
+	at org.springframework.samples.petclinic.api.dto.OwnerDetails.getPetIds(OwnerDetails.java:36)
+	Suppressed: The stacktrace has been enhanced by Reactor, refer to additional information below: 
+Error has been observed at the following site(s):
+	*__checkpoint ⇢ Handler org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int) [DispatcherHandler]
+	*__checkpoint ⇢ org.springframework.cloud.gateway.filter.WeightCalculatorWebFilter@4a094f90
+	*__checkpoint ⇢ HTTP GET "/api/gateway/owners/1" [ExceptionHandlingWebHandler]
+Original Stack Trace:
+		at org.springframework.samples.petclinic.api.dto.OwnerDetails.getPetIds(OwnerDetails.java:36)
+		at org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController.lambda$getOwnerDetails$2(ApiGatewayController.java:58)
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.onNext(MonoFlatMap.java:133)
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.secondComplete(MonoFlatMap.java:246)
+		at reactor.core.publisher.MonoFlatMap$FlatMapInner.onNext(MonoFlatMap.java:307)
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onNext(FluxOnErrorResume.java:80)
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.onNext(MonoFlatMap.java:159)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:109)
+		at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onNext(FluxMapFuseable.java:300)
+		at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onNext(FluxFilterFuseable.java:338)
+		at reactor.core.publisher.Operators$BaseFluxToMonoOperator.completePossiblyEmpty(Operators.java:2093)
+		at reactor.core.publisher.MonoCollect$CollectSubscriber.onComplete(MonoCollect.java:144)
+		at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:263)
+		at reactor.core.publisher.FluxContextWriteRestoringThreadLocals$ContextWriteRestoringThreadLocalsSubscriber.onComplete(FluxContextWriteRestoringThreadLocals.java:150)
+		at reactor.core.publisher.FluxMap$MapConditionalSubscriber.onComplete(FluxMap.java:275)
+		at reactor.core.publisher.FluxContextWriteRestoringThreadLocals$ContextWriteRestoringThreadLocalsSubscriber.onComplete(FluxContextWriteRestoringThreadLocals.java:150)
+		at reactor.netty.channel.FluxReceive.onInboundComplete(FluxReceive.java:419)
+		at reactor.netty.channel.ChannelOperations.onInboundComplete(ChannelOperations.java:465)
+		at reactor.netty.channel.ChannelOperations.terminate(ChannelOperations.java:519)
+		at reactor.netty.http.client.HttpClientOperations.onInboundNext(HttpClientOperations.java:957)
+		at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:115)
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:356)
+		at io.netty.handler.codec.http.HttpContentDecoder.decode(HttpContentDecoder.java:170)
+		at io.netty.handler.codec.http.HttpContentDecoder.decode(HttpContentDecoder.java:48)
+		at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:91)
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:356)
+		at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:434)
+		at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:361)
+		at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:325)
+		at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:249)
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:354)
+		at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1429)
+		at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:918)
+		at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:172)
+		at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.handle(AbstractNioChannel.java:445)
+		at io.netty.channel.nio.NioIoHandler$DefaultNioRegistration.handle(NioIoHandler.java:388)
+		at io.netty.channel.nio.NioIoHandler.processSelectedKey(NioIoHandler.java:596)
+		at io.netty.channel.nio.NioIoHandler.processSelectedKeysOptimized(NioIoHandler.java:571)
+		at io.netty.channel.nio.NioIoHandler.processSelectedKeys(NioIoHandler.java:512)
+		at io.netty.channel.nio.NioIoHandler.run(NioIoHandler.java:484)
+		at io.netty.channel.SingleThreadIoEventLoop.runIo(SingleThreadIoEventLoop.java:225)
+		at io.netty.channel.SingleThreadIoEventLoop.run(SingleThreadIoEventLoop.java:196)
+		at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:1195)
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+		at java.base/java.lang.Thread.run(Thread.java:840)
+
+2026-10-31T05:33:16.485Z  WARN 1 --- [api-gateway] [ctor-http-nio-3] [                                                 ] i.m.o.c.ObservationThreadLocalAccessor   : There is no current scope in thread local. This situation should not happen
+2026-10-31T05:33:16.485Z  WARN 1 --- [api-gateway] [ctor-http-nio-3] [                                                 ] i.m.o.c.ObservationThreadLocalAccessor   : Observation <{name=http.server.requests(http get /api/gateway/owners/{ownerId}), error=java.lang.NullPointerException: Cannot invoke "java.util.List.stream()" because "this.pets" is null, context=name='http.server.requests', contextualName='http get /api/gateway/owners/{ownerId}', error='java.lang.NullPointerException: Cannot invoke "java.util.List.stream()" because "this.pets" is null', lowCardinalityKeyValues=[exception='NullPointerException', method='GET', outcome='SERVER_ERROR', status='500', uri='/api/gateway/owners/{ownerId}'], highCardinalityKeyValues=[http.url='/api/gateway/owners/1'], map=[class io.micrometer.core.instrument.LongTaskTimer$Sample='SampleImpl{duration(seconds)=-1.0E-9, duration(nanos)=-1.0, startTimeNanos=786890460383}', class io.micrometer.tracing.handler.TracingObservationHandler$TracingContext='TracingContext{span=6ae57d9cbc00204ab66d235b01721e7c/b66d235b01721e7c}', class io.micrometer.core.instrument.Timer$Sample='io.micrometer.core.instrument.Timer$Sample@4026aec7'], parentObservation=null}> to which we're restoring is not the same as the one set as this scope's parent observation <null>. Most likely a manually created Observation has a scope opened that was never closed. This may lead to thread polluting and memory leaks.
+2026-10-31T05:33:16.515Z  WARN 1 --- [api-gateway] [ctor-http-nio-1] [6ae57d9ca62c121586f812ddf0a99fa6-86f812ddf0a99fa6] i.m.o.c.ObservationThreadLocalAccessor   : Observation <{name=http.server.requests(null), error=null, context=name='http.server.requests', contextualName='null', error='null', lowCardinalityKeyValues=[exception='none', method='GET', outcome='SUCCESS', status='200', uri='UNKNOWN'], highCardinalityKeyValues=[http.url='/api/gateway/owners/11'], map=[class io.micrometer.core.instrument.LongTaskTimer$Sample='SampleImpl{duration(seconds)=0.002516309, duration(nanos)=2516309.0, startTimeNanos=786966335781}', class io.micrometer.tracing.handler.TracingObservationHandler$TracingContext='TracingContext{span=6ae57d9ca62c121586f812ddf0a99fa6/86f812ddf0a99fa6}', class io.micrometer.core.instrument.Timer$Sample='io.micrometer.core.instrument.Timer$Sample@65377946'], parentObservation=null}> to which we're restoring is not the same as the one set as this scope's parent observation <null>. Most likely a manually created Observation has a scope opened that was never closed. This may lead to thread polluting and memory leaks.
+2026-10-31T05:33:16.517Z  WARN 1 --- [api-gateway] [ctor-http-nio-1] [                                                 ] i.m.o.c.ObservationThreadLocalAccessor   : There is no current scope in thread local. This situation should not happen
+2026-10-31T05:33:16.517Z  WARN 1 --- [api-gateway] [ctor-http-nio-1] [                                                 ] i.m.o.c.ObservationThreadLocalAccessor   : Observation <{name=http.server.requests(null), error=null, context=name='http.server.requests', contextualName='null', error='null', lowCardinalityKeyValues=[exception='none', method='GET', outcome='SUCCESS', status='200', uri='UNKNOWN'], highCardinalityKeyValues=[http.url='/api/gateway/owners/11'], map=[class io.micrometer.core.instrument.LongTaskTimer$Sample='SampleImpl{duration(seconds)=0.004321258, duration(nanos)=4321258.0, startTimeNanos=786966335781}', class io.micrometer.tracing.handler.TracingObservationHandler$TracingContext='TracingContext{span=6ae57d9ca62c121586f812ddf0a99fa6/86f812ddf0a99fa6}', class io.micrometer.core.instrument.Timer$Sample='io.micrometer.core.instrument.Timer$Sample@65377946'], parentObservation=null}> to which we're restoring is not the same as the one set as this scope's parent observation <null>. Most likely a manually created Observation has a scope opened that was never closed. This may lead to thread polluting and memory leaks.
+2026-10-31T05:33:16.526Z  WARN 1 --- [api-gateway] [ctor-http-nio-3] [6ae57d9ca62c121586f812ddf0a99fa6-86f812ddf0a99fa6] i.m.o.c.ObservationThreadLocalAccessor   : Observation <{name=http.server.requests(null), error=null, context=name='http.server.requests', contextualName='null', error='null', lowCardinalityKeyValues=[exception='none', method='GET', outcome='SUCCESS', status='200', uri='UNKNOWN'], highCardinalityKeyValues=[http.url='/api/gateway/owners/11'], map=[class io.micrometer.core.instrument.LongTaskTimer$Sample='SampleImpl{duration(seconds)=0.012960475, duration(nanos)=1.2960475E7, startTimeNanos=786966335781}', class io.micrometer.tracing.handler.TracingObservationHandler$TracingContext='TracingContext{span=6ae57d9ca62c121586f812ddf0a99fa6/86f812ddf0a99fa6}', class io.micrometer.core.instrument.Timer$Sample='io.micrometer.core.instrument.Timer$Sample@65377946'], parentObservation=null}> to which we're restoring is not the same as the one set as this scope's parent observation <null>. Most likely a manually created Observation has a scope opened that was never closed. This may lead to thread polluting and memory leaks.
+2026-10-31T05:33:16.527Z ERROR 1 --- [api-gateway] [ctor-http-nio-3] [                                                 ] b.w.a.e.AbstractErrorWebExceptionHandler : [769436bd-4]  500 Server Error for HTTP GET "/api/gateway/owners/11"
+
+java.lang.NullPointerException: Cannot invoke "java.util.List.stream()" because "this.pets" is null
+	at org.springframework.samples.petclinic.api.dto.OwnerDetails.getPetIds(OwnerDetails.java:36)
+	Suppressed: The stacktrace has been enhanced by Reactor, refer to additional information below: 
+Error has been observed at the following site(s):
+	*__checkpoint ⇢ Handler org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController#getOwnerDetails(int) [DispatcherHandler]
+	*__checkpoint ⇢ org.springframework.cloud.gateway.filter.WeightCalculatorWebFilter@4a094f90
+	*__checkpoint ⇢ HTTP GET "/api/gateway/owners/11" [ExceptionHandlingWebHandler]
+Original Stack Trace:
+		at org.springframework.samples.petclinic.api.dto.OwnerDetails.getPetIds(OwnerDetails.java:36)
+		at org.springframework.samples.petclinic.api.boundary.web.ApiGatewayController.lambda$getOwnerDetails$2(ApiGatewayController.java:58)
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.onNext(MonoFlatMap.java:133)
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.secondComplete(MonoFlatMap.java:246)
+		at reactor.core.publisher.MonoFlatMap$FlatMapInner.onNext(MonoFlatMap.java:307)
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onNext(FluxOnErrorResume.java:80)
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.onNext(MonoFlatMap.java:159)
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:109)
+		at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onNext(FluxMapFuseable.java:300)
+		at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onNext(FluxFilterFuseable.java:338)
+		at reactor.core.publisher.Operators$BaseFluxToMonoOperator.completePossiblyEmpty(Operators.java:2093)
+		at reactor.core.publisher.MonoCollect$CollectSubscriber.onComplete(MonoCollect.java:144)
+		at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:144)
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:263)
+		at reactor.core.publisher.FluxContextWriteRestoringThreadLocals$ContextWriteRestoringThreadLocalsSubscriber.onComplete(FluxContextWriteRestoringThreadLocals.java:150)
+		at reactor.core.publisher.FluxMap$MapConditionalSubscriber.onComplete(FluxMap.java:275)
+		at reactor.core.publisher.FluxContextWriteRestoringThreadLocals$ContextWriteRestoringThreadLocalsSubscriber.onComplete(FluxContextWriteRestoringThreadLocals.java:150)
+		at reactor.netty.channel.FluxReceive.onInboundComplete(FluxReceive.java:419)
+		at reactor.netty.channel.ChannelOperations.onInboundComplete(ChannelOperations.java:465)
+		at reactor.netty.channel.ChannelOperations.terminate(ChannelOperations.java:519)
+		at reactor.netty.http.client.HttpClientOperations.onInboundNext(HttpClientOperations.java:957)
+		at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:115)
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:356)
+		at io.netty.handler.codec.http.HttpContentDecoder.decode(HttpContentDecoder.java:170)
+		at io.netty.handler.codec.http.HttpContentDecoder.decode(HttpContentDecoder.java:48)
+		at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:91)
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:356)
+		at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:434)
+		at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:361)
+		at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:325)
+		at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:249)
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:354)
+		at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1429)
+		at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:918)
+		at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:172)
+		at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.handle(AbstractNioChannel.java:445)
+		at io.netty.channel.nio.NioIoHandler$DefaultNioRegistration.handle(NioIoHandler.java:388)
+		at io.netty.channel.nio.NioIoHandler.processSelectedKey(NioIoHandler.java:596)
+		at io.netty.channel.nio.NioIoHandler.processSelectedKeysOptimized(NioIoHandler.java:571)
+		at io.netty.channel.nio.NioIoHandler.processSelectedKeys(NioIoHandler.java:512)
+		at io.netty.channel.nio.NioIoHandler.run(NioIoHandler.java:484)
+		at io.netty.channel.SingleThreadIoEventLoop.runIo(SingleThreadIoEventLoop.java:225)
+		at io.netty.channel.SingleThreadIoEventLoop.run(SingleThreadIoEventLoop.java:196)
+		at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:1195)
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+		at java.base/java.lang.Thread.run(Thread.java:840)
+
+2026-10-31T05:33:16.529Z  WARN 1 --- [api-gateway] [ctor-http-nio-3] [                                                 ] i.m.o.c.ObservationThreadLocalAccessor   : There is no current scope in thread local. This situation should not happen
+2026-10-31T05:33:16.529Z  WARN 1 --- [api-gateway] [ctor-http-nio-3] [                                                 ] i.m.o.c.ObservationThreadLocalAccessor   : Observation <{name=http.server.requests(http get /api/gateway/owners/{ownerId}), error=java.lang.NullPointerException: Cannot invoke "java.util.List.stream()" because "this.pets" is null, context=name='http.server.requests', contextualName='http get /api/gateway/owners/{ownerId}', error='java.lang.NullPointerException: Cannot invoke "java.util.List.stream()" because "this.pets" is null', lowCardinalityKeyValues=[exception='NullPointerException', method='GET', outcome='SERVER_ERROR', status='500', uri='/api/gateway/owners/{ownerId}'], highCardinalityKeyValues=[http.url='/api/gateway/owners/11'], map=[class io.micrometer.core.instrument.LongTaskTimer$Sample='SampleImpl{duration(seconds)=-1.0E-9, duration(nanos)=-1.0, startTimeNanos=786966335781}', class io.micrometer.tracing.handler.TracingObservationHandler$TracingContext='TracingContext{span=6ae57d9ca62c121586f812ddf0a99fa6/86f812ddf0a99fa6}', class io.micrometer.core.instrument.Timer$Sample='io.micrometer.core.instrument.Timer$Sample@65377946'], parentObservation=null}> to which we're restoring is not the same as the one set as this scope's parent observation <null>. Most likely a manually created Observation has a scope opened that was never closed. This may lead to thread polluting and memory leaks.
+2026-10-31T05:33:16.594Z  WARN 1 --- [api-gateway] [ctor-http-nio-2] [6ae57d9c46e2b280bedfa1bacf91a1d8-bedfa1bacf91a1d8] i.m.o.c.ObservationThreadLocalAccessor   : Observation <{name=http.server.requests(null), error=null, context=name='http.server.requests', contextualName='null', error='null', lowCardinalityKeyValues=[exception='none', method='GET', outcome='SUCCESS', status='200', uri='UNKNOWN'], highCardinalityKeyValues=[http.url='/api/gateway/owners/2147483647'], map=[class io.micrometer.core.instrument.LongTaskTimer$Sample='SampleImpl{duration(seconds)=0.002549311, duration(nanos)=2549311.0, startTimeNanos=787045285134}', class io.micrometer.tracing.handler.TracingObservationHandler$TracingContext='TracingContext{span=6ae57d9c46e2b280bedfa1bacf91a1d8/bedfa1bacf91a1d8}', class io.micrometer.core.instrument.Timer$Sample='io.micrometer.core.instrument.Timer$Sample@6fbde94b'], parentObservation=null}> to which we're restoring is not the same as the one set as this scope's parent observation <null>. Most likely a manually created Observation has a scope opened that was never closed. This may lead to thread polluting and memory leaks.
+2026-10-31T05:33:16.596Z  WARN 1 --- [api-gateway] [ctor-http-nio-2] [                                                 ] i.m.o.c.ObservationThreadLocalAccessor   : There is no current scope in thread local. This situation should not happen
+2026-10-31T05:33:16.596Z  WARN 1 --- [api-gateway] [ctor-http-nio-2] [                                                 ] i.m.o.c.ObservationThreadLocalAccessor   : Observation <{name=http.server.requests(null), error=null, context=name='http.server.requests', contextualName='null', error='null', lowCardinalityKeyValues=[exception='none', method='GET', outcome='SUCCESS', status='200', uri='UNKNOWN'], highCardinalityKeyValues=[http.url='/api/gateway/owners/2147483647'], map=[class io.micrometer.core.instrument.LongTaskTimer$Sample='SampleImpl{duration(seconds)=0.004774196, duration(nanos)=4774196.0, startTimeNanos=787045285134}', class io.micrometer.tracing.handler.TracingObservationHandler$TracingContext='TracingContext{span=6ae57d9c46e2b280bedfa1bacf91a1d8/bedfa1bacf91a1d8}', class io.micrometer.core.instrument.Timer$Sample='io.micrometer.core.instrument.Timer$Sample@6fbde94b'], parentObservation=null}> to which we're restoring is not the same as the one set as this scope's parent observation <null>. Most likely a manually created Observation has a scope opened that was never closed. This may lead to thread polluting and memory leaks.

@@ -1,0 +1,34 @@
+{
+  "id": "owner",
+  "timestamp_utc": "2026-10-25T12:25:23.630657+00:00",
+  "method": "GET",
+  "host": "customers-service",
+  "port": 8081,
+  "path": "/owners/6",
+  "request_headers": {
+    "Accept": "application/json",
+    "Accept-Encoding": "identity"
+  },
+  "request_body_file": null,
+  "status": 200,
+  "error": null,
+  "response_headers": [
+    [
+      "Content-Type",
+      "application/json"
+    ],
+    [
+      "Transfer-Encoding",
+      "chunked"
+    ],
+    [
+      "Date",
+      "Sun, 25 Oct 2026 12:25:23 GMT"
+    ]
+  ],
+  "body_file": "owner.body",
+  "redirects_followed": false,
+  "body_sha256": "907cef8ca2ee1993d2a7f2a98da280a398be37fa1f5d1d0e85ebe0757923670e",
+  "body_bytes": 311,
+  "elapsed_ms": 12
+}

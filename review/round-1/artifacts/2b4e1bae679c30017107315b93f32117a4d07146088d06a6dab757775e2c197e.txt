@@ -1,0 +1,13 @@
+{
+  "requests": [
+    {
+      "order": 1,
+      "id": "seed_owner_list",
+      "kind": "reset_check",
+      "method": "GET",
+      "path": "/owners",
+      "status": 200
+    }
+  ],
+  "bindings": {}
+}

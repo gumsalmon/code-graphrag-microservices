@@ -1,0 +1,34 @@
+{
+  "id": "config-visits",
+  "timestamp_utc": "2026-10-25T12:22:02.077647+00:00",
+  "method": "GET",
+  "host": "config-server",
+  "port": 8888,
+  "path": "/visits-service/docker",
+  "request_headers": {
+    "Accept": "application/json",
+    "Accept-Encoding": "identity"
+  },
+  "request_body_file": null,
+  "status": 200,
+  "error": null,
+  "response_headers": [
+    [
+      "Content-Type",
+      "application/json"
+    ],
+    [
+      "Transfer-Encoding",
+      "chunked"
+    ],
+    [
+      "Date",
+      "Sun, 25 Oct 2026 12:22:02 GMT"
+    ]
+  ],
+  "body_file": "config-visits.body",
+  "redirects_followed": false,
+  "body_sha256": "8e6a8f6ecc2868087c31895f818ce6269ccd55229689c0370bf5f97fb9f08fa5",
+  "body_bytes": 1493,
+  "elapsed_ms": 32
+}

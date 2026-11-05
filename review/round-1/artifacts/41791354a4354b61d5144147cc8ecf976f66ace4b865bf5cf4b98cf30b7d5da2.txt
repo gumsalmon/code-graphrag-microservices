@@ -1,0 +1,1 @@
+{"id":6,"firstName":"Jean","lastName":"Coleman","address":"105 N. Lake St.","city":"Monona","telephone":"6085552654","animals":[{"birthDate":"2012-09-04T00:00:00.000Z","id":8,"name":"Max","type":{"id":1,"name":"cat"}},{"birthDate":"2012-09-04T00:00:00.000Z","id":7,"name":"Samantha","type":{"id":1,"name":"cat"}}]}

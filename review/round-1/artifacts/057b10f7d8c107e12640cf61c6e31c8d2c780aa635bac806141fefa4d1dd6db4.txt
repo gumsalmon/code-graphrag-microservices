@@ -1,0 +1,1 @@
+{"timestamp":"2026-10-31T05:33:16.390Z","path":"/api/gateway/owners/6","status":500,"error":"Internal Server Error","requestId":"acda557a-2"}

@@ -1,0 +1,34 @@
+{
+  "case": "P01",
+  "source_commit": "3858f9c630cf989bb6809a86edf47c2be78dc9f1",
+  "config_commit": "323993ce2519c6d02df63e08bf4458d123d3b611",
+  "patch_sha256": "42394ca361d07db58ba6a73cfc1ddb8bd1d9aeddb59292873552573adfa5cc21",
+  "canonical_utf8_sha256": "901b19f5dab72c65d3bb424a24e53ea4c3a83cfc5bd72332bdbaf297031441f5",
+  "seed": {
+    "excluded_from_impact_set": true,
+    "service": "visits-service",
+    "baseline_method_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(java.util.List<java.lang.Integer>)",
+    "mutated_method_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1+patch:42394ca3::visits-service::org.springframework.samples.petclinic.visits.web.VisitResource#read(java.util.List<java.lang.Integer>,boolean)",
+    "api_id": "spring-petclinic-microservices@3858f9c630cf989bb6809a86edf47c2be78dc9f1::visits-service::GET /pets/visits",
+    "new_query_parameter": {
+      "name": "includeDetails",
+      "java_type": "boolean",
+      "required": true,
+      "default_value": null
+    }
+  },
+  "fixture": {
+    "historical_owner_id": 6,
+    "historical_pet_ids": [
+      7,
+      8
+    ],
+    "precondition": "Owner 6 has pets 7 and 8 and each pet has at least one visit"
+  },
+  "scope_files": [
+    "spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/web/VisitResource.java",
+    "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/application/VisitsServiceClient.java",
+    "spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/boundary/web/ApiGatewayController.java"
+  ],
+  "universe_note": "Historical development pilot; no retrospective preregistration or new label-derived universe. Record source-based entities in notes; compare the historical label scope only in R2."
+}
